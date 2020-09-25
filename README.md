@@ -91,7 +91,6 @@
 <li>Prisoner Transfer</li>
 <li>Show More Traits</li>
 <li>Unshackled Seduction</li>
-<li>Hidden Attractions</li>
 <li>Blind and Castrate for all!</li>
 <li>Crusader Kings Legacy</li>
 <<ul>
