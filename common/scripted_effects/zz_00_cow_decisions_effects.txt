@@ -1,0 +1,14 @@
+﻿### cow_set_building_lvl_flag_effect
+### cow_add_building_lvl_effect
+
+sicilian_parliament_building_scripted_effect = {
+	#this is the County title.
+	title_province = {
+		set_variable = {
+			name = variable_sicilian_parliament_county
+			value = yes
+		}
+		add_building_slot = 1
+		add_building = special_sicilian_parliament_01
+	}
+}

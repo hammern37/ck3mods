@@ -1,0 +1,19 @@
+﻿
+building_vineyard_requirement_terrain = {
+	or = {
+		terrain = drylands
+		terrain = hills
+		terrain = farmlands
+		terrain = plains
+	}
+}
+
+building_horse_requirement_terrain = {
+	or = {
+		terrain = drylands
+		terrain = forests
+		terrain = farmlands
+		terrain = plains
+	}
+}
+

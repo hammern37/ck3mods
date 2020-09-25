@@ -1,0 +1,33 @@
+﻿
+######################
+# TRAIN STUFF
+######################
+standard_training_cooldown_time = 1825
+train_secondary_outcome = 1
+train_participants = 10
+
+train_event_delay_min = 25
+train_event_delay_max = 35
+
+train_activity_cost = {
+	value = 40
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			root= {
+				has_government = tribal_government
+			}
+		}
+		multiply = 0.5
+	}
+}

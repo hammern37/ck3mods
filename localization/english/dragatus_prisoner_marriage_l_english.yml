@@ -1,0 +1,7 @@
+﻿l_english:
+
+ dragatus_prisoner_marriage_interaction:0 "Forced Marriage"
+ dragatus_prisoner_marriage_interaction_desc:0 "Force [recipient.GetShortUINameNoTooltip] to become your [recipient.Custom('WifeHusband')|U]"
+ actor_secondary_dragatus_prisoner_marriage_interaction:0 "Sender"
+ dragatus_has_max_spouses:0 "I cannot take more [recipient.Custom('WifeHusband')|U]s."
+ msg_dragatus_prisoner_marriage_title:0 "Taken a [actor.Custom('WifeHusbandOpp')|U]"

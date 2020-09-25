@@ -1,0 +1,81 @@
+diet_vegetarian = {
+    index = 700
+
+    inherit_chance = 10
+    both_parent_has_trait_inherit_chance = 50
+    birth = 1
+    random_creation = 1
+
+    learning = 1
+    health = 0.25
+
+    opposite_opinion = -10
+    opposites = {
+        cannibal
+        diet_carnivore
+    }
+    compatibility = {
+        cannibal = @neg_compat_high
+        diet_carnivore = @neg_compat_high
+        murderer = @neg_compat_medium
+        torturer = @neg_compat_medium
+        sadistic = @neg_compat_low
+        mystic_1 = @pos_compat_low
+        mystic_2 = @pos_compat_low
+        mystic_3 = @pos_compat_low
+        compassionate = @pos_compat_medium
+        diet_vegetarian = @pos_compat_high
+    }
+
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diet_vegeterian_desc
+			}
+			desc = trait_diet_vegeterian_character_desc
+		}
+	}
+
+    ai_honor = low_positive_ai_value
+}
+
+diet_carnivore = {
+    index = 701
+
+    inherit_chance = 10
+    both_parent_has_trait_inherit_chance = 20
+    birth = 5
+    random_creation = 5
+
+    prowess = 1
+    health = 0.25
+
+    opposite_opinion = -10
+    opposites = {
+        diet_vegetarian
+    }
+
+    compatibility = {
+        diet_carnivore = @pos_compat_high
+        cannibal = @pos_compat_low
+        compassionate = @neg_compat_low
+        diet_vegetarian = @neg_compat_high
+    }
+
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    NOT = { exists = this }
+                }
+                desc = trait_diet_carnivore_desc
+            }
+            desc = trait_diet_carnivore_character_desc
+        }
+    }
+
+    ai_greed = low_positive_ai_value
+}

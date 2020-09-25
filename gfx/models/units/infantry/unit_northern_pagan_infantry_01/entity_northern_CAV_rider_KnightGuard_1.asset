@@ -1,0 +1,190 @@
+entity = {
+	name = "Northern_CAV_rider_KnightGuard_1_entity"
+	pdxmesh = "Northern_soldier_01_mesh"
+
+	state = {
+		name = "flaghorseman"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		animation = "rider_KnightGuard_idle"
+		looping = no
+		next_state = idle
+		chance = 4
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = { 
+		name = "idle"
+		animation = "rider_KnightGuard_idle"
+		looping = no
+		next_state = idle
+		chance = 1
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+
+	}
+	state = { 
+		name = "besiege"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = { 
+		name = "spawn"
+		animation = "spawn_animation"
+		looping = no
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = { 
+		name = "disband"
+		animation = "despawn_animation"
+		looping = no
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = { 
+		name = "gather"
+		animation = "gathering_army_animation"
+		animation_blend_time = 0.3
+		time_offset = 0.73
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	state = {
+		name = "move"
+		animation = "moving_standard_animation"
+		animation_blend_time = 0.3
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+
+	}
+	
+	state = {
+		name = "move_attack"
+		animation = "idle_tx_battle_axes_animation"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "move_attack_continue"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "move_retreat"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	state = {
+		name = "combat_won"
+		animation = "victorious_combat_animation"
+		looping = no
+		next_state = idle
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "siege_won"
+		animation = "victorious_siege_animation"
+		looping = no
+		next_state = idle
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	####
+	# COMBAT ANIMATIONS
+	####
+	
+	# Even combat
+	state = {
+		name = "even_offensive_seq_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	# Win/lose combat
+	state = {
+		name = "winlose_offensive_seq_1"
+		animation = "rider_knight_charge"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	state = {
+		name = "winlose_defensive_seq_1"
+		animation = "rider_knight_charge"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	# Pursuit combat
+	state = {
+		name = "pursuit_offensive_seq_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	state = {
+		name = "pursuit_defensive_seq_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	
+	# Transitions
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "rider_KnightGuard_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_northern_CAV_shield_01_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_WesternFlag_entity" }
+	}
+}

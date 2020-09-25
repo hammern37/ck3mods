@@ -1,0 +1,53 @@
+﻿can_be_master_of_the_horses_trigger = {
+	can_be_councillor_basics_trigger = yes
+	NOT = { has_council_position = councillor_marshal
+		has_council_position = councillor_spouse
+		has_council_position = councillor_steward
+		has_council_position = councillor_chancellor
+		has_council_position = councillor_spymaster
+		has_council_position = councillor_court_chaplain
+		has_council_position = councillor_court_dwarf
+		has_council_position = councillor_cupbearer
+ }
+	exists = root.liege_or_court_owner
+	OR = {
+		is_vassal_of = root.liege
+		COURT_OWNER = root.liege_or_court_owner
+	}
+}
+
+can_be_court_dwarf_trigger = {
+	can_be_councillor_basics_trigger = yes
+	NOT = { has_council_position = councillor_marshal
+		has_council_position = councillor_spouse
+		has_council_position = councillor_steward
+		has_council_position = councillor_chancellor
+		has_council_position = councillor_spymaster
+		has_council_position = councillor_court_chaplain
+		has_council_position = councillor_master_of_the_horses
+		has_council_position = councillor_cupbearer
+ }
+	exists = root.liege_or_court_owner
+	OR = {
+		is_vassal_of = root.liege
+		COURT_OWNER = root.liege_or_court_owner
+	}
+}
+
+can_be_cupbearer_trigger = {
+	can_be_councillor_basics_trigger = yes
+	NOT = { has_council_position = councillor_marshal
+		has_council_position = councillor_spouse
+		has_council_position = councillor_steward
+		has_council_position = councillor_chancellor
+		has_council_position = councillor_spymaster
+		has_council_position = councillor_court_chaplain
+		has_council_position = councillor_master_of_the_horses
+		has_council_position = councillor_court_dwarf
+ }
+	exists = root.liege_or_court_owner
+	OR = {
+		is_vassal_of = root.liege
+		COURT_OWNER = root.liege_or_court_owner
+	}
+}

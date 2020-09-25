@@ -1,0 +1,34 @@
+namespace = PT_recapture
+
+PT_recapture.0001 = {
+    type = character_event
+    hidden = yes
+    
+    immediate = {
+        scope:payer = {
+            send_interface_message = {
+                type = event_generic_neutral
+                title = recipient_transferred_from_prison
+                right_icon = scope:prisoner
+                left_icon = scope:imprisoner
+                
+                custom_tooltip = PT_recapture.0001.toast.desc
+            }
+        }
+        
+        scope:prisoner = { save_temporary_scope_as = temp_prisoner }
+        scope:payer = { save_temporary_scope_as = new_imprisoner }
+
+        #imprison_character_effect = {
+		#	TARGET = scope:temp_prisoner
+		#	IMPRISONER = scope:new_imprisoner
+		#}
+		
+		scope:new_imprisoner = {
+            imprison = {
+                target = scope:temp_prisoner
+                type = dungeon
+            }
+        }
+    }
+}

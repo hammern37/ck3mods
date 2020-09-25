@@ -1,0 +1,26 @@
+﻿quarterly_playable_pulse = {
+	on_actions = {
+		delay = { months = 1 }
+		sane_knight_events ## Added
+	}
+}
+
+quarterly_playable_pulse = {
+	events = {
+		sane_knight.0008 ## Fires from every AI independent ruler, applying the difficulty penalty to all their vassals, except for the player and that player's vassals. One month timer, so if a character dies, their heir won't have it for at most 1 month.
+	}
+}
+
+quarterly_playable_pulse = {
+	events = {
+		delay = {months = 1}
+		sane_knight.0008
+	}
+}
+
+quarterly_playable_pulse = {
+	events = {
+		delay = {months = 2}
+		sane_knight.0008
+	}
+}

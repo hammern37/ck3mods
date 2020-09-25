@@ -1,0 +1,98 @@
+﻿culture_conversion_speed = {
+	default = significantly_slower_culture_conversion_speed
+
+	default_culture_conversion_speed = {
+	
+	}
+	
+	faster_culture_conversion_speed = {
+		flag = blocks_achievements
+	}
+	
+	significantly_faster_culture_conversion_speed = {
+		flag = blocks_achievements
+	}
+	
+	significantly_slower_culture_conversion_speed = {
+	
+	}
+	
+	slower_culture_conversion_speed = {
+	
+	}
+}
+
+faith_conversion_speed = {
+	default = significantly_slower_faith_conversion_speed
+
+	default_faith_conversion_speed = {
+	
+	}
+	
+	faster_faith_conversion_speed = {
+		flag = blocks_achievements
+	}
+	
+	significantly_faster_faith_conversion_speed = {
+		flag = blocks_achievements
+	}
+	
+	significantly_slower_faith_conversion_speed = {
+	
+	}
+	
+	slower_faith_conversion_speed = {
+	
+	}
+}
+
+diplomatic_range = {
+	default = restricted_diplomatic_range
+
+	default_diplomatic_range = {
+	
+	}
+	
+	restricted_diplomatic_range = {
+		flag = restricted_diplomatic_range
+	}
+	
+	unrestricted_diplomatic_range = {
+		flag = no_diplomatic_range
+		flag = blocks_achievements
+	}
+}
+
+difficulty = {
+	default = hard_difficulty
+	
+	hard_difficulty = {} ## Handled by hidden event
+	
+	very_hard_difficulty = {} ## Handled by hidden event
+	
+	normal_difficulty = {}
+	
+	very_easy_difficulty = {
+		apply_modifier = player:very_easy_difficulty
+		flag = blocks_achievements
+	}
+	
+	easy_difficulty = {
+		apply_modifier = player:easy_difficulty
+		flag = blocks_achievements
+	}
+	
+}
+
+domain_limit_ruleset = {
+
+	default = sane_warfare
+	sane_warfare = {}		
+	vanilla = {
+		defines = {
+			NDomain = {
+				HOLDING_GRACE_PERIOD = 365
+			}
+		}
+	}
+}

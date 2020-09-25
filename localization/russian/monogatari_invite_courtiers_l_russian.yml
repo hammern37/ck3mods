@@ -1,0 +1,19 @@
+﻿l_russian:
+
+ # Credits to БАРСик for the Russian translation!
+ monogatari_invite_courtiers_decision:0 "Найти дворянина"
+ monogatari_invite_courtiers_decision_desc:0 " Я спрошу, нет ли здесь дворян, которые могли бы быть заинтересованы в том, чтобы служить мне в качестве придворного. Если я буду доволен тем, с кем меня познакомят, я приглашу их присоединиться к моему двору."
+ monogatari_invite_courtiers_decision_tooltip:0 " Я буду представлен [courtier|E] и посмотрю, достоен ли он присоединиться к моему двору."
+ monogatari_invite_courtiers_decision_confirm:0 "Давайте встретим его!"
+ monogatari_invite_courtiers_decision_female:0 "Найти дворянку"
+ monogatari_invite_courtiers_decision_female_desc:0 " Я спрошу, нет ли здесь дворян, которые могли бы быть заинтересованы в том, чтобы служить мне в качестве придворного. Если я буду доволен тем, с кем меня познакомят, я приглашу их присоединиться к моему двору."
+ monogatari_invite_courtiers_decision_female_tooltip:0 " Я буду представлен [courtier|E] и посмотрю, достойна ли она присоединиться к моему двору."
+ monogatari_invite_courtiers_decision_female_confirm:0 "Давайте встретим её"
+ monogatari_invite_courtiers.0001.title:0 "Новый дворянин?"
+ monogatari_invite_courtiers.0001.desc:0 " Меня представили местному жителю, которого зовут [target.GetFullName]. Я нуждаюсь в талантливых людях при моем дворе - это то, что я ищу?"
+ monogatari_invite_courtiers.0001.a:0 "[target.GetFirstName] добро пожаловать!"
+ monogatari_invite_courtiers.0001.b:0 "[target.GetFirstName] это не тот кого я ищу!"
+ monogatari_invite_courtiers.0002.title:0 "Новая дворянка?"
+ monogatari_invite_courtiers.0002.desc:0 "Я был представлен дворянке, именуемой [target.GetFullName]. Ее навыки могут пригодиться мне при моем дворе - должен ли я позволить ей присоединиться к моему двору?"
+ monogatari_invite_courtiers.0002.a:0 "[target.GetFirstName] добро пожаловать!"
+ monogatari_invite_courtiers.0002.b:0 "[target.GetFirstName] это не та кого я ищу!"

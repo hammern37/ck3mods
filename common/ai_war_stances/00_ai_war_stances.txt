@@ -1,0 +1,163 @@
+﻿### HARD CODED - DO NOT REMOVE ###
+
+attacker_offensive = {
+	enemy_unit_priority = 650
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 900
+			area = wargoal
+		}
+		wargoal_province = 850
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 700
+			area = primary_defender
+		}
+		enemy_capital_province = 800
+	}
+	
+	objectives = {
+		enemy_province = 250
+	}
+
+	objectives = {
+		enemy_ally_province = 0
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 725
+			area = primary_attacker
+		}
+		capital_province = 750
+	}
+	
+	objectives = {
+		province = 50
+	}
+}
+
+attacker_defensive = {
+		enemy_unit_priority = 500
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 625
+			area = wargoal
+		}
+		wargoal_province = 600
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 200
+			area = primary_defender
+		}
+		enemy_capital_province = 450
+	}
+	
+	objectives = {
+		enemy_province = 50
+	}
+
+	objectives = {
+		enemy_ally_province = 0
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 650
+			area = primary_attacker
+		}
+		capital_province = 850
+	}
+	
+	objectives = {
+		province = 250
+	}
+}
+
+defender_offensive = {
+	enemy_unit_priority = 600
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 625
+			area = wargoal
+		}
+		wargoal_province = 600
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 200
+			area = primary_attacker
+		}
+		enemy_capital_province = 450
+	}
+	
+	objectives = {
+		enemy_province = 50
+	}
+
+	objectives = {
+		enemy_ally_province = 0
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 750
+			area = primary_defender
+		}
+		capital_province = 800
+	}
+	
+	objectives = {
+		province = 250
+	}
+}
+
+defender_defensive = {
+	enemy_unit_priority = 500
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 625
+			area = wargoal
+		}
+		wargoal_province = 600
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 200
+			area = primary_attacker
+		}
+		enemy_capital_province = 450
+	}
+	
+	objectives = {
+		enemy_province = 50
+	}
+
+	objectives = {
+		enemy_ally_province = 0
+	}
+	
+	objectives = {
+		enemy_unit_province = {
+			priority = 650
+			area = primary_defender
+		}
+		capital_province = 900
+	}
+	
+	objectives = {
+		province = 250
+	}
+}
+
+### HARD CODED - DO NOT REMOVE ###

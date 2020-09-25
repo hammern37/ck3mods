@@ -1,0 +1,76 @@
+lifestyle_experience_modifier = {
+	default = no_bonus
+
+	no_bonus = {
+
+	}
+
+	small_bonus = { #+50%, set in event based on rule
+
+	}
+
+	medium_bonus = { #+100%
+
+	}
+
+	big_bonus = { #+200%
+
+	}
+
+	huge_bonus = { #+300%
+
+	}
+}
+
+lifestyle_experience_skill_floor = {
+	default = lsxp_floor_0
+
+	lsxp_floor_0 = {
+
+	}
+
+	lsxp_floor_5 = {
+
+	}
+
+	lsxp_floor_10 = {
+
+	}
+
+}
+
+lifestyle_experience_skill_ceiling = {
+	default = lsxp_ceiling_25
+
+	lsxp_ceiling_25 = {
+
+	}
+
+	lsxp_ceiling_30 = {
+
+	}
+
+	lsxp_ceiling_50 = {
+
+	}
+
+	lsxp_ceiling_100 = {
+
+	}
+
+	lsxp_ceiling_none = {
+
+	}
+}
+
+#lifestyle_experience_more_traits_modifiers = {
+#	default = lsxp_trait_modifiers_no
+#
+#	lsxp_trait_modifiers_no = {
+#
+#	}
+#
+#	lsxp_trait_modifiers_yes = {
+#
+#	}
+#}

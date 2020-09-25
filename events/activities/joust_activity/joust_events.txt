@@ -1,0 +1,2565 @@
+# Events for handling the joust activity
+
+namespace = joust
+
+
+############################
+## Setup and maintenance events
+## 0000-0999
+## by Stephen Walker
+############################
+#joust.0002 - Create variables etc. (triggered at the same time as joust.0010)
+#joust.0003 - To apply the effects of the joust
+
+############################
+## Event chains
+## 1001
+## by Stephen Walker
+############################
+#joust.1001 - Setting up, how do you wish to perform the joust 
+#EVENTUALLY THIS SHOULD BE INVITATIONS ETC, such as the feast
+
+############################
+## Event chains
+## 2001
+## by Stephen Walker
+############################
+#joust.2001 - Generic joust, good jousting!
+
+
+############################
+## End-events
+## 9000-9999
+## by Stephen Walker
+############################
+#joust.9001 - joust has ended
+
+
+#Things to use in joust-events:
+	#Variables "good_joust" and "bad_joust" to affect the outcome of the joust
+	#The list "potential_joust_participants" for good ai-characters to use in events
+
+################
+#	Basic setup
+#	by Stephen Walker
+#	1001-1020
+################
+joust.1001 = {
+	type = character_event
+	title = joust.1001.t
+	desc = {		
+		desc = joust.1001.desc
+		triggered_desc = {
+			trigger = {
+				root = {is_male = yes}				
+			}
+			desc = joust.1001.desc2
+		}
+	}
+	theme = diplomacy
+	left_portrait = root
+	trigger = {
+		scope:activity = {
+			has_variable_list = potential_joust_participants
+			any_in_list = {
+					variable = potential_joust_participants
+					is_alive = yes
+					count >= 5
+			}
+		}
+	}
+	immediate = {
+		set_variable = {
+			name = joust_outcome
+			value = 0
+			days = 400
+		}
+	}
+	option = {
+		name = joust.1001.a		
+		ai_chance = {
+			base = 50
+		}	
+		trigger_event = {
+			id = joust.1002
+			days = { 4 8 }
+		}
+	}
+	option = {
+		trigger = {
+			root = {is_male = yes}
+		}
+		name = joust.1001.b
+		add_character_flag = {
+			flag = takingpart
+			days = 100
+		}
+		ai_chance = {
+			base = 50
+		}	
+		trigger_event = {
+			id = joust.1002
+			days = { 4 8 }
+		}		
+	}
+}
+#Setting up the competition
+joust.1002 = {
+	type = character_event
+	title = joust.1002.t
+	desc = joust.1002.desc
+	theme = diplomacy
+	left_portrait = root
+	right_portrait = scope:peasant
+	immediate = {
+		#To create the peasant
+		create_character = {
+			age = { 20 35 }
+			random_traits = yes
+			random_traits_list = {
+				count = 1
+				trainer_2 = {}
+				trainer_3 = {}
+			}
+			gender_female_chance = 50
+			dynasty = none
+			faith = this.faith
+			culture = this.culture
+			location = scope:activity.activity_province
+			save_scope_as = peasant
+		}
+	}
+	option = {
+		trigger = {
+			short_term_gold >= major_gold_value
+		}
+		add_character_flag = {
+			flag = largearena
+			days = 100
+		}
+		name = joust.1002.a	
+		change_variable = {
+			name = joust_outcome
+			value = 2
+		}
+		remove_short_term_gold = major_gold_value
+		add_prestige = medium_prestige_gain	
+		ai_chance = {
+			base = 50
+		}	
+	}
+	option = {
+		trigger = {
+			short_term_gold >= medium_gold_value
+		}
+		add_character_flag = {
+			flag = mediumarena
+			days = 100
+		}
+		name = joust.1002.b
+		change_variable = {
+			name = joust_outcome
+			value = 1
+		}
+		remove_short_term_gold = medium_gold_value
+		add_prestige = minor_prestige_gain
+		ai_chance = {
+			base = 50
+		}			
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		add_character_flag = {
+			flag = smallarena
+			days = 100
+		}
+		name = joust.1002.c
+		change_variable = {
+			name = joust_outcome
+			value = -1
+		}
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_loss
+		ai_chance = {
+			base = 50
+		}			
+	}
+	option = {
+		add_character_flag = {
+			flag = emptyarena
+			days = 100
+		}
+		name = joust.1002.d
+		change_variable = {
+			name = joust_outcome
+			value = -2
+		}
+		add_prestige = medium_prestige_loss
+		ai_chance = {
+			base = 50
+		}		
+	}
+	after = {
+		trigger_event = {
+			id = joust.1003
+			days = { 4 8 }
+		}	
+	}
+}
+#Setting up the competition
+joust.1003 = {
+	type = character_event
+	title = joust.1002.t
+	desc = joust.1003.desc
+	theme = diplomacy
+	left_portrait = root	
+	option = {
+		trigger = {
+			short_term_gold >= major_gold_value
+		}
+		add_character_flag = {
+			flag = largepurse
+			days = 100
+		}
+		name = joust.1003.a	
+		change_variable = {
+			name = joust_outcome
+			value = 2
+		}
+		add_prestige = medium_prestige_gain
+		remove_short_term_gold = major_gold_value	
+		ai_chance = {
+			base = 25
+		}	
+	}
+	option = {
+		trigger = {
+			short_term_gold >= medium_gold_value
+		}
+		add_character_flag = {
+			flag = mediumpurse
+			days = 100
+		}
+		name = joust.1003.b
+		change_variable = {
+			name = joust_outcome
+			value = 1
+		}
+		add_prestige = minor_prestige_gain
+		remove_short_term_gold = medium_gold_value
+		ai_chance = {
+			base = 25
+		}			
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		add_character_flag = {
+			flag = smallpurse
+			days = 100
+		}
+		name = joust.1003.c
+		change_variable = {
+			name = joust_outcome
+			value = -1
+		}
+		add_prestige = minor_prestige_loss
+		remove_short_term_gold = minor_gold_value
+		ai_chance = {
+			base = 25
+		}			
+	}
+	option = {
+		add_character_flag = {
+			flag = emptypurse
+			days = 100
+		}
+		name = joust.1003.d
+		change_variable = {
+			name = joust_outcome
+			value = -2
+		}
+		add_prestige = medium_prestige_loss
+		ai_chance = {
+			base = 25
+		}				
+	}
+	after = {
+		if = {
+			limit = {
+				has_character_flag = takingpart
+			} 
+			trigger_event = {
+				id = joust.2001
+				days = { 4 8 }
+			}
+		}	
+		else = {
+			trigger_event = {
+				id = joust.1004
+				days = { 4 8 }
+			}
+		}		
+	}
+}
+#Setting up the competition
+joust.1004 = {
+	type = character_event
+	title = joust.1002.t
+	desc = joust.1004.desc
+	theme = diplomacy
+	left_portrait = root
+	option = {
+		name = joust.1004.a
+		trigger_event = {
+			id = joust.1007
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		trigger = {
+			NOT  ={has_character_flag = hasEntertainment}			
+		}
+		name = joust.1004.b
+		trigger_event = {
+			id = joust.1005
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		trigger = {
+			NOT  ={has_character_flag = hasFood}
+		}
+		name = joust.1004.c
+		trigger_event = {
+			id = joust.1006
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}	
+}
+#Setting up the competition
+joust.1005 = {
+	type = character_event
+	title = joust.1002.t
+	desc = joust.1005.desc
+	theme = diplomacy
+	left_portrait = root
+	immediate = {
+		add_character_flag = {
+			flag = hasEntertainment
+			days = 100
+		}
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		name = joust.1005.a
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_gain
+		add_character_flag = {
+			flag = minstrels
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		name = joust.1005.b
+		add_character_flag = {
+			flag = girls
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		name = joust.1005.c
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_gain
+		add_character_flag = {
+			flag = actors
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}	
+	option = {
+		name = joust.1005.d
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}	
+}
+#Setting up the competition
+joust.1006 = {
+	type = character_event
+	title = joust.1002.t
+	desc = joust.1006.desc
+	theme = diplomacy
+	left_portrait = root
+	immediate = {
+		add_character_flag = {
+			flag = hasFood
+			days = 100
+		}
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		name = joust.1006.a
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_gain
+		add_character_flag = {
+			flag = hunters
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		name = joust.1006.b
+		add_character_flag = {
+			flag = locals
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}
+	option = {
+		trigger = {
+			short_term_gold >= minor_gold_value
+		}
+		name = joust.1006.c
+		remove_short_term_gold = minor_gold_value
+		add_prestige = minor_prestige_gain
+		add_character_flag = {
+			flag = cooks
+			days = 100
+		}
+		trigger_event = {
+			id = joust.1004
+			days = { 4 8 }
+		}
+		ai_chance = {
+			base = 25
+		}				
+	}	
+}
+#Setting up the competition
+joust.1007 = {
+	type = character_event
+	title = joust.1002.t
+	desc = {
+		desc = joust.1007.desc
+		triggered_desc = {
+			trigger = {
+				has_character_flag = emptyarena
+			}			
+			desc = joust.1007.desc_very_poor_construction
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = smallarena
+			}
+			desc = joust.1007.desc_poor_construction
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = mediumarena
+			}
+			desc = joust.1007.desc_good_construction
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = largearena
+			}
+			desc = joust.1007.desc_very_good_construction
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = minstrels
+				NOT = {has_character_flag = hunters}
+				NOT = {has_character_flag = locals}
+				NOT = {has_character_flag = cooks}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = girls
+				NOT = {has_character_flag = hunters}
+				NOT = {has_character_flag = locals}
+				NOT = {has_character_flag = cooks}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = actors
+				NOT = {has_character_flag = hunters}
+				NOT = {has_character_flag = locals}
+				NOT = {has_character_flag = cooks}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = hunters
+				NOT = {has_character_flag = minstrels}
+				NOT = {has_character_flag = girls}
+				NOT = {has_character_flag = actors}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = locals
+				NOT = {has_character_flag = minstrels}
+				NOT = {has_character_flag = girls}
+				NOT = {has_character_flag = actors}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = cooks
+				NOT = {has_character_flag = minstrels}
+				NOT = {has_character_flag = girls}
+				NOT = {has_character_flag = actors}
+			}
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = hunters
+			}			
+			desc = joust.1007.desc_minstrels_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = locals
+			}
+			desc = joust.1007.desc_minstrels_locals
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = cooks
+			}
+			desc = joust.1007.desc_minstrels_cooks
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = hunters
+			}
+			desc = joust.1007.desc_girls_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = locals
+			}
+			desc = joust.1007.desc_girls_locals
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = cooks
+			}
+			desc = joust.1007.desc_girls_cooks
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = hunters
+			}
+			desc = joust.1007.desc_actors_hunters
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = locals
+			}
+			desc = joust.1007.desc_actors_locals
+		}
+		triggered_desc = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = cooks
+			}
+			desc = joust.1007.desc_actors_cooks
+		}
+	}
+	theme = war
+	left_portrait = root
+	option = {
+		name = joust.1007.a
+		if = {
+			trigger = {
+				has_character_flag = emptyarena
+			}
+			add_prestige = medium_prestige_loss
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = smallarena
+			}
+			add_prestige = minor_prestige_loss
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = mediumarena
+			}
+			add_prestige = minor_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = largearena
+			}
+			add_prestige = medium_prestige_gain
+		}
+		if = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = hunters
+			}
+			add_prestige = medium_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = locals
+			}
+			add_prestige = medium_prestige_loss
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = minstrels
+				has_character_flag = cooks
+			}
+			remove_short_term_gold = minor_gold_value
+			add_prestige = medium_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = hunters
+			}
+			add_prestige = medium_prestige_loss
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = locals
+			}
+			add_prestige = medium_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = girls
+				has_character_flag = cooks
+			}
+			add_prestige = medium_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = hunters
+			}
+			add_prestige = medium_prestige_gain
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = locals
+			}
+			add_prestige = medium_prestige_loss
+		}
+		else_if = {
+			trigger = {
+				has_character_flag = actors
+				has_character_flag = cooks
+			}
+			add_prestige = medium_prestige_loss
+		}
+
+		ai_chance = {
+			base = 100
+		}	
+	}
+	after = {
+		trigger_event = {
+			id = joust.9002
+			days = { 4 8 }
+		}
+	}
+}
+#You take part in the competition
+joust.2001 = {
+	type = character_event
+	title = joust.2001.t
+	desc = joust.2001.desc
+	theme = war
+	left_portrait = root
+	right_portrait = scope:opponent_1
+	trigger = {
+		scope:activity = {
+			has_variable_list = potential_joust_participants
+			any_in_list = {
+					variable = potential_joust_participants
+					is_alive = yes
+					count >= 1
+			}
+		}
+	}
+	immediate = {
+		remove_character_flag = high
+		remove_character_flag = ohigh
+		remove_character_flag = mid
+		remove_character_flag = omid
+		remove_character_flag = low
+		remove_character_flag = olow
+		remove_character_flag = win
+		remove_character_flag = draw
+		remove_character_flag = lose
+		remove_character_flag = wounded
+		remove_character_flag = owounded
+		scope:activity = {
+			random_in_list = {
+				variable = potential_joust_participants
+				limit = {
+					is_alive = yes
+					OR = {
+						is_male = yes								
+						AND = {
+							is_male = no
+							faith = { 
+								NOT = {
+									has_doctrine_parameter = doctrine_gender_male_dominated
+								} 
+							}
+						}								
+					}
+					has_trait_rank = {
+						trait = wounded
+						rank = 0
+					}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				save_scope_as = opponent_1
+			}
+				set_variable = {
+					name = opponent
+					value = scope:opponent_1
+					days = 300
+				}
+			}
+		}
+
+	option = {
+		name = joust.2001.a
+		add_character_flag = {
+			flag = high
+			days = 100
+		}	
+		ai_chance = {
+			base = 32
+		}	
+	}
+
+	option = {
+		name = joust.2001.b
+		add_character_flag = {
+			flag = mid
+			days = 100
+		}	
+		ai_chance = {
+			base = 32
+		}			
+	}
+
+	option = {
+		name = joust.2001.c
+		add_character_flag = {
+			flag = low
+			days = 100
+		}
+		ai_chance = {
+			base = 32
+		}		
+	}
+	after = {
+		trigger_event = {
+			id = joust.2002
+			days = { 4 8 }
+		}
+	}
+}
+
+#joust continues
+joust.2002 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = high
+								}
+								desc = joust.2002.desc_high
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = mid					
+								}
+								desc = joust.2002.desc_mid
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = low					
+								}
+								desc = joust.2002.desc_low
+							}
+					}
+			}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = ohigh
+								}
+								desc = joust.2002.desc_ohigh
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = omid					
+								}
+								desc = joust.2002.desc_omid
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = olow					
+								}
+								desc = joust.2002.desc_olow
+							}
+					}
+					desc = joust.2002.desc_details
+	}	
+	left_portrait = root
+	right_portrait = scope:opponent_1
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				33 = {
+					add_character_flag = {
+						flag = ohigh
+						days = 100
+					}
+				}
+				33 = {
+					add_character_flag = {
+						flag = omid
+						days = 100
+					}
+				}
+				34 = {
+					add_character_flag = {
+						flag = olow
+						days = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = joust.2002.a
+		ai_chance = {
+			base = 100
+		}		
+	 }
+	after = {
+		trigger_event = {
+			id = joust.2003
+			days = { 4 8 }
+		}
+	}
+}
+
+#joust continues
+joust.2003 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+						has_character_flag = high
+						has_character_flag = ohigh							
+								}
+					desc = joust.2003.desc_highohigh
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = high
+					has_character_flag = omid
+					}
+					desc = joust.2003.desc_highomid
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = high
+					has_character_flag = olow	
+					}				
+					desc = joust.2003.desc_higholow
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = mid
+					has_character_flag = ohigh	
+					}				
+					desc = joust.2003.desc_midohigh
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = mid
+					has_character_flag = omid	
+					}				
+					desc = joust.2003.desc_midomid
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = mid
+					has_character_flag = olow	
+					}				
+					desc = joust.2003.desc_midolow
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = low
+					has_character_flag = ohigh	
+					}				
+					desc = joust.2003.desc_lowohigh
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = low
+					has_character_flag = omid	
+					}				
+					desc = joust.2003.desc_lowomid							
+							}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = low
+					has_character_flag = olow
+					}					
+					desc = joust.2003.desc_lowolow
+							}
+			}
+		}
+	immediate = {
+			if = {
+				limit = {
+						has_character_flag = high
+						has_character_flag = ohigh	
+				}
+				add_character_flag = { 
+					flag = draw
+					days = 100
+				}
+			}	
+			else_if = {
+				limit = {
+						has_character_flag = high
+						has_character_flag = omid
+				}
+				add_character_flag = { 
+					flag = lose
+					days = 100
+				}
+			}
+			else_if = {
+				limit = {
+						has_character_flag = high
+						has_character_flag = olow
+				}
+				add_character_flag = { 
+					flag = win
+					days = 100
+				}
+			}	
+			else_if = {
+				limit = {
+						has_character_flag = mid
+						has_character_flag = ohigh	
+				}
+				add_character_flag = { 
+					flag = win
+					days = 100
+				}
+			}	
+			else_if = {
+				limit = {
+						has_character_flag = mid
+						has_character_flag = omid	
+				}
+				add_character_flag = { 
+					flag = draw
+					days = 100
+				}
+			}
+			else_if = {
+				limit = {
+						has_character_flag = mid
+						has_character_flag = olow
+				}
+				add_character_flag = { 
+					flag = lose
+					days = 100
+				}
+			}
+			else_if = {
+				limit = {
+						has_character_flag = low
+						has_character_flag = ohigh	
+				}
+				add_character_flag = { 
+					flag = lose
+					days = 100
+				}
+			}	
+			else_if = {
+				limit = {
+						has_character_flag = low
+						has_character_flag = omid	
+				}
+				add_character_flag = { 
+					flag = win
+					days = 100
+				}
+			}
+			else_if = {
+				limit = {
+						has_character_flag = low
+						has_character_flag = olow
+				}
+				add_character_flag = { 
+					flag = draw
+					days = 100
+				}
+			}
+			
+			if = {
+				limit = {
+					has_character_flag = lose
+					NOT = {has_character_flag = win}
+					NOT = {has_character_flag = draw}
+				}
+					add_character_flag = {
+						flag = wounded
+						days = 100
+					}
+				change_variable = {
+					name = joust_outcome
+					add = -2
+				}
+				scope:opponent_1 = {
+					add_opinion = {
+						modifier = opinion_joust_loss_modifier
+						target = root
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = win
+					NOT = {has_character_flag = lose}
+					NOT = {has_character_flag = draw}
+				}
+					add_character_flag = {
+						flag = owounded
+						days = 100
+					}
+				change_variable = {
+					name = joust_outcome
+					add = 2
+				}
+				scope:opponent_1 = {
+					add_opinion = {
+						modifier = opinion_joust_win_modifier
+						target = root
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = draw
+					NOT = {has_character_flag = win}
+					NOT = {has_character_flag = lose}
+				}
+				random_list = {
+					40 = {
+					}
+					20 = {
+						add_character_flag = {
+							flag = wounded
+							days = 100
+						}
+					}
+					20 = {
+						add_character_flag = {
+							flag = owounded
+							days = 100
+						}
+					}
+					20 = {
+						add_character_flag = {
+							flag = wounded
+							days = 100
+						}
+						add_character_flag = {
+							flag = owounded
+							days = 100
+						}
+					}
+				}
+				change_variable = {
+					name = joust_outcome
+					add = 1
+				}
+				scope:opponent_1 = {
+					add_opinion = {
+						modifier = opinion_joust_draw_modifier
+						target = root
+					}
+				}
+			}
+	}
+	option = {
+		trigger = {
+			has_character_flag = win
+		}	
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}	
+		if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}	
+		name = joust.2003.a		
+		ai_chance = {
+			base = 100
+		}	
+		trigger_event = {
+			id = joust.2004
+			days = { 4 8 }
+		}	
+	 }
+	 option = {
+		trigger = {
+			has_character_flag = draw
+		}	
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}	
+		if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}	
+		name = joust.2003.a		
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.2006
+			days = { 4 8 }
+		}		
+	 }
+	 option = {
+		trigger = {
+			has_character_flag = lose
+		}	
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}	
+		if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}	
+		name = joust.2003.b		
+		ai_chance = {
+			base = 100
+		}	
+		trigger_event = {
+			id = joust.9001
+			days = { 4 10 }
+		}	
+	 }		
+}
+
+#joust continues
+joust.2004 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}				
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+			triggered_desc = {
+				trigger = {
+				has_character_flag = win					
+				}
+				desc = joust.2004.desc_win
+			}		
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = owounded					 
+				}
+				desc = joust.2004.desc_oinjured
+			}	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = wounded					
+				}
+				desc = joust.2004.desc_injured 
+			}	
+			desc = joust.2004.desc
+	}
+
+	option = {		
+		name = joust.2004.a
+		trigger = {
+			NOT = { has_character_flag = second}
+		}
+		add_prestige = medium_prestige_gain			
+		if = {
+			limit = {
+				has_character_flag = first
+			}
+			remove_character_flag = first
+			add_character_flag = {
+				flag = second
+				days = 100
+			}			
+		}
+		else = {
+			limit = {
+				NOT = {has_character_flag = first}
+				NOT = {has_character_flag = second}
+			}
+			add_character_flag = {
+				flag = first
+				days = 100
+			}
+		}
+		ai_chance = {
+			base = 50
+		}	
+		trigger_event = {
+			id = joust.2001
+			days = { 3 7 }
+		}
+	}
+	option = {
+		name = joust.2004.c
+		trigger = { has_character_flag = second}
+		add_prestige = medium_prestige_gain
+		trigger_event = {
+			id = joust.9003
+			days = { 3 7 }
+		}	
+	}
+	option = {
+		add_prestige = medium_prestige_gain
+		name = joust.2004.b
+		ai_chance = {
+			base = 50
+		}	
+		trigger_event = {
+			id = joust.9001
+			days = { 3 7 }
+		}			
+	}
+}
+
+#joust continues
+joust.2006 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+			desc = joust.2006.desc_draw	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = owounded					 
+				}
+				desc = joust.2006.desc_oinjured
+			}	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = wounded					
+				}
+				desc = joust.2006.desc_injured 
+			}	
+	}
+
+	option = {
+		name = joust.2006.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 20
+				has_trait_rank = {
+					trait = wounded
+					rank <= 1
+				}
+			}
+		}		
+		trigger_event = {
+			id = joust.2007
+			days = { 4 8 }
+		}		
+	 }
+	 option = {
+		name = joust.2006.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 20
+				has_trait_rank = {
+					trait = wounded
+					rank <= 1
+				}
+			}
+		}
+		trigger_event = {
+			id = joust.2008
+			days = { 4 8 }
+		}		
+	 }
+	 option = {
+		 trigger = {
+			 has_trait = brave
+		 }
+		name = joust.2006.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = brave
+				}
+			}
+		}
+		trigger_event = {
+			id = joust.2009
+			days = { 4 8 }
+		}		
+	 }
+	 option = {
+		trigger = {
+			 has_trait = craven
+		 }
+		name = joust.2006.d
+		change_variable = {
+			name = joust_outcome
+			add = -1
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = craven
+				}
+			}
+		}
+		trigger_event = {
+			id = joust.9001
+			days = { 4 8 }
+			
+		}		
+	 }
+	 option = {
+		name = joust.2006.e
+		change_variable = {
+			name = joust_outcome
+			add = -1
+		}
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = 20
+				modifier = {
+					add = 20
+					has_trait_rank = {
+						trait = wounded
+						rank >= 1
+					}
+				}
+			}
+		}
+		trigger_event = {
+			id = joust.9001
+			days = { 4 8 }
+		}		
+	 }
+}
+
+#joust continues
+joust.2007 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+			desc = joust.2007.desc
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = win					 
+				}
+				desc = joust.2007.desc_win
+			}	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = lose					
+				}
+				desc = joust.2007.desc_lose
+			}	
+	}
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = athletic
+					}
+					modifier = {
+						add = 10
+						has_character_flag = owounded
+					}
+					add_character_flag = {
+						flag = owounded
+						days = 100
+					}
+					add_character_flag = {
+						flag = win
+						days = 100
+					}
+				}
+				50 = {				
+					modifier = {
+						add = 10
+						has_trait = lazy
+					}
+					modifier = {
+						add = 10
+						has_character_flag = wounded
+					}
+					add_character_flag = {
+						flag = wounded
+						days = 100
+					}
+					add_character_flag = {
+						flag = lose
+						days = 100
+					}
+				}
+			}
+		}
+	}
+	 option = {
+		 trigger = {
+			 has_character_flag = win
+		 }
+		if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}
+		name = joust.2003.a
+		change_variable = {
+			name = joust_outcome
+			add = 2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.2004
+			days = { 4 8 }	
+		}		
+	 }
+	 option = {
+		trigger = {
+			has_character_flag = lose
+		}
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}	
+		name = joust.2003.b
+		change_variable = {
+			name = joust_outcome
+			add = -2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.9001
+			days = { 4 8 }
+		}		
+	 }
+}
+
+#joust continues
+joust.2008 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+			desc = joust.2008.desc
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = win					 
+				}
+				desc = joust.2008.desc_win
+			}	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = lose					
+				}
+				desc = joust.2008.desc_lose
+			}	
+	}
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = athletic
+					}
+					modifier = {
+						add = 10
+						has_character_flag = owounded
+					}
+					add_character_flag = {
+						flag = win
+						days = 100
+					}
+					add_character_flag = {
+						flag = owounded
+						days = 100
+					}
+				}
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = lazy
+					}
+					modifier = {
+						add = 10
+						has_character_flag = wounded
+					}
+					add_character_flag = {
+						flag = lose
+						days = 100
+					}
+					add_character_flag = {
+						flag = wounded
+						days = 100
+					}
+				}
+			}
+		}
+	}
+	 option = {
+		 trigger = {
+			 has_character_flag = win
+		 }
+		 if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}
+		name = joust.2003.a
+		change_variable = {
+			name = joust_outcome
+			add = 2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.2004
+			days = { 4 8 }	
+		}		
+	 }
+	 option = {
+		trigger = {
+			has_character_flag = lose
+		}
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}
+		name = joust.2003.b
+		change_variable = {
+			name = joust_outcome
+			add = -2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.9001
+			days = { 4 8 }
+		}		
+	 }
+}
+
+#joust continues
+joust.2009 = {
+	type = character_event
+	title = joust.2001.t
+	theme = war
+	left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				has_character_flag = wounded
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				has_character_flag = win
+			}		
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+					has_character_flag = draw
+			}			
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = owounded}
+			}			
+			animation = pain
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = lose}
+			}			
+			animation = happiness
+		}
+		triggered_animation = {
+			trigger = {
+				root = {has_character_flag = draw}
+			}			
+			animation = idle
+		}
+	}
+	desc = {
+			desc = joust.2009.desc
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = win					 
+				}
+				desc = joust.2009.desc_win
+			}	
+			triggered_desc ={ 
+				trigger = {
+					has_character_flag = lose					
+				}
+				desc = joust.2009.desc_lose
+			}	
+	}
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = brave
+					}
+					modifier = {
+						add = 10
+						has_trait = athletic
+					}
+					modifier = {
+						add = 10
+						has_character_flag = owounded
+					}
+					add_character_flag = {
+						flag = owounded
+						days = 100
+					}
+					add_character_flag = {
+						flag = win
+						days = 100
+					}
+				}
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = lazy
+					}
+					modifier = {
+						add = 10
+						has_character_flag = wounded
+					}
+					add_character_flag = {
+						flag = wounded
+						days = 100
+					}
+					add_character_flag = {
+						flag = lose
+						days = 100
+					}
+				}
+			}
+		}
+	}
+	 option = {
+		 trigger = {
+			 has_character_flag = win
+		 }
+		if = {
+			limit = {
+				has_character_flag = owounded
+			}
+			scope:opponent_1 = {
+				increase_wounds_effect = {
+					REASON = jousting_accident
+				}
+			}
+		}
+		name = joust.2003.a
+		change_variable = {
+			name = joust_outcome
+			add = 2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.2004
+			days = { 4 8 }	
+		}		
+	 }
+	 option = {
+		trigger = {
+			has_character_flag = lose
+		}
+		if = {
+			limit = {
+				has_character_flag = wounded
+			}
+			increase_wounds_effect = {
+				REASON = jousting_accident
+			}
+		}	
+		name = joust.2003.b
+		change_variable = {
+			name = joust_outcome
+			add = -2
+		}
+		ai_chance = {
+			base = 100
+		}
+		trigger_event = {
+			id = joust.9001
+			days = { 4 8 }
+		}		
+	 }
+}
+
+##################
+#	END EVENTS 	 #
+#	9001 - 9999	 #
+##################
+
+#######################
+#	joust has ended
+#	by Stephen Walker
+#######################
+joust.9001 = {
+	type = character_event
+	title = joust.9001.t
+	left_portrait = {
+		character = root
+		first_valid = {
+			triggered_animation = {
+				trigger = {
+					has_character_flag = lose
+				}			
+				animation = shame
+			}
+			triggered_animation = {
+				trigger = {
+					has_character_flag = win
+				}	
+				animation = happiness
+			}
+			animation = idle
+		}
+	}	
+	right_portrait = {
+		character = scope:opponent_1
+		animation = happiness
+	}
+	theme = war	
+	desc = {
+		desc = joust.9001.desc_opening
+		triggered_desc = {
+			trigger = {
+				has_character_flag = lose					
+							}
+							desc = joust.2004.desc_loss
+						}
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					var:joust_outcome = 0
+				}
+				desc = joust.9001.desc_same
+			}
+			triggered_desc = {
+				trigger = {
+					var:joust_outcome > 0
+				}
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = {
+								var:joust_outcome <= 5
+							}
+							desc = joust.9001.desc_good_bad
+						}
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					var:joust_outcome < 0
+				}
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = {
+								var:joust_outcome > -2
+							}
+							desc = joust.9001.desc_bad_good
+						}
+						desc = joust.9001.desc_bad
+					}
+				}
+			}		
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			#To give point towards jouster trait
+			jouster_progress_point_gain_effect = yes
+		}
+		scope:activity = {
+			random_in_list = {
+				variable = potential_joust_participants
+				limit = {
+					is_alive = yes
+					OR = {
+						is_male = yes								
+						AND = {
+							is_male = no
+							faith = { 
+								NOT = {
+									has_doctrine_parameter = doctrine_gender_male_dominated
+								} 
+							}
+						}								
+					}
+					has_trait_rank = {
+						trait = wounded
+						rank = 0
+					}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				save_scope_as = opponent_1
+			}
+			set_variable = {
+				name = opponent
+				value = scope:opponent_1
+				days = 300
+			}
+			if = {
+				limit = {
+					has_character_flag = smallpurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = minor_gold_value
+			}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = mediumpurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = medium_gold_value
+			}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = largepurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = major_gold_value
+			}
+			}			
+		}
+
+		if = {
+			limit = {
+				has_character_flag = jouster_1
+			}
+			set_variable = {
+				name = jouster_lifestyle_progress
+				value = 0
+			}
+			add_trait = jouster_1
+		}
+		if = {
+			limit = {
+				has_character_flag = jouster_2
+			}
+			set_variable = {
+				name = jouster_lifestyle_progress
+				value = 0
+			}
+			change_trait_rank = {
+				trait = lifestyle_jouster
+				rank = 1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = jouster_3
+			}
+			remove_variable = jouster_lifestyle_progress
+			change_trait_rank = {
+				trait = lifestyle_jouster
+				rank = 1
+			}
+		}	
+	}
+	option = {
+		name = joust.9001.b
+		trigger = {
+			var:joust_outcome < 0
+		}
+		add_prestige = medium_prestige_loss
+	}
+
+	option = {
+		name = joust.9001.c
+		trigger = {
+			OR = {
+				var:joust_outcome > 0
+				var:joust_outcome = 0
+			}			
+		}		
+	}		
+	scope:activity = {
+		complete_activity = yes
+		}
+	}
+# Arranging joust end event
+joust.9002 = {
+type = character_event
+title = joust.9002.t
+left_portrait = {
+	character = root
+	triggered_animation = {
+		trigger = {
+			OR = {
+				has_character_flag = largepurse	
+				has_character_flag = mediumpurse
+				NOT = {has_character_flag = smallpurse}
+				NOT = {has_character_flag = emptypurse}
+			}
+		}
+		animation = happiness
+	}
+	triggered_animation = {
+		trigger = {
+			OR = {
+				has_character_flag = smallpurse	
+				has_character_flag = emptypurse
+				NOT = {has_character_flag = largepurse}
+				NOT = {has_character_flag = mediumpurse}
+			}
+		}
+		animation = shame
+	}
+}	
+right_portrait = {
+	character = scope:opponent_1
+	animation = happiness
+}
+theme = war	
+desc = {
+	triggered_desc = {
+		trigger = {
+			has_character_flag = largepurse
+		}
+		desc = joust.9002.desc_opening1
+	}
+	triggered_desc = {
+		trigger = {
+			has_character_flag = mediumpurse
+		}
+		desc = joust.9002.desc_opening2
+	}
+	triggered_desc = {
+		trigger = {
+			has_character_flag = smallpurse
+		}
+		desc = joust.9002.desc_opening3
+	}
+	triggered_desc = {
+		trigger = {
+			has_character_flag = emptypurse
+		}
+		desc = joust.9002.desc_opening4
+	}
+	first_valid = {
+		triggered_desc = {
+			trigger = {
+				var:joust_outcome = 0
+			}
+			desc = joust.9002.desc_same
+		}
+		triggered_desc = {
+			trigger = {
+				var:joust_outcome > 0
+			}
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							var:joust_outcome <= 3
+						}
+						desc = joust.9002.desc_good_bad
+					}
+					desc = joust.9002.desc_good
+				}
+			}
+		}
+		triggered_desc = {
+			trigger = {
+				var:joust_outcome < 0
+			}
+			desc = {
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							var:joust_outcome >= -2
+						}
+						desc = joust.9002.desc_bad_good
+					}
+					desc = joust.9002.desc_bad
+				}
+			}
+		}		
+	}
+}
+immediate = {
+	scope:activity = {
+		random_in_list = {
+			variable = potential_joust_participants
+			limit = {
+				is_alive = yes
+				OR = {
+					is_male = yes								
+					AND = {
+						is_male = no
+						faith = { 
+							NOT = {
+								has_doctrine_parameter = doctrine_gender_male_dominated
+							} 
+						}
+					}								
+				}
+				has_trait_rank = {
+					trait = wounded
+					rank = 0
+				}
+			}
+			alternative_limit = {
+				is_powerful_vassal = yes
+			}
+			save_scope_as = opponent_1
+		}
+			set_variable = {
+				name = opponent
+				value = scope:opponent_1
+				days = 300
+			}
+			if = {
+				limit = {
+					has_character_flag = smallpurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = minor_gold_value
+			}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = mediumpurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = medium_gold_value
+			}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = largepurse
+				}
+				scope:opponent_1 = {
+				add_short_term_gold = major_gold_value
+			}
+			}
+		}
+}
+option = {
+	name = joust.9002.a
+	trigger = {
+		var:joust_outcome > 3
+	}
+	add_prestige = medium_prestige_gain
+}
+
+option = {
+	name = joust.9002.b
+	trigger = {
+		var:joust_outcome < 0
+	}
+	add_prestige = medium_prestige_loss
+}
+
+option = {
+	name = joust.9002.c
+	trigger = {
+		var:joust_outcome = 0
+	}
+}	
+scope:activity = {
+	complete_activity = yes
+	}
+}
+
+joust.9003 = {
+	type = character_event
+	title = joust.9001.t
+	left_portrait = root
+	animation = happiness	
+	theme = war	
+	desc = joust.9001.desc_good
+	immediate = {
+		hidden_effect = {
+			#To give point towards jouster trait
+			jouster_progress_point_gain_effect = yes
+		}
+		if = {
+			limit = {
+				has_character_flag = jouster_1
+			}
+			set_variable = {
+				name = jouster_lifestyle_progress
+				value = 0
+			}
+			add_trait = jouster_1
+		}
+		if = {
+			limit = {
+				has_character_flag = jouster_2
+			}
+			set_variable = {
+				name = jouster_lifestyle_progress
+				value = 0
+			}
+			change_trait_rank = {
+				trait = lifestyle_jouster
+				rank = 1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = jouster_3
+			}
+			remove_variable = jouster_lifestyle_progress
+			change_trait_rank = {
+				trait = lifestyle_jouster
+				rank = 1
+			}
+		}
+	}
+	option = {
+		name = joust.9001.a
+		trigger = {
+			var:joust_outcome > 5
+			has_character_flag = emptypurse
+				}
+		add_prestige = medium_prestige_gain
+	}
+	option = {
+		name = joust.9001.a
+		trigger = {
+			var:joust_outcome > 5
+			has_character_flag = smallpurse
+				}
+		add_prestige = medium_prestige_gain
+		add_short_term_gold = minor_gold_value
+	}
+	option = {
+		name = joust.9001.a
+		trigger = {
+			var:joust_outcome > 5
+			has_character_flag = mediumpurse
+				}
+		add_prestige = medium_prestige_gain
+		add_short_term_gold = medium_gold_value
+	}
+	option = {
+		name = joust.9001.a
+		trigger = {
+			var:joust_outcome > 5
+			has_character_flag = largepurse
+				}
+		add_prestige = medium_prestige_gain
+		add_short_term_gold = major_gold_value
+	}
+	scope:activity = {
+		complete_activity = yes
+		}
+	}

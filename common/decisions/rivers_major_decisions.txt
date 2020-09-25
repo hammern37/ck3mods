@@ -1,0 +1,16 @@
+﻿place_river_ports = {
+	desc = place_river_ports_desc
+	is_shown = {
+		is_ruler = yes
+	}
+	effect = {
+		trigger_event = rivers_events.0001
+		trigger_event = rivers_events.0002
+		trigger_event = rivers_events.0003
+		trigger_event = rivers_events.0004
+		trigger_event = rivers_events.0005
+	}
+	ai_will_do = {
+		base = 0
+	}
+}

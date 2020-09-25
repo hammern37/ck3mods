@@ -1,0 +1,1156 @@
+int_6_flag_tgr = {
+	random_list = {
+		164 = {
+		add_character_flag = int_AA
+		add_character_flag = int_BB
+		add_character_flag = int_CC
+		}
+		12 = {
+		add_character_flag = int_AA
+		add_character_flag = int_BB
+		add_character_flag = int_Cc
+		}
+		12 = {
+		add_character_flag = int_AA
+		add_character_flag = int_Bb
+		add_character_flag = int_CC
+		}
+		12 = {
+		add_character_flag = int_Aa
+		add_character_flag = int_BB
+		add_character_flag = int_CC
+		}
+	}
+}
+int_5_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = int_AA
+		}
+		2 = {
+		add_character_flag = int_Aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = int_BB
+		}
+		2 = {
+		add_character_flag = int_Bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = int_CC
+		}
+		2 = {
+		add_character_flag = int_Cc
+		}
+	}
+}
+int_4_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = int_AA
+		}
+		5 = {
+		add_character_flag = int_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = int_BB
+		}
+		5 = {
+		add_character_flag = int_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = int_CC
+		}
+		5 = {
+		add_character_flag = int_Cc
+		}
+	}
+}
+int_3_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = int_aa
+		}
+		5 = {
+		add_character_flag = int_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = int_bb
+		}
+		5 = {
+		add_character_flag = int_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = int_cc
+		}
+		5 = {
+		add_character_flag = int_Cc
+		}
+	}
+}
+int_2_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = int_Aa
+		}
+		2 = {
+		add_character_flag = int_aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = int_Bb
+		}
+		2 = {
+		add_character_flag = int_bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = int_Cc
+		}
+		2 = {
+		add_character_flag = int_cc
+		}
+	}
+}
+int_1_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = int_Aa
+		}
+		2 = {
+		add_character_flag = int_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = int_Bb
+		}
+		2 = {
+		add_character_flag = int_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = int_Cc
+		}
+		2 = {
+		add_character_flag = int_cc
+		}
+	}
+}
+average_int_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = int_AA
+		}
+		4 =  { 
+		add_character_flag = int_Aa
+		}
+		1 = {
+		add_character_flag = int_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = int_BB
+		}
+		4 = {
+		add_character_flag = int_Bb
+		}
+		1 = {
+		add_character_flag = int_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = int_CC
+		}
+		4 =  { 
+		add_character_flag = int_Cc
+		}
+		1 = {
+		add_character_flag = int_cc
+		}
+	}
+}
+
+## STRENGTH
+
+str_6_flag_tgr = {
+	random_list = {
+		164 = {
+		add_character_flag = str_AA
+		add_character_flag = str_BB
+		add_character_flag = str_CC
+		}
+		12 = {
+		add_character_flag = str_AA
+		add_character_flag = str_BB
+		add_character_flag = str_Cc
+		}
+		12 = {
+		add_character_flag = str_AA
+		add_character_flag = str_Bb
+		add_character_flag = str_CC
+		}
+		12 = {
+		add_character_flag = str_Aa
+		add_character_flag = str_BB
+		add_character_flag = str_CC
+		}
+	}
+}
+str_5_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = str_AA
+		}
+		2 = {
+		add_character_flag = str_Aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = str_BB
+		}
+		2 = {
+		add_character_flag = str_Bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = str_CC
+		}
+		2 = {
+		add_character_flag = str_Cc
+		}
+	}
+}
+str_4_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = str_AA
+		}
+		5 = {
+		add_character_flag = str_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = str_BB
+		}
+		5 = {
+		add_character_flag = str_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = str_CC
+		}
+		5 = {
+		add_character_flag = str_Cc
+		}
+	}
+}
+str_3_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = str_aa
+		}
+		5 = {
+		add_character_flag = str_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = str_bb
+		}
+		5 = {
+		add_character_flag = str_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = str_cc
+		}
+		5 = {
+		add_character_flag = str_Cc
+		}
+	}
+}
+str_2_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = str_Aa
+		}
+		2 = {
+		add_character_flag = str_aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = str_Bb
+		}
+		2 = {
+		add_character_flag = str_bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = str_Cc
+		}
+		2 = {
+		add_character_flag = str_cc
+		}
+	}
+}
+str_1_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = str_Aa
+		}
+		2 = {
+		add_character_flag = str_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = str_Bb
+		}
+		2 = {
+		add_character_flag = str_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = str_Cc
+		}
+		2 = {
+		add_character_flag = str_cc
+		}
+	}
+}
+average_str_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = str_AA
+		}
+		4 =  { 
+		add_character_flag = str_Aa
+		}
+		1 = {
+		add_character_flag = str_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = str_BB
+		}
+		4 = {
+		add_character_flag = str_Bb
+		}
+		1 = {
+		add_character_flag = str_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = str_CC
+		}
+		4 =  { 
+		add_character_flag = str_Cc
+		}
+		1 = {
+		add_character_flag = str_cc
+		}
+	}
+}
+
+## Attractive
+
+att_6_flag_tgr = {
+	random_list = {
+		164 = {
+		add_character_flag = att_AA
+		add_character_flag = att_BB
+		add_character_flag = att_CC
+		}
+		12 = {
+		add_character_flag = att_AA
+		add_character_flag = att_BB
+		add_character_flag = att_Cc
+		}
+		12 = {
+		add_character_flag = att_AA
+		add_character_flag = att_Bb
+		add_character_flag = att_CC
+		}
+		12 = {
+		add_character_flag = att_Aa
+		add_character_flag = att_BB
+		add_character_flag = att_CC
+		}
+	}
+}
+att_5_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = att_AA
+		}
+		2 = {
+		add_character_flag = att_Aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = att_BB
+		}
+		2 = {
+		add_character_flag = att_Bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = att_CC
+		}
+		2 = {
+		add_character_flag = att_Cc
+		}
+	}
+}
+att_4_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = att_AA
+		}
+		5 = {
+		add_character_flag = att_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = att_BB
+		}
+		5 = {
+		add_character_flag = att_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = att_CC
+		}
+		5 = {
+		add_character_flag = att_Cc
+		}
+	}
+}
+att_3_flag_tgr = {
+	random_list = {
+		3 =  { 
+		add_character_flag = att_aa
+		}
+		5 = {
+		add_character_flag = att_Aa
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = att_bb
+		}
+		5 = {
+		add_character_flag = att_Bb
+		}
+	}
+	random_list = {
+		3 =  { 
+		add_character_flag = att_cc
+		}
+		5 = {
+		add_character_flag = att_Cc
+		}
+	}
+}
+att_2_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = att_Aa
+		}
+		2 = {
+		add_character_flag = att_aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = att_Bb
+		}
+		2 = {
+		add_character_flag = att_bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = att_Cc
+		}
+		2 = {
+		add_character_flag = att_cc
+		}
+	}
+}
+att_1_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = att_Aa
+		}
+		2 = {
+		add_character_flag = att_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = att_Bb
+		}
+		2 = {
+		add_character_flag = att_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = att_Cc
+		}
+		2 = {
+		add_character_flag = att_cc
+		}
+	}
+}
+average_att_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = att_AA
+		}
+		4 =  { 
+		add_character_flag = att_Aa
+		}
+		1 = {
+		add_character_flag = att_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = att_BB
+		}
+		4 = {
+		add_character_flag = att_Bb
+		}
+		1 = {
+		add_character_flag = att_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = att_CC
+		}
+		4 =  { 
+		add_character_flag = att_Cc
+		}
+		1 = {
+		add_character_flag = att_cc
+		}
+	}
+}
+
+
+## Clubfoot
+
+clubfoot_flag_tgr = {
+	random_list = {
+		5 = {
+			add_character_flag = clubfoot_aa
+			add_character_flag = clubfoot_bb
+			add_character_flag = clubfoot_Cc
+		}
+		5 = {
+			add_character_flag = clubfoot_Aa
+			add_character_flag = clubfoot_bb
+			add_character_flag = clubfoot_cc
+		}
+		5 = {
+			add_character_flag = clubfoot_aa
+			add_character_flag = clubfoot_Bb
+			add_character_flag = clubfoot_cc
+		}
+		5 = {
+			add_character_flag = clubfoot_aa
+			add_character_flag = clubfoot_bb
+			add_character_flag = clubfoot_cc
+		}
+	}
+}
+
+average_clubfoot_flag_tgr = {
+	random_list = {
+		9 =  { 
+		add_character_flag = clubfoot_AA
+		}
+		9 =  { 
+		add_character_flag = clubfoot_Aa
+		}
+		2 = {
+		add_character_flag = clubfoot_aa
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = clubfoot_BB
+		}
+		9 = {
+		add_character_flag = clubfoot_Bb
+		}
+		2 = {
+		add_character_flag = clubfoot_bb
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = clubfoot_CC
+		}
+		9 =  { 
+		add_character_flag = clubfoot_Cc
+		}
+		2 = {
+		add_character_flag = clubfoot_cc
+		}
+	}
+}
+
+hunchbacked_flag_tgr = {
+	random_list = {
+		5 = {
+			add_character_flag = hunchbacked_aa
+			add_character_flag = hunchbacked_bb
+			add_character_flag = hunchbacked_Cc
+		}
+		5 = {
+			add_character_flag = hunchbacked_Aa
+			add_character_flag = hunchbacked_bb
+			add_character_flag = hunchbacked_cc
+		}
+		5 = {
+			add_character_flag = hunchbacked_aa
+			add_character_flag = hunchbacked_Bb
+			add_character_flag = hunchbacked_cc
+		}
+		5 = {
+			add_character_flag = hunchbacked_aa
+			add_character_flag = hunchbacked_bb
+			add_character_flag = hunchbacked_cc
+		}
+	}
+}
+
+average_hunchbacked_flag_tgr = {
+	random_list = {
+		9 =  { 
+		add_character_flag = hunchbacked_AA
+		}
+		9 =  { 
+		add_character_flag = hunchbacked_Aa
+		}
+		2 = {
+		add_character_flag = hunchbacked_aa
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = hunchbacked_BB
+		}
+		9 = {
+		add_character_flag = hunchbacked_Bb
+		}
+		2 = {
+		add_character_flag = hunchbacked_bb
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = hunchbacked_CC
+		}
+		9 =  { 
+		add_character_flag = hunchbacked_Cc
+		}
+		2 = {
+		add_character_flag = hunchbacked_cc
+		}
+	}
+}
+
+stuttering_flag_tgr = {
+	random_list = {
+		5 = {
+			add_character_flag = stuttering_aa
+			add_character_flag = stuttering_bb
+			add_character_flag = stuttering_Cc
+		}
+		5 = {
+			add_character_flag = stuttering_Aa
+			add_character_flag = stuttering_bb
+			add_character_flag = stuttering_cc
+		}
+		5 = {
+			add_character_flag = stuttering_aa
+			add_character_flag = stuttering_Bb
+			add_character_flag = stuttering_cc
+		}
+		5 = {
+			add_character_flag = stuttering_aa
+			add_character_flag = stuttering_bb
+			add_character_flag = stuttering_cc
+		}
+	}
+}
+
+average_stuttering_flag_tgr = {
+	random_list = {
+		9 =  { 
+		add_character_flag = stuttering_AA
+		}
+		9 =  { 
+		add_character_flag = stuttering_Aa
+		}
+		2 = {
+		add_character_flag = stuttering_aa
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = stuttering_BB
+		}
+		9 = {
+		add_character_flag = stuttering_Bb
+		}
+		2 = {
+		add_character_flag = stuttering_bb
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = stuttering_CC
+		}
+		9 =  { 
+		add_character_flag = stuttering_Cc
+		}
+		2 = {
+		add_character_flag = stuttering_cc
+		}
+	}
+}
+
+lisping_flag_tgr = {
+	random_list = {
+		5 = {
+			add_character_flag = lisping_aa
+			add_character_flag = lisping_bb
+			add_character_flag = lisping_Cc
+		}
+		5 = {
+			add_character_flag = lisping_Aa
+			add_character_flag = lisping_bb
+			add_character_flag = lisping_cc
+		}
+		5 = {
+			add_character_flag = lisping_aa
+			add_character_flag = lisping_Bb
+			add_character_flag = lisping_cc
+		}
+		5 = {
+			add_character_flag = lisping_aa
+			add_character_flag = lisping_bb
+			add_character_flag = lisping_cc
+		}
+	}
+}
+
+average_lisping_flag_tgr = {
+	random_list = {
+		9 =  { 
+		add_character_flag = lisping_AA
+		}
+		9 =  { 
+		add_character_flag = lisping_Aa
+		}
+		2 = {
+		add_character_flag = lisping_aa
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = lisping_BB
+		}
+		9 = {
+		add_character_flag = lisping_Bb
+		}
+		2 = {
+		add_character_flag = lisping_bb
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = lisping_CC
+		}
+		9 =  { 
+		add_character_flag = lisping_Cc
+		}
+		2 = {
+		add_character_flag = lisping_cc
+		}
+	}
+}
+
+wheezing_flag_tgr = {
+	random_list = {
+		5 = {
+			add_character_flag = wheezing_aa
+			add_character_flag = wheezing_bb
+			add_character_flag = wheezing_Cc
+		}
+		5 = {
+			add_character_flag = wheezing_Aa
+			add_character_flag = wheezing_bb
+			add_character_flag = wheezing_cc
+		}
+		5 = {
+			add_character_flag = wheezing_aa
+			add_character_flag = wheezing_Bb
+			add_character_flag = wheezing_cc
+		}
+		5 = {
+			add_character_flag = wheezing_aa
+			add_character_flag = wheezing_bb
+			add_character_flag = wheezing_cc
+		}
+	}
+}
+
+average_wheezing_flag_tgr = {
+	random_list = {
+		9 =  { 
+		add_character_flag = wheezing_AA
+		}
+		9 =  { 
+		add_character_flag = wheezing_Aa
+		}
+		2 = {
+		add_character_flag = wheezing_aa
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = wheezing_BB
+		}
+		9 = {
+		add_character_flag = wheezing_Bb
+		}
+		2 = {
+		add_character_flag = wheezing_bb
+		}
+	}
+	random_list = {
+		9 =  { 
+		add_character_flag = wheezing_CC
+		}
+		9 =  { 
+		add_character_flag = wheezing_Cc
+		}
+		2 = {
+		add_character_flag = wheezing_cc
+		}
+	}
+}
+
+hgt_4_flag_tgr = {
+	random_list = {
+		4 =  { 
+		add_character_flag = hgt_AA
+		}
+		2 = {
+		add_character_flag = hgt_Aa
+		}
+	}
+	random_list = {
+		5 =  { 
+		add_character_flag = hgt_BB
+		}
+		2 = {
+		add_character_flag = hgt_Bb
+		}
+	}
+	random_list = {
+		4 =  { 
+		add_character_flag = hgt_CC
+		}
+		2 = {
+		add_character_flag = hgt_Cc
+		}
+	}
+	random_list = {
+		4 =  { 
+		add_character_flag = hgt_DD
+		}
+		2 = {
+		add_character_flag = hgt_Dd
+		}
+	}
+	random_list = {
+		4 =  { 
+		add_character_flag = hgt_EE
+		}
+		2 = {
+		add_character_flag = hgt_Ee
+		}
+	}
+	random_list = {
+		5 =  { 
+		add_character_flag = hgt_FF
+		}
+		2 = {
+		add_character_flag = hgt_Ff
+		}
+	}
+
+}
+
+hgt_3_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_AA
+		}
+		2 = {
+		add_character_flag = hgt_Aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_BB
+		}
+		2 = {
+		add_character_flag = hgt_Bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_CC
+		}
+		2 = {
+		add_character_flag = hgt_Cc
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_DD
+		}
+		2 = {
+		add_character_flag = hgt_Dd
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_EE
+		}
+		2 = {
+		add_character_flag = hgt_Ee
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_FF
+		}
+		2 = {
+		add_character_flag = hgt_Ff
+		}
+	}
+}
+
+
+hgt_2_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Aa
+		}
+		2 = {
+		add_character_flag = hgt_aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Bb
+		}
+		2 = {
+		add_character_flag = hgt_bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Cc
+		}
+		2 = {
+		add_character_flag = hgt_cc
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Dd
+		}
+		2 = {
+		add_character_flag = hgt_dd
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Ee
+		}
+		2 = {
+		add_character_flag = hgt_ee
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Ff
+		}
+		2 = {
+		add_character_flag = hgt_ff
+		}
+	}
+}
+
+hgt_1_flag_tgr = {
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Aa
+		}
+		4 = {
+		add_character_flag = hgt_aa
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Bb
+		}
+		4 = {
+		add_character_flag = hgt_bb
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Cc
+		}
+		4 = {
+		add_character_flag = hgt_cc
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Dd
+		}
+		4 = {
+		add_character_flag = hgt_dd
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Ee
+		}
+		4 = {
+		add_character_flag = hgt_ee
+		}
+	}
+	random_list = {
+		2 =  { 
+		add_character_flag = hgt_Ff
+		}
+		4 = {
+		add_character_flag = hgt_ff
+		}
+	}
+}
+
+average_hgt_flag_tgr = {
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_AA
+		}
+		3 =  { 
+		add_character_flag = hgt_Aa
+		}
+		1 = {
+		add_character_flag = hgt_aa
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_BB
+		}
+		3 = {
+		add_character_flag = hgt_Bb
+		}
+		1 = {
+		add_character_flag = hgt_bb
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_CC
+		}
+		3 =  { 
+		add_character_flag = hgt_Cc
+		}
+		1 = {
+		add_character_flag = hgt_cc
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_DD
+		}
+		3 =  { 
+		add_character_flag = hgt_Dd
+		}
+		1 = {
+		add_character_flag = hgt_dd
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_EE
+		}
+		3 =  { 
+		add_character_flag = hgt_Ee
+		}
+		1 = {
+		add_character_flag = hgt_ee
+		}
+	}
+	random_list = {
+		1 =  { 
+		add_character_flag = hgt_FF
+		}
+		3 =  { 
+		add_character_flag = hgt_Ff
+		}
+		1 = {
+		add_character_flag = hgt_ff
+		}
+	}
+}

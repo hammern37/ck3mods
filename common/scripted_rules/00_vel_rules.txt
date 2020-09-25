@@ -1,0 +1,12 @@
+﻿# Determines if a character may be appointed as a knight. Checked during automatic knight assignment
+# Root is the potential knight
+
+#Edit: Add prowess check to prevent AI stupidity
+can_be_knight = {
+	can_be_knight_trigger = { ARMY_OWNER = root.court_owner }
+	OR = {
+		has_trait = vel_force_knight
+		prowess > 8
+	}
+
+}

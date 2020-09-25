@@ -1,0 +1,9 @@
+﻿######################################################################
+# Terrain
+######################################################################
+
+building_common_river_tradeport_requirement_terrain = {
+	#has_province_modifier = major_river_near
+	has_variable = near_river
+}
+

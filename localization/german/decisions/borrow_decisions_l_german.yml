@@ -1,0 +1,11 @@
+﻿l_german:
+    borrow_money_decision:0 "Leihe Geld von jüdischen Geldleihern"
+    borrow_money_decision_desc:0 "Möglicherweise erhalte ich weitere Mittel von meiner jüdischen Bevölkerung, aber ich muss mich in Acht nehmen, solch eine Aktion ist eher unfromm in den Augen meiner Mit-[ROOT.Char.GetFaith.GetAdherentNamePlural]."
+    borrow_money_decision_tooltip:0 "Nehmt einen Kredit auf"
+    borrow_money_decision_confirm:0 "Bring mir Gold!"
+    repay_money_decision:0 "Zahle meine Schulden ab"
+    repay_money_decision2:0 "Zahle meine Schulden ab"
+    repay_money_decision_desc:0 "Es ist Zeit, dass ich meine Schulden bei den Geldleihern abbegleich. Anschließend werde ich wieder in der Lage sein neue Kredite aufzunehmen."
+    repay_money_decision_tooltip:0 "Es ist Zeit, dass ich meine Schulden bei den Geldleihern abbegleich"
+    repay_money_decision_confirm:0 "Beigleicht die Schuld"
+    repay_money_decision2_confirm:0 "Beigleicht die Schuld"

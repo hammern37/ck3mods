@@ -1,0 +1,25 @@
+﻿# Can't reference a named value that hasn't been defined yet, so this file is late in the load order
+# Feel free to use other files as well, but be careful about load order
+religion_local_population_pacified_mod = {
+	value = 0
+	add = court_chaplain_conversion_base_total
+	multiply = 1
+}
+
+religion_local_population_pacified_crusade_mod = {
+	value = 0
+	add = court_chaplain_conversion_base_total
+	multiply = 2
+}
+
+culture_local_population_pacified_mod = {
+	value = 0
+	add = steward_promote_culture_base_total
+	multiply = 1
+}
+
+culture_local_population_pacified_crusade_mod = {
+	value = 0
+	add = steward_promote_culture_base_total
+	multiply = 2
+}

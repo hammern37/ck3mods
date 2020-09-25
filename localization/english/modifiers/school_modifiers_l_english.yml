@@ -1,0 +1,21 @@
+﻿l_english:
+ held_school_modifier:0 "School called Recently"
+ held_school_modifier_desc:0 "This character has recently arranged a school session, and may not do so again until the specified date."
+ 
+ school_martial_modifier:0 "Trained in martial ability"
+ school_martial_modifier_desc:0 "Has been taught martial skills."
+ 
+ school_learning_modifier:0 "Trained in learning ability"
+ school_learning_modifier_desc:0 "Has been taught learning skills."
+ 
+ school_diplomacy_modifier:0 "Trained in diplomacy ability"
+ school_diplomacy_modifier_desc:0 "Has been taught diplomacy skills."
+ 
+ school_intrigue_modifier:0 "Trained in intrigue ability"
+ school_intrigue_modifier_desc:0 "Has been taught intrigue skills."
+ 
+ school_stewardship_modifier:0 "Trained in stewardship ability"
+ school_stewardship_modifier_desc:0 "Has been taught stewardship skills."
+ 
+ school_prowess_modifier:0 "Trained in prowess ability"
+ school_prowess_modifier_desc:0 "Has been taught prowess skills."

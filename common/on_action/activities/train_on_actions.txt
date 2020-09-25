@@ -1,0 +1,34 @@
+# On actions for the train activity
+
+#To send the start event
+train_start_events = {
+	events = {
+		train.0002 # To set variables etc.
+	}
+}
+
+# RANDOM PULSE #
+# For events that can be used in any pulse.
+train_random_pulse = {
+	random_events = {
+		100 = train.1001 #Generic train, good bout!
+		100 = train.1011 #A rival, or someone that doesn't like you, is being an ass
+		100 = train.1012 #Do you kill your bothersome opponent or not?
+		100 = train.4001 #Poor Peasents ask for coin
+		100 = train.4002 #Peasents caught under wagon
+		100 = train.4003 #Bandits arrive
+		100 = train.4004 #Local garrison asks to join in		
+		100 = train.4008 #train with your heir	
+		200 = train.4009 #Participant has murder/abduct scheme against you (or you heir dislikes you)
+		200 = train.4010 #Participant has murder/abduct scheme against close family		
+		100 = train.4016 #You fake an injury
+	}
+	fallback = train_end_pulse #To complete the activity if no valid events exists
+}
+
+
+train_end_pulse = {
+	events = {
+		train.9001
+	}
+}

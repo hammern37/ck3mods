@@ -1,0 +1,563 @@
+# Events for handling the school activity
+
+namespace = school
+
+
+############################
+## Setup and maintenance events
+## 0000-0999
+## by Stephen Walker
+############################
+#school.0002 - Create variables etc. (triggered at the same time as school.0010)
+#school.0003 - To apply the effects of the school
+
+############################
+## Event chains
+## 1001
+## by Stephen Walker
+############################
+#school.1001 - Generic school, good schooling!
+
+############################
+## End-events
+## 9000-9999
+## by Stephen Walker
+############################
+#school.9001 - school has ended
+
+
+#Things to use in school-events:
+	#Variables "good_school" and "bad_school" to affect the outcome of the school
+	#The list "potential_school_participants" for good ai-characters to use in events
+
+################
+#	Generic school, teaching!
+#	by Stephen Walker
+#	1001-1003
+################
+school.1001 = {
+	type = character_event
+	title = school.1001.t
+	desc = school.1001.desc
+	theme = learning
+	left_portrait = root
+
+	trigger = {
+		scope:activity = {
+			has_variable_list = potential_school_participants
+			any_in_list = {
+					variable = potential_school_participants
+					is_alive = yes
+					count >= 5
+			}
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			random_in_list = {
+				variable = potential_school_participants
+				limit = {
+					is_alive = yes
+					NOT = {has_character_flag = is_active}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				add_character_flag = {
+					flag = is_active
+					days = 100
+				}
+				save_scope_as = schooling_courtier_1
+			}
+			random_in_list = {
+				variable = potential_school_participants
+				limit = {
+					is_alive = yes
+					NOT = {has_character_flag = is_active}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				add_character_flag = {
+					flag = is_active
+					days = 100
+				}
+				save_scope_as = schooling_courtier_2
+			}
+			random_in_list = {
+				variable = potential_school_participants
+				limit = {
+					is_alive = yes
+					NOT = {has_character_flag = is_active}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				add_character_flag = {
+					flag = is_active
+					days = 100
+				}
+				save_scope_as = schooling_courtier_3
+			}
+			random_in_list = {
+				variable = potential_school_participants
+				limit = {
+					is_alive = yes
+					NOT = {has_character_flag = is_active}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				add_character_flag = {
+					flag = is_active
+					days = 100
+				}
+				save_scope_as = schooling_courtier_4
+			}
+			random_in_list = {
+				variable = potential_school_participants
+				limit = {
+					is_alive = yes
+					NOT = {has_character_flag = is_active}
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				add_character_flag = {
+					flag = is_active
+					days = 100
+				}
+				save_scope_as = schooling_courtier_5
+			}
+		}
+	}
+
+	option = {
+		name = school.1001.a
+		scope:activity = {
+			add_character_flag = {
+				flag = schooling_courtier_1
+				days = 100
+			}	
+			set_variable = {
+				name = participant_to_use
+				value = scope:schooling_courtier_1
+				days = 300
+			}
+		}
+		ai_chance = {
+			base = 20
+		}	
+	}
+
+	option = {
+		name = school.1001.b
+		scope:activity = {
+			add_character_flag = {
+				flag = schooling_courtier_2
+				days = 100
+			}	
+			set_variable = {
+				name = participant_to_use
+				value = scope:schooling_courtier_2
+				days = 300
+			}	
+		}
+		ai_chance = {
+			base = 20
+		}			
+	}
+
+	option = {
+		name = school.1001.c
+		scope:activity = {
+			add_character_flag = {
+				flag = schooling_courtier_3
+				days = 100
+			}
+			set_variable = {
+				name = participant_to_use
+				value = scope:schooling_courtier_3
+				days = 300
+			}	
+		}	
+		ai_chance = {
+			base = 20
+		}		
+	}
+
+	option = {
+		name = school.1001.d
+		scope:activity = {
+			add_character_flag = {
+				flag = schooling_courtier_4
+				days = 100
+			}
+			set_variable = {
+				name = participant_to_use
+				value = scope:schooling_courtier_4
+				days = 300
+			}	
+		}	
+		ai_chance = {
+			base = 20
+		}		
+	}
+
+	option = {
+		name = school.1001.e
+		scope:activity = {
+			add_character_flag = {
+				flag = schooling_courtier_5
+				days = 100
+			}
+			set_variable = {
+				name = participant_to_use
+				value = scope:schooling_courtier_5
+				days = 300
+			}	
+		}	
+		ai_chance = {
+			base = 20
+		}		
+	}
+
+	after = {
+		trigger_event = {
+			id = school.1002
+			days = { 10 12 }
+		}
+	}
+}
+
+#school continues
+school.1002 = {
+	type = character_event
+	title = school.1001.t
+	theme = learning
+	desc = school.courtier
+	left_portrait = root
+	right_portrait = scope:trainee
+
+	immediate = {
+		scope:activity = {
+			var:participant_to_use = {
+				save_scope_as = trainee
+			}
+		}
+	}
+
+	option = { 
+		name = school.1002.a
+		add_character_flag = {
+			flag = martial_schooling
+			days = 100
+		}
+		ai_chance = {
+			base = 17
+		}	
+	}
+	option = { 
+		name = school.1002.b
+		add_character_flag = {
+			flag = diplomacy_schooling
+			days = 100
+		}
+		ai_chance = {
+			base = 17
+		}	
+	}
+	option = { 
+		name = school.1002.c
+		add_character_flag = {
+			flag = learning_schooling
+			days = 100
+		}
+		ai_chance = {
+			base = 17
+		}	
+	}
+	option = { 
+		name = school.1002.d
+		add_character_flag = {
+			flag = stewardship_schooling
+			days = 100
+		}
+		ai_chance = {
+			base = 17
+		}	
+	}
+	option = { 
+		name = school.1002.e
+		add_character_flag = {
+			flag = intrigue_schooling
+			days = 100
+		}
+		ai_chance = {
+			base = 17
+		}	
+	}
+	option = { 
+		name = school.1002.f
+		add_character_flag = {
+			flag = prowess_schooling
+			days = 100
+		}	
+		ai_chance = {
+			base = 15
+		}		
+	}
+
+	after = {
+		trigger_event = {
+			id = school.9001
+			days = { school_event_delay_min school_event_delay_max }
+		}
+	}
+}
+
+##################
+#	END EVENTS 	 #
+#	9001 - 9999	 #
+##################
+
+#######################
+#	school has ended
+#	by Stephen Walker
+#######################
+school.9001 = {
+	type = character_event
+	title = school.9001.t
+	left_portrait = root
+	right_portrait = scope:trainee
+	theme = learning
+	desc = {
+		desc = school.9001.desc_opening		
+		first_valid = {
+				triggered_desc = {
+					trigger = {
+						has_character_flag = martial_schooling
+					}
+					desc =  school.9001.desc_martial_schooling
+				}
+				triggered_desc = {
+					trigger = {
+						has_character_flag = diplomacy_schooling
+					}
+					desc = school.9001.desc_diplomacy_schooling
+				}
+				triggered_desc = {
+					trigger = {
+						has_character_flag = learning_schooling
+					}
+					desc = school.9001.desc_learning_schooling
+				}
+				triggered_desc = {
+					trigger = {
+						has_character_flag = intrigue_schooling
+					}
+					desc =  school.9001.desc_intrigue_schooling
+				}
+				triggered_desc = {
+					trigger = {
+						has_character_flag = stewardship_schooling
+					}
+					desc = school.9001.desc_stewardship_schooling
+				}
+				triggered_desc = {
+					trigger = {
+						has_character_flag = prowess_schooling
+					}
+					desc = school.9001.desc_prowess_schooling					
+				}
+				desc = school.9001.desc_fallback
+			}
+		}
+		immediate = {
+			scope:activity = {
+				var:participant_to_use = {
+					save_scope_as = trainee
+					}
+				}
+		}
+
+		option = {
+			name = school.9001.a
+			trigger = {
+					has_character_flag = martial_schooling
+					NOT = {has_trait = martial_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_martial
+							rank < 10
+						}
+					}
+					change_trait_rank = {
+						trait = school_martial
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = martial_1
+				}
+			}
+			ai_chance = {
+				base = 17
+			}	
+		}
+		option = {
+			name = school.9001.b
+			trigger = {
+					has_character_flag = diplomacy_schooling
+					NOT = {has_trait = diplomacy_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_diplomacy
+							rank > 0
+						}
+					}
+					change_trait_rank = {
+						trait = school_diplomacy
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = diplomacy_1
+				}
+			}
+			ai_chance = {
+				base = 17
+			}	
+		}
+		option = {
+			name = school.9001.c
+				trigger = {
+					has_character_flag = learning_schooling
+					NOT = {has_trait = learning_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_learning
+							rank > 0
+						}
+					}
+					change_trait_rank = {
+						trait = school_learning
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = learning_1
+				}
+			}
+			ai_chance = {
+				base = 17
+			}	
+		}
+		option = {
+			name = school.9001.d
+				trigger = {
+					has_character_flag = intrigue_schooling
+					NOT = {has_trait = intrigue_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_intrigue
+							rank > 0
+						}
+					}
+					change_trait_rank = {
+						trait = school_intrigue
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = intrigue_1
+				}
+			}
+			ai_chance = {
+				base = 17
+			}	
+		}
+		option = {
+			name = school.9001.e
+				trigger = {
+					has_character_flag = stewardship_schooling
+					NOT = {has_trait = stewardship_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_stewardship
+							rank > 0
+						}
+					}
+					change_trait_rank = {
+						trait = school_stewardship
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = stewardship_1
+				}
+			}
+			ai_chance = {
+				base = 17
+			}	
+		}
+		option = {
+			name = school.9001.f
+				trigger = {
+					has_character_flag = prowess_schooling
+					NOT = {has_trait = prowess_10}
+				}
+			scope:trainee = {
+				if = { 
+					limit = {
+						has_trait_rank = {
+							trait = school_prowess
+							rank > 0
+						}
+					}
+					change_trait_rank = {
+						trait = school_prowess
+						rank = 1
+					}
+				}
+				else = {
+					add_trait = prowess_1
+				}
+			}
+			ai_chance = {
+				base = 15
+			}	
+		}
+		after = {		
+			if = {
+				limit = {
+					exists = scope:activity
+		}
+		scope:activity = {
+			remove_variable = participant_to_use
+			remove_character_flag = schooling_courtier_1
+			remove_character_flag = schooling_courtier_2
+			remove_character_flag = schooling_courtier_3
+			remove_character_flag = schooling_courtier_4
+			remove_character_flag = schooling_courtier_5
+			complete_activity = yes
+			}
+		}
+	}
+}

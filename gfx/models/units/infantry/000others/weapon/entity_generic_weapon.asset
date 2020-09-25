@@ -1,0 +1,55 @@
+#################		WesternFlag			#################
+entity = {
+	name = "weapon_WesternFlag_entity"
+	pdxmesh = "weapon_WesternFlag-mesh"
+}
+entity = {
+	name = "weapon_WesternFlag_small_entity"
+	pdxmesh = "weapon_WesternFlag-mesh"
+	scale = 0.5
+}
+#################		TentA			#################
+entity = {
+	name = "TentA_entity"
+	pdxmesh = "TentA-mesh"
+		locator = { name = "loc01" position = { 0.53 2 1.8 } rotation = { 0 0 0 } }
+		locator = { name = "loc02" position = { 2.4 -2 2.6 } rotation = { 0 -10 5 } }
+		locator = { name = "loc03" position = { 2.4 -2 3.1 } rotation = { 0 10 5 } }
+		locator = { name = "loc04" position = { -0.6 0 0.2 } rotation = { 0 0 0 } }
+	attach = { 		loc01 = "weapon_WesternFlag_small_entity" 	}	
+	attach = { 		loc02 = "weapon_WesternFlag_small_entity" 	}	
+	attach = { 		loc03 = "weapon_WesternFlag_small_entity" 	}	
+	attach = { 		loc04 = "banner_entity" 	}	
+}
+#################		banner 01			#################
+entity = {
+	name = "banner_entity"
+	pdxmesh = "banner-mesh"
+
+	default_state = "idle"
+	state = {
+		name = "idle"
+		animation = "idle_animation"
+	}
+	scale = 0.15
+}
+#################		BOW			#################
+entity = {
+	name = "normal_bow_entity"
+	pdxmesh = "normal_bow-mesh"
+
+	default_state = "idle_with_arrow"
+	state = {
+		name = "idle_with_arrow"
+		animation = "weapon_normal_bow_idle"
+	}
+	state = {
+		name = "idle_no_arrow"
+		animation = "weapon_normal_bow_noar"
+	}
+	state = {
+		name = "shot"
+		animation = "weapon_normal_bow_shot"
+	}
+	scale = 0.15
+}

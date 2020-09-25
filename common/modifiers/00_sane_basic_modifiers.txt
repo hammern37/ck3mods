@@ -1,0 +1,15 @@
+﻿easy_difficulty = {
+	domain_tax_mult = 0.25
+}
+
+very_easy_difficulty = {
+	domain_tax_mult = 0.5
+}
+
+vh_difficulty_modifier = { ## Applies to all AI characters except player vassals
+	build_gold_cost = -0.5
+}
+
+h_difficulty_modifier = { ## Applies to all AI characters except player vassals
+	build_gold_cost = -0.3
+}

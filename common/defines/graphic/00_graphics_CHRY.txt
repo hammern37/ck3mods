@@ -1,0 +1,7 @@
+﻿NMapColors = {
+	MAP_HIGHLIGHT_ALPHA = 0.0		# Transparency of the map highlight color overlay
+	MAP_HIGHLIGHT_ALPHA_FLAT_MAP = 0	# Transparency of the map highlight color overlay when zoomed out to see the flat map
+	MAP_HIGHLIGHT_ALPHA_CHARACTER = 0 # Transparency of the map highlight color overlay in the realms highlight
+	MAP_HIGHLIGHT_ALPHA_TITLE = 0 # Transparency of the map highlight color overlay in the titles highlight
+	MAP_HIGHLIGHT_ALPHA_MAIN_PROVINCE = 0.00 # Transparency of the map highlight color overlay on the main province tooltiped for holdings
+}

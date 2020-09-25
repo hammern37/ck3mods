@@ -1,0 +1,13 @@
+# On actions for the school activity
+
+#To send the start event
+school_start_events = {
+	events = {
+		school.1001 # To set variables etc.
+	}
+}
+school_end_pulse = {
+	events = {
+		school.9001
+	}
+}

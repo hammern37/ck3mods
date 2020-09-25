@@ -1,0 +1,10 @@
+﻿# taken from Dost Thou Even Lift Swords? by Cuddlefission
+can_be_warrior_trigger = {
+	is_adult = yes
+	is_imprisoned = no
+	prowess >= 6
+	can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = $ARMY_OWNER$ }
+	NOT = {
+		has_trait = incapable
+	}
+}

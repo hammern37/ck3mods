@@ -1,0 +1,500 @@
+PT_negotiate_transfer = {
+	interface_priority = 51
+	common_interaction = yes
+	use_diplomatic_range = no
+	category = interaction_category_prison
+
+	auto_accept = yes
+	
+	redirect = {
+		scope:recipient = {
+			save_scope_as = secondary_recipient
+			if = {
+				limit = {
+					exists = imprisoner
+				}
+				imprisoner = { save_scope_as = recipient }
+			}
+		}
+	}
+
+	desc = PT_negotiate_transfer_desc
+
+	greeting = positive
+	notification_text = PRISONER_TRANSFER_PROPOSAL
+	
+	is_shown = {
+		exists = scope:recipient
+		exists = scope:recipient.liege
+		scope:secondary_recipient = {
+			is_imprisoned_by = scope:recipient
+			OR = {
+                scope:recipient.top_liege = scope:actor
+                scope:recipient.liege = scope:actor
+            }
+		}
+		NOT = {
+			scope:actor = scope:recipient
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
+		scope:secondary_recipient = { is_diplomatically_available = yes } #Prisoner
+	}
+	
+	on_accept = {
+		if = {
+			limit = { scope:secondary_recipient = { is_imprisoned_by = scope:recipient } }
+			scope:secondary_recipient = {
+				save_scope_as = prisoner
+			}
+			scope:actor = {
+				save_scope_as = payer
+				#trigger_event = char_interaction.0140
+			}
+			scope:recipient = {
+				save_scope_as = imprisoner
+			}
+			PT_interaction_effect = yes
+			if = {
+				limit = { scope:hook = yes }
+				scope:actor = {
+					use_hook = scope:recipient
+				}
+			}
+		}
+	}
+
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = {
+				gold >= scope:secondary_recipient.ransom_cost_value
+			}
+		}
+		flag = gold
+		localization = "RANSOM_GOLD_OPTION"
+	}
+	
+	send_option = {
+        is_valid = {
+            exists = scope:recipient
+            scope:actor = {
+                prestige >= 100
+            }
+        }
+        flag = force
+        localization = "FORCE_PRISONER_RELEASE_OPTION"
+    }
+
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:recipient = {
+				can_add_hook = { #To match the hook added through ransom_interaction_effect
+					target = scope:actor
+					type = favor_hook
+				}
+			}
+		}
+		flag = favor
+		localization = "RANSOM_FAVOR_OPTION"
+	}
+
+	#Use hook
+	send_option = {	
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = yes
+	
+	localization_values = {
+		RANSOM_COST = scope:secondary_recipient.ransom_cost_value
+	}
+}
+
+#For lieges to transfer their courtiers
+PT_pay_transfer_interaction = {
+	interface_priority = 52
+	common_interaction = yes
+	use_diplomatic_range = no
+	category = interaction_category_prison
+
+	redirect = {
+		scope:recipient = {
+			save_scope_as = secondary_recipient
+			if = {
+				limit = {
+					exists = imprisoner
+				}
+				imprisoner = { save_scope_as = recipient }
+			}
+		}
+	}
+
+	desc = PT_negotiate_transfer_desc
+
+	greeting = positive
+	notification_text = PRISONER_TRANSFER_PROPOSAL
+	
+	is_shown = {
+		exists = scope:recipient
+		scope:secondary_recipient = {
+			exists = liege
+			liege = scope:actor
+			is_imprisoned_by = scope:recipient
+		}
+		NOT = {
+			scope:actor = scope:recipient
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes } #Imprisoner
+		scope:secondary_recipient = { is_diplomatically_available = yes } #Prisoner
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+		}
+		scope:actor = {
+            has_imprisonment_reason = scope:secondary_recipient
+        }
+	}
+	
+	on_accept = {
+		if = {
+			limit = { scope:secondary_recipient = { is_imprisoned_by = scope:recipient } }
+			scope:secondary_recipient = {
+				save_scope_as = prisoner
+			}
+			scope:actor = {
+				save_scope_as = payer
+				#trigger_event = char_interaction.0140
+			}
+			scope:recipient = {
+				save_scope_as = imprisoner
+			}
+			PT_pay_interaction_effect = yes
+			if = {
+				limit = { scope:hook = yes }
+				scope:actor = {
+					use_hook = scope:recipient
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			trigger_event = char_interaction.0141
+		}
+	}
+	
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = {
+				gold >= scope:secondary_recipient.ransom_cost_value
+			}
+		}
+		flag = gold
+		localization = "RANSOM_GOLD_OPTION"
+	}
+
+	# If you don't have what they're worth, pay me what you have!
+	send_option = {
+		is_shown = {
+			exists = scope:recipient
+			scope:actor = {
+				gold < scope:secondary_recipient.ransom_cost_value
+				gold > 0
+			}
+		}
+		flag = current_gold
+		localization = "RANSOM_CURRENT_GOLD_OPTION"
+	}
+	
+	send_option = {
+		is_valid = {
+			exists = scope:recipient
+			scope:recipient = {
+				can_add_hook = { #To match the hook added through ransom_interaction_effect
+					target = scope:actor
+					type = favor_hook
+				}
+			}
+		}
+		flag = favor
+		localization = "RANSOM_FAVOR_OPTION"
+	}
+
+	#Use hook
+	send_option = {	
+		is_valid = {
+			exists = scope:recipient
+			scope:actor = {
+				has_usable_hook = scope:recipient
+			}
+		}
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = {
+		scope:actor = { has_usable_hook = scope:recipient }
+	}
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+
+	send_options_exclusive = no
+	
+	localization_values = {
+		RANSOM_COST = scope:secondary_recipient.ransom_cost_value
+		CURRENT_GOLD = scope:actor.gold
+	}
+	
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 50
+			scope:gold = yes
+			desc = "GOLD_POSITIVE_REASON"
+		}
+		modifier = {
+			add = 15
+			scope:current_gold = yes
+			scope:actor = {
+				gold >= scope:secondary_recipient.half_ransom_cost_value
+			}
+			desc = "GOLD_POSITIVE_REASON"
+		}
+		modifier = {
+			add = 50
+			scope:favor = yes
+			scope:recipient.top_liege = scope:actor.top_liege
+			desc = "FAVOR_POSITIVE_REASON"
+		}
+		modifier = {
+			add = 0
+			scope:favor = yes
+			NOT = { scope:recipient.top_liege = scope:actor.top_liege }
+			desc = "NO_USE_FOR_A_FAVOR_REASON"
+		}
+		modifier = { # Say no to rivals
+			add = -55
+			scope:recipient = {
+				has_relation_rival = scope:secondary_recipient
+			}
+			desc = "RIVAL_TO_ME_REASON"
+		}
+		modifier = { # Say no to rivals
+			add = -300
+			scope:recipient = {
+				has_relation_nemesis = scope:secondary_recipient
+			}
+			desc = "NEMESIS_TO_ME_REASON"
+		}
+		modifier = { # At war
+			add = -300
+			scope:recipient = {
+				is_at_war_with = scope:actor
+			}
+			desc = "IS_AT_WAR_REASON"
+		}
+		#opinion_modifier = { # A lot more likely if Recipient likes Actor
+		#	who = scope:recipient
+		#	opinion_target = scope:actor
+		#	multiplier = 1.0
+		#	desc = AI_OPINION_REASON
+		#}
+		#opinion_modifier = { # A lot more likely if Recipient likes secondary_recipient/prisoner
+		#	who = scope:recipient
+		#	opinion_target = scope:secondary_recipient
+		#	multiplier = 1.0
+		#	desc = AI_OPINION_REASON
+		#}
+		modifier = {
+			scope:hook = yes
+			add = 100
+			desc = SCHEME_WEAK_HOOK_USED
+		}
+		modifier = { # An Intimidated recipient is significantly more likely to accept an offer from the liege
+			add = 40
+			trigger = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+					has_dread_level_towards = {
+						target = scope:actor
+						level = 1
+					}
+				}
+			}
+			desc = INTIMIDATED_REASON
+		}
+
+		modifier = { # An Cowed recipient is significantly more likely to accept an offer from the liege
+			add = 100
+			trigger = {
+				scope:recipient = {
+					target_is_liege_or_above = scope:actor
+					has_dread_level_towards = {
+						target = scope:actor
+						level = 2
+					}
+				}
+			}
+			desc = COWED_REASON
+		}
+	}
+
+	auto_accept = {
+		custom_description = {
+			text = "spending_hook"
+			subject = scope:actor
+			object = scope:recipient
+			scope:hook = yes
+			scope:actor = { has_strong_hook = scope:recipient }
+		}
+	}
+	
+	
+	# AI
+	ai_targets = {
+		ai_recipients = family
+	}
+	ai_targets = {
+		ai_recipients = spouses
+	}
+	ai_targets = {
+		ai_recipients = scripted_relations
+	}
+	ai_frequency = 6
+
+	ai_potential = {
+		gold >= 25
+	}
+
+	ai_target_quick_trigger = {
+		prison = yes
+	}
+
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = 100
+			OR = {
+				scope:gold = yes
+				AND = {
+					scope:actor = {
+						gold >= 25
+					}
+					scope:secondary_recipient = {
+						time_in_prison = { years > 1 }
+					}
+					scope:current_gold = yes
+				}
+			}
+		}
+		
+		modifier = {
+			add = -100
+			has_relation_rival = scope:secondary_recipient
+		}
+		
+		modifier = {
+			add = -300
+			has_relation_nemesis = scope:secondary_recipient
+		}
+		
+		modifier = {
+			add = 100
+			scope:favor = yes
+			scope:recipient = {
+				OR = {
+					is_vassal_of = scope:actor
+					AND = {
+						exists = liege
+						liege = scope:actor
+					}
+				}
+			}
+		}
+		
+		modifier = { # Ransom your primary heir first
+			add = 10
+			OR = {
+				scope:gold = yes
+				AND = {
+					scope:actor = {
+						gold >= 25
+					}
+					scope:secondary_recipient = {
+						time_in_prison = { years > 1 }
+					}
+					scope:current_gold = yes
+				}
+				AND = {
+					scope:favor = yes
+					scope:recipient = {
+						OR = {
+							is_vassal_of = scope:actor
+							AND = {
+								exists = liege
+								liege = scope:actor
+							}
+						}
+					}
+				}
+			}
+			scope:secondary_recipient = {
+				is_primary_heir_of = scope:actor
+			}
+		}
+		
+		modifier = { # Only ransom people you care about... unless you're very compassionate
+			factor = 0
+			scope:secondary_recipient = {
+				NOR = {
+					is_heir_of = scope:actor
+					is_child_of = scope:actor
+					is_consort_of = scope:actor
+					has_relation_best_friend = scope:actor
+					has_relation_friend = scope:actor
+					has_relation_lover = scope:actor
+					has_secret_relation_lover = scope:actor
+				}
+			}
+			ai_compassion < high_positive_ai_value
+		}
+		
+		modifier = { # Don't give away prisoners for free
+			factor = 0
+			NOR = {
+				scope:favor = yes
+				scope:gold = yes
+				scope:current_gold = yes
+			}
+		}
+		
+		modifier = { # Don't annoy players
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+				is_at_war = yes
+			}
+		}
+	}
+}

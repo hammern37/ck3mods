@@ -1,0 +1,166 @@
+entity = {
+	name = "unit_italian_infantry_02_entity"
+	pdxmesh = "PacificKempeitai_Frame10_mesh"
+
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+		next_state = idle
+		chance = 4
+	}
+	state = { 
+		name = "idle"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+		next_state = idle
+		chance = 1
+	}
+	state = { 
+		name = "besiege"
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	state = { 
+		name = "spawn"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+
+		
+	}
+	state = { 
+		name = "disband"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+
+		
+	}
+	state = { 
+		name = "gather"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		animation_blend_time = 0.3
+		time_offset = 0.73
+	}
+	
+	state = {
+		name = "move"
+		animation = "Frame10_infantry_singal_1"
+		animation_blend_time = 0.3
+	}
+	
+	state = {
+		name = "move_attack"
+		animation = "Frame10_infantry_singal_1"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+	}
+	state = {
+		name = "move_attack_continue"
+		animation = "Frame10_infantry_singal_1"
+	}
+	state = {
+		name = "move_retreat"
+		animation = "Frame10_infantry_singal_1"
+	}
+	
+	state = {
+		name = "combat_won"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+		next_state = idle
+
+	}
+	state = {
+		name = "siege_won"
+		animation = "Frame10_infantry_combat_team_A_1234"
+		looping = no
+		next_state = idle
+
+	}
+	
+####
+	# COMBAT ANIMATIONS
+	####
+	
+	# Even combat
+	state = {
+		name = "even_offensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	
+	# Win/lose combat
+	state = {
+		name = "winlose_offensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	
+	state = {
+		name = "winlose_defensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	
+	# Pursuit combat
+	state = {
+		name = "pursuit_offensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+		animation_blend_time = 0.2
+
+	}
+	
+	state = {
+		name = "pursuit_defensive_seq_1"
+				propagate_state = { mainnode1 = "siege_won" } 
+		animation = "Frame10_infantry_combat_team_A_1234"
+		animation_blend_time = 0.5
+
+	}
+	
+	# Transitions
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "Frame10_infantry_combat_team_A_1234"
+
+	}
+	
+	
+	
+		attach = { 	name = "mainnode1"			mainnode1 = "SUB_unit_italian_infantry_02_entity" }
+		attach = { 	name = "mainnode2"			mainnode2 = "SUB_unit_italian_infantry_01B_entity" }
+		attach = { 	name = "mainnode3"			mainnode3 = "SUB_unit_italian_infantry_01B_entity" }	
+		attach = { 	name = "mainnode4"			mainnode4 = "SUB_unit_italian_infantry_02_entity" }	
+}
+
+
+
+
+

@@ -1,0 +1,311 @@
+entity = {
+	name = "unit_western_infantry_03_entity"
+	pdxmesh = "PacificKempeitai_Frame30_mesh"
+	cull_radius = 10############## IDLE ##############
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		animation = "Frame30_Army_Idle_Tent_1_animation"
+		looping = no
+		next_state = idle
+	}
+############## Besiege ##############
+	state = { 
+		name = "besiege"
+		animation = "Frame30_Army_Idle_others_3"
+	}
+############## 3 Man ##############
+	state = { 
+		name = "spawn"
+		animation = "Frame30_Army_Idle_others_3"
+		looping = no
+	}
+	state = { 
+		name = "disband"
+		animation = "Frame30_Army_Idle_others_3"
+		looping = no	
+	}
+	state = { 
+		name = "gather"
+		animation = "Frame30_Army_Idle_others_3"
+		animation_blend_time = 0.3
+		time_offset = 0.73
+	}
+############## Moving ##############
+	state = {
+		name = "move"
+		animation = "Frame30_Army_Moving_1_animation"
+		animation_blend_time = 0.3
+		chance = 1
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move"
+		animation = "Frame30_Army_Moving_2_animation"
+		animation_blend_time = 0.3
+		chance = 1
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move"
+		animation = "Frame30_Army_Moving_3_animation"
+		animation_blend_time = 0.3
+		chance = 2
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move"
+		animation = "Frame30_Army_Moving_4_animation"
+		animation_blend_time = 0.3
+		chance = 4
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move"
+		animation = "Frame30_Army_Moving_5_animation"
+		animation_blend_time = 0.3
+		chance = 2
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+############## move tracing ##############
+	state = {
+		name = "move_attack"
+		animation = "Frame30_Army_Moving_3_animation"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_attack"
+		animation = "Frame30_Army_Moving_4_animation"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+	}
+############## move tracing continue ##############
+	state = {
+		name = "move_attack_continue"
+		animation = "Frame30_Army_Moving_3_animation"
+		chance = 5
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_attack_continue"
+		animation = "Frame30_Army_Moving_4_animation"
+		chance = 5
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+############## move retreat ##############
+	state = {
+		name = "move_retreat"
+		animation = "Frame30_Army_Moving_1_animation"
+		chance = 1
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_retreat"
+		animation = "Frame30_Army_Moving_2_animation"
+		chance = 1
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_retreat"
+		animation = "Frame30_Army_Moving_3_animation"
+		chance = 2
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_retreat"
+		animation = "Frame30_Army_Moving_4_animation"
+		chance = 4
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+	state = {
+		name = "move_retreat"
+		animation = "Frame30_Army_Moving_5_animation"
+		chance = 2
+			propagate_state = { node16 = "Flagman_moving" } 
+			propagate_state = { node17 = "Flagman_moving" } 
+			propagate_state = { node18 = "Flagman_moving" } 
+			propagate_state = { node19 = "Flagman_moving" } 
+	}
+############## Won 3 Man ##############
+	state = {
+		name = "combat_won"
+		animation = "Frame30_Army_Idle_others_1_animation"
+		looping = no
+		next_state = idle
+	}
+	state = {
+		name = "siege_won"
+		animation = "Frame30_Army_Idle_others_1_animation"
+		looping = no
+		next_state = idle
+	}
+##############			COMBAT ANIMATIONS			##############
+############## Even combat ##############
+	state = {
+		name = "even_offensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "even_offensive_seq_1" } 
+				propagate_state = { node9 = "winlose_offensive_seq_1" } 
+				propagate_state = { node11 = "winlose_defensive_seq_1" } 
+				propagate_state = { node8 = "even_defensive_seq_1" } 
+				propagate_state = { node12 = "even_offensive_seq_1" } 
+	
+		animation = "Frame30_Army_Battle_Even_Attacker_1_animation"
+	}
+	state = {
+		name = "even_defensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "even_defensive_seq_1" } 
+				propagate_state = { node9 = "winlose_offensive_seq_1" } 
+				propagate_state = { node11 = "winlose_defensive_seq_1" } 
+				propagate_state = { node8 = "even_defensive_seq_1" } 
+				propagate_state = { node12 = "even_defensive_seq_1" } 
+
+		animation = "Frame30_Army_Battle_Even_Defender_1_animation"
+	}
+############## Win/lose combat ##############
+	state = {
+		name = "winlose_offensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "winlose_offensive_seq_1" } 
+				propagate_state = { node9 = "even_offensive_seq_1" } 
+				propagate_state = { node11 = "even_defensive_seq_1" } 
+				propagate_state = { node8 = "even_defensive_seq_1" } 
+				propagate_state = { node12 = "winlose_defensive_seq_1" } 
+
+		animation = "Frame30_Army_Battle_Even_Attacker_1_animation"
+	}
+	state = {
+		name = "winlose_defensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "winlose_defensive_seq_1" } 
+				propagate_state = { node9 = "even_offensive_seq_1" } 
+				propagate_state = { node11 = "even_defensive_seq_1" } 
+				propagate_state = { node8 = "winlose_offensive_seq_1" } 
+				propagate_state = { node12 = "even_offensive_seq_1" } 
+
+		animation = "Frame30_Army_Battle_Even_Defender_1_animation"
+	}
+############## Pursuit combat ##############
+	state = {
+		name = "pursuit_offensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "pursuit_offensive_seq_1" } 
+				propagate_state = { node9 = "winlose_offensive_seq_1" } 
+				propagate_state = { node11 = "pursuit_offensive_seq_1" } 
+				propagate_state = { node8 = "even_offensive_seq_1" } 
+				propagate_state = { node12 = "winlose_defensive_seq_1" } 
+
+		animation = "Frame30_Army_Battle_Even_Attacker_1_animation"
+	}	
+	state = {
+		name = "pursuit_defensive_seq_1"
+				propagate_state = { node1 = "commanding" } 
+				propagate_state = { node2 = "flaghorseman" } 
+				propagate_state = { node3 = "flaghorseman" } 
+				propagate_state = { node10 = "pursuit_defensive_seq_1" } 
+				propagate_state = { node9 = "pursuit_defensive_seq_1" } 
+				propagate_state = { node11 = "winlose_defensive_seq_1" } 
+				propagate_state = { node8 = "winlose_offensive_seq_1" } 
+				propagate_state = { node12 = "even_defensive_seq_1" } 
+
+		animation = "Frame30_Army_Battle_Even_Defender_1_animation"
+	}
+############## Transitions ##############
+	state = {
+		name = "even_winlose_tx_offensive_1"
+				propagate_state = { node1 = "commanding" } 
+
+		animation = "Frame30_Army_Idle_others_1_animation"
+	}
+	state = {
+		name = "winlose_even_tx_offensive_1"
+				propagate_state = { node1 = "commanding" } 
+
+		animation = "Frame30_Army_Idle_others_1_animation"
+	}
+	state = {
+		name = "even_winlose_tx_defensive_1"
+				propagate_state = { node1 = "commanding" } 
+
+		animation = "Frame30_Army_Idle_others_1_animation"
+	}
+	state = {
+		name = "winlose_even_tx_defensive_1"
+				propagate_state = { node1 = "commanding" } 
+
+		animation = "Frame30_Army_Idle_others_1_animation"
+	}	
+#######################################		Attach		#######################################	
+		attach = { 	name = "node1"			node1 = "Western_CAV_Frame_Paladin_3_entity" 	}
+		attach = { 	name = "node2"			node2 = "Western_CAV_Frame_KnightGuard_3_entity" 	}
+		attach = { 	name = "node3"			node3 = "Western_CAV_Frame_KnightGuard_3_entity" }
+		attach = { 	name = "node4"			node4 = "Western_CAV_Frame_KnightGuard_3_entity" }
+		attach = { 	name = "node5"			node5 = "Western_CAV_Frame_KnightGuard_3_entity" }
+		attach = { 	name = "node8"			node8 = "Western_Inf_Swordsman_3B_entity" }
+		attach = { 	name = "node9"			node9 = "Western_Inf_Swordsman_3A_entity" }
+		attach = { 	name = "node10"			node10 = "Western_Inf_Swordsman_3A_entity" }
+		attach = { 	name = "node11"			node11 = "Western_Inf_Swordsman_3A_entity" }
+		attach = { 	name = "node12"			node12 = "Western_Inf_Swordsman_3B_entity" }
+		attach = { 	name = "node16"			node16 = "Western_Inf_Archer_3B_entity" }
+		attach = { 	name = "node17"			node17 = "Western_Inf_Archer_3A_entity" }
+		attach = { 	name = "node18"			node18 = "Western_Inf_Archer_3A_entity" }
+		attach = { 	name = "node19"			node19 = "Western_Inf_Archer_3B_entity" }
+		attach = { 	name = "node29"			node29 = "TentA_entity" }
+		attach = { 	name = "node30"			node30 = "TentA_entity" }
+
+		
+#######################################		END		#######################################
+#######################################		END		#######################################
+#######################################		END		#######################################		
+}

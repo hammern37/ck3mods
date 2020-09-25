@@ -1,0 +1,3791 @@
+# Events for handling the train activity
+
+namespace = train
+
+
+############################
+## Setup and maintenance events
+## 0000-0999
+## by Stephen Walker
+############################
+#train.0002 - Create variables etc. (triggered at the same time as train.0010)
+#train.0003 - To apply the effects of the train
+
+############################
+## Random event chains
+## 1000-3999
+## by Stephen Walker
+############################
+#train.1001 - Generic train, good bout!
+#train.1011 - A rival, or someone that doesn't like you, is being an ass
+#train.1012 - Do you kill your bothersome opponent or not?
+
+############################
+## Random pulse
+## 4000-4999
+## by Stephen Walker
+############################
+#train.4001 - Beggers bother us
+#train.4002 - Injured peasant
+#train.4003 - Bandits arrive
+#train.4004 - Soilders join in
+
+#train.4008 - train with your heir
+#train.4009 - Someone has a murder/abduct scheme against you
+#train.4010 - Someone has a murder/abduct scheme against a close family member
+#train.4016 - You fake an injury
+
+############################
+## End-events
+## 9000-9999
+## by Stephen Walker
+############################
+#train.9001 - train has ended
+
+
+#Things to use in train-events:
+	#Variables "good_train" and "bad_train" to affect the outcome of the train
+	#The list "potential_train_participants" for good ai-characters to use in events
+
+
+
+#####################################
+#	SETUP AND MAINTENANCE EVENTS	#
+#	0000 - 0999						#
+#####################################
+
+
+# Create variables etc. (triggered at the same time as train.0010)
+train.0002 = {
+	hidden = yes
+
+	immediate = {
+		set_variable = {
+			name = train_outcome
+			value = 0
+			days = 400
+		}
+	}
+}
+
+
+#########################
+#	RANDOM EVENT CHAINS	#
+#	1000 - 3999			#
+#########################
+
+################
+#	Generic train, fight each other!
+#	by Stephen Walker
+#	1001-1003
+################
+train.1001 = {
+	type = character_event
+	title = train.1001.t
+	desc = train.1001.desc
+	theme = train_activity
+	left_portrait = scope:training_courtier_1
+
+	trigger = {
+		scope:activity = {
+			has_variable_list = potential_train_participants
+			any_in_list = {
+					variable = potential_train_participants
+					is_alive = yes
+					count >= 1
+			}
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			random_in_list = {
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+					is_male = yes
+				}
+				alternative_limit = {
+					is_powerful_vassal = yes
+				}
+				save_scope_as = training_courtier_1
+			}
+			set_variable = {
+				name = participant_to_use
+				value = scope:training_courtier_1
+				days = 300
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+	}
+
+	option = {
+		name = train.1001.a
+		add_character_flag = {
+			flag = dangerous_battle
+			days = 100
+		}
+		add_prestige = medium_prestige_gain
+		if = {
+			limit = {
+					has_trait = arrogant
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+			brave = medium_stress_impact_loss
+			craven = medium_stress_impact_gain
+			lazy = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = arrogant
+					has_trait = brave
+					has_trait = athletic
+				}
+			}
+		}
+	}
+
+	option = {
+		name = train.1001.b
+		add_character_flag = {
+			flag = safe_battle
+			days = 100
+		}
+		add_prestige = medium_prestige_gain
+		if = {
+			limit = {
+					has_trait = craven
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+			brave = medium_stress_impact_gain
+			athletic = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = craven
+					has_trait = lazy
+				}
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = train.1002
+			days = { 10 12 }
+		}
+	}
+}
+
+#train continues (wounded courtier?)
+train.1002 = {
+	type = character_event
+	title = train.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = wounded_courtier
+				}
+				desc = train.1002.desc_wounded_courtier
+			}
+			desc = train.1002.desc
+		}
+	}
+	theme = train_activity
+	left_portrait = scope:training_courtier_1
+
+	immediate = {
+		scope:activity = {
+			var:participant_to_use = {
+				save_scope_as = training_courtier_1
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					modifier = {
+						add = 50
+						has_character_flag = dangerous_train
+					}
+					modifier = {
+						add = -50
+						has_character_flag = safe_train
+					}
+					add_character_flag = {
+						flag = wounded_courtier
+						days = 100
+					}
+					change_variable = {
+						name = train_outcome
+						add = -2
+					}
+				}
+				50 = {
+					modifier = {
+						add = 10
+						has_trait = athletic
+					}
+					modifier = {
+						add = 20
+						has_trait = lifestyle_trainer
+					}
+					compare_modifier = {
+						value = prowess
+						multiplier = 2
+					}
+					change_variable = {
+						name = train_outcome
+						add = 2
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wounded_courtier
+				scope:training_courtier_1 = {
+					has_trait_rank = {
+						trait = wounded
+						rank <= 2
+					}
+				}
+			}
+			scope:training_courtier_1 = {
+				increase_wounds_effect = { REASON = training_accident }
+			}
+		}
+	}
+
+	option = { #You'll be fine!
+		name = train.1002.a
+		if = {
+			limit = {
+				scope:training_courtier_1 = { is_alive = yes }
+				has_character_flag = wounded_courtier
+			}
+			scope:training_courtier_1 = {
+				add_opinion = {
+					modifier = respect_opinion
+					target = root
+					opinion = -10
+				}
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+			impatient = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = compassionate					
+					opinion = {
+						target = scope:training_courtier_1
+						value <= -10
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Short break
+		name = train.1002.b
+		stress_impact = {
+			impatient = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = arrogant
+					has_trait = callous
+					opinion = {
+						target = scope:training_courtier_1
+						value >= 20
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Courtier needs time to recover
+		name = train.1002.c
+		trigger = {
+			has_character_flag = wounded_courtier
+		}
+		scope:training_courtier_1 = {
+			add_opinion = {
+				modifier = helped_me_in_time_of_need
+				target = root
+			}
+		}
+		stress_impact = {
+			callous = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			arrogant = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+			compassionate = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = arrogant
+					has_trait = callous
+					has_trait = sadistic
+					opinion = {
+						target = scope:training_courtier_1
+						value >= 20
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		trigger_event = {
+			id = train.1003
+			days = { train_event_delay_min train_event_delay_max }
+		}
+	}
+}
+
+
+#Did you beat your opponent?
+train.1003 = {
+	type = character_event
+	title = train.1001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = beat_quarry
+				}
+				desc = train.1003.desc_beat
+			}
+			desc = {
+				desc = train.1003.desc_not_beat
+				first_valid = {
+					triggered_desc = {
+						trigger = {
+							has_character_flag = wounded_courtier
+						}
+						desc = train.1003.desc_injured
+					}
+					desc = train.1003.desc_uninjured
+				}
+			}
+		}
+	}
+	theme = train_activity
+	left_portrait = scope:training_courtier_1
+
+	immediate = {
+		hidden_effect = {
+			scope:activity = {
+				var:participant_to_use = {
+					save_scope_as = training_courtier_1
+				}
+			}
+			random_list = {
+				70 = {
+					modifier = {
+						add = 50
+						has_character_flag = dangerous_train
+					}					
+					change_variable = {
+						name = train_outcome
+						add = 1
+					}
+					add_character_flag = beat_quarry
+				}
+				30 = {
+					modifier = {
+						add = 40
+						has_character_flag = wounded_courtier
+					}
+					compare_modifier = {
+						value = prowess
+						multiplier = -2
+					}
+					change_variable = {
+						name = train_outcome
+						add = -1
+					}
+				}
+			}
+		}
+	}
+
+	option = { #you got it
+		name = train.1003.a
+		flavor = train.1003.a.tt
+		trigger = {
+			has_character_flag = beat_quarry
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+	}
+
+	option = { #nope
+		name = train.1003.b
+		flavor = train.1003.b.tt
+		trigger = {
+			NOT = { has_character_flag = beat_quarry }
+		}
+	}
+
+	after = {
+		scope:activity = { remove_variable = participant_to_use }
+		remove_character_flag = wounded_courtier
+		remove_character_flag = dangerous_train
+		remove_character_flag = safe_train
+		remove_character_flag = beat_quarry
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+
+#########################
+#	A vassal rival, or a powerful vassal that doesn't like you, is being an ass
+#	by Linnéa Thimrén
+#	1011-1016
+#########################
+scripted_trigger train_1011_nasty_guest_trigger = {
+	is_alive = yes
+	OR = {
+		is_powerful_vassal_of = root
+		is_vassal_of = root
+	}
+	OR = {
+		has_relation_rival = root
+		has_relation_potential_rival = root
+		is_a_faction_leader = yes
+		opinion = {
+			target = root
+			value <= -30
+		}
+	}
+}
+
+scripted_trigger train_1011_nice_guest_trigger = {
+	is_alive = yes
+	NOT = { this = scope:hated_participant }
+	NOR = {
+		has_relation_friend = scope:hated_participant
+		has_relation_lover = scope:hated_participant
+	}
+	OR = {
+		is_spouse_of = root
+		has_relation_lover = root
+		has_relation_friend = root
+		has_relation_potential_friend = root
+		root = {
+			opinion = {
+				target = prev
+				value >= 0
+			}
+		}
+	}
+}
+
+train.1011 = {
+	type = character_event
+	title = train.1011.t
+	desc = {
+		random_valid = {
+			desc = train.1011.desc_talk
+		}
+	}
+	theme = train_activity
+	left_portrait = {
+		character = scope:hated_participant
+		animation = schadenfreude
+	}
+	right_portrait = {
+		character = scope:nice_courtier
+		animation = shame
+	}
+	
+	trigger = {
+		scope:activity = {
+			any_in_list = {
+				variable = potential_train_participants
+				train_1011_nasty_guest_trigger = yes
+				save_temporary_scope_as = hated_participant
+			}
+			any_in_list = {
+				variable = potential_train_participants
+				train_1011_nice_guest_trigger = yes
+			}
+		}
+	}
+
+	weight_multiplier = {
+		base = 0.8
+		modifier = { #More likely to if you have a rival joining
+			add = 0.2
+			scope:activity = {
+				any_in_list = {
+					variable = potential_train_participants
+					is_alive = yes
+					is_vassal_of = root
+					OR = {
+						has_relation_rival = root
+						has_relation_potential_rival = root
+					}
+				}
+			}
+		}
+		modifier = { #More likely to if you have a powerful vassal rival joining
+			add = 0.3
+			scope:activity = {
+				any_in_list = {
+					variable = potential_train_participants
+					is_alive = yes
+					is_powerful_vassal_of = root
+					OR = {
+						has_relation_rival = root
+						has_relation_potential_rival = root
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = had_event_train_1011
+			days = 100
+		}
+		scope:activity = {
+			random_in_list = {
+				variable = potential_train_participants
+				limit = {
+					train_1011_nasty_guest_trigger = yes
+				}
+				save_scope_as = hated_participant
+			}
+			random_in_list = {
+				variable = potential_train_participants
+				limit = {
+					train_1011_nice_guest_trigger = yes
+				}
+				save_scope_as = nice_courtier
+			}
+			set_variable = {
+				name = participant_to_use_1011
+				value = scope:hated_participant
+				days = 300
+			}
+		}
+	}
+
+	option = { #call them out
+		name = train.1011.a
+		scope:nice_courtier = {
+			add_character_modifier = {
+				modifier = train_punished_nice_courtier_modifier
+				years = 5
+			}
+		}
+		reverse_add_opinion = {
+			target = scope:nice_courtier
+			modifier = rude_opinion
+		}
+		stress_impact = {
+			sadistic = medium_stress_impact_loss
+			compassionate = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			calm = medium_stress_impact_gain
+
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = sadistic
+					has_trait = callous
+				}
+			}
+		}
+	}
+
+	option = { #Intervene!
+		name = train.1011.b
+		add_character_modifier = {
+			modifier = train_mediated_fight_modifier
+			years = 5
+		}
+		reverse_add_opinion = {
+			target = scope:hated_participant
+			modifier = rude_opinion
+		}
+		reverse_add_opinion = {
+			target = scope:nice_courtier
+			modifier = kindness_opinion
+			opinion = 30
+		}
+		stress_impact = {
+			shy = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			callous = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = compassionate
+					has_trait = just
+					has_trait = wrathful
+				}
+			}
+		}
+	}
+
+	option = { #Join in!
+		name = train.1011.c
+		reverse_add_opinion = {
+			target = scope:hated_participant
+			modifier = friendliness_opinion
+			opinion = 20
+		}
+		reverse_add_opinion = {
+			target = scope:nice_courtier
+			modifier = rude_opinion
+		}
+		save_scope_value_as = { #Don't trigger the follow-up
+			name = no_follow_up
+			value = yes
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+			callous = minor_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = sadistic
+					opinion = {
+						target = scope:nice_courtier
+						value <= 10
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		change_variable = {
+			name = train_outcome
+			add = -1
+		}
+		hidden_effect = { #To make it a bit random whether the follow-up trigger or not
+			if = {
+				limit = {	
+					NOT = { exists = scope:no_follow_up }
+				}
+				random_list = {
+					80 = {
+						modifier = {
+							add = 20
+							OR = {
+								has_trait = vengeful
+								has_trait = wrathful
+								has_trait = sadistic
+							}
+						}
+						trigger_event = {
+							id = train.1012
+							days = { 3 7 }
+						}
+					}
+					20 = {
+						modifier = {
+							add = 10
+							OR = {
+								has_trait = compassionate
+								has_trait = forgiving
+								has_trait = calm
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						exists = var:participant_to_use_1011
+					}
+					remove_variable = participant_to_use_1011
+				}
+			}
+		}
+	}
+}
+
+#Do you kill your bothersome training guest or not?
+train.1012 = {
+	type = character_event
+	title = train.1011.t
+	desc = train.1012.desc
+	theme = train_activity
+	left_portrait = scope:hated_participant
+	
+	trigger = { #Either a continuation from 1011 or someone you have a murder scheme against
+		OR = {
+			has_character_flag = had_event_train_1011
+			scope:activity = {
+				any_in_list = {
+					variable = potential_train_participants
+					is_alive = yes
+					any_targeting_scheme = {
+						scheme_type = murder
+						scheme_owner = root
+						scheme_progress > 70
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		select_local_animal_effect = yes
+		scope:activity = {
+			if = {
+				limit = {
+					exists = var:participant_to_use_1011
+				}
+				var:participant_to_use_1011 = {
+					save_scope_as = hated_participant
+				}	
+			}
+			else = {
+				random_in_list = {
+					variable = potential_train_participants
+					limit = {
+						is_alive = yes
+						any_targeting_scheme = {
+							scheme_type = murder
+							scheme_owner = root
+							scheme_progress > 70
+						}
+					}
+					save_scope_as = hated_participant
+				}
+				set_variable = {
+					name = participant_to_use_1011
+					value = scope:hated_participant
+					days = 300
+				}
+			}
+		}
+	}
+
+	option = { #Take the killing blow!
+		name = train.1012.a
+		flavor = train.1012.a.tt
+		hidden_effect = {
+			duel = {
+				skill = prowess
+				value = 12
+				10 = { #Kill them
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+					}
+					trigger_event = {
+						id = train.1013
+						days = { 10 20 }
+					}
+				}
+				10 = { #Wound them (undiscovered)
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.5
+					}
+					trigger_event = {
+						id = train.1014
+						days = { 10 20 }
+					}
+				}
+				10 = { #Wound them (discovered)
+					trigger_event = {
+						id = train.1015
+						days = { 10 20 }
+					}
+				}
+				10 = { #Miss!
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					trigger_event = {
+						id = train.1016
+						days = { 10 20 }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		else = {
+			change_variable = {
+				name = train_outcome
+				add = 1
+			}
+		}
+		stress_impact = {
+			compassionate = major_stress_impact_gain
+			humble = medium_stress_impact_gain
+			honest = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+			forgiving = medium_stress_impact_gain
+			vengeful = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_vengefulness = 0.5
+				ai_energy = 0.5
+				ai_boldness = 0.25
+				ai_honor = -0.25
+				ai_compassion = -0.25
+			}
+		}
+	}
+
+	option = { #Restrain yourself
+		name = train.1012.b
+		add_stress = medium_stress_gain
+		if = {
+			limit = {
+				NOT = {
+					faith = {
+						has_doctrine_parameter = piety_gain_from_successful_intrigue_schemes
+					}
+				}
+			}
+			add_piety = medium_piety_gain
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			change_variable = {
+				name = train_outcome
+				add = -2
+			}
+		}
+		else = {
+			change_variable = {
+				name = train_outcome
+				add = 1
+			}
+		}
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+		stress_impact = {
+			sadistic = medium_stress_impact_gain
+			wrathful = minor_stress_impact_gain
+			vengeful = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = 0.75
+				ai_rationality = 0.25
+				ai_compassion = 0.25
+				ai_vengefulness = -0.25
+			}
+		}
+	}
+}
+
+#You strike at your training guest and kill them!
+train.1013 = {
+	type = character_event
+	title = train.1011.t
+	desc = train.1013.desc
+	theme = train_activity
+	left_portrait = scope:hated_participant
+
+	immediate = {
+		play_music_cue = "mx_cue_stress"
+		scope:activity = {
+			var:participant_to_use_1011 = {
+				save_scope_as = hated_participant
+			}
+		}
+		unknown_murder_effect = {
+			VICTIM = scope:hated_participant
+			MURDERER = root
+			REASON = death_training_accident
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+	}
+
+	option = {
+		name = train.1013.a
+		scope:activity = {
+			every_in_list = {
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+				}
+				custom = all_train_participants
+				add_opinion = {
+					modifier = opinion_acting_strange
+					target = root
+				}
+			}
+		}
+	}
+
+	after = {
+		scope:activity = {
+			remove_variable = participant_to_use_1011
+		}
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#You strike at your training guest and wound them (undiscovered)
+train.1014 = {
+	type = character_event
+	title = train.1011.t
+	desc = train.1014.desc
+	theme = train_activity
+	left_portrait = {
+		character = scope:hated_participant
+		animation = anger
+	}
+	right_portrait = scope:participant_to_blame
+
+	immediate = {
+		scope:activity = {
+			var:participant_to_use_1011 = {
+				save_scope_as = hated_participant
+			}
+			if = {
+				limit = {
+					any_in_list = {
+						variable = potential_train_participants
+						is_alive = yes
+						NOT = { this = root }
+						NOT = { this = scope:hated_participant }
+					}
+				}
+				random_in_list = {
+					variable = potential_train_participants
+					limit = { #Blame someone you don't like!
+						is_alive = yes
+						NOT = { this = root }
+						NOT = { this = scope:hated_participant }
+						OR = {
+							has_relation_rival = root
+							has_relation_potential_rival = root
+							reverse_opinion = {
+								target = root
+								value <= -30
+							}
+						}
+					}
+					alternative_limit = {
+						is_alive = yes
+						NOT = { this = root }
+						NOT = { this = scope:hated_participant }
+						reverse_opinion = {
+							target = root
+							value <= -10
+						}
+					}
+					alternative_limit = { #Just pick whomever at this stage
+						is_alive = yes
+						NOT = { this = root }
+						NOT = { this = scope:hated_participant }
+					}
+					weight = {
+						base = 10
+						modifier = {
+							add = -9
+							OR = {
+								has_relation_friend = root
+								has_relation_potential_friend = root
+								has_relation_lover = root
+							}
+						}
+					}
+					save_scope_as = participant_to_blame
+				}
+			}
+		}
+		scope:hated_participant = {
+			increase_wounds_effect = { REASON = training_accident }
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+	}
+
+	option = { #It was I!
+		name = train.1014.a
+		scope:hated_participant = {
+			add_opinion = {
+				target = root
+				modifier = cruelty_opinion
+				opinion = -20
+			}
+		}
+		scope:activity = { #All honorable participants lose opinion
+			every_in_list = {
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+					ai_honor >= high_positive_honor
+				}
+				custom = train.1014.all_honorable_train_participants
+				add_opinion = {
+					modifier = opinion_acting_strange
+					target = root
+				}
+			}
+		}
+		scope:activity = { #All evil participants gain opinion
+			every_in_list = {
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+					OR = {
+						has_trait = sadistic
+						opinion = {
+							target = scope:hated_participant
+							value <= -30
+						}
+					}
+				}
+				custom = train.1014.all_who_dislike_or_are_evil
+				add_opinion = {
+					modifier = cruelty_opinion
+					target = root
+					opinion = 10
+				}
+			}
+		}
+	}
+
+
+	option = { #You clumsy fool!
+		name = train.1014.c
+		scope:hated_participant = {
+			add_opinion = {
+				modifier = publicly_ridiculed
+				target = root
+			}
+			add_dread = medium_dread_loss
+			add_prestige = medium_prestige_loss
+		}
+	}
+
+	after = {
+		scope:activity = {
+			remove_variable = participant_to_use_1011
+		}
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#You strike at your training guest and wound them (discovered)
+train.1015 = {
+	type = character_event
+	title = train.1011.t
+	desc = train.1015.desc
+	theme = train_activity
+	left_portrait = {
+		character = scope:hated_participant
+		animation = fear
+	}
+
+	immediate = {
+		scope:activity = {
+			var:participant_to_use_1011 = {
+				save_scope_as = hated_participant
+			}
+		}
+		scope:hated_participant = {
+			increase_wounds_effect = { REASON = training_accident }
+		}
+		add_secret = {
+			type = secret_murder_attempt
+			target = scope:hated_participant
+		}
+	}
+
+	option = { #Do nothing
+		name = train.1015.a
+		random_secret = { #They know that you tried killing them
+			limit = {
+				secret_type = secret_murder_attempt
+				secret_target = scope:hated_participant
+			}
+			reveal_to = scope:hated_participant
+		}
+		change_variable = {
+			name = train_outcome
+			add = -2
+		}
+		stress_impact = {
+			diligent = medium_stress_impact_gain
+			gregarious = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = content
+					has_trait = calm
+					has_trait = lazy
+					has_trait = honest
+				}
+			}
+		}
+	}
+
+	option = { #Threaten
+		name = train.1015.b
+		trigger = {
+			NOT = { has_usable_hook = scope:hated_participant }
+		}
+		random_secret = { #They know that you tried killing them
+			limit = {
+				secret_type = secret_murder_attempt
+				secret_target = scope:hated_participant
+			}
+			reveal_to = scope:hated_participant
+		}
+		change_variable = {
+			name = train_outcome
+			add = -1
+		}
+		add_dread = medium_dread_gain
+		stress_impact = {
+			calm = medium_stress_impact_gain
+			lazy = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+			honest = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = brave
+					has_trait = wrathful
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+		}
+	}
+
+	option = { #Next time!!
+		name = train.1015.c
+		trigger = {
+			OR = {
+				has_trait = sadistic
+				has_trait = diligent
+			}
+		}
+		trait = diligent
+		trait = sadistic
+		random_secret = { #Remove the secret
+			limit = {
+				secret_type = secret_murder_attempt
+				secret_target = scope:hated_participant
+			}
+			remove_secret = yes
+		}
+		unknown_murder_effect = {
+			VICTIM = scope:hated_participant
+			MURDERER = root
+			REASON = death_training_accident
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = diligent
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = callous
+				}
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		else = {
+			change_variable = {
+				name = train_outcome
+				add = 1
+			}
+		}
+		stress_impact = {
+			calm = medium_stress_impact_gain
+			lazy = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+			honest = medium_stress_impact_gain
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = sadistic
+					has_trait = diligent
+				}
+			}
+			modifier = {
+				add = 20
+				OR = {
+					has_trait = wrathful
+					has_trait = callous
+				}
+			}
+		}
+	}
+
+	option = { #Talk yourself out of it
+		name = train.1015.d
+		trigger = {
+			OR = {
+				has_trait = gregarious
+				learning >= high_skill_rating
+				diplomacy >= high_skill_rating
+			}
+		}
+		trait = gregarious
+		skill = learning
+		skill = diplomacy
+		random_secret = { #Remove the secret
+			limit = {
+				secret_type = secret_murder_attempt
+				secret_target = scope:hated_participant
+			}
+			remove_secret = yes
+		}
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+		stress_impact = {
+			sadistic = medium_stress_impact_gain
+			wrathful = medium_stress_impact_gain
+			shy = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #You have a Hook on them?
+		name = train.1015.e
+		trigger = {
+			has_usable_hook = scope:hated_participant
+		}
+		use_hook = scope:hated_participant
+		random_secret = { #Remove the secret
+			limit = {
+				secret_type = secret_murder_attempt
+				secret_target = scope:hated_participant
+			}
+			remove_secret = yes
+		}
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+		stress_impact = {
+			wrathful = medium_stress_impact_gain
+			callous = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			shy = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	after = {
+		scope:activity = {
+			remove_variable = participant_to_use_1011
+		}
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#You strike at your training guest and miss!
+train.1016 = {
+	type = character_event
+	title = train.1011.t
+	desc = train.1016.desc
+	theme = train_activity
+	left_portrait = scope:hated_participant
+
+	immediate = {
+		scope:activity = {
+			var:participant_to_use_1011 = {
+				save_scope_as = hated_participant
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = -2
+		}
+	}
+
+	option = {
+		name = train.1016.a
+		add_prestige = medium_prestige_loss
+	}
+
+	after = {
+		scope:activity = {
+			remove_variable = participant_to_use_1011
+		}
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+##########################
+#	RANDOM PULSE EVENTS  #
+#	4000 - 4999			 #
+##########################
+
+#######################
+#	Poor Peasents ask for coin 4001
+#	by Stephen Walker
+#######################
+
+train.4001 = {
+	type = character_event
+	title = train.4001.t
+	desc = train.4001.desc
+	theme = train_activity
+	left_portrait = root
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}
+
+	immediate = {
+		scope:activity.activity_province = {
+			barony = {
+				save_scope_as = activity_place
+			}
+			county = {
+				save_scope_as = county
+				holder = {
+					save_scope_as = county_owner
+				}
+			}
+		}
+	}
+
+	option = { #Drive them out!
+		name = hunt.4001.a
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_peasants_denied_aid
+				years = 10
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+		stress_impact = {
+			wrathful = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+			shy = medium_stress_gain
+			compassionate = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+	option = { #We came here to train, did we not?
+		name = hunt.4001.b
+		trait = sadistic
+		add_dread = small_dread_gain
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_peasants_hunted_modifier
+				years = 10
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+		stress_impact = {
+			diligent = medium_stress_loss
+			lazy = medium_stress_gain
+			compassionate = medium_stress_impact_gain
+		}
+		scope:county_owner = {
+			if = {
+				limit = {
+					NOT = { this = root }
+					ai_compassion < 0
+				}
+				if = {
+					limit = {
+						OR = {
+							has_trait = cannibal
+							has_trait = sadistic
+							any_secret = {
+								secret_type = secret_cannibal
+							}
+						}
+						root = {
+							can_add_hook = {
+								type = favor_hook
+								target = scope:county_owner
+							}
+						}
+					}
+					root = {
+						custom_tooltip = hunt.4001.special_interest
+						add_hook = {
+							type = favor_hook
+							target = scope:county_owner
+						}
+					}
+				}
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #This will do just fine...
+		name = hunt.4001.c
+		trait = cannibal
+		trigger = {
+			has_trait = cannibal
+		}
+		add_dread = medium_dread_gain
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_peasants_hunted_modifier
+				years = 10
+			}
+		}
+		scope:county_owner = {
+			if = {
+				limit = {
+						NOT = { this = root }
+						ai_compassion < 0
+					}
+					add_opinion = {
+						modifier = opinion_solved_poverty_problem
+						target = root
+						days = 3650
+					}
+				if = {
+					limit = {
+						OR = {
+							has_trait = cannibal
+							has_trait = sadistic
+							any_secret = {
+								secret_type = secret_cannibal
+							}
+						}
+						root = {
+							can_add_hook = {
+								type = favor_hook
+								target = scope:county_owner
+							}
+						}
+					}
+					root = {
+						custom_tooltip = train.4001.special_interest
+						add_hook = {
+							type = favor_hook
+							target = scope:county_owner
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			base = medium_stress_impact_loss
+			compassionate = medium_stress_impact_gain
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	
+	option = { #Offer a charitable donation
+		name = train.4001.d
+		remove_short_term_gold = minor_gold_value
+		add_piety = medium_piety_gain
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_aided_peasants_modifier
+				years = 10
+			}
+		}
+		ai_chance = {
+			base = 70
+		}
+	}
+	stress_impact = {
+		charitable = medium_stress_impact_loss
+	}
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#######################
+#	Peasents caught under wagon 4001
+#	by Stephen Walker
+#######################
+
+train.4001 = {
+	type = character_event
+	title = train.4002.t
+	desc = train.4002.desc
+	theme = train_activity
+	right_portrait = root
+	right_portrait = {
+		character = root
+		animation = shock
+	}
+
+	immediate = {
+		scope:activity.activity_province = {
+			barony = {
+				save_scope_as = activity_place
+			}
+			county = {
+				save_scope_as = county
+				holder = {
+					save_scope_as = county_owner
+				}
+			}
+		}
+	}
+
+	option = { #Help them!
+		name = train.4002.a
+		add_piety = medium_piety_gain
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_aided_peasants_modifier
+				years = 10
+			}
+		}
+		stress_impact = {
+			charitable = medium_stress_impact_loss
+			just = medium_stress_impact_loss
+			lazy = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+
+	option = { #We came here to train, did we not?
+		name = train.4002.b
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_peasants_denied_aid_modifier
+				years = 10
+			}
+		}
+		stress_impact = {
+			charitable = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+			sadistic = medium_stress_impact_loss
+			just = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	
+	option = { #Send men
+		name = train.4002.c
+		add_prestige = medium_prestige_gain
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_peasants_given_aid_modifier
+				years = 10
+			}
+		}
+		stress_impact = {
+			charitable = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+			dilligent = medium_stress_impact_gain 
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#######################
+#	Run into bandits 4003
+#	by Stephen Walker
+#######################
+
+train.4003 = {
+	type = character_event
+	title = train.4003.t
+	desc = train.4003.desc
+	theme = train_activity
+	left_portrait = root
+
+	trigger = {
+		scope:activity.activity_province.county = {
+			NOT = { has_county_modifier = train_punished_locals_modifier }
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_province = {
+				county = {
+					save_scope_as = county
+					holder = {
+						save_scope_as = land_owner
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Punish them
+		name = train.4003.a
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_punished_locals_modifier
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = just
+				}
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			just = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+					has_trait = vengeful
+					has_trait = just
+
+				}
+			}
+		}
+	}
+
+	option = { #I will let you go if you teach me a thing or two
+		name = train.4003.b
+		trigger = {
+			NOT = {
+				has_trait_rank = {
+					trait = lifestyle_trainer
+					rank = 3
+				}
+			}
+		}
+		stress_impact = {
+			just = medium_stress_impact_gain
+		}
+		change_variable = {
+			name = train_outcome
+			add = 2
+		}
+		add_character_modifier = {
+			modifier = train_bandits_training_modifier
+			years = 10
+		}
+		hidden_effect = {
+			trainer_progress_point_gain_effect = yes #Gives points towards ranking up the trainer Lifestyle
+		}
+	}
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#######################
+#	Local garrison wish to join 4004
+#	by Stephen Walker
+#######################
+
+train.4004 = {
+	type = character_event
+	title = train.4004.t
+	desc = train.4004.desc
+	theme = train_activity
+	left_portrait = root
+
+	trigger = {
+		scope:activity.activity_province.county = {
+			any_in_list = {
+				NOT = { has_county_modifier = train_local_garrison_modifier }
+				NOT = { has_county_modifier = train_upset_garrison_modifier }
+				NOT = { has_county_modifier = train_scorn_garrison_modifier }
+			}
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_province = {
+				county = {
+					save_scope_as = county
+					holder = {
+						save_scope_as = land_owner
+					}
+				}
+			}
+		}
+	}
+
+	option = { #Let the join
+		name = train.4004.a
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_local_garrison_modifier
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+					has_trait = compassionate
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			gregarious = medium_stress_impact_loss
+			wrathful = medium_stress_impact_gain
+			sadistic = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				has_trait = compassionate
+			}
+		}
+	}
+
+	option = { #Hmmm you shouldn't be here
+		name = train.4004.b
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_upset_garrison_modifier
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+					has_trait = just
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+			dilligent = medium_stress_impact_loss
+			sadistic = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				has_trait = just
+			}
+		}
+	}
+
+	option = { #Excuse me!
+		name = train.4004.c
+		scope:county = {
+			add_county_modifier = {
+				modifier = train_scorn_garrison_modifier
+				years = 10
+			}
+		}
+		if = {
+			limit = {
+					has_trait = sadistic
+					has_trait = wrathful
+			}
+			change_variable = {
+				name = train_outcome
+				add = 2
+			}
+		}
+		stress_impact = {
+				compassionate = medium_stress_impact_gain
+				calm = medium_stress_impact_gain
+				sadistic = medium_stress_impact_loss
+				wrathful = medium_stress_impact_loss			
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 40
+				OR = {
+					has_trait = sadistic
+					has_trait = wrathful
+				}				
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+#######################
+#	train with your heir 4008
+#	by Linnéa Thimrén
+#######################
+train.4008 = {
+	type = character_event
+	title = train.4008.t
+	desc = train.4008.desc
+	theme = train_activity
+	left_portrait = {
+		character = scope:heir_participant
+		animation = worry
+	}
+	right_portrait = scope:peasant
+	
+	trigger = {
+		scope:activity = {
+			any_in_list = {
+				variable = potential_train_participants
+				is_alive = yes
+				is_ai = yes
+				this = root.player_heir
+				reverse_opinion = {
+					target = root
+					value >= 0
+				}
+			}
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_murder"
+		scope:activity.activity_province = {
+			county = {
+				save_scope_as = activity_place
+			}
+		}
+		scope:activity = {
+			random_in_list = { #Find the heir
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+					is_ai = yes
+					this = root.player_heir
+					reverse_opinion = {
+						target = root
+						value >= 0
+					}
+				}
+				save_scope_as = heir_participant
+			}
+		}
+		#To create the peasant
+		create_character = {
+			age = { 20 35 }
+			random_traits = yes
+			random_traits_list = {
+				count = 1
+				trainer_2 = {}
+				trainer_3 = {}
+			}
+			gender_female_chance = 50
+			dynasty = none
+			faith = this.faith
+			culture = this.culture
+			location = scope:activity.activity_province
+			save_scope_as = peasant
+		}
+		unknown_murder_effect = {
+			VICTIM = scope:peasant
+			MURDERER = scope:heir_participant
+			REASON = death_training_accident
+		}
+		#You know about the secret
+		scope:heir_participant = {
+			random_secret = {
+				limit = {
+					secret_type = secret_murder
+					secret_target = scope:peasant
+				}
+				save_scope_as = secret
+				reveal_to_without_events_effect = {
+					CHARACTER = root
+				}
+			}
+		}
+	}
+
+	option = { #Convince everyone that they tried to save the peasant
+		name = train.4008.a
+		duel = {
+			skill = diplomacy
+			value = 12
+			20 = {
+				desc = train.4008.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				send_interface_toast = {
+					title = train.4008.a.success
+					left_icon = scope:heir_participant
+					scope:activity_place = {
+						add_county_modifier = {
+							modifier = train_protected_peasants_modifier
+							years = 10
+						}
+					}
+					scope:activity = {
+						every_in_list = {
+							variable = potential_train_participants
+							limit = {
+								is_alive = yes
+							}
+							custom = all_train_participants
+							add_opinion = {
+								modifier = respect_opinion
+								target = scope:heir_participant
+								opinion = 30
+							}
+						}
+					}
+				}
+				root = {
+					change_variable = {
+						name = train_outcome
+						add = 2
+					}
+				}
+			}
+			10 = {
+				desc = train.4008.a.failure
+				send_interface_toast = {
+					title = train.4008.a.failure
+					left_icon = scope:heir_participant
+					scope:activity = {
+						every_in_list = {
+							variable = potential_train_participants
+							limit = {
+								is_alive = yes
+							}
+							custom = all_train_participants
+							add_opinion = {
+								modifier = respect_opinion
+								target = root
+								opinion = -15
+							}
+						}
+						random_in_list = {
+							variable = potential_train_participants
+							limit = {
+								NOT = { this = scope:heir_participant }
+							}
+							save_scope_as = participant
+							scope:secret = {
+								expose_secret = scope:participant
+							}
+						}
+					}
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = -2
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			honest = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			modifier = {
+				add = 50
+				diplomacy > average_skill_rating
+			}
+		}
+	}
+
+	option = { #Cover it up
+		name = train.4008.b
+		duel = {
+			skill = intrigue
+			value = 10
+			12 = {
+				desc = train.4008.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = train.4008.b.success
+					left_icon = scope:heir_participant
+					custom_tooltip = train.4008.b.success_tt
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = 1
+						}
+					}
+				}
+			}
+			8 = {
+				desc = train.4008.b.failure
+				send_interface_toast = {
+					title = train.4008.b.failure
+					left_icon = scope:heir_participant
+					scope:activity = {
+						random_in_list = {
+							variable = potential_train_participants
+							limit = {
+								NOT = { this = scope:heir_participant }
+							}
+							save_scope_as = participant
+							scope:secret = {
+								expose_secret = scope:participant
+							}
+						}
+					}
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = -2
+						}
+					}
+				}
+			}
+		}
+		stress_impact = {
+			honest = medium_stress_impact_gain
+			just = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				OR = {
+					has_trait = deceitful
+					has_trait = callous
+				}
+			}
+			modifier = {
+				add = 50
+				intrigue > average_skill_rating
+			}
+		}
+	}
+	
+	option = { #Heir will pay for this
+		name = train.4008.c
+		scope:secret = {
+			expose_secret = root
+		}
+		change_variable = {
+			name = train_outcome
+			add = -1
+		}
+		stress_impact = {
+			arrogant = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 75
+				OR = {
+					has_trait = just
+					has_trait = honest
+				}
+			}
+		}
+	}
+
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+
+
+#######################
+#	Someone has a murder/abduct scheme against you (or you heir dislikes you) 4009
+#	by Linnéa Thimrén
+#######################
+
+scripted_trigger train_4009_scheme_trigger = {
+	OR = {
+		scheme_type = murder
+		scheme_type = abduct
+	}
+	scheme_target = root
+}
+
+scripted_trigger train_4009_scheming_character_trigger = {
+	is_alive = yes
+	is_available_ai_adult = yes
+	OR = {
+		any_scheme = {
+			train_4009_scheme_trigger = yes
+		}
+		AND = {
+			this = root.player_heir
+			reverse_opinion = {
+				target = root
+				value <= -10
+			}
+			has_any_good_relationship_with_root_trigger = no
+			can_start_scheme = {
+				type = murder
+				target = root
+			}
+		}
+	}
+}
+
+train.4009 = {
+	type = character_event
+	title = train.4009.t
+	desc = train.4009.desc
+	theme = train_activity
+	right_portrait = {
+		character = scope:schemer
+		animation = anger
+	}
+	lower_left_portrait = scope:saving_participant
+	
+	trigger = {
+		scope:activity = {
+			any_in_list = {
+				variable = potential_train_participants
+				train_4009_scheming_character_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_stress"
+		select_local_animal_effect = yes
+		scope:activity = { #Find a participant who schemes against you
+			random_in_list = {
+				variable = potential_train_participants
+				limit = {
+					train_4009_scheming_character_trigger = yes
+				}
+				weight = {
+					base = 1
+					modifier = {#More likely if they scheme against you
+						add = 1
+						any_scheme = {
+							train_4009_scheme_trigger = yes
+						}
+					}
+				}
+				save_scope_as = schemer
+			}
+		}
+		scope:schemer = { #To save the scheme
+			if = {
+				limit = {
+					any_scheme = {
+						train_4009_scheme_trigger = yes
+					}
+				}
+				random_scheme = {
+					limit = {
+						train_4009_scheme_trigger = yes
+					}
+					save_scope_as = scheme
+				}
+			}
+			else = { # Start a new scheme if none exists
+				start_scheme = {
+					type = murder
+					target = root
+				}
+				random_scheme = {
+					limit = {
+						scheme_type = murder
+						scheme_target = root
+					}
+					save_scope_as = scheme
+				}
+			}
+
+			#Set a murder secret if it's a murder attempt
+			if = {
+				limit = {
+					scope:scheme = {
+						scheme_type = murder
+					}
+				}
+				add_secret = {
+					type = secret_murder_attempt
+					target = root
+				}
+				random_secret = {
+					limit = {
+						secret_type = secret_murder_attempt
+						secret_target = root
+					}
+					save_scope_as = murder_secret
+				}
+			}
+		}
+		scope:activity = { #Find a participant to help you!
+			random_in_list = {
+				variable = potential_train_participants
+				limit = {
+					is_alive = yes
+					prowess > root.prowess
+					opinion = {
+						target = root
+						value >= 0
+					}
+					NOR = {
+						opinion = {
+							target = scope:schemer
+							value >= 40
+						}
+						scope:scheme = {
+							scheme_is_character_agent = prev
+						}
+					}
+				}
+				weight = {
+					base = 0
+					modifier = {
+						add = {
+							value = prowess
+							multiply = 0.5
+						}
+					}
+					modifier = {
+						add = 3
+						has_trait = education_martial
+					}
+				}
+				save_scope_as = saving_participant
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = -2
+		}
+	}
+
+	option = { #Take them on: Murder
+		name = train.4009.a
+		trigger = {
+			scope:scheme = {
+				scheme_type = murder
+			}
+		}
+		scope:murder_secret = {
+			reveal_to = root
+		}
+		duel = {
+			skill = prowess
+			target = scope:schemer
+			10 = { #Nothing happens but reveal
+				desc = train.4009.a.success
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				send_interface_toast = {
+					title = train.4009.a.success
+					left_icon = scope:schemer
+				}
+				change_variable = {
+					name = train_outcome
+					add = 1
+				}
+			}
+			6 = { #They wound me
+				desc = train.4009.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				send_interface_toast = {
+					title = train.4009.a.failure
+					left_icon = scope:schemer
+					increase_wounds_effect = {
+						REASON = fight
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_trait = wounded_3
+							}
+						}
+						add_character_modifier = {
+							modifier = watchful_modifier
+							days = watchful_modifier_duration
+						}
+					}
+				}
+			}
+			2 = { #Their scheme succeeds
+				desc = train.4009.a.critical_failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				send_interface_toast = {
+					title = train.4009.a.critical_failure
+					left_icon = scope:schemer
+					unknown_murder_effect = {
+						VICTIM = root
+						MURDERER = scope:schemer
+						REASON = death_training_accident
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess > scope:schemer.prowess
+			}
+		}
+	}
+
+	option = { #Take them on: Abduction
+		name = train.4009.a
+		trigger = {
+			scope:scheme = {
+				scheme_type = abduct
+			}
+		}
+		duel = {
+			skill = prowess
+			target = scope:schemer
+			10 = { #Nothing happens but reveal
+				desc = train.4009.a.success
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				send_interface_toast = {
+					title = train.4009.a.success
+					left_icon = scope:schemer
+
+					add_opinion = {
+						target = scope:schemer
+						modifier = attempted_abduction_opinion
+					}
+					add_character_modifier = {
+						modifier = watchful_modifier
+						days = watchful_modifier_duration
+					}
+				}
+				change_variable = {
+					name = train_outcome
+					add = 1
+				}
+			}
+			6 = { #They wound me
+				desc = train.4009.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				send_interface_toast = {
+					title = train.4009.a.failure
+					left_icon = scope:schemer
+					increase_wounds_effect = {
+						REASON = fight
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_trait = wounded_3
+							}
+						}
+						add_opinion = {
+							target = scope:schemer
+							modifier = attempted_abduction_opinion
+						}
+						add_character_modifier = {
+							modifier = watchful_modifier
+							days = watchful_modifier_duration
+						}
+					}
+				}
+			}
+			2 = { #Their scheme succeeds
+				desc = train.4009.a.critical_failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				hard_imprison_character_effect = {
+					TARGET = root
+					IMPRISONER = scope:schemer
+				}
+				add_opinion = {
+					target = scope:schemer
+					modifier = abducted_me_opinion
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess > scope:schemer.prowess
+			}
+		}
+	}
+
+	option = { #Call for help: Murder
+		name = train.4009.b
+		trigger = {
+			exists = scope:saving_participant
+			scope:scheme = {
+				scheme_type = murder
+			}
+		}
+		scope:murder_secret = {
+			reveal_to = root
+		}
+		scope:murder_secret = {
+			reveal_to = scope:saving_participant
+		}
+		add_prestige = medium_prestige_loss
+		scope:saving_participant = { #The rescuer does the rescuing
+			duel = {
+				skill = prowess
+				target = scope:schemer
+				10 = { #They become wounded
+					desc = train.4009.b.critical_success
+					compare_modifier = {
+						value = scope:duel_value
+					}
+						
+					root = {
+						send_interface_toast = {
+							title = train.4009.b.critical_success
+							left_icon = scope:schemer
+							add_character_modifier = {
+								modifier = watchful_modifier
+								days = watchful_modifier_duration
+							}
+							add_opinion = {
+								target = scope:saving_participant
+								modifier = grateful_opinion
+								opinion = 40
+							}
+
+							scope:schemer = {
+								increase_wounds_effect = {
+									REASON = fight
+								}
+							}
+						}
+					}
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = 1
+						}
+					}
+				}
+				6 = {
+					desc = train.4009.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					root = {
+						send_interface_toast = {
+							title = train.4009.b.failure
+							left_icon = scope:schemer
+							scope:saving_participant = {
+								increase_wounds_effect = {
+									REASON = fight
+								}
+							}
+							add_character_modifier = {
+								modifier = watchful_modifier
+								days = watchful_modifier_duration
+							}
+						}
+					}
+				}
+				2 = {
+					desc = train.4009.b.critial_failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					root = {
+						send_interface_toast = {
+							left_icon = scope:schemer
+							title = train.4009.b.critial_failure
+
+							unknown_murder_effect = {
+								VICTIM = root
+								MURDERER = scope:schemer
+								REASON = death_training_accident
+							}
+							unknown_murder_effect = {
+								VICTIM = scope:saving_participant
+								MURDERER = scope:schemer
+								REASON = death_training_accident
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess <= scope:schemer.prowess
+			}
+			modifier = {
+				add = 25
+				scope:saving_participant.prowess > scope:schemer.prowess
+			}
+		}
+	}
+
+	option = { #Call for help: Abduction
+		name = train.4009.b
+		trigger = {
+			exists = scope:saving_participant
+			scope:scheme = {
+				scheme_type = abduct
+			}
+		}
+		add_prestige = medium_prestige_loss
+		scope:saving_participant = { #The rescuer does the rescuing
+			duel = {
+				skill = prowess
+				target = scope:schemer
+				10 = { #They become wounded
+					desc = train.4009.b.critical_success
+					compare_modifier = {
+						value = scope:duel_value
+					}
+						
+					root = {
+						send_interface_toast = {
+							title = train.4009.b.critical_success
+							left_icon = scope:schemer
+
+							add_opinion = {
+								target = scope:schemer
+								modifier = attempted_abduction_opinion
+							}
+							add_character_modifier = {
+								modifier = watchful_modifier
+								days = watchful_modifier_duration
+							}
+
+							scope:schemer = {
+								increase_wounds_effect = {
+									REASON = fight
+								}
+							}
+						}
+					}
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = 1
+						}
+					}
+				}
+				6 = {
+					desc = train.4009.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					#Chance of the rescuer dying
+					random = {
+						chance = {
+							value = 50
+							subtract = scope:saving_participant.prowess
+						}
+						unknown_murder_effect = {
+							VICTIM = scope:saving_participant
+							MURDERER = scope:schemer
+							REASON = death_training_accident
+						}
+					}
+					root = {
+						send_interface_toast = {
+							title = train.4009.b.failure
+							left_icon = scope:schemer
+							increase_wounds_effect = {
+								REASON = fight
+							}
+							add_opinion = {
+								target = scope:schemer
+								modifier = attempted_abduction_opinion
+							}
+							add_character_modifier = {
+								modifier = watchful_modifier
+								days = watchful_modifier_duration
+							}
+						}
+					}
+				}
+				2 = {
+					desc = train.4009.b.critial_failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					root = {
+						send_interface_toast = {
+							left_icon = scope:schemer
+							title = train.4009.b.critial_failure
+
+
+							hard_imprison_character_effect = {
+								TARGET = root
+								IMPRISONER = scope:schemer
+							}
+							add_opinion = {
+								target = scope:schemer
+								modifier = abducted_me_opinion
+							}
+
+							hard_imprison_character_effect = {
+								TARGET = scope:schemer
+								IMPRISONER = scope:schemer
+							}
+							scope:saving_participant = {
+								add_opinion = {
+									target = scope:schemer
+									modifier = abducted_me_opinion
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess <= scope:schemer.prowess
+			}
+			modifier = {
+				add = 25
+				scope:saving_participant.prowess > scope:schemer.prowess
+			}
+		}
+	}
+	
+	option = { #Run! - Murder
+		name = train.4009.c
+		trigger = {
+			scope:scheme = {
+				scheme_type = murder
+			}
+		}
+		random_list = {
+			80 = {
+				desc = train.4009.a.success
+				send_interface_toast = {
+					title = train.4009.a.success
+					left_icon = scope:schemer
+
+					scope:murder_secret = {
+						reveal_to = root
+					}
+					add_character_modifier = {
+						modifier = watchful_modifier
+						days = watchful_modifier_duration
+					}
+				}
+				change_variable = {
+					name = train_outcome
+					add = 1
+				}
+			}
+			20 = {
+				desc = train.4009.c.failure
+				send_interface_toast = {
+					title = train.4009.c.failure
+					left_icon = scope:schemer
+
+					unknown_murder_effect = {
+						VICTIM = root
+						MURDERER = scope:schemer
+						REASON = death_training_accident
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			#More likely the more scared I am of the schemer
+			modifier = {
+				add = 25
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -45
+				}
+			}
+			modifier = {
+				add = 50
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -75
+				}
+			}
+		}
+	}
+	
+	option = { #Run! - Abduction
+		name = train.4009.c
+		trigger = {
+			scope:scheme = {
+				scheme_type = abduct
+			}
+		}
+		random_list = {
+			80 = {
+				desc = train.4009.a.success
+				send_interface_toast = {
+					title = train.4009.a.success
+					left_icon = scope:schemer
+
+					add_opinion = {
+						target = scope:schemer
+						modifier = attempted_abduction_opinion
+					}
+					add_character_modifier = {
+						modifier = watchful_modifier
+						days = watchful_modifier_duration
+					}
+				}
+				change_variable = {
+					name = train_outcome
+					add = 1
+				}
+			}
+			20 = {
+				desc = train.4009.c.failure
+				send_interface_toast = {
+					title = train.4009.c.failure
+					left_icon = scope:schemer
+
+					hard_imprison_character_effect = {
+						TARGET = root
+						IMPRISONER = scope:schemer
+					}
+					add_opinion = {
+						target = scope:schemer
+						modifier = abducted_me_opinion
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			#More likely the more scared I am of the schemer
+			modifier = {
+				add = 25
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -45
+				}
+			}
+			modifier = {
+				add = 50
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -75
+				}
+			}
+		}
+	}
+
+	after = {
+		#Make sure the Scheme is removed, whatever else happens
+		if = {
+			limit = {
+				exists = scope:scheme
+			}
+			scope:scheme = {
+				end_scheme = yes
+			}
+		}
+		#End the train, if still relevant
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+
+
+#######################
+#	Someone has a murder scheme against a close family member 4010
+#	by Linnéa Thimrén
+#######################
+
+scripted_trigger train_4010_scheme_trigger = {
+	scheme_type = murder
+	
+	# Scheme target is a close relative/spouse.
+	scheme_target = {
+		is_available_ai_adult = yes
+		is_close_family_or_spouse_trigger = {
+			CHARACTER = root
+		}
+		save_temporary_scope_as = targeted_participant_check
+	}
+	# Scheme target must also be on the train with us.
+	scope:activity = {
+		any_in_list = {
+			variable = potential_train_participants
+			is_alive = yes
+			this = scope:targeted_participant_check
+
+		}
+	}
+}
+
+scripted_trigger train_4010_scheming_character_trigger = {
+	is_alive = yes
+	is_available_ai_adult = yes
+	any_scheme = {
+		train_4010_scheme_trigger = yes
+	}
+}
+
+scripted_trigger train_4010_targeted_participant_trigger = {
+	is_alive = yes
+	is_available_ai_adult = yes
+	is_close_family_or_spouse_trigger = {
+		CHARACTER = root
+	}
+	any_targeting_scheme = {
+		scheme_type = murder
+		scheme_owner = scope:schemer
+	}
+}
+
+train.4010 = {
+	type = character_event
+	title = train.4009.t # Title shared between 4009 and 4010
+	desc = train.4010.desc
+	theme = train_activity
+	left_portrait = {
+		character = scope:targeted_participant
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:schemer
+		animation = anger
+	}
+	
+	trigger = {
+		scope:activity = {
+			any_in_list = {
+				variable = potential_train_participants
+				train_4010_scheming_character_trigger = yes
+			}
+		}
+	}
+
+	immediate = {
+		play_music_cue = "mx_cue_stress"
+		select_local_animal_effect = yes
+		scope:activity = {
+			random_in_list = { #Find a participant who schemes against you
+				variable = potential_train_participants
+				limit = {
+					train_4010_scheming_character_trigger = yes
+				}
+				save_scope_as = schemer
+			}
+			random_in_list = { #Find the target
+				variable = potential_train_participants
+				limit = {
+					train_4010_targeted_participant_trigger = yes
+				}
+				save_scope_as = targeted_participant
+			}
+		}
+		scope:schemer = {
+			random_scheme = {
+				limit = {
+					train_4010_scheme_trigger = yes
+				}
+				save_scope_as = scheme
+			}
+		}
+		#If it's a murder, create an attempted murder Secret
+		if = {
+			limit = {
+				scope:scheme = {
+					scheme_type = murder
+				}
+			}
+			scope:schemer = {
+				add_secret = {
+					type = secret_murder_attempt
+					target = scope:targeted_participant
+				}
+				random_secret = {
+					limit = {
+						secret_type = secret_murder_attempt
+						secret_target = scope:targeted_participant
+					}
+					save_scope_as = murder_secret
+				}
+			}
+			scope:murder_secret = {
+				reveal_to_without_events_effect = {
+					CHARACTER = root
+				}
+				hidden_effect = {
+					reveal_to_without_events_effect = {
+						CHARACTER = scope:targeted_participant
+					}
+				}
+			}
+		}
+		change_variable = {
+			name = train_outcome
+			add = -2
+		}
+	}
+
+	option = { #Take them on
+		name = train.4010.a
+		trigger = {
+			scope:scheme = {
+				scheme_type = murder
+			}
+		}
+		
+		duel = {
+			skill = prowess
+			target = scope:schemer
+			12 = { #Wound them
+				desc = train.4010.a.critical_success
+				compare_modifier = {
+					value = scope:duel_value
+				}
+				send_interface_toast = {
+					title = train.4010.a.critical_success
+					left_icon = scope:schemer
+					right_icon = scope:targeted_participant
+
+					add_prestige = medium_prestige_gain
+
+					scope:schemer = {
+						increase_wounds_effect = {
+							REASON = fight
+						}
+					}
+
+					scope:targeted_participant = {
+						add_opinion = {
+							target = root
+							modifier = respect_opinion
+							opinion = 20
+						}
+					}
+				}
+				change_variable = {
+					name = train_outcome
+					add = 1
+				}
+			}
+			9 = {
+				desc = train.4010.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.5
+				}
+				send_interface_toast = {
+					title = train.4010.a.failure
+					left_icon = scope:schemer
+					right_icon = scope:targeted_participant
+
+					increase_wounds_effect = {
+						REASON = fight
+					}
+
+					save_scope_value_as = {
+						name = murder_completed
+						value = yes
+					}
+				}
+			}
+			3 = {
+				desc = train.4010.a.critical_failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.25
+				}
+				send_interface_toast = {
+					title = train.4010.a.critical_failure
+					left_icon = scope:schemer
+					right_icon = scope:targeted_participant
+
+					unknown_murder_effect = {
+						VICTIM = root
+						MURDERER = scope:schemer
+						REASON = death_training_accident
+					}
+
+					unknown_murder_effect = {
+						VICTIM = scope:targeted_participant
+						MURDERER = scope:schemer
+						REASON = death_training_accident
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess >= scope:schemer.prowess
+			}
+		}
+	}
+
+	option = { #Let your family member take them on
+		name = train.4010.b
+		trigger = {
+			scope:scheme = {
+				scheme_type = murder
+			}
+		}
+		scope:targeted_participant = {
+			duel = {
+				skill = prowess
+				target = scope:schemer
+				12 = {
+					desc = train.4010.b.critical_success
+					compare_modifier = {
+						value = scope:duel_value
+					}
+					root = {
+						send_interface_toast = {
+							title = train.4010.b.critical_success
+							left_icon = scope:schemer
+							right_icon = scope:targeted_participant
+
+							scope:murder_secret = {
+								expose_secret = yes
+							}
+
+							scope:schemer = {
+								increase_wounds_effect = {
+									REASON = fight
+								}
+							}
+						}
+					}
+					root = {
+						change_variable = {
+							name = train_outcome
+							add = 1
+						}
+					}
+				}
+				9 = {
+					desc = train.4010.b.failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = -0.5
+					}
+					root = {
+						send_interface_toast = {
+							title = train.4010.b.failure
+							left_icon = scope:schemer
+							right_icon = scope:targeted_participant
+
+							scope:targeted_participant = {
+								increase_wounds_effect = {
+									REASON = fight
+								}
+							}
+							save_scope_value_as = {
+								name = murder_completed
+								value = yes
+							}
+						}
+					}
+				}
+				3 = {
+					desc = train.4010.b.critical_failure
+					compare_modifier = {
+						value = scope:duel_value
+						multiplier = 0.25
+					}
+					root = {
+						send_interface_toast = {
+							title = train.4010.b.critical_failure
+							left_icon = scope:schemer
+							right_icon = scope:targeted_participant
+
+							unknown_murder_effect = {
+								VICTIM = root
+								MURDERER = scope:schemer
+								REASON = death_training_accident
+							}
+							unknown_murder_effect = {
+								VICTIM = scope:targeted_participant
+								MURDERER = scope:schemer
+								REASON = death_training_accident
+							}
+						}
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				prowess < scope:schemer.prowess
+			}
+			#More likely the more scared I am of the schemer
+			modifier = {
+				add = 25
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -45
+				}
+			}
+			modifier = {
+				add = 50
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -75
+				}
+			}
+		}
+	}
+
+	option = { #Call for help
+		name = train.4010.c
+
+		add_prestige = medium_prestige_loss
+
+		scope:murder_secret = {
+			expose_secret = root
+		}
+		
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				AND = {
+					prowess < scope:schemer.prowess
+					scope:targeted_participant.prowess < scope:schemer.prowess
+				}
+			}
+			#More likely the more scared I am of the schemer
+			modifier = {
+				add = 25
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -45
+				}
+			}
+			modifier = {
+				add = 50
+				dread_modified_ai_boldness = {
+					dreaded_character = scope:schemer
+					value <= -75
+				}
+			}
+		}
+	}
+	
+	option = { #Sacrifice yourself
+		name = train.4010.d
+		trigger = {
+			ai_honor >= high_positive_honor
+		}
+		custom_tooltip = train.4010.d.tt
+		
+		increase_wounds_effect = {
+			REASON = fight
+		}
+		scope:targeted_participant = {
+			add_opinion = {
+				target = root
+				modifier = respect_opinion
+				opinion = 40
+			}
+		}
+
+		scope:murder_secret = {
+			expose_secret = root
+		}
+		ai_chance = {
+			base = 50
+		}
+	}
+	
+	after = {
+		#If the murder was accomplished, root learns the Secret
+		if = {
+			limit = {
+				exists = scope:murder_completed
+			}
+			scope:schemer = {
+				random_secret = {
+					limit = {
+						secret_type = secret_murder
+						secret_target = scope:targeted_participant
+					}
+					reveal_to_without_events_effect = {
+						CHARACTER = root
+					}
+				}
+			}
+		}
+
+		#Make sure the scheme ends
+		if = {
+			limit = {
+				exists = scope:scheme
+			}
+			scope:scheme = {
+				end_scheme = yes
+			}
+		}
+
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+
+
+#######################
+#	You fake an injury 4016
+#	by Stephen Walker
+#######################
+
+train.4016 = {
+	type = character_event
+	title = train.4016.t
+	desc = train.4016.desc
+	theme = train_activity
+	left_portrait = root
+
+	weight_multiplier = {
+		base = 0.25
+		modifier = { #more likely to lie if you're sneaky or lazy
+			add = 0.75			
+			OR = {
+				has_trait = deceitful
+				has_focus = intrigue_skulduggery_focus
+				has_trait = schemer
+				intrigue >= high_skill_rating
+				has_trait = lazy
+				has_trait = craven
+			}
+		}
+	}
+
+	immediate = {
+		change_variable = {
+			name = train_outcome
+			add = 1
+		}
+	}
+
+	option = { #Tell the truth
+		name = train.4016.a
+		add_character_modifier = {
+			modifier = train_choose_truth_modifier
+			years = 5
+		}
+		change_variable = {
+			name = train_outcome
+			add = -1
+		}
+		stress_impact = {
+			honest = medium_stress_impact_loss
+			brave = medium_stress_impact_gain
+			diligent = medium_stress_impact_gain
+			deceitful = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 30
+				OR = {
+					has_trait = honest
+					intrigue >= high_skill_rating
+					has_trait = lazy
+				}
+			}
+			ai_value_modifier = {
+				ai_energy = -0.5
+			}
+		}
+	}
+
+	option = { #Fake it
+		name = train.4016.b
+		trigger = {
+			NOR = {
+				has_trait = schemer
+				intrigue >= high_skill_rating
+			}
+		}
+		show_as_unavailable = {
+			NOR = {
+				has_trait = schemer
+				intrigue >= high_skill_rating
+			}
+		}
+
+		duel = {
+			skill = intrigue
+			value = 10
+			35 = {
+				desc = train.4016.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.5
+				}
+				send_interface_toast = {
+					title = train.4016.b.success
+					left_icon = root
+					add_prestige = medium_prestige_gain
+				}
+				change_variable = {
+					name = train_outcome
+					add = 2
+				}
+			}
+			10 = {
+				desc = train.4016.b.failure
+				send_interface_toast = {
+					title = train.4016.b.failure
+					left_icon = root
+					add_prestige = medium_prestige_loss
+				}
+				change_variable = {
+					name = train_outcome
+					add = -1
+				}
+			}
+		}
+
+		stress_impact = {
+			honest = medium_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 30
+				OR = {
+					has_trait = deceitful
+					has_focus = intrigue_skulduggery_focus
+					has_trait = schemer
+					intrigue >= high_skill_rating
+					has_trait = lazy
+					has_trait = craven
+				}
+			}
+			ai_value_modifier = {
+				ai_energy = -0.5
+			}
+		}
+	}
+
+	option = { #Nah
+		name = train.4016.c
+		
+		change_variable = {
+			name = train_outcome
+			add = -1
+		}
+
+		stress_impact = {
+			honest = medium_stress_impact_loss
+			deceitful = medium_stress_impact_gain
+			lazy = medium_stress_gain
+			craven = medium_stress_impact_gain
+		}
+
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_honor = 0.5
+			}
+		}
+	}
+	
+	after = {
+		trigger_event = {
+			id = train.9001 #To complete the activity
+			days = { 14 20 }
+		}
+	}
+}
+
+
+##################
+#	END EVENTS 	 #
+#	9001 - 9999	 #
+##################
+
+#######################
+#	train has ended
+#	by Stephen Walker
+#######################
+train.9001 = {
+	type = character_event
+	title = train.9001.t
+	desc = {
+		desc = train.9001.desc_opening		
+		first_valid = {
+			triggered_desc = { #Loc for lvl your trainer trait!
+				trigger = {
+					OR = {
+						has_character_flag = trainer_1
+						has_character_flag = trainer_2
+						has_character_flag = trainer_3
+					}
+				}
+				desc = {
+					triggered_desc = {
+						trigger = {
+							has_character_flag = trainer_1
+						}
+						desc = train.9001.desc_trainer_1
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = trainer_2
+						}
+						desc = train.9001.desc_trainer_2
+					}
+					triggered_desc = {
+						trigger = {
+							has_character_flag = trainer_3
+						}
+						desc = train.9001.desc_trainer_3
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					var:train_outcome = 0
+				}
+				desc = train.9001.desc_same
+			}
+			triggered_desc = {
+				trigger = {
+					var:train_outcome > 0
+				}
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = {
+								var:train_outcome <= 2
+							}
+							desc = train.9001.desc_good_bad
+						}
+						desc = train.9001.desc_good
+					}
+				}
+			}
+			triggered_desc = {
+				trigger = {
+					var:train_outcome < 0
+				}
+				desc = {
+					first_valid = {
+						triggered_desc = {
+							trigger = {
+								var:train_outcome >= -2
+							}
+							desc = train.9001.desc_bad_good
+						}
+						desc = train.9001.desc_bad
+					}
+				}
+			}
+			desc = train.9001.desc_fallback
+		}
+	}
+	left_portrait = root
+	theme = train_activity
+
+	immediate = {
+		hidden_effect = {
+			#To give point towards trainer trait
+			trainer_progress_point_gain_effect = yes
+		}
+
+		if = {
+			limit = {
+				has_character_flag = trainer_1
+			}
+			set_variable = {
+				name = trainer_lifestyle_progress
+				value = 0
+			}
+			add_trait = trainer_1
+		}
+		if = {
+			limit = {
+				has_character_flag = trainer_2
+			}
+			set_variable = {
+				name = trainer_lifestyle_progress
+				value = 0
+			}
+			change_trait_rank = {
+				trait = lifestyle_trainer
+				rank = 1
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = trainer_3
+			}
+			remove_variable = trainer_lifestyle_progress
+			change_trait_rank = {
+				trait = lifestyle_trainer
+				rank = 1
+			}
+		}
+	}
+
+	option = {
+		name = train.9001.a
+		trigger = {
+			var:train_outcome > 0
+		}
+	}
+
+	option = {
+		name = train.9001.b
+		trigger = {
+			var:train_outcome < 0
+			NOR = {
+				has_character_flag = trainer_1
+				has_character_flag = trainer_2
+				has_character_flag = trainer_3
+			}
+		}
+	}
+
+	option = {
+		name = train.9001.c
+		trigger = {
+			var:train_outcome = 0
+		}
+	}	
+
+	after = {		
+		add_prestige = medium_prestige_gain
+		#End the activity
+		if = {
+			limit = {
+				exists = scope:activity
+			}
+			scope:activity = {
+				complete_activity = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,126 @@
+﻿councillor_master_of_the_horses = {
+	name = councillor_master_of_the_horses
+	skill = martial
+	tooltip = game_concept_master_of_the_horses_desc
+	valid_position = {
+		highest_held_title_tier >= tier_duchy
+	}
+	valid_character = {
+		can_be_master_of_the_horses_trigger = yes
+	}
+
+	modifier = {
+		name = councillor_master_of_the_horses_modifier
+		prowess = 1
+		monthly_prestige = 0.5
+		monthly_martial_lifestyle_xp_gain_mult = 0.01
+	}	
+
+	on_get_position = {
+		gave_minor_title_effect = yes 					
+	}
+	
+	on_fired_from_position = {
+	if = {
+		limit = { is_powerful_vassal = scope:liege }
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_normal_vassal_opinion
+			target = liege
+			}
+		}
+	else if = {
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_powerful_vassal_opinion
+			target = liege
+			}
+		}
+	}		
+	portrait_animation = master_of_the_horses
+}
+councillor_court_dwarf = {
+	name = councillor_court_dwarf
+	skill = diplomacy
+	tooltip = game_concept_court_dwarf_desc
+	valid_position = {
+		highest_held_title_tier >= tier_kingdom
+	}
+	valid_character = {
+		can_be_court_dwarf_trigger = yes
+		has_trait = dwarf
+	}
+
+	modifier = {
+		name = councillor_court_dwarf_modifier
+		intrigue = 1
+		monthly_prestige = -0.5
+		monthly_piety = 0.2
+		monthly_income = 0.2
+		stress_gain_mult = 0.1		
+	}	
+
+	on_get_position = {
+		gave_minor_title_court_dwarf_effect = yes 					
+	}
+	
+	on_fired_from_position = {
+	if = {
+		limit = { is_powerful_vassal = scope:liege }
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_normal_vassal_opinion
+			target = liege
+			}
+		}
+	else if = {
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_powerful_vassal_opinion
+			target = liege
+			}
+		}
+	}		
+	portrait_animation = court_dwarf
+}
+councillor_cupbearer = {
+	name = councillor_cupbearer
+	skill = intrigue
+	tooltip = game_concept_cupbearer_desc
+	valid_position = {
+		highest_held_title_tier >= tier_kingdom
+	}
+	valid_character = {
+		can_be_cupbearer_trigger = yes
+	}
+	modifier = {
+		name = councillor_cupbearer_modifier
+		diplomacy = 1
+		monthly_prestige = 1
+		monthly_income = 0.5
+		health = -0.25	
+		general_opinion = 5	
+	}
+	on_get_position = {
+		gave_minor_title_cupbearer_effect= yes 					
+	}
+	on_fired_from_position = {
+	if = {
+		limit = { is_powerful_vassal = scope:liege }
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_normal_vassal_opinion
+			target = liege
+			}
+		}
+	else if = {
+		remove_opinion = 
+			{
+			modifier = gave_minor_title_powerful_vassal_opinion
+			target = liege
+			}
+		}		
+	}
+	portrait_animation = cupbearer
+} 
+

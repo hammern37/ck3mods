@@ -1,0 +1,137 @@
+﻿PT_interaction_effect = {
+	scope:prisoner = {
+		add_character_flag = { #To make sure you don't get spammed about the release
+			flag = block_for_prison_release_notification
+			days = 1
+		}
+	}
+	if = {
+		limit = {
+			always = scope:gold
+		}
+		scope:payer = {
+			pay_short_term_gold = {
+				gold = scope:prisoner.ransom_cost_value
+				target = scope:imprisoner
+			}
+		}
+	}
+	if = {
+		limit = {
+			always = scope:favor
+		}
+		scope:imprisoner = {
+			add_hook = {
+				target = scope:payer
+				type = favor_hook
+			}
+		}
+	}
+	if = {
+        limit = {
+            always = scope:force
+        }
+        scope:payer = {
+            add_prestige = -100
+            add_tyranny = 5
+        }
+        scope:imprisoner = {
+            add_opinion = {
+                target = scope:payer
+                modifier = forced_prisoner_transfer_opinion
+            }
+        }
+    }
+	
+	#scope:payer = {
+    #    imprison = {
+    #        target = scope:prisoner
+    #        type = dungeon
+    #    }
+    #}
+
+	#scope:payer = {
+    #    send_interface_message = {
+    #        type = event_generic_neutral
+    #        title = recipient_transferred_from_prison
+    #        right_icon = scope:prisoner
+    #        left_icon = scope:imprisoner
+    #    }
+	#}
+
+	scope:imprisoner = {
+        send_interface_message = {
+            type = event_generic_neutral
+            title = recipient_released_from_prison
+            right_icon = scope:prisoner
+            left_icon = scope:imprisoner
+			scope:prisoner = { release_from_prison = yes }
+        }
+	}
+	
+	scope:prisoner = {
+        trigger_event = { #Recapture the prisoner in the new prison 1 day later
+            id = PT_recapture.0001
+            #days = 1
+        }
+	}
+}
+
+PT_pay_interaction_effect = {
+	scope:prisoner = {
+		add_character_flag = { #To make sure you don't get spammed about the release
+			flag = block_for_prison_release_notification
+			days = 1
+		}
+	}
+	if = {
+		limit = {
+			always = scope:gold
+		}
+		scope:payer = {
+			pay_short_term_gold = {
+				gold = scope:prisoner.ransom_cost_value
+				target = scope:imprisoner
+			}
+		}
+	}
+	if = {
+		limit = {
+			always = scope:current_gold
+		}
+		scope:payer = {
+			pay_short_term_gold = {
+				gold = scope:payer.current_gold_value
+				target = scope:imprisoner
+			}
+		}
+	}
+	if = {
+		limit = {
+			always = scope:favor
+		}
+		scope:imprisoner = {
+			add_hook = {
+				target = scope:payer
+				type = favor_hook
+			}
+		}
+	}
+
+	scope:imprisoner = {
+        send_interface_message = {
+            type = event_generic_neutral
+            title = recipient_released_from_prison
+            right_icon = scope:prisoner
+            left_icon = scope:imprisoner
+			scope:prisoner = { release_from_prison = yes }
+        }
+	}
+	
+	scope:prisoner = {
+        trigger_event = { #Recapture the prisoner in the new prison 1 day later
+            id = PT_recapture.0001
+            #days = 1
+        }
+	}
+}

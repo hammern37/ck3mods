@@ -1,0 +1,6 @@
+﻿l_english:
+ #Custom
+ sane_knight.0001:1 "$knight_culture_player_no_tooltip$ Has Arrived"
+ sane_knight.0001.desc:1 "[knight.GetTitledFirstName] has long heard of my fame and arrived at court as my guest, seeking employment."
+ sane_holy_vows.t:1 "[ROOT.Char.GetShortUINameNoTooltip] took the vows."
+ sane_holy_vows.desc:1 "[ROOT.Char.GetTitledFirstName] has sworn a holy oath, and taken up [ROOT.Char.GetHerHis] sacred duty as a [ROOT.Char.GetFaith.GetAdjective] warrior-priest, forfeiting all worldly claims [ROOT.Char.GetSheHe] might have held."

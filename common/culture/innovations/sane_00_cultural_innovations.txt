@@ -1,0 +1,388 @@
+﻿#### Warfare Traditions ####
+@raised_banner = "gfx/interface/icons/culture_innovations/innovation_raised_banner.dds"
+@maa_01 = "gfx/interface/icons/culture_innovations/innovation_maa_01.dds"
+@maa_02 = "gfx/interface/icons/culture_innovations/innovation_maa_02.dds"
+@leadership_2 = "gfx/interface/icons/culture_innovations/innovation_leadership_02.dds"
+
+#culture_group_regional
+
+innovation_sane_skirmish_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Skirmisher Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+			## Abudrar
+			this = culture:baranis
+			this = culture:maghrebi
+			this = culture:yemeni
+			this = culture:beja
+			## Goedendag
+			this = culture:dutch
+			## Guinean Uplanders
+			this.culture_group = culture_group:west_african_group
+			## Horn Warriors
+			this.culture_group = culture_group:east_african_group
+			this.culture_group = culture_group:somalian_group
+			## Shomer
+			this = culture:ashkenazi
+			this = culture:sephardi
+		}
+		NOR = {
+			## Cultures with other MaAs
+			this = culture:daju
+			this = culture:ethiopian
+			this = culture:nubian
+			}
+		}
+	modifier = {
+		skirmishers_damage_mult = 0.15
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_archery_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Archer Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+			## Metsanvarija
+			this.culture_group = culture_group:balto_finnic_group
+			this.culture_group = culture_group:volga_finnic_group
+			this.culture_group = culture_group:ugro_permian_group
+			this = culture:finnish
+			this = culture:sami
+			this = culture:estonian
+			this = culture:komi
+			this = culture:khanty
+			this = culture:samoyed
+			this = culture:mordvin
+			this = culture:karelian
+			this = culture:vepsian
+			this = culture:latgalian
+			this = culture:lithuanian
+			this = culture:prussian
+			## Longbowmen
+			this = culture:english
+			this = culture:welsh
+			this = culture:cumbrian
+			this = culture:cornish
+			## Bush Hunters
+			this.culture_group = culture_group:akan_group
+			this.culture_group = culture_group:yoruba_group
+			## Chu-Ko-Nu
+			this.culture_group = culture_group:chinese_group
+		}
+	}
+	modifier = {
+		archers_damage_mult = 0.1
+		archers_toughness_mult = 0.1
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_horse_archery_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Horse Archer Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+			#Turkic
+			this = culture:turkish
+			this = culture:pecheneg
+			this = culture:cuman
+			this = culture:khazar
+			this = culture:bolghar
+			this = culture:bashkir
+			this = culture:avar
+			this = culture:karluk
+			this = culture:kimek
+			this = culture:kipchak
+			this = culture:laktan
+			this = culture:kirghiz
+			this = culture:uyghur
+			this = culture:yughur
+			this = culture:uriankhai
+			this = culture:chuvash
+			this = culture:shatuo
+			this = culture:ongud
+			
+			#Mongolic
+			this = culture:mongol
+			this = culture:buryat
+			this = culture:oirat
+			this = culture:naiman
+			this = culture:kerait
+			this = culture:khitan
+			this = culture:tuyuhun
+			this = culture:jurchen
+
+			#Iranian
+			this = culture:persian
+			this = culture:sogdian
+			this = culture:tocharian
+			this = culture:kurdish
+			this = culture:afghan
+			this = culture:baloch
+			this = culture:saka
+			this = culture:daylamite
+			this = culture:khwarezmian
+			this = culture:tajik
+
+			#Mogyer
+			this = culture:mogyer
+			
+			#Alan
+			this = culture:alan
+		}
+	}
+	modifier = {
+		skirmishers_damage_mult = 0.1
+		skirmishers_pursuit_mult = 0.1
+		skirmishers_screen_mult = 0.1
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_infantry_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Heavy Infantry Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+			## Druzhina
+			this = culture:russian
+			this = culture:ilmenian
+			this = culture:severian
+			this = culture:volhynian
+			## Huscarl
+			this = culture:norse
+			this = culture:swedish
+			this = culture:norwegian
+			this = culture:danish
+			this = culture:anglo_saxon
+			this = culture:old_saxon
+			this = culture:frisian
+			## Khandyat
+			this = culture:bengali
+			this = culture:oriya
+			this = culture:assamese
+			this = culture:hindustani
+			this = culture:gujarati
+			this = culture:punjabi
+			this = culture:rajput
+			this = culture:sindhi
+			this = culture:marathi
+			this = culture:sinhala
+			this = culture:nepali
+			this = culture:kashmiri
+			this = culture:tamil
+			this = culture:telugu
+			this = culture:kannada
+			## Mountaineer
+			this.culture_group = culture_group:tibetan_group
+			this.culture_group = culture_group:qiangic_group
+			## Mobarizun
+			this = culture:bedouin
+			this = culture:butr
+			this = culture:levantine
+			this = culture:egyptian
+			this = culture:nubian
+			## Palace Guard
+			this.culture_group = culture_group:burman_group
+			## Palatini
+			this = culture:roman
+			## Sarawit
+			this = culture:ethiopian
+			## Zbrojnosh
+			this = culture:czech
+			this = culture:slovien
+		}
+	}
+	modifier = {
+		heavy_infantry_damage_mult = 0.05
+		heavy_infantry_toughness_mult = 0.15
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_spearmen_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Spearmen Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+		## Landsknechts
+			this = culture:saxon
+			this = culture:franconian
+			this = culture:swabian
+			this = culture:bavarian
+			this = culture:german
+			this = culture:lombard
+			this = culture:frankish
+			this = culture:frisian
+		## Picchieri
+			this = culture:italian
+			this = culture:sardinian
+			this = culture:sicilian
+			this = culture:cisalpine
+		## Schiltron
+			this = culture:gaelic
+			this = culture:scottish
+			this = culture:irish
+		}
+	}
+	modifier = {
+		pikemen_damage_mult = 0.1
+		pikemen_toughness_mult = 0.1
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_heavy_cavalry_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Heavy Cavalry Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+		## Gendarmes H.Cav
+			this = culture:french
+			this = culture:norman
+			this = culture:occitan
+			this = culture:breton
+		## Cataphracts H.Cav
+			this = culture:armenian
+			this = culture:greek
+			this = culture:georgian
+			this = culture:assyrian
+		}
+	}
+	modifier = {
+		heavy_cavalry_damage_mult = 0.1
+		heavy_cavalry_toughness_mult = 0.1
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+innovation_sane_light_cavalry_tradition = {
+	group = culture_group_regional
+	culture_era = culture_era_tribal
+	icon = @raised_banner
+### Light Cavalry Cultures, excluding cultures with other MaA
+	potential = {
+		OR = {
+	## Konni L.Cav
+		this = culture:pommeranian
+		this = culture:polish
+		this = culture:polabian
+		this = culture:croatian
+		this = culture:bosnian
+		this = culture:serbian
+		this = culture:vlach
+		this = culture:bulgarian
+		this = culture:hungarian
+	## Sahel Horsemen L.Cav
+		this.culture_group = culture_group:sahelian_group
+		this.culture_group = culture_group:senegambian_group
+		this.culture_group = culture_group:central_african_group
+		this = culture:daju
+		this = culture:zaghawa
+		this = culture:pulaar
+	## Hobelars L.Cav
+		this = culture:pictish
+	## Chasseurs L.Cav
+		#Outremer
+		this = culture:outremer
+	## Caballeros L.Cav
+		this = culture:basque
+		this = culture:castilian
+		this = culture:catalan
+		this = culture:portuguese
+		this = culture:visigothic
+		this = culture:galician
+		this = culture:asturleonese
+		this = culture:aragonese
+		this = culture:suebi
+		this = culture:andalusian
+		}
+	}
+	modifier = {
+		light_cavalry_damage_mult = 0.1
+		light_cavalry_pursuit_mult = 0.1
+		raid_speed = 0.25
+	}
+	flag = global_regional
+	flag = tribal_era_regional
+}
+
+
+####### Changes to vanilla innovations
+
+innovation_mustering_grounds = {
+	group = culture_group_military
+	culture_era = culture_era_tribal
+	icon = @leadership_2
+
+	modifier = {
+		men_at_arms_cap = 1
+		men_at_arms_limit = 4 ## Was 2.
+	}
+
+	flag = global_regular
+	flag = tribal_era_regular
+}
+
+innovation_house_soldiers = {
+	group = culture_group_military
+	culture_era = culture_era_early_medieval
+	icon = @maa_01
+
+	modifier = {
+		men_at_arms_cap = 1
+		men_at_arms_limit = 4 ## Was 3.
+	}
+
+	flag = global_regular
+	flag = early_medieval_era_regular
+}
+
+innovation_men_at_arms = { ### High Medieval MAA tech
+	group = culture_group_military
+	culture_era = culture_era_high_medieval
+	icon = @maa_02
+
+	modifier = {
+		men_at_arms_cap = 1
+		men_at_arms_limit = 4 ## Was 4.
+	}
+
+	flag = global_regular
+	flag = high_medieval_era_regular
+}
+
+innovation_standing_armies = { ### Late Medieval MAA tech
+	group = culture_group_military
+	culture_era = culture_era_late_medieval
+	icon = @leadership_2
+	
+	modifier = {
+		men_at_arms_cap = 1
+		men_at_arms_limit = 5 ## Was 5.
+	}
+
+	flag = global_regular
+	flag = late_medieval_era_regular
+}

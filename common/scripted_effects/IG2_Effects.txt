@@ -1,0 +1,1397 @@
+delete_dna_flags = {
+	remove_character_flag = int_Aa
+	remove_character_flag = int_aa
+	remove_character_flag = int_AA
+	remove_character_flag = int_Bb
+	remove_character_flag = int_BB
+	remove_character_flag = int_bb
+	remove_character_flag = int_cc
+	remove_character_flag = int_CC
+	remove_character_flag = int_Cc
+
+	remove_character_flag = str_Aa
+	remove_character_flag = str_aa
+	remove_character_flag = str_AA
+	remove_character_flag = str_Bb
+	remove_character_flag = str_BB
+	remove_character_flag = str_bb
+	remove_character_flag = str_cc
+	remove_character_flag = str_CC
+	remove_character_flag = str_Cc
+	
+	remove_character_flag = att_Aa
+	remove_character_flag = att_aa
+	remove_character_flag = att_AA
+	remove_character_flag = att_Bb
+	remove_character_flag = att_BB
+	remove_character_flag = att_bb
+	remove_character_flag = att_cc
+	remove_character_flag = att_CC
+	remove_character_flag = att_Cc
+	
+	remove_character_flag = clubfoot_Aa
+	remove_character_flag = clubfoot_aa
+	remove_character_flag = clubfoot_AA
+	remove_character_flag = clubfoot_Bb
+	remove_character_flag = clubfoot_BB
+	remove_character_flag = clubfoot_bb
+	remove_character_flag = clubfoot_cc
+	remove_character_flag = clubfoot_CC
+	remove_character_flag = clubfoot_Cc
+	
+	remove_character_flag = stuttering_Aa
+	remove_character_flag = stuttering_aa
+	remove_character_flag = stuttering_AA
+	remove_character_flag = stuttering_Bb
+	remove_character_flag = stuttering_BB
+	remove_character_flag = stuttering_bb
+	remove_character_flag = stuttering_cc
+	remove_character_flag = stuttering_CC
+	remove_character_flag = stuttering_Cc
+	
+	remove_character_flag = lisping_Aa
+	remove_character_flag = lisping_aa
+	remove_character_flag = lisping_AA
+	remove_character_flag = lisping_Bb
+	remove_character_flag = lisping_BB
+	remove_character_flag = lisping_bb
+	remove_character_flag = lisping_cc
+	remove_character_flag = lisping_CC
+	remove_character_flag = lisping_Cc
+	
+	remove_character_flag = wheezing_Aa
+	remove_character_flag = wheezing_aa
+	remove_character_flag = wheezing_AA
+	remove_character_flag = wheezing_Bb
+	remove_character_flag = wheezing_BB
+	remove_character_flag = wheezing_bb
+	remove_character_flag = wheezing_cc
+	remove_character_flag = wheezing_CC
+	remove_character_flag = wheezing_Cc
+	
+	remove_character_flag = hunchbacked_Aa
+	remove_character_flag = hunchbacked_aa
+	remove_character_flag = hunchbacked_AA
+	remove_character_flag = hunchbacked_Bb
+	remove_character_flag = hunchbacked_BB
+	remove_character_flag = hunchbacked_bb
+	remove_character_flag = hunchbacked_cc
+	remove_character_flag = hunchbacked_CC
+	remove_character_flag = hunchbacked_Cc
+	
+	remove_character_flag = hgt_Aa
+	remove_character_flag = hgt_aa
+	remove_character_flag = hgt_AA
+	remove_character_flag = hgt_Bb
+	remove_character_flag = hgt_BB
+	remove_character_flag = hgt_bb
+	remove_character_flag = hgt_cc
+	remove_character_flag = hgt_CC
+	remove_character_flag = hgt_Cc
+	remove_character_flag = hgt_Dd
+	remove_character_flag = hgt_dd
+	remove_character_flag = hgt_DD
+	remove_character_flag = hgt_Ee
+	remove_character_flag = hgt_EE
+	remove_character_flag = hgt_ee
+	remove_character_flag = hgt_ff
+	remove_character_flag = hgt_FF
+	remove_character_flag = hgt_Ff
+	
+	remove_character_flag = bleeder_Aa
+	remove_character_flag = bleeder_aa
+	remove_character_flag = bleeder_AA
+	remove_character_flag = bleeder_Bb
+	remove_character_flag = bleeder_BB
+	remove_character_flag = bleeder_bb
+	
+	remove_character_flag = dwarf_Aa
+	remove_character_flag = dwarf_aa
+	remove_character_flag = dwarf_AA
+	
+	remove_character_flag = giant_Aa
+	remove_character_flag = giant_aa
+	remove_character_flag = giant_AA
+	
+	remove_character_flag = albino_Aa
+	remove_character_flag = albino_aa
+	remove_character_flag = albino_AA
+	
+	remove_character_flag = scl_Aa
+	remove_character_flag = scl_aa
+	remove_character_flag = scl_AA
+	
+	remove_character_flag = spindly_Aa
+	remove_character_flag = spindly_aa
+	remove_character_flag = spindly_AA
+
+}
+
+delete_char_traits = {
+	remove_trait = intellect_good_3
+	remove_trait = intellect_good_2
+	remove_trait = intellect_good_1
+	remove_trait = intellect_bad_3
+	remove_trait = intellect_bad_2
+	remove_trait = intellect_bad_1
+	remove_trait = physique_good_3
+	remove_trait = physique_good_2
+	remove_trait = physique_good_1
+	remove_trait = physique_bad_3
+	remove_trait = physique_bad_2
+	remove_trait = physique_bad_1
+	remove_trait = beauty_good_3
+	remove_trait = beauty_good_2
+	remove_trait = beauty_good_1
+	remove_trait = beauty_bad_3
+	remove_trait = beauty_bad_2
+	remove_trait = beauty_bad_1
+	remove_trait = clubfooted
+	remove_trait = hunchbacked
+	remove_trait = lisping
+	remove_trait = stuttering
+	remove_trait = wheezing
+	remove_trait = bleeder
+	remove_trait = giant
+	remove_trait = albino
+	remove_trait = dwarf
+	remove_trait = scaly
+	remove_trait = spindly
+	remove_trait = towering
+	remove_trait = tall
+	remove_trait = short
+	remove_trait = tiny
+	remove_character_flag = tallish
+	remove_character_flag = tallish2
+	remove_character_flag = tallish3
+	remove_character_flag = shortish
+	remove_character_flag = shortish2
+	remove_character_flag = shortish3
+}
+
+copy_twin_flags = {
+	## COPY FLAGS
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = int_Aa
+				}
+			}
+			add_character_flag = int_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_aa
+				}
+			}
+			add_character_flag = int_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_AA
+				}
+			}
+			add_character_flag = int_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_Bb
+				}
+			}
+			add_character_flag = int_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_BB
+				}
+			}
+			add_character_flag = int_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_bb
+				}
+			}
+			add_character_flag = int_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_cc
+				}
+			}
+			add_character_flag = int_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_CC
+				}
+			}
+			add_character_flag = int_CC
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = int_Cc
+				}
+			}
+			add_character_flag = int_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_Aa
+				}
+			}
+			add_character_flag = str_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_aa
+				}
+			}
+			add_character_flag = str_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_AA
+				}
+			}
+			add_character_flag = str_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_Bb
+				}
+			}
+			add_character_flag = str_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_BB
+				}
+			}
+			add_character_flag = str_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_bb
+				}
+			}
+			add_character_flag = str_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_cc
+				}
+			}
+			add_character_flag = str_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_CC
+				}
+			}
+			add_character_flag = str_CC
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = str_Cc
+				}
+			}
+			add_character_flag = str_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_Aa
+				}
+			}
+			add_character_flag = att_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_aa
+				}
+			}
+			add_character_flag = att_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_AA
+				}
+			}
+			add_character_flag = att_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_Bb
+				}
+			}
+			add_character_flag = att_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_BB
+				}
+			}
+			add_character_flag = att_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_bb
+				}
+			}
+			add_character_flag = att_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_cc
+				}
+			}
+			add_character_flag = att_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_CC
+				}
+			}
+			add_character_flag = att_CC
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = att_Cc
+				}
+			}
+			add_character_flag = att_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_Aa
+				}
+			}
+			add_character_flag = clubfoot_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_aa
+				}
+			}
+			add_character_flag = clubfoot_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_AA
+				}
+			}
+			add_character_flag = clubfoot_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_Bb
+				}
+			}
+			add_character_flag = clubfoot_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_BB
+				}
+			}
+			add_character_flag = clubfoot_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_bb
+				}
+			}
+			add_character_flag = clubfoot_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_cc
+				}
+			}
+			add_character_flag = clubfoot_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_CC
+				}
+			}
+			add_character_flag = clubfoot_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = clubfoot_Cc
+				}
+			}
+			add_character_flag = clubfoot_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_Aa
+				}
+			}
+			add_character_flag = stuttering_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_aa
+				}
+			}
+			add_character_flag = stuttering_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_AA
+				}
+			}
+			add_character_flag = stuttering_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_Bb
+				}
+			}
+			add_character_flag = stuttering_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_BB
+				}
+			}
+			add_character_flag = stuttering_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_bb
+				}
+			}
+			add_character_flag = stuttering_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_cc
+				}
+			}
+			add_character_flag = stuttering_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_CC
+				}
+			}
+			add_character_flag = stuttering_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = stuttering_Cc
+				}
+			}
+			add_character_flag = stuttering_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_Aa
+				}
+			}
+			add_character_flag = lisping_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_aa
+				}
+			}
+			add_character_flag = lisping_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_AA
+				}
+			}
+			add_character_flag = lisping_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_Bb
+				}
+			}
+			add_character_flag = lisping_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_BB
+				}
+			}
+			add_character_flag = lisping_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_bb
+				}
+			}
+			add_character_flag = lisping_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_cc
+				}
+			}
+			add_character_flag = lisping_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_CC
+				}
+			}
+			add_character_flag = lisping_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = lisping_Cc
+				}
+			}
+			add_character_flag = lisping_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_Aa
+				}
+			}
+			add_character_flag = wheezing_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_aa
+				}
+			}
+			add_character_flag = wheezing_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_AA
+				}
+			}
+			add_character_flag = wheezing_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_Bb
+				}
+			}
+			add_character_flag = wheezing_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_BB
+				}
+			}
+			add_character_flag = wheezing_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_bb
+				}
+			}
+			add_character_flag = wheezing_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_cc
+				}
+			}
+			add_character_flag = wheezing_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_CC
+				}
+			}
+			add_character_flag = wheezing_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = wheezing_Cc
+				}
+			}
+			add_character_flag = wheezing_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_Aa
+				}
+			}
+			add_character_flag = hunchbacked_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_aa
+				}
+			}
+			add_character_flag = hunchbacked_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_AA
+				}
+			}
+			add_character_flag = hunchbacked_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_Bb
+				}
+			}
+			add_character_flag = hunchbacked_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_BB
+				}
+			}
+			add_character_flag = hunchbacked_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_bb
+				}
+			}
+			add_character_flag = hunchbacked_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_cc
+				}
+			}
+			add_character_flag = hunchbacked_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_CC
+				}
+			}
+			add_character_flag = hunchbacked_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hunchbacked_Cc
+				}
+			}
+			add_character_flag = hunchbacked_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Aa
+				}
+			}
+			add_character_flag = hgt_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_aa
+				}
+			}
+			add_character_flag = hgt_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_AA
+				}
+			}
+			add_character_flag = hgt_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Bb
+				}
+			}
+			add_character_flag = hgt_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_BB
+				}
+			}
+			add_character_flag = hgt_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_bb
+				}
+			}
+			add_character_flag = hgt_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_cc
+				}
+			}
+			add_character_flag = hgt_cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_CC
+				}
+			}
+			add_character_flag = hgt_CC
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Cc
+				}
+			}
+			add_character_flag = hgt_Cc
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Dd
+				}
+			}
+			add_character_flag = hgt_Dd
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_dd
+				}
+			}
+			add_character_flag = hgt_dd
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_DD
+				}
+			}
+			add_character_flag = hgt_DD
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Ee
+				}
+			}
+			add_character_flag = hgt_Ee
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_EE
+				}
+			}
+			add_character_flag = hgt_EE
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_ee
+				}
+			}
+			add_character_flag = hgt_ee
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_ff
+				}
+			}
+			add_character_flag = hgt_ff
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_FF
+				}
+			}
+			add_character_flag = hgt_FF
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = hgt_Ff
+				}
+			}
+			add_character_flag = hgt_Ff
+		}
+
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_Aa
+				}
+			}
+			add_character_flag = bleeder_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_aa
+				}
+			}
+			add_character_flag = bleeder_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_AA
+				}
+			}
+			add_character_flag = bleeder_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_Bb
+				}
+			}
+			add_character_flag = bleeder_Bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_BB
+				}
+			}
+			add_character_flag = bleeder_BB
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = bleeder_bb
+				}
+			}
+			add_character_flag = bleeder_bb
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = dwarf_Aa
+				}
+			}
+			add_character_flag = dwarf_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = dwarf_aa
+				}
+			}
+			add_character_flag = dwarf_aa
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = dwarf_AA
+				}
+			}
+			add_character_flag = dwarf_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = giant_Aa
+				}
+			}
+			add_character_flag = giant_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = giant_aa
+				}
+			}
+			add_character_flag = giant_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = giant_AA
+				}
+			}
+			add_character_flag = giant_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = albino_Aa
+				}
+			}
+			add_character_flag = albino_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = albino_aa
+				}
+			}
+			add_character_flag = albino_aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = albino_AA
+				}
+			}
+			add_character_flag = albino_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = scl_Aa
+				}
+			}
+			add_character_flag = scl_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = scl_aa
+				}
+			}
+			add_character_flag = scl_aa
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = scl_AA
+				}
+			}
+			add_character_flag = scl_AA
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = spindly_Aa
+				}
+			}
+			add_character_flag = spindly_Aa
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = spindly_aa
+				}
+			}
+			add_character_flag = spindly_aa
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+				has_character_flag = spindly_AA
+				}
+			}
+			add_character_flag = spindly_AA
+		}
+
+	## TRAITS 
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_good_3
+				}
+			}
+			add_trait = intellect_good_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_good_2
+				}
+			}
+			add_trait = intellect_good_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_good_1
+				}
+			}
+			add_trait = intellect_good_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_bad_3
+				}
+			}
+			add_trait = intellect_bad_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_bad_2
+				}
+			}
+			add_trait = intellect_bad_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = intellect_bad_1
+				}
+			}
+			add_trait = intellect_bad_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_good_3
+				}
+			}
+			add_trait = physique_good_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_good_2
+				}
+			}
+			add_trait = physique_good_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_good_1
+				}
+			}
+			add_trait = physique_good_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_bad_3
+				}
+			}
+			add_trait = physique_bad_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_bad_2
+				}
+			}
+			add_trait = physique_bad_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = physique_bad_1
+				}
+			}
+			add_trait = physique_bad_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_good_3
+				}
+			}
+			add_trait = beauty_good_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_good_2
+				}
+			}
+			add_trait = beauty_good_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_good_1
+				}
+			}
+			add_trait = beauty_good_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_bad_3
+				}
+			}
+			add_trait = beauty_bad_3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_bad_2
+				}
+			}
+			add_trait = beauty_bad_2
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = beauty_bad_1
+				}
+			}
+			add_trait = beauty_bad_1
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = dwarf
+				}
+			}
+			add_trait = dwarf
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = giant
+				}
+			}
+			add_trait = giant
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = clubfooted
+				}
+			}
+			add_trait = clubfooted
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = lisping
+				}
+			}
+			add_trait = lisping
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = stuttering
+				}
+			}
+			add_trait = stuttering
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = wheezing
+				}
+			}
+			add_trait = wheezing
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = hunchbacked
+				}
+			}
+			add_trait = hunchbacked
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = scaly
+				}
+			}
+			add_trait = scaly
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = spindly
+				}
+			}
+			add_trait = spindly
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = bleeder
+				}
+			}
+			add_trait = bleeder
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = albino
+				}
+			}
+			add_trait = albino
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = towering
+				}
+			}
+			add_trait = towering
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = tall
+				}
+			}
+			add_trait = tall
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = short
+				}
+			}
+			add_trait = short
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_trait = tiny
+				}
+			}
+			add_trait = tiny
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = tallish
+				}
+			}
+			add_character_flag = tallish
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = tallish2
+				}
+			}
+			add_character_flag = tallish2
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = tallish3
+				}
+			}
+			add_character_flag = tallish3
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = shortish
+				}
+			}
+			add_character_flag = shortish
+		}
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = shortish2
+				}
+			}
+			add_character_flag = shortish2
+		}
+
+		if = {
+			limit = {
+				scope:twin_dna = {
+					has_character_flag = shortish3
+				}
+			}
+			add_character_flag = shortish3
+		}
+
+}
+
+
+
+
+

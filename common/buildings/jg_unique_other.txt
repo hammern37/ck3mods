@@ -1,0 +1,119 @@
+jg_alexandria_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2000
+	
+	character_modifier = {
+		embarkation_cost_mult = -0.25
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_pisa_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2000
+	
+	character_modifier = {
+		learning_per_prestige_level = 0.5
+	}	
+	province_modifier = {
+		monthly_income = 2.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_riga_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2000
+	
+	character_modifier = {
+		embarkation_cost_mult = -0.25
+	}	
+	province_modifier = {
+		monthly_income = 2.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_bruges_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2000
+	
+	character_modifier = {
+		levy_reinforcement_rate_friendly_territory = 0.2
+	}		
+	province_modifier = {
+		monthly_income = 2.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}

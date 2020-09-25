@@ -1,0 +1,11 @@
+﻿l_english:
+ DECISION_ON_COOLDOWN:0 "@warning_icon!#X $DECISION_NAME$ unavailable until [DATE.GetStringLong]#!"
+ ALREADY_PLANNING_ACTIVITY:0 "You are already planning another [activity|E]"
+ school_decision:0 "Start School Session"
+ school_decision_tooltip:1 "A school Session will be held"
+ school_decision_desc:0 "#F We all must take the time to study. Knowledge is power, let's bestow it on those deserving!#!"
+ school_decision_school:1 "You go on a #V School Session#! in one of the baronies of your realm"
+ school_decision_tt_header:0 "A successful school session will aid who you see worthy."
+ school_decision_confirm:0 "Let's hit the books!"
+ DECISION_COOLDOWN_WARNING:0 "@warning_icon!#X $DECISION_NAME$ will be unavailable for $COOLDOWN$#!"
+ SHOW_DECISION_TOOLTIP:1 "#T [Decision.GetTitleForPlayer]#!\n[Decision.GetCommandDescForPlayer][Select_CString(StringIsEmpty(Decision.GetCommandDescForPlayer),'','\n')][Decision.GetShortDescForPlayer]"

@@ -1,0 +1,33 @@
+﻿
+######################
+# school STUFF
+######################
+standard_schooling_cooldown_time = 365
+school_secondary_outcome = 1
+school_participants = 10
+
+school_event_delay_min = 25
+school_event_delay_max = 35
+
+school_activity_cost = {
+	value = 20
+	multiply = {
+		value = root.primary_title.tier
+		subtract = 1
+		min = 1
+	}
+	if = {
+		limit = {
+			root.primary_title.tier > tier_duchy
+		}
+		add = 50
+	}
+	if = {
+		limit = {
+			root= {
+				has_government = tribal_government
+			}
+		}
+		multiply = 0.5
+	}
+}

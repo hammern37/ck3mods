@@ -1,0 +1,17 @@
+﻿l_english:
+#Reasons
+ ALREADY_CONTAINTS_TRAIT:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the trait $TRAIT_KEY$"
+ CONTAINTS_OPPOSITE_TRAIT:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the the opposite trait $OPOSITE_KEY$"
+ IS_POTENTIAL_TRAIT_FALSE:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' doesn't fit the is_potential trigger"
+ TRAIT_AGE_NOT_IN_RANGE:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' age '$CHARACTER_AGE$' doesn't fit the trait $TRAIT_KEY$ age range"
+ 
+#Lifestyle Traits
+ trait_jouster_1:0 "Novice jouster"
+ trait_jouster_1_desc:0 "The Novice jouster answers the call of a loyal stead and sturdy lance."
+ trait_jouster_1_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] answers the call of a loyal stead and sturdy lance."
+ trait_jouster_2:0 "jouster"
+ trait_jouster_2_desc:0 "The jouster feels at home in the tournament, few can best them."
+ trait_jouster_2_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] feels at home in the tournament, few can best them."
+ trait_jouster_3:0 "Master jouster"
+ trait_jouster_3_desc:0 "The Master jouster lives for the sport, all fall under their lance."
+ trait_jouster_3_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] lives for the sport, all fall under their lance."

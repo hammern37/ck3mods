@@ -1,0 +1,76 @@
+########################################################################################################################################
+########################################################################################################################################
+########################################################################################################################################
+#################		sword(axe) 01			#################
+pdxmesh = {
+	name = "weapon_western_sword_01-mesh"
+	file = "weapon_western_sword_01.mesh"
+
+	lod_percentages = {
+		lod = { index = 1 percent = 5.0 }
+		lod = { index = 2 percent = 15.0 }
+	}
+
+	meshsettings = {
+		name = "unit_western_infantry_01_weapon_LOD_0Shape"
+		index = 0
+		texture_diffuse = "weapon_western_sword_01_diffuse.dds"
+		texture_normal = "weapon_western_sword_01_normal.dds"
+		texture_specular = "weapon_western_sword_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "unit_western_infantry_01_weapon_LOD_1Shape"
+		index = 0
+		texture_diffuse = "weapon_western_sword_01_diffuse.dds"
+		texture_normal = "weapon_western_sword_01_normal.dds"
+		texture_specular = "weapon_western_sword_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+
+	meshsettings = {
+		name = "unit_western_infantry_01_weapon_LOD_2Shape"
+		index = 0
+		texture_diffuse = "weapon_western_sword_01_diffuse.dds"
+		texture_normal = "weapon_western_sword_01_normal.dds"
+		texture_specular = "weapon_western_sword_01_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+#################		sword 02			#################
+pdxmesh = {
+	name = "weapon_western_sword_02-mesh"
+	file = "weapon_western_sword_02.mesh"
+
+	meshsettings = {
+		name = "unit_western_infantry_02_weaponShape"
+		index = 0
+		texture_diffuse = "weapon_western_sword_02_diffuse.dds"
+		texture_normal = "weapon_western_sword_02_normal.dds"
+		texture_specular = "weapon_western_sword_02_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+#################		sword 03			#################
+pdxmesh = {
+	name = "weapon_western_sword_03-mesh"
+	file = "weapon_western_sword_03.mesh"
+
+	meshsettings = {
+		name = "unit_western_infantry_02_weaponShape"
+		index = 0
+		texture_diffuse = "weapon_western_sword_03_diffuse.dds"
+		texture_normal = "weapon_western_sword_03_normal.dds"
+		texture_specular = "weapon_western_sword_03_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+########################################################################################################################################
+########################################################################################################################################
+########################################################################################################################################

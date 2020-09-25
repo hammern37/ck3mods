@@ -1,0 +1,20 @@
+pdxmesh = {
+	name = "light_horse_mesh"
+	file = "light_horse.mesh"
+	scale = 0.8
+	cull_distance = 3000
+######### Animation #########
+	animation = { id = "light_horse_charge_animation" 							type = "../light_horse_charge.anim" }
+	animation = { id = "light_horse_charge_2_animation" 						type = "../light_horse_charge_2.anim" }
+	animation = { id = "light_horse_idle_animation" 							type = "../light_horse_idle.anim" }
+	animation = { id = "light_horse_walk_animation" 							type = "../light_horse_walk.anim" }
+	animation = { id = "light_horse_idle_2_animation" 							type = "../light_horse_idle_2.anim" }
+######### shape #########	
+	meshsettings = {
+		texture_diffuse = "light_horse_B_diffuse.dds"
+		texture_normal = "light_horse_normal.dds"
+		texture_specular = "light_horse_spec.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}	
+}
