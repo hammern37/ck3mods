@@ -1,5 +1,7 @@
 <h1>Matzes Crusader Kings 3 Mod Pack</h1>
-<br>
+<p>
+This is not my work. All credit goes to the content creators of the following mods:
+</p>
 <ul>
 <li>Abdication</li>
 <li>Arumba's Fix WarHorse Mod</li>
