@@ -1,0 +1,42 @@
+concubine_on_accept_effect = {
+	scope:recipient = {
+		trigger_event = marriage_interaction.0040
+		if = {
+			limit = {
+				is_imprisoned = yes
+			}
+			release_from_prison = yes
+			if = {
+				limit = {
+					is_married = yes
+				}
+				every_spouse = {
+					trigger_event = marriage_interaction.0041
+					divorce = scope:recipient # no opinion hit, no scripted effect
+				}
+			}
+			if = {
+				limit = { exists = betrothed }
+				trigger_event = marriage_interaction.0041
+				break_betrothal = betrothed
+			}
+		}
+	}
+	scope:actor = {
+        if = {
+            limit = {
+                NOT { sex_opposite_of = scope:recipient }
+            }
+            add_trait = sodomite
+        }
+		hidden_effect = {
+			send_interface_toast = {
+				type = event_generic_neutral
+				title = msg_concubine_taken_title
+				right_icon = scope:recipient
+				make_concubine = scope:recipient
+				#custom_tooltip = msg_concubine_taken_desc
+			}
+		}
+	}
+}

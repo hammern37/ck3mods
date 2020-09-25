@@ -1,0 +1,5 @@
+﻿#Included for stability, part of Fervour Inversion mod, not active unless that mod is used
+county_increased_opinion_modifier_crusade = {
+	icon = county_modifier_opinion_positive
+	county_opinion_add = 60
+}

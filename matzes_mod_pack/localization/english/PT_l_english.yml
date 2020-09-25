@@ -1,0 +1,11 @@
+﻿l_english:
+ recipient_transferred_from_prison:0 "Prisoner Transferred"
+ PT_negotiate_transfer:0 "Transfer Prisoner"
+ PT_negotiate_transfer_desc:0 "Negotiate a transfer of [recipient.GetShortUINamePossessiveNoTooltip] to your prison for a payment of [gold|E] or a [favor|E]"
+ recipient_secondary_PT_negotiate_transfer:0 "[prisoner|E]"
+ PRISONER_TRANSFER_PROPOSAL:0 "[secondary_recipient.GetShortUIName|U] is of personal interest to me. You will transfer [secondary_recipient.GetHerHim] in return for this offer."
+ FORCE_PRISONER_RELEASE_OPTION:0 "Demand"
+ forced_prisoner_transfer_opinion:0 "Forced Prisoner Transfer"
+ PT_recapture.0001.toast.desc:0 "Prisoner has been transferred."
+ PT_pay_transfer_interaction:0 "Request Prisoner Transfer"
+ recipient_secondary_PT_pay_transfer_interaction:0 "[prisoner|E]"

@@ -1,0 +1,563 @@
+types MapModes
+{
+	type small_mapmode_button_icon = button_icon {
+		#down = ?
+		#texture = ?
+
+		parentanchor = center
+		alwaystransparent = yes
+
+	#	using = framed_radiobutton
+	#	upframe = 1
+	#	overframe = 2# a bit lame to use the same frame, but I am not an artist /JW
+		downframe = 2
+
+	#	framesize = { 96 96 }
+	#	clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_checkbox"
+	}
+
+	type map_modes_debug = flowcontainer {
+		ignoreinvisible = yes
+
+		
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_simple_realms_button"
+			onclick = "[SetMapMode('simple_realms')]"
+			text = "Srlm"
+			tooltip = "MAPMODE_REALMS"
+		}
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_terrain_button"
+			onclick = "[SetMapMode('terrain')]"
+			text = "Ter"
+			tooltip = "MAPMODE_TERRAIN"
+		}
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_baronies_button"
+			onclick = "[SetMapMode('baronies')]"
+			text = "Bar"
+			tooltip = "MAPMODE_BARONIES"
+		}
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_realm_areas_button"
+			onclick = "[SetMapMode('realm_areas')]"
+			text = "Area"
+			tooltip = "MAPMODE_AREAS"
+		}
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_diplomacy_button"
+			onclick = "[SetMapMode('diplomacy')]"
+			text = "Diplo"
+			tooltip = "MAPMODE_DIPLOMACY"
+		}
+		
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			onclick = "[SetMapMode('debug_character_pools')]"
+			text = "Pools"
+			tooltip = "Character Pools"
+		}
+
+		button_round  = {
+			visible = "[CanChangeMapMode]"
+			onclick = "[SetMapMode('debug_ai_war_coordinator_targets')]"
+			text = "AI"
+			tooltip = "AI War Coordinator targets"
+		}
+	}
+
+	type map_modes_major = container {
+		icon_button_small_round_radio = {
+			visible = "[CanChangeMapMode]"
+			name = "map_mode_realms_button"
+			onclick = "[SetMapMode('realms')]"
+			down = "[IsMapMode('realms')]"
+			shortcut = "map_mode_1"
+			tooltip = "MAPMODE_REALMS"
+			size = { 80 80 }
+
+			small_mapmode_button_icon = {
+				down = "[IsMapMode('realms')]"
+				#	size = { 80 80 }
+				texture = "gfx/interface/buttons/button_icons/mapmode_realm.dds"
+			}
+		}
+	}
+
+	type map_modes = widget {
+		allow_outside = yes
+		filter_mouse = all
+		alwaystransparent = yes
+
+		size = { 170 95 }
+
+		flowcontainer = {
+			visible = "[And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode )]"
+			parentanchor = top|right
+			position = { -40 -40 }
+			direction = vertical
+			ignoreinvisible = yes
+			min_width = 130
+			tooltip = "ZOOM_LEVEL_PAPER_MAP_TOOLTIP"
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Standard
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Standard
+			}
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 10 10 }
+				margin_top = 5
+			}
+
+			text_single = {
+				visible = "[GreaterThanOrEqualTo_int32(GetZoomLevel, '(int32)20')]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_PAPER_MAP"
+				default_format = "#high;italic"
+			}
+
+			text_single = {
+				visible = "[GreaterThanOrEqualTo_int32(GetZoomLevel, '(int32)20')]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_SELECTING_REALMS"
+			}
+		}
+
+		flowcontainer = {
+			visible = "[And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode )]"
+			parentanchor = top|right
+			position = { -40 -40 }
+			direction = vertical
+			ignoreinvisible = yes
+			min_width = 130
+			tooltip = ZOOM_LEVEL_POLITICAL_TOOLTIP
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Standard
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Standard
+			}
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 10 10 }
+				margin_top = 5
+			}
+
+			text_single = {
+				visible = "[And(LessThan_int32(GetZoomLevel, '(int32)20'), GreaterThan_int32(GetZoomLevel, '(int32)8'))]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_POLITICAL"
+				default_format = "#color_yellow"
+			}
+
+			text_single = {
+				visible = "[And(LessThan_int32(GetZoomLevel, '(int32)20'), GreaterThan_int32(GetZoomLevel, '(int32)8'))]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_SELECTING_REALMS"
+			}
+		}
+
+		flowcontainer = {
+			visible = "[And( And(Not(GetVariableSystem.Exists( 'mapmodes_expand' )), IsMapMode('realms')), IsDefaultGUIMode )]"
+			parentanchor = top|right
+			position = { -40 -40 }
+			direction = vertical
+			ignoreinvisible = yes
+			min_width = 130
+			tooltip = ZOOM_LEVEL_DETAILS_TOOLTIP
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Standard
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Standard
+			}
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 10 10 }
+				margin_top = 5
+			}
+
+			text_single = {
+				visible = "[LessThan_int32(GetZoomLevel, '(int32)9')]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_DETAILS"
+				default_format = "#color_green"
+			}
+
+			text_single = {
+				visible = "[LessThan_int32(GetZoomLevel, '(int32)9')]"
+				parentanchor = hcenter
+				text = "ZOOM_LEVEL_SELECTING_BARONIES"
+			}
+		}
+
+		background = {
+			texture = "gfx/interface/hud/hud_bg_mapmodes.dds"
+			margin_left = 15
+			margin_bottom = 20
+			margin_top = -10
+		}
+
+		icon_button_small_round_radio = {
+			name = "map_mode_players_button"
+			visible = "[And(Or(GameIsMultiplayer, InDebugMode), CanChangeMapMode)]"
+			parentanchor = left|vcenter
+			position = { -29 24 }
+			size = { 38 38 }
+
+			onclick = "[SetMapMode('players')]"
+			down = "[IsMapMode('players')]"
+			shortcut = "map_mode_7"
+			tooltip = "MAPMODE_PLAYERS"
+			using = tooltip_nw
+
+			small_mapmode_button_icon = {
+				down = "[IsMapMode('players')]"
+				texture = "gfx/interface/buttons/button_icons/mapmode_players.dds"
+				size = { 32 32 }
+			}
+		}
+
+		flowcontainer = {
+			parentanchor = right|bottom
+			margin_right = 16
+			direction = vertical
+
+			## De Jure
+			flowcontainer = {
+				parentanchor = hcenter
+				direction = horizontal
+				ignoreinvisible = yes
+				spacing = -3
+
+				icon_button_small_round_radio = {
+					name = "map_mode_duchies_button"
+					size = { 36 36 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('dejure_duchies')]"
+					down = "[IsMapMode('dejure_duchies')]"
+					shortcut = "map_mode_9"
+					tooltip = "MAPMODE_DJ_DUCHIES"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						down = "[IsMapMode('dejure_duchies')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_duchy.dds"
+					}
+				}
+
+				icon_button_small_round_radio = {
+					name = "map_mode_kingdoms_button"
+					size = { 36 36 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('dejure_kingdoms')]"
+					down = "[IsMapMode('dejure_kingdoms')]"
+					shortcut = "map_mode_10"
+					tooltip = "MAPMODE_DJ_KINGDOMS"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						down = "[IsMapMode('dejure_kingdoms')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_kingdom.dds"
+					}
+				}
+
+
+				icon_button_small_round_radio = {
+					name = "map_mode_empires_button"
+					size = { 36 36 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('dejure_empires')]"
+					down = "[IsMapMode('dejure_empires')]"
+					shortcut = "map_mode_11"
+					tooltip = "MAPMODE_DJ_EMPIRES"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						down = "[IsMapMode('dejure_empires')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_empire.dds"
+					}
+				}
+				
+				icon_button_small_round_radio = {
+					name = "map_mode_diplomacy_button"
+					size = { 36 36 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('diplomacy')]"
+					down = "[IsMapMode('diplomacy')]"
+					shortcut = "map_mode_16"
+					tooltip = "MAPMODE_DIPLOMACY"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						down = "[IsMapMode('diplomacy')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_diplomacy.dds"
+					}
+				}
+					
+				icon_button_small_round_radio = {
+					name = "map_mode_realms_button"
+					size = { 36 36 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('realms')]"
+					down = "[IsMapMode('realms')]"
+					shortcut = "map_mode_1"
+					tooltip = "MAPMODE_REALMS"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 40 40 }
+						down = "[IsMapMode('realms')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_realm.dds"
+					}
+				}
+			}
+
+			## Other
+			flowcontainer = {
+				parentanchor = hcenter
+				direction = horizontal
+				ignoreinvisible = yes
+				spacing = -2
+
+				icon_button_small_round_radio = {
+					name = "map_mode_religion_button"
+					size = { 32 32 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('religions')]"
+					down = "[IsMapMode('religions')]"
+					shortcut = "map_mode_3"
+					tooltip = "MAPMODE_RELIGIONS"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 30 30 }
+						down = "[IsMapMode('religions')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_religion.dds"
+					}
+				}
+
+				icon_button_small_round_radio = {
+					name = "map_mode_cultures_button"
+					size = { 32 32 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('cultures')]"
+					down = "[IsMapMode('cultures')]"
+					shortcut = "map_mode_2"
+					tooltip = "MAPMODE_CULTURES"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 30 30 }
+						down = "[IsMapMode('cultures')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_culture.dds"
+					}
+				}
+				
+				icon_button_small_round_radio = {
+					name = "map_mode_houses_button"
+					size = { 32 32 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('houses')]"
+					down = "[IsMapMode('houses')]"
+					shortcut = "map_mode_4"
+					tooltip = "MAPMODE_HOUSES"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 28 28 }
+						down = "[IsMapMode('houses')]"
+						texture = "gfx/interface/buttons/button_icons/mapmode_houses.dds"
+					}
+				}
+				
+				icon_button_small_round_radio = {
+					name = "map_mode_terrain_button"
+					size = { 32 32 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('terrain')]"
+					down = "[IsMapMode('terrain')]"
+					shortcut = "map_mode_15"
+					tooltip = "MAPMODE_TERRAIN"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 28 28 }
+						down = "[IsMapMode('terrain')]"
+						texture = "gfx/interface/buttons/button_icons/dynasty.dds"
+					}
+				}
+				
+				icon_button_small_round_radio = {
+					name = "map_mode_political_button"
+					size = { 32 32 }
+
+					visible = "[CanChangeMapMode]"
+					onclick = "[SetMapMode('political')]"
+					down = "[IsMapMode('political')]"
+					shortcut = "map_mode_14"
+					tooltip = "MAPMODE_POLITICAL"
+					using = tooltip_nw
+
+					small_mapmode_button_icon = {
+						size = { 28 28 }
+						down = "[IsMapMode('political')]"
+						texture = "gfx/interface/buttons/button_icons/feudal_contract.dds"
+					}
+				}
+			}
+		}
+
+		flowcontainer = {
+			visible = "[GetVariableSystem.Exists( 'mapmodes_expand' )]"
+			parentanchor = top|right
+			widgetanchor = bottom|right
+			position = { -0 25 }
+			margin = { 22 10 }
+			alwaystransparent = no
+			filter_mouse = all
+
+			state = {
+				name = _mouse_hierarchy_leave
+				on_finish = "[GetVariableSystem.Toggle( 'mapmodes_expand' )]"
+			}
+
+			state = {
+				name = _show
+				using = Animation_FadeIn_Standard
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Standard
+			}
+
+			# background = {
+			# 	using = Background_Area_Dark
+			# }
+
+			flowcontainer = {
+				direction = vertical
+				margin = { 10 5 }
+
+				background = {
+					using = Background_Area_Dark
+				}
+
+				text_single = {
+					text = "ADDITIONAL_MAPMODES"
+					default_format = "#low;italic"
+					margin_bottom = 10
+				}
+
+				button_tertiary = {
+					name = "map_mode_government_button"
+					visible = "[CanChangeMapMode]"
+					parentanchor = hcenter
+
+					size = { 110 25 }
+					onclick = "[SetMapMode('government')]"
+					down = "[IsMapMode('government')]"
+
+					text = "MAPMODE_GOVERNMENT_NAME"
+
+					shortcut = "map_mode_5"
+					tooltip = "MAPMODE_GOVERNMENT"
+					using = tooltip_ws
+				}
+
+				button_tertiary = {
+					name = "county_development"
+					visible = "[CanChangeMapMode]"
+					parentanchor = hcenter
+
+					size = { 110 25 }
+					onclick = "[SetMapMode('county_development')]"
+					shortcut = "map_mode_13"
+					text = "MAPMODE_COUNTY_DEVELOPMENT_NAME"
+
+					tooltip = "MAPMODE_COUNTY_DEVELOPMENT"
+					using = tooltip_ws
+				}
+
+				button_tertiary = {
+					name = "simple_terrain"
+					visible = "[CanChangeMapMode]"
+					parentanchor = hcenter
+
+					size = { 110 25 }
+					onclick = "[SetMapMode('simple_terrain')]"
+					shortcut = "map_mode_12"
+					text = "MAPMODE_SIMPLE_TERRAIN_NAME"
+
+					tooltip = "MAPMODE_SIMPLE_TERRAIN"
+					using = tooltip_ws
+				}
+
+				button_tertiary = {
+					name = "map_mode_counties_button"
+					visible = "[CanChangeMapMode]"
+					parentanchor = hcenter
+
+					size = { 110 25 }
+					onclick = "[SetMapMode('dejure_counties')]"
+					shortcut = "map_mode_6"
+
+					text = "MAPMODE_DJ_COUNTIES_NAME"
+
+					tooltip = "MAPMODE_DJ_COUNTIES"
+					using = tooltip_ws
+				}
+			}
+		}
+
+		icon_button_small_round_radio = {
+			parentanchor = top|right
+			position = { 0 0 }
+			size = { 30 30 }
+			onclick = "[GetVariableSystem.Toggle( 'mapmodes_expand' )]"
+			alpha = 0.8
+
+			button_plus_small = {
+				parentanchor = center
+				alwaystransparent = yes
+			}
+		}
+	}
+}

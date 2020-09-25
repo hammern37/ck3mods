@@ -1,0 +1,280 @@
+entity = {
+	name = "Western_CAV_rider_Paladin_3_entity"
+	pdxmesh = "Western_soldier_03_mesh"
+	
+	state = { 
+		name = "commanding"
+		animation = "rider_Paladin_command"
+		looping = no
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	state = { 
+		name = "commanding"
+		animation = "rider_Paladin_idle"
+		looping = no
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		animation = "rider_Paladin_idle"
+		looping = no
+		next_state = idle
+		chance = 4
+	#	
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+
+	}
+	state = { 
+		name = "idle"
+		animation = "rider_Paladin_idle"
+		looping = no
+		next_state = idle
+		chance = 1
+	#	
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+
+	}
+	state = { 
+		name = "besiege"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	state = { 
+		name = "spawn"
+		animation = "rider_Paladin_idle"
+		looping = no
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	state = { 
+		name = "disband"
+		animation = "rider_Paladin_idle"
+		looping = no
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	state = { 
+		name = "gather"
+		animation = "rider_Paladin_idle"
+		animation_blend_time = 0.3
+		time_offset = 0.73
+		
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+	}
+	
+	state = {
+		name = "move"
+		animation = "rider_Paladin_idle"
+		animation_blend_time = 0.3
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+
+	}
+	
+	state = {
+		name = "move_attack"
+		animation = "rider_Paladin_idle"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+		
+		event = { time = 0.36 node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" attachment_id = weapon }
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = root particle = "dust_trail_3" }
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_idle_tx_battle_axes" }}
+	}
+	state = {
+		name = "move_attack_continue"
+		animation = "rider_Paladin_idle"
+	#	
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = root particle = "dust_trail_3" }
+		
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_battle" }}
+	}
+	state = {
+		name = "move_retreat"
+		animation = "rider_Paladin_idle"
+	#	
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+	#	start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = root particle = "dust_trail_3" }
+		
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_moving_retreat" }}
+	}
+	
+	state = {
+		name = "combat_won"
+		animation = "rider_Paladin_idle"
+		looping = no
+		next_state = idle
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" life = 5.53 }
+		
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_combat" }}
+	}
+	state = {
+		name = "siege_won"
+		animation = "rider_Paladin_idle"
+		looping = no
+		next_state = idle
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" life = 5.66 }
+		
+		event = { time = 0.0 soundparameter = {"tier_unit_armourlayer" = 0.0 } soundparameter = {"props_wood_metal" = 0.0 } sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_victorious_siege" }}
+	}
+	
+	####
+	# COMBAT ANIMATIONS
+	####
+	
+	# Even combat
+	state = {
+		name = "even_offensive_seq_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = even_offensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = even_offensive_seq_1}
+		event = { 
+		    time = 0.0 
+		    soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+		    soundparameter = {"props_wood_metal" = 0.0 }
+		    soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+		    sound = {soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_offensive"}
+		}
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = even_defensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = even_defensive_seq_1}
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = {soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_seq_1_defensive"}
+		}
+	}
+	
+	# Win/lose combat
+	state = {
+		name = "winlose_offensive_seq_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = winlose_offensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = winlose_offensive_seq_1}
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = {soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_offensive"}
+		}
+	}
+	
+	state = {
+		name = "winlose_defensive_seq_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = winlose_defensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = winlose_defensive_seq_1}
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = {soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_seq_1_defensive"}
+		}
+	}
+	
+	# Pursuit combat
+	state = {
+		name = "pursuit_offensive_seq_1"
+		animation = "rider_Paladin_idle"
+		animation_blend_time = 0.2
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = pursuit_offensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		event = { time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = {soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_offensive"}
+		}
+	}
+	
+	state = {
+		name = "pursuit_defensive_seq_1"
+		animation = "rider_Paladin_idle"
+		animation_blend_time = 0.5
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" state = pursuit_defensive_seq_1}
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = { soundeffect ="event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_pursuit_defensive"}
+		}
+	}
+	
+	# Transitions
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_offensive"}
+		}
+	}
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" }
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_offensive"}
+		}
+	}
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = even_winlose_tx_defensive_1 }
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_even_tx_winlose_defensive"}
+		}
+	}
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "rider_Paladin_idle"
+		start_event = { node = Right_hand_node_1 entity = "weapon_western_sword_03_entity" }
+		start_event = { node = Character1_LeftForeArm entity = "weapon_western_CAV_shield_03_entity" state = even_winlose_tx_defensive_1}
+		event = { 
+			time = 0.0 
+			soundparameter = {"tier_unit_armourlayer" = 0.0 } 
+			soundparameter = {"props_wood_metal" = 0.0 }
+			soundparameter = {"weapon_axe_mace_sword" = 1.0 } 
+			sound = { soundeffect = "event:/SFX/Animations/Units/Infantry/sfx_anim_unit_infantry_combat_winlose_tx_even_defensive"}
+		}
+	}
+}
+

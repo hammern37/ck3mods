@@ -1,0 +1,135 @@
+entity = {
+	name = "Byzantine_CAV_Frame_KnightGuard_1_entity"
+	pdxmesh = "cavalry_frame_mesh"
+	scale = 0.9	
+	default_state = "idle"
+	
+	state = {
+		name = "flaghorseman"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	state = { 
+		name = "idle"
+		animation = "cavalry_frame_foot_animation"
+		looping = yes
+		next_state = idle
+			propagate_state = { infantry = "Flagman" } 
+	}
+	state = { 
+		name = "besiege"
+		animation = "cavalry_frame_foot_animation"
+	}
+	state = { 
+		name = "spawn"
+		animation = "cavalry_frame_foot_animation"
+		looping = no
+	}
+	state = { 
+		name = "disband"
+		animation = "cavalry_frame_foot_animation"
+		looping = no
+	}
+	state = { 
+		name = "gather"
+		animation = "cavalry_frame_foot_animation"
+		animation_blend_time = 0.3
+		time_offset = 0.73
+	}
+	state = {
+		name = "move"
+		animation = "cavalry_frame_cavalry"
+		animation_blend_time = 0.3
+	}	
+	state = {
+		name = "move_attack"
+		animation = "cavalry_frame_cavalry"
+		animation_blend_time = 0.3
+		looping = no
+		next_state = move_attack_continue
+	}
+	state = {
+		name = "move_attack_continue"
+		animation = "cavalry_frame_cavalry"
+	}
+	state = {
+		name = "move_retreat"
+		animation = "cavalry_frame_cavalry"
+	}	
+	state = {
+		name = "combat_won"
+		animation = "cavalry_frame_cavalry"
+		looping = no
+		next_state = idle
+			propagate_state = { infantry = "combat_won" } 
+	}
+	state = {
+		name = "siege_won"
+		animation = "cavalry_frame_foot_animation"
+		looping = no
+		next_state = idle
+			propagate_state = { infantry = "siege_won" } 
+	}
+	####
+	# COMBAT ANIMATIONS
+	####
+	
+	# Even combat
+	state = {
+		name = "even_offensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+
+	state = {
+		name = "even_defensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	# Win/lose combat
+	state = {
+		name = "winlose_offensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	state = {
+		name = "winlose_defensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	# Pursuit combat
+	state = {
+		name = "pursuit_offensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	state = {
+		name = "pursuit_defensive_seq_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	
+	# Transitions
+	state = {
+		name = "even_winlose_tx_offensive_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	state = {
+		name = "winlose_even_tx_offensive_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	state = {
+		name = "even_winlose_tx_defensive_1"
+		animation = "cavalry_frame_cavalry"
+	}
+	state = {
+		name = "winlose_even_tx_defensive_1"
+		animation = "cavalry_frame_cavalry"
+	}
+#######################################		Attach		#######################################
+		attach = { 	name = "cavalry"			cavalry = "Byzantine_CAV_cav_KnightGuard_1_entity" }	
+		attach = { 	name = "horse"				horse = "cav_light_horse_entity" }	
+		attach = { 	name = "infantry"			infantry = "Byzantine_CAV_foot_KnightGuard_1_entity" }	
+#######################################		END		#######################################
+#######################################		END		#######################################
+#######################################		END		#######################################
+}
+

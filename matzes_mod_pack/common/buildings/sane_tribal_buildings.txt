@@ -1,0 +1,474 @@
+﻿@holding_illustration_arid = "gfx/interface/illustrations/holding_types/tribe_arid.dds"
+@holding_illustration_grass = "gfx/interface/illustrations/holding_types/tribe_grass.dds"
+
+# Tribal Hold
+tribe_01 = {
+	construction_time = slow_construction_time
+
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_castle_tribal_01_a_mesh"
+			"western_castle_tribal_01_b_mesh"
+			"western_castle_tribal_01_c_mesh"
+			"western_castle_tribal_01_d_mesh"
+		}
+		illustration = @holding_illustration_grass
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		always = no	#Tribes are set at game start.
+	}
+	
+	cost_prestige = expensive_building_tier_3_cost
+	cost_gold = expensive_building_tier_1_cost
+	next_building = tribe_02
+	
+	levy = normal_building_levy_tier_3
+	garrison = good_building_garrison_tier_1
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_1
+		fort_level = 1
+	}
+	county_modifier = {
+		hostile_raid_time = 0.1
+		monthly_county_control_change_factor = 0.05
+	}
+	
+	next_building = tribe_02
+
+	type_icon = "icon_building_longhouses.dds"
+
+	ai_value = {
+		base = 1
+	}
+}
+
+tribe_02 = {
+	construction_time = slow_construction_time
+
+	asset = {
+		type = pdxmesh
+		names = {
+			"western_castle_tribal_01_a_mesh"
+			"western_castle_tribal_01_b_mesh"
+			"western_castle_tribal_01_c_mesh"
+			"western_castle_tribal_01_d_mesh"
+		}
+		illustration = @holding_illustration_grass
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			culture = { has_innovation = innovation_plenary_assemblies }
+			has_government = tribal_government
+		}
+	}
+	
+	cost_prestige = expensive_building_tier_3_cost
+	cost_gold = expensive_building_tier_1_cost
+	
+	levy = normal_building_levy_tier_5
+	garrison = good_building_garrison_tier_2
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_3
+		fort_level = 2
+	}
+	county_modifier = {
+		hostile_raid_time = 0.2
+		monthly_county_control_change_factor = 0.1
+	}
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+longhouses_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_1_cost
+	cost_gold = tribal_building_tier_1_cost
+	
+	levy = normal_building_levy_tier_1
+	
+	character_modifier = {
+		monthly_prestige = 0.25
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.2
+	}
+	
+	next_building = longhouses_02
+
+	type_icon = "icon_building_longhouses.dds"
+
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+longhouses_02 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			culture = { has_innovation = innovation_barracks }
+			has_government = tribal_government
+		}
+	}
+	
+	cost_prestige = expensive_building_tier_2_cost
+	cost_gold = tribal_building_tier_2_cost
+	
+	levy = normal_building_levy_tier_2
+	
+	character_modifier = {
+		monthly_prestige = 0.5
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.4
+	}
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+# War Camps
+
+war_camps_01 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			has_government = tribal_government
+		}
+	}
+	
+	cost_prestige = expensive_building_tier_1_cost
+	cost_gold = tribal_building_tier_1_cost
+	
+	levy = excellent_building_levy_tier_1
+	
+	character_modifier = {
+		knight_limit = 1
+		knight_effectiveness_mult = 0.10
+		skirmishers_damage_mult = 0.04
+		skirmishers_toughness_mult = 0.02
+		heavy_infantry_damage_mult = 0.04
+		heavy_infantry_toughness_mult = 0.02
+	}
+	
+	next_building = war_camps_02
+
+	type_icon = "icon_building_warcamps.dds"
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 5
+				scope:holder.culture = {
+					OR = {
+						has_innovation = innovation_sane_infantry_tradition
+						has_innovation = innovation_sane_skirmish_tradition
+						has_innovation = innovation_sane_horse_archery_tradition
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+war_camps_02 = {
+	construction_time = slow_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			culture = { has_innovation = innovation_barracks }
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_2_cost
+	cost_gold = tribal_building_tier_2_cost
+	
+	levy = excellent_building_levy_tier_2
+	
+	character_modifier = {
+		knight_limit = 1
+		knight_effectiveness_mult = 0.25
+		skirmishers_damage_mult = 0.08
+		skirmishers_toughness_mult = 0.04
+		heavy_infantry_damage_mult = 0.08
+		heavy_infantry_toughness_mult = 0.04
+	}
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+# Palisades
+
+palisades_01 = {
+	construction_time = standard_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_1_cost
+	cost_gold = tribal_building_tier_1_cost
+	
+	levy = normal_building_levy_tier_1
+	garrison = normal_building_garrison_tier_1
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_1
+		fort_level = normal_building_fort_level_tier_1
+	}
+	
+	character_modifier = {
+		archers_damage_mult = 0.04
+		archers_toughness_mult = 0.02
+		pikemen_damage_mult = 0.04
+		pikemen_toughness_mult = 0.02
+	}
+	
+	next_building = palisades_02
+
+	type_icon = "icon_building_palisades.dds"
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 5
+				scope:holder.culture = {
+					OR = {
+						has_innovation = innovation_sane_archery_tradition
+						has_innovation = innovation_sane_spearmen_tradition
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+palisades_02 = {
+	construction_time = standard_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			culture = { has_innovation = innovation_motte }
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_2_cost
+	cost_gold = tribal_building_tier_2_cost
+	
+	levy = normal_building_levy_tier_2
+	garrison = normal_building_garrison_tier_2
+	province_modifier = {
+		defender_advantage = normal_building_advantage_tier_2
+		fort_level = normal_building_fort_level_tier_2
+	}
+	
+	character_modifier = {
+		archers_damage_mult = 0.08
+		archers_toughness_mult = 0.04
+		pikemen_damage_mult = 0.08
+		pikemen_toughness_mult = 0.04
+	}
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+# Market Villages
+
+market_villages_01 = {
+	construction_time = quick_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_1_cost
+	cost_gold = tribal_building_tier_1_cost
+	
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_2
+		supply_limit = 500
+	}
+	
+	next_building = market_villages_02
+
+	type_icon = "icon_building_market_villages.dds"
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+market_villages_02 = {
+	construction_time = quick_construction_time
+
+	is_enabled = {
+		building_requirement_tribal = yes
+	}
+	can_construct_potential = {
+		has_building_or_higher = tribe_01
+	}
+	can_construct_showing_failures_only = {
+		scope:holder = {
+			culture = { has_innovation = innovation_city_planning }
+			has_government = tribal_government
+		}
+	}	
+	
+	cost_prestige = expensive_building_tier_2_cost
+	cost_gold = tribal_building_tier_2_cost
+	
+	province_modifier = {
+		monthly_income = poor_building_tax_tier_4
+		supply_limit = 1000
+	}
+	
+	ai_value = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}

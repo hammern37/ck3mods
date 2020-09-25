@@ -1,0 +1,1827 @@
+window = {
+	name = "window_portrait_customization"
+	parentanchor = center
+	layer = top
+	movable = no
+	visible = yes
+	size = { 100% 100% }
+
+	background = {
+		texture = "gfx/interface/tiles/background_area_light.dds"
+		spriteType = Corneredstretched
+		spriteborder = { 18 0 }
+		margin = { 50 50 }
+	}
+
+	datacontext = "[PortraitCustomizationWindow.GetCharacter]"
+	datacontext = "[GetIllustration( 'character_view_bg' )]"
+
+	widget = {
+		size = { 100% 100% }
+		widget = {# backgrounds
+			size = { 100% 100% }
+			alpha = 0.5
+
+			state = {
+				name = not_transparent
+				alpha = 1
+			}
+
+			state = {
+				name = transparent
+				alpha = 0.5
+			}
+
+			using = portrait_bgs
+		}
+
+		widget = {#greenscreens
+			size = { 100% 100% }
+
+			widget = {
+			  size = { 100% 100% }
+			  visible = no
+
+			  using = hide_bg_temp
+
+			  state = {
+			    name = green_bg
+			    on_start = "[PdxGuiWidget.Show]"
+			  }
+
+			  background = {
+			    texture = "gfx/green.dds"
+			    fittype = centercrop
+			  }
+			}
+
+			widget = {
+			  size = { 100% 100% }
+			  visible = no
+
+			  using = hide_bg_temp
+
+			  state = {
+			    name = blue_bg
+			    on_start = "[PdxGuiWidget.Show]"
+			  }
+
+			  background = {
+			    texture = "gfx/blue.dds"
+			    fittype = centercrop
+			  }
+			}
+
+			widget = {
+			  size = { 100% 100% }
+			  visible = no
+
+			  using = hide_bg_temp
+
+			  state = {
+			    name = white_bg
+			    on_start = "[PdxGuiWidget.Show]"
+			  }
+
+			  background = {
+			    texture = "gfx/white.dds"
+			    fittype = centercrop
+			  }
+			}
+		}
+	}
+
+	#using = Window_Decoration
+	#using = Window_Size_MainTab
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Standard
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Standard
+	}
+
+	widget = {
+		size = { 100% 100% }
+		visible = no
+
+		state = {
+			name = backlight
+			on_start = "[PdxGuiWidget.Show]"
+		}
+
+		state = {
+			name = backlight_off
+			on_start = "[PdxGuiWidget.Hide]"
+		}
+
+		background = {
+			using = Background_Portrait_Glow
+			color = { 0.77 0.7 0.6 0.5 }
+		}
+	}
+
+	widget = {
+		using = full
+
+		state = {
+			name = hide_portraits
+			on_start = "[PdxGuiWidget.Hide]"
+		}
+
+		state = {
+			name = show_portraits
+			on_start = "[PdxGuiWidget.Show]"
+		}
+
+		window = { #spouse
+			movable = yes
+			size = { 102.5% 102.5% }
+			position = { -300 -15 }
+			alwaystransparent = yes
+
+			visible = "[PortraitCustomizationWindow.GetCharacter.GetPrimarySpouseOrBetrothed.IsValid]"
+
+			state = {
+				name = reset_spouse_portrait
+				position = { -300 -15 }
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_spouse
+					using = showme
+				}
+
+				state = {
+					name = center_portraits_spouse
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_spouse
+					using = hideme
+				}
+
+				position = { 220 25 }
+
+				using = portraits_torso_spouse_left # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+
+				state = {
+					name = left_portraits_spouse
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_spouse
+					using = showme
+				}
+
+				state = {
+					name = right_portraits_spouse
+					using = hideme
+				}
+
+				using = portraits_torso_spouse # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_spouse
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_spouse
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_spouse
+					using = showme
+				}
+
+				position = { 220 50 }
+
+				using = portraits_torso_spouse_right # portraits are in the other file
+			}
+
+			icon = {
+				size = { 250 40 }
+				parentanchor = hcenter
+				alwaystransparent = no
+				using = Background_Area_Dark
+				position = { 0 15 }
+
+				container = {
+					visible = no
+
+					state = {
+						name = show_spouse
+						using = showme
+					}
+
+					state = {
+						name = hide_spouse
+						using = hideme
+					}
+
+					position = { 40 5 }
+					alpha = 0.5
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('left_portraits_spouse')]"
+						mirror = horizontal
+
+						state = {
+							name = left_portraits_spouse
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_spouse
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_spouse
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_spouse')]"
+						mirror = horizontal
+						visible = no
+
+						state = {
+							name = left_portraits_spouse
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_spouse
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_spouse
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_spouse')]"
+						visible = no
+						position = { 145 0 }
+
+						state = {
+							name = left_portraits_spouse
+							using = showme
+						}
+
+						state = {
+							name = center_portraits_spouse
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_spouse
+							using = hideme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('right_portraits_spouse')]"
+						position = { 145 0 }
+
+						state = {
+							name = left_portraits_spouse
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_spouse
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_spouse
+							using = hideme
+						}
+					}
+				}
+
+				hbox = {
+					button_standard_list = {
+						size = { 40 40 }
+
+						onclick = "[PdxGuiTriggerAllAnimations('reset_spouse_portrait')]"
+						tooltip = "Reset position"
+
+						button_icon = {
+							texture = "gfx/interface/buttons/button_icons/go_to_my_location.dds"
+							alwaystransparent = yes
+							size = { 30 30 }
+							parentanchor = center
+							alpha = 0.5
+						}
+
+						state = {
+							name = hide_controls
+							using = hideme
+						}
+
+						state = {
+							name = show_controls
+							using = showme
+						}
+					}
+
+					button_standard_list = {
+						size = { 210 40 }
+
+						text_single = {
+							text = "+ Add Spouse"
+							parentanchor = center
+							position = { -5 -3 }
+						}
+						onclick = "[PdxGuiTriggerAllAnimations('show_spouse')]"
+
+						state = {
+							name = show_spouse
+							using = hideme
+						}
+
+						state = {
+							name = hide_spouse
+							using = showme
+						}
+					}
+
+					expand = {
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/window_close.dds"
+						size = { 30 30 }
+						onclick = "[PdxGuiTriggerAllAnimations('hide_spouse')]"
+						visible = no
+
+						state = {
+							name = hide_spouse
+							using = hideme
+						}
+
+						state = {
+							name = show_spouse
+							using = showme
+						}
+					}
+
+					widget = {
+						size = { 5 0 }
+					}
+
+					state = {
+						name = hide_controls
+						using = hideme
+					}
+
+					state = {
+						name = show_controls
+						using = showme
+					}
+				}
+
+				state = {
+					name = hide_controls
+					alpha = 0
+				}
+
+				state = {
+					name = show_controls
+					alpha = 1
+				}
+			}
+		}
+
+		window = { #heir
+			movable = yes
+			size = { 102.5% 102.5% }
+			position = { 300 -15 }
+			alwaystransparent = yes
+
+			visible = "[PortraitCustomizationWindow.GetCharacter.GetPrimaryTitle.GetHeir.IsValid]"
+
+			state = {
+				name = reset_heir_portrait
+				position = { 300 -15 }
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_heir
+					using = showme
+				}
+
+				state = {
+					name = center_portraits_heir
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_heir
+					using = hideme
+				}
+
+				position = { 220 25 }
+
+				using = portraits_torso_heir_left # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+
+				state = {
+					name = left_portraits_heir
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_heir
+					using = showme
+				}
+
+				state = {
+					name = right_portraits_heir
+					using = hideme
+				}
+
+				using = portraits_torso_heir # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_heir
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_heir
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_heir
+					using = showme
+				}
+
+				position = { 220 50 }
+
+				using = portraits_torso_heir_right # portraits are in the other file
+			}
+
+			icon = {
+				size = { 250 40 }
+				parentanchor = hcenter
+				alwaystransparent = no
+				using = Background_Area_Dark
+				position = { 0 15 }
+
+				container = {
+					visible = no
+
+					state = {
+						name = show_heir
+						using = showme
+					}
+
+					state = {
+						name = hide_heir
+						using = hideme
+					}
+
+					position = { 40 5 }
+					alpha = 0.5
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('left_portraits_heir')]"
+						mirror = horizontal
+
+						state = {
+							name = left_portraits_heir
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_heir
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_heir
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_heir')]"
+						mirror = horizontal
+						visible = no
+
+						state = {
+							name = left_portraits_heir
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_heir
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_heir
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_heir')]"
+						visible = no
+						position = { 145 0 }
+
+						state = {
+							name = left_portraits_heir
+							using = showme
+						}
+
+						state = {
+							name = center_portraits_heir
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_heir
+							using = hideme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('right_portraits_heir')]"
+						position = { 145 0 }
+
+						state = {
+							name = left_portraits_heir
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_heir
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_heir
+							using = hideme
+						}
+					}
+				}
+
+				hbox = {
+					button_standard_list = {
+						size = { 40 40 }
+
+						onclick = "[PdxGuiTriggerAllAnimations('reset_heir_portrait')]"
+						tooltip = "Reset position"
+
+						button_icon = {
+							texture = "gfx/interface/buttons/button_icons/go_to_my_location.dds"
+							alwaystransparent = yes
+							size = { 30 30 }
+							parentanchor = center
+							alpha = 0.5
+						}
+
+						state = {
+							name = hide_controls
+							using = hideme
+						}
+
+						state = {
+							name = show_controls
+							using = showme
+						}
+					}
+
+					button_standard_list = {
+						size = { 210 40 }
+
+						text_single = {
+							text = "+ Add heir"
+							parentanchor = center
+							position = { -5 -3 }
+						}
+						onclick = "[PdxGuiTriggerAllAnimations('show_heir')]"
+
+						state = {
+							name = show_heir
+							using = hideme
+						}
+
+						state = {
+							name = hide_heir
+							using = showme
+						}
+					}
+
+					expand = {
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/window_close.dds"
+						size = { 30 30 }
+						onclick = "[PdxGuiTriggerAllAnimations('hide_heir')]"
+						visible = no
+
+						state = {
+							name = hide_heir
+							using = hideme
+						}
+
+						state = {
+							name = show_heir
+							using = showme
+						}
+					}
+
+					widget = {
+						size = { 5 0 }
+					}
+
+					state = {
+						name = hide_controls
+						using = hideme
+					}
+
+					state = {
+						name = show_controls
+						using = showme
+					}
+				}
+
+				state = {
+					name = hide_controls
+					alpha = 0
+				}
+
+				state = {
+					name = show_controls
+					alpha = 1
+				}
+			}
+		}
+
+		window = { #main character
+			movable = yes
+			size = { 102.5% 102.5% }
+			# at 100% Pope's hat gets cut off by the camera and looks awkward. This way it cuts off by the screen edge.
+			position = { 0 -15 }
+			alwaystransparent = yes
+
+			state = {
+				name = reset_portrait
+				position = { 0 -15 }
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_main
+					using = showme
+				}
+
+				state = {
+					name = center_portraits_main
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_main
+					using = hideme
+				}
+
+				position = { 220 25 }
+
+				using = portraits_torso_left # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+
+				state = {
+					name = left_portraits_main
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_main
+					using = showme
+				}
+
+				state = {
+					name = right_portraits_main
+					using = hideme
+				}
+
+				using = portraits_torso # portraits are in the other file
+			}
+
+			widget = {
+				using = full
+				visible = no
+
+				state = {
+					name = left_portraits_main
+					using = hideme
+				}
+
+				state = {
+					name = center_portraits_main
+					using = hideme
+				}
+
+				state = {
+					name = right_portraits_main
+					using = showme
+				}
+
+				position = { 220 50 }
+
+				using = portraits_torso_right # portraits are in the other file
+			}
+
+			icon = {
+				size = { 250 40 }
+				parentanchor = hcenter
+				alwaystransparent = no
+				using = Background_Area_Dark
+				position = { 0 15 }
+
+				text_single = {
+					text = "Drag me"
+					parentanchor = center
+					alpha = 0.5
+					position = { 20 -3 }
+				}
+
+				container = {
+
+					position = { 40 5 }
+					alpha = 0.5
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('left_portraits_main')]"
+						mirror = horizontal
+
+						state = {
+							name = left_portraits_main
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_main
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_main
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_main')]"
+						mirror = horizontal
+						visible = no
+
+						state = {
+							name = left_portraits_main
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_main
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_main
+							using = showme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('center_portraits_main')]"
+						visible = no
+						position = { 175 0 }
+
+						state = {
+							name = left_portraits_main
+							using = showme
+						}
+
+						state = {
+							name = center_portraits_main
+							using = hideme
+						}
+
+						state = {
+							name = right_portraits_main
+							using = hideme
+						}
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/arrow.dds"
+						onclick = "[PdxGuiTriggerAllAnimations('right_portraits_main')]"
+						position = { 175 0 }
+
+						state = {
+							name = left_portraits_main
+							using = hideme
+						}
+
+						state = {
+							name = center_portraits_main
+							using = showme
+						}
+
+						state = {
+							name = right_portraits_main
+							using = hideme
+						}
+					}
+				}
+
+				button_standard_list = {
+					size = { 40 40 }
+					onclick = "[PdxGuiTriggerAllAnimations('reset_portrait')]"
+					tooltip = "Reset position"
+
+					state = {
+						name = hide_controls
+						using = hideme
+					}
+
+					state = {
+						name = show_controls
+						using = showme
+					}
+
+					button_icon = {
+						texture = "gfx/interface/buttons/button_icons/go_to_my_location.dds"
+						alwaystransparent = yes
+						size = { 30 30 }
+						parentanchor = center
+						alpha = 0.7
+					}
+				}
+
+				state = {
+					name = hide_controls
+					alpha = 0
+				}
+
+				state = {
+					name = show_controls
+					alpha = 1
+				}
+			}
+		}
+	}
+
+	widget = {
+		size = { 100% 100% }
+
+		state = {
+			name = hide_controls
+			alpha = 0
+		}
+
+		state = {
+			name = show_controls
+			alpha = 1
+		}
+
+		state = {
+			name = _mouse_hierarchy_enter
+			on_start = "[PdxGuiTriggerAllAnimations('show_controls')]"
+		}
+
+		container = {#clothes
+			parentanchor = right
+			position = { -60 45 }
+			#size = { 350 350 }
+
+			background = {
+				using = Background_Area
+				margin = { 10 2 }
+			}
+
+			vbox = {
+				name = "accessories_grid"
+				datamodel = "[PortraitCustomizationWindow.GetAccessoryItems]"
+				margin = { 10 5 }
+				spacing = 5
+
+				item = {
+					vbox = {
+						spacing = 10
+
+						container = {
+
+							layoutpolicy_horizontal = expanding
+
+							text_label_left = {
+								text = "[AccessoryItem.GetName]"
+								position = { 0 3 }
+							}
+
+							dropDown_sort = {
+								datamodel = "[AccessoryItem.GetOptions]"
+								size = { 320 33 }
+								position = { 120 0 }
+
+								alwaystransparent = no
+								onselectionchanged = "[AccessoryItem.OnSelect]"
+								selectedindex = "[AccessoryItem.GetSelectedIndex]"
+
+								active_item = {
+									widget = {
+										alwaystransparent = no
+										size = { 100% 100% }
+
+										button_drop = {
+											button_trigger = none
+											size = { 100% 33 }
+											text = "[AccessoryItemOption.GetName]"
+
+											default_format = "#high"
+
+											tooltip = "[AccessoryItemOption.GetName]"
+										}
+									}
+								}
+
+								item = {
+									widget = {
+										alwaystransparent = no
+										size = { 300 33 }
+
+										button_dropdown = {
+											size = { 300 30 }
+											button_trigger = none
+											text = "[AccessoryItemOption.GetName]"
+										}
+									}
+								}
+
+								list = {
+									scrollarea = {
+										position = { 5 33 }
+										maximumsize = { 290 760 }
+										autoresizescrollarea = yes
+										scrollbarpolicy_horizontal = always_off
+
+										using = Background_DropDown
+
+										scrollwidget = {
+											dynamicgridbox = {
+												alwaystransparent = no
+											}
+										}
+
+										scrollbar_vertical = {
+											using = Scrollbar_Vertical
+										}
+									}
+								}
+							}
+
+
+							expand = {}
+						}
+					}
+				}
+			}
+		}
+
+		container = {#hair colors
+			maximumsize = { 50 760 }
+			datacontext = "[PortraitCustomizationWindow.GetCharacter]"
+
+			position = { 0 0 }
+			parentanchor = right|vcenter
+			#widgetanchor = right
+
+			vbox = {
+				name = "hair_colors_grid"
+				datamodel = "[PortraitCustomizationWindow.GetHairColorItems]"
+				margin = { 10 10 }
+				spacing = 3
+				scale = 0.75
+
+				background = {
+					using = Background_Area
+				}
+
+				item = {
+					hbox = {
+						button_standard_clean = {
+							name = "color_button"
+							visible = "[Not(HairColorItem.IsDefault)]"
+							size = { 50 50 }
+							onclick = "[HairColorItem.OnSelect]"
+							down = "[HairColorItem.IsSelected]"
+
+							icon = {
+								parentanchor = center
+								size = { 40 40 }
+
+								texture = "gfx/interface/temp/hair_color_background.dds"
+								tintcolor = "[HairColorItem.GetRGBA]"
+								using = Mask_Rough_Edges
+							}
+						}
+
+						button_standard_clean = {
+							name = "default_color_button"
+							visible = "[HairColorItem.IsDefault]"
+							size = { 50 50 }
+							onclick = "[HairColorItem.OnSelect]"
+							down = "[HairColorItem.IsSelected]"
+
+							icon = {
+								parentanchor = center
+								size = { 40 40 }
+
+								texture = "gfx/interface/temp/hair_color_background.dds"
+								tintcolor = { 1.0 1.0 1.0 0.1 }
+								using = Mask_Rough_Edges
+							}
+
+							text_single = {
+								name = "text"
+								text = "PCW_DEFAULT_HAIR_COLOR"
+								default_format = "#low"
+								parentanchor = center
+							}
+						}
+					}
+				}
+			}
+		}
+
+		widget = {#bg
+			size = { 200 100% }
+
+			background = {
+				using = Background_Area_Dark
+			}
+
+			text_single = {
+				text = "Background"
+				position = { 55 10 }
+			}
+
+			flowcontainer = {
+				direction = vertical
+				ignoreinvisible = yes
+
+				position = { 10 50 }
+
+				button_standard_list = {
+					text = "Transparent"
+					onclick = "[PdxGuiTriggerAllAnimations('not_transparent')]"
+
+					state = {
+						name = not_transparent
+						on_start = "[PdxGuiWidget.Hide]"
+					}
+
+					state = {
+						name = transparent
+						on_start = "[PdxGuiWidget.Show]"
+					}
+
+					button_checkbox = {
+						parentanchor = vcenter
+						position = { 3 0 }
+						checked = yes
+					}
+				}
+
+				button_standard_list = {
+					text = "Transparent"
+					onclick = "[PdxGuiTriggerAllAnimations('transparent')]"
+					visible = no
+
+					state = {
+						name = not_transparent
+						on_start = "[PdxGuiWidget.Show]"
+					}
+
+					state = {
+						name = transparent
+						on_start = "[PdxGuiWidget.Hide]"
+					}
+
+					button_checkbox = {
+						parentanchor = vcenter
+						position = { 3 0 }
+						checked = no
+						alpha = 0.6
+					}
+				}
+
+				button_standard_list = {
+					text = "Backlight"
+					onclick = "[PdxGuiTriggerAllAnimations('backlight')]"
+
+					state = {
+						name = backlight
+						on_start = "[PdxGuiWidget.Hide]"
+					}
+
+					state = {
+						name = backlight_off
+						on_start = "[PdxGuiWidget.Show]"
+					}
+
+					button_checkbox = {
+						parentanchor = vcenter
+						position = { 3 0 }
+						checked = no
+						alpha = 0.6
+					}
+				}
+
+				button_standard_list = {
+					text = "Backlight"
+					onclick = "[PdxGuiTriggerAllAnimations('backlight_off')]"
+					visible = no
+
+					state = {
+						name = backlight
+						on_start = "[PdxGuiWidget.Show]"
+					}
+
+					state = {
+						name = backlight_off
+						on_start = "[PdxGuiWidget.Hide]"
+					}
+
+					button_checkbox = {
+						parentanchor = vcenter
+						position = { 3 0 }
+						checked = yes
+					}
+				}
+			}
+
+			margin_widget = {#bg buttons
+				size = { 100% 100% }
+				margin_top = 130
+				margin_left = 10
+
+				scrollarea = {
+					size = { 100% 100% }
+
+					scrollbarpolicy_horizontal = always_off
+
+					scrollbar_vertical = {
+							using = Scrollbar_Vertical
+					}
+
+				 	scrollwidget = {
+						using = bg_buttons
+					}
+				}
+			}
+		}
+
+		widget = { #poses widget
+			position = { 200 0 }
+			size = { 200 100% }
+
+			background = {
+				using = Background_Area_Dark
+				alpha = 0.8
+			}
+
+			flowcontainer = {#tabs
+				position = { 10 -1 }
+				ignoreinvisible = yes
+
+				container = {
+					visible = "[Not(PortraitCustomizationWindow.GetCharacter.GetPrimarySpouseOrBetrothed.IsValid)]"
+
+					button_tab = {
+						size = { 57 40 }
+						#text = "Spouse"
+						tooltip = "No spouse"
+						enabled = no
+
+						icon = {
+							texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+						}
+					}
+				}
+
+				container = {
+					visible = "[PortraitCustomizationWindow.GetCharacter.GetPrimarySpouseOrBetrothed.IsValid]"
+					ignoreinvisible = yes
+
+					button_tab = {
+						size = { 57 40 }
+						#text = "Spouse"
+						tooltip = "Spouse poses"
+						shortcut = "character_window"
+
+						button_icon = {
+							texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+							alpha = 0.2
+						}
+
+						onclick = "[PdxGuiTriggerAllAnimations('show_spouse')]"
+						state = {
+							name = show_spouse
+							using = hideme
+						}
+
+						state = {
+							name = show_heir
+							using = showme
+						}
+
+						state = {
+							name = hide_spouse
+							using = showme
+						}
+
+						state = {
+							name = show_main_poses
+							using = showme
+						}
+					}
+
+					button_tab = {
+						visible = no
+						size = { 57 40 }
+						#text = "Spouse"
+						tooltip = "Spouse poses"
+						down = yes
+						button_icon = {
+							texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+						}
+
+						state = {
+							name = show_spouse
+							using = showme
+						}
+
+						state = {
+							name = show_heir
+							using = hideme
+						}
+
+						state = {
+							name = hide_spouse
+							using = hideme
+						}
+
+						state = {
+							name = show_main_poses
+							using = hideme
+						}
+					}
+				}
+
+				button_tab = {
+					size = { 56 40 }
+					tooltip = "Main poses"
+					down = yes
+					#text = "Main"
+					button_icon = {
+						alwaystransparent = yes
+						texture = "gfx/interface/buttons/buttoN_icons/mapmode_players.dds"
+						parentanchor = center
+						size = { 30 30 }
+					}
+
+					state = {
+						name = show_spouse
+						using = hideme
+					}
+
+					state = {
+						name = show_heir
+						using = hideme
+					}
+
+					state = {
+						name = show_main_poses
+						using = showme
+					}
+				}
+
+				button_tab = {
+					size = { 56 40 }
+					tooltip = "Main poses"
+					visible = no
+					shortcut = "my_realm_window"
+
+					button_icon = {
+						alwaystransparent = yes
+						texture = "gfx/interface/buttons/buttoN_icons/mapmode_players.dds"
+						parentanchor = center
+						size = { 30 30 }
+						alpha = 0.2
+					}
+
+					onclick = "[PdxGuiTriggerAllAnimations('hide_spouse_poses')]"
+					onclick = "[PdxGuiTriggerAllAnimations('hide_heir_poses')]"
+					onclick = "[PdxGuiTriggerAllAnimations('show_main_poses')]"
+
+					state = {
+						name = show_spouse
+						using = showme
+					}
+
+					state = {
+						name = show_heir
+						using = showme
+					}
+
+					state = {
+						name = show_main_poses
+						using = hideme
+					}
+				}
+
+				container = {
+					visible = "[Not(PortraitCustomizationWindow.GetCharacter.GetPrimaryTitle.GetHeir.IsValid)]"
+
+					button_tab = {
+						size = { 57 40 }
+						#text = "Spouse"
+						tooltip = "No heir"
+						enabled = no
+
+						icon = {
+							texture = "gfx/interface/buttons/button_icons/heir.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+						}
+					}
+				}
+
+				container = {
+					visible = "[PortraitCustomizationWindow.GetCharacter.GetPrimaryTitle.GetHeir.IsValid]"
+					ignoreinvisible = yes
+
+					button_tab = {
+						size = { 57 40 }
+						tooltip = "Heir poses"
+						shortcut = "military_window"
+
+						button_icon = {
+							texture = "gfx/interface/buttons/button_icons/heir.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+							alpha = 0.2
+						}
+
+						onclick = "[PdxGuiTriggerAllAnimations('show_heir')]"
+
+						state = {
+							name = show_spouse
+							using = showme
+						}
+
+						state = {
+							name = show_heir
+							using = hideme
+						}
+
+						state = {
+							name = hide_heir
+							using = showme
+						}
+
+						state = {
+							name = show_main_poses
+							using = showme
+						}
+					}
+
+					button_tab = {
+						visible = no
+						size = { 57 40 }
+						#text = "Spouse"
+						tooltip = "Heir poses"
+						down = yes
+						button_icon = {
+							texture = "gfx/interface/buttons/button_icons/heir.dds"
+							parentanchor = center
+							alwaystransparent = yes
+							size = { 30 30 }
+						}
+
+						state = {
+							name = show_spouse
+							using = hideme
+						}
+
+						state = {
+							name = show_heir
+							using = showme
+						}
+
+						state = {
+							name = hide_heir
+							using = hideme
+						}
+
+						state = {
+							name = show_main_poses
+							using = hideme
+						}
+					}
+				}
+			}
+
+			widget = {#main poses
+				using = full
+
+				text_single = {
+					text = "Main Poses"
+					parentanchor = hcenter
+					position = { -5 40 }
+				}
+
+				# text_single = {
+				# 	text = "(only available for adults)"
+				# 	parentanchor = hcenter
+				# 	position = { -2 70 }
+				# 	alpha = 0.5
+				# 	visible = "[Not(GreaterThan_int32(Character.GetAge, '(int32)17'))]"
+				# }
+
+				state = {
+					name = hide_spouse
+					using = showme
+				}
+
+				state = {
+					name = show_heir
+					using = hideme
+				}
+
+				state = {
+					name = show_spouse
+					using = hideme
+				}
+
+				state = {
+					name = show_main_poses
+					using = showme
+				}
+
+				margin_widget = {
+					using = full
+					margin_top = 70
+					margin_left = 10
+
+					#visible = "[GreaterThan_int32(Character.GetAge, '(int32)17')]"
+
+					scrollarea = {
+						size = { 100% 100% }
+
+						scrollbarpolicy_horizontal = always_off
+
+						scrollbar_vertical = {
+								using = Scrollbar_Vertical
+						}
+
+					 	scrollwidget = {
+							flowcontainer = {
+								direction = vertical
+
+								using = mood_buttons
+							}
+						}
+					}
+				}
+			}
+
+			widget = {#spouse poses
+				using = full
+				visible = no
+
+				text_single = {
+					text = "Spouse Poses"
+					parentanchor = hcenter
+					position = { -5 40}
+				}
+
+				# text_single = {
+				# 	text = "(only available for adults)"
+				# 	parentanchor = hcenter
+				# 	position = { -2 70 }
+				# 	alpha = 0.5
+				# 	visible = "[Not(GreaterThan_int32(PortraitCustomizationWindow.GetCharacter.GetPrimarySpouseOrBetrothed.GetAge, '(int32)17'))]"
+				# }
+
+				state = {
+					name = show_spouse
+					using = showme
+				}
+
+				state = {
+					name = hide_spouse
+					using = hideme
+				}
+
+				state = {
+					name = show_heir
+					using = hideme
+				}
+
+				state = {
+					name = hide_spouse_poses
+					using = hideme
+				}
+
+				state = {
+					name = show_main_poses
+					using = hideme
+				}
+
+				margin_widget = {
+					size = { 200 100% }
+					margin_top = 70
+					margin_left = 10
+					position = { 0 0 }
+
+					#visible = "[GreaterThan_int32(Character.GetPrimarySpouseOrBetrothed.GetAge, '(int32)17')]"
+
+					scrollarea = {
+						size = { 100% 100% }
+
+						scrollbarpolicy_horizontal = always_off
+
+						scrollbar_vertical = {
+								using = Scrollbar_Vertical
+						}
+
+					 	scrollwidget = {
+							flowcontainer = {
+								direction = vertical
+
+								using = mood_buttons_spouse
+							}
+						}
+					}
+				}
+			}
+
+			widget = {#heir poses
+				using = full
+				visible = no
+
+				text_single = {
+					text = "Heir Poses"
+					parentanchor = hcenter
+					position = { -5 40}
+				}
+
+				# text_single = {
+				# 	text = "(only available for adults)"
+				# 	parentanchor = hcenter
+				# 	position = { -2 70 }
+				# 	alpha = 0.5
+				# 	visible = "[Not(GreaterThan_int32(PortraitCustomizationWindow.GetCharacter.GetPrimaryTitle.GetHeir.GetAge, '(int32)17'))]"
+				# }
+
+				state = {
+					name = show_spouse
+					using = hideme
+				}
+
+				state = {
+					name = hide_heir
+					using = hideme
+				}
+
+				state = {
+					name = hide_heir_poses
+					using = hideme
+				}
+
+				state = {
+					name = show_main_poses
+					using = hideme
+				}
+
+				state = {
+					name = show_heir
+					using = showme
+				}
+
+				margin_widget = {
+					size = { 200 100% }
+					margin_top = 70
+					margin_left = 10
+					position = { 0 0 }
+
+					#isible = "[GreaterThan_int32(PortraitCustomizationWindow.GetCharacter.GetPrimaryTitle.GetHeir.GetAge, '(int32)17')]"
+
+					scrollarea = {
+						size = { 100% 100% }
+
+						scrollbarpolicy_horizontal = always_off
+
+						scrollbar_vertical = {
+								using = Scrollbar_Vertical
+						}
+
+					 	scrollwidget = {
+							flowcontainer = {
+								direction = vertical
+
+								using = mood_buttons_heir
+							}
+						}
+					}
+				}
+			}
+		}
+
+		button_icon = {
+			parentanchor = right
+			position = { -5 5 }
+			shortcut = "close_window"
+			tooltip = "CLOSE_TOOLTIP"
+			texture = "gfx/interface/buttons/button_icons/window_close.dds"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
+			onclick = "[PortraitCustomizationWindow.Close]"
+
+			using = Animation_ShowHide_Standard
+		}
+
+		flowcontainer = {#bottom buttons
+			parentanchor = bottom|right
+			spacing = 5
+			direction = vertical
+			position = { -50 -10 }
+			ignoreinvisible = yes
+
+			button_standard = {
+				texture = "gfx/interface/buttons/button_verb_primary.dds"
+
+        buttonText = {
+          text_single = {
+            size = { 100% 100% }
+            autoresize = no
+            margin = { 10 0 }
+            align = center|nobaseline
+            default_format = "#high"
+						text = "Hide Controls"
+          }
+				}
+				tooltip = "Mouse over controls again to show them"
+				shortcut = "council_window"
+
+				onclick = "[PdxGuiTriggerAllAnimations('hide_controls')]"
+
+				state = {
+					name = hide_controls
+					on_start = "[PdxGuiWidget.Hide]"
+				}
+
+				state = {
+					name = show_controls
+					on_start = "[PdxGuiWidget.Show]"
+				}
+      }
+
+
+			button_standard = {
+				text = "Hide Portrait"
+
+				onclick = "[PdxGuiTriggerAllAnimations('hide_portraits')]"
+
+				state = {
+					name = hide_portraits
+					on_start = "[PdxGuiWidget.Hide]"
+				}
+
+				state = {
+					name = show_portraits
+					on_start = "[PdxGuiWidget.Show]"
+				}
+			}
+
+			button_primary = {
+				text = "Show Portrait"
+				visible = no
+
+				onclick = "[PdxGuiTriggerAllAnimations('show_portraits')]"
+
+				state = {
+					name = hide_portraits
+					on_start = "[PdxGuiWidget.Show]"
+				}
+
+				state = {
+					name = show_portraits
+					on_start = "[PdxGuiWidget.Hide]"
+				}
+			}
+
+			spacer = {
+				size = { 0 5 }
+			}
+
+			button_primary = {
+				name = "apply_button"
+				text = "PCW_APPLY"
+				onclick = "[PortraitCustomizationWindow.ApplyAndClose]"
+				tooltip = "PCW_APPLY_TOOLTIP"
+			}
+		}
+
+		button = {
+			size = { 0 0 }
+			visible = no
+
+			state = {
+				name = hide_controls
+				using = showme
+			}
+
+			state = {
+				name = show_controls
+				using = hideme
+			}
+			shortcut = "council_window"
+			onclick = "[PdxGuiTriggerAllAnimations('show_controls')]"
+
+		}
+	}
+}

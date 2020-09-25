@@ -1,0 +1,39 @@
+jg_uppsala_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_cologne_cathedral.dds" 
+
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	can_construct = {
+		scope:holder = {
+			faith = { religion_tag = germanic_religion }
+		}
+	}	
+	cost_gold = 2000
+
+	garrison = 250
+	levy = 100
+	
+	character_modifier = {
+		monthly_piety = 0.25
+		tolerance_advantage_mod = 5
+	}
+	province_modifier = {
+		monthly_income = 2.0		
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}

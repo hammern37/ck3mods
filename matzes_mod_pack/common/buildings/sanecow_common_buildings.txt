@@ -1,0 +1,336 @@
+﻿####################
+# Common Buildings #
+####################
+
+### Trade Port
+
+cow_common_tradeport_01 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_1_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_1
+		tax_mult = 0.04
+	}
+		county_modifier = {
+		development_growth_factor = 0.04
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_02
+
+	type_icon = "icon_building_tradeport.dds"
+	
+	ai_value = {
+		base = 16
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_02 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+		building_requirement_castle_city_church = { LEVEL = 01 }
+		culture = {
+			has_innovation = innovation_crop_rotation
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_2_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_2
+		tax_mult = 0.07
+	}
+		county_modifier = {
+		development_growth_factor = 0.07
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_03
+	ai_value = {
+		base = 8
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_03 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_3_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_3
+		tax_mult = 0.10
+	}
+		county_modifier = {
+		development_growth_factor = 0.10
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_04
+	ai_value = {
+		base = 7
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_04 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 02 }
+		culture = {
+			has_innovation = innovation_manorialism
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_4_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_4
+		tax_mult = 0.13
+	}
+		county_modifier = {
+		development_growth_factor = 0.13
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_05
+	ai_value = {
+		base = 6
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_05 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_5_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_5
+		tax_mult = 0.16
+	}
+		county_modifier = {
+		development_growth_factor = 0.16
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_06
+	ai_value = {
+		base = 5
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_06 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 03 }
+		culture = {
+			has_innovation = innovation_windmills
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_6_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_6
+		tax_mult = 0.19
+	}
+		county_modifier = {
+		development_growth_factor = 0.19
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_07
+	ai_value = {
+		base = 4
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_07 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+
+	cost_gold = normal_building_tier_7_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_7
+		tax_mult = 0.22
+	}
+		county_modifier = {
+		development_growth_factor = 0.22
+		development_growth = 0.1
+	}
+	
+	next_building = cow_common_tradeport_08
+	ai_value = {
+		base = 3
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}
+
+cow_common_tradeport_08 = {
+	construction_time = quick_construction_time
+
+	can_construct_potential = {
+		building_common_tradeport_requirement_terrain = yes
+	}
+	can_construct = {
+		building_requirement_castle_city_church = { LEVEL = 04 }
+		culture = {
+			has_innovation = innovation_cranes
+		}
+	}
+
+	can_construct_showing_failures_only = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = normal_building_tier_8_cost
+	
+	province_modifier = {
+		monthly_income = normal_building_tax_tier_8
+		tax_mult = 0.25
+	}
+		county_modifier = {
+		development_growth_factor = 0.25
+		development_growth = 0.1
+	}
+	
+	ai_value = {
+		base = 2
+			modifier = {
+			factor = 2
+			scope:holder = { NOT = {exists = liege} } ## Topmost liege shouldn't construct in vassal holdings unless no better option.
+		}
+		modifier = { 
+			factor = 2
+			duchy = {is_capital_barony = yes}	
+		}
+	}
+}

@@ -1,0 +1,100 @@
+train_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_invite_knights.dds"
+	ai_check_interval = 60
+
+	cost = { 
+		gold = {
+			add = train_activity_cost 
+			divide = 1.5
+		}
+	}
+
+	cooldown = { days = standard_training_cooldown_time }
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = line_break
+		custom_tooltip = train_decision_train
+		#Stress loss
+		if = {
+			limit = {
+					has_trait = lazy
+			}
+			custom_tooltip = train_decision_stress_lazy
+		}
+		else_if = {
+			limit = {
+					has_trait = craven
+			}
+			custom_tooltip = train_decision_stress_craven
+		}
+		else = {
+			stress_impact = {
+				base = -30
+				lazy = activity_stress_gain_impact
+				craven = activity_stress_gain_impact
+				diligent = activity_stress_loss_impact
+				athletic = activity_stress_loss_impact
+				brave = activity_stress_loss_impact
+				trainer_1 = train_stress_loss_impact
+				trainer_2 = train_stress_loss_impact
+				trainer_3 = train_stress_loss_impact
+			}
+		}
+
+		custom_tooltip = train_decision_prestige
+
+		hidden_effect = {
+			random_sub_realm_barony = {
+				title_province = {
+					spawn_activity = {
+						type = activity_train
+						owner = root
+					}
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		short_term_gold > standard_train_cost
+	}
+
+	ai_will_do = {
+		base = 35
+
+		ai_value_modifier = {
+			ai_energy = 1
+			ai_greed = -0.5
+			ai_compassion = -0.5
+		}
+
+		modifier = {
+			add = 10
+			has_trait_rank = {
+				trait = education_martial
+				rank > 0
+			}
+		}
+		modifier = {
+			add = 10
+			has_trait_rank = {
+				trait = education_martial
+				rank > 2
+			}
+		}
+
+		modifier = {
+			add = 35
+			stress > low_stress
+		}
+	}
+}

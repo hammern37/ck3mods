@@ -1,0 +1,28 @@
+force_abdication_interaction = {
+	category = interaction_category_vassal
+	use_diplomatic_range = no
+	ignore_pending_interaction_block = yes
+	
+	is_shown = {
+		NOT = { scope:actor = scope:recipient }
+		scope:recipient = {
+			OR = {
+				target_is_liege_or_above = scope:actor
+				is_pool_guest_of = scope:actor
+			}
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			depose = yes
+			scope:recipient = {
+					target = scope:actor = {
+					set_relation_rival = scope:actor
+			}
+		}
+	}
+	
+	auto_accept = yes
+	ai_will_do = 0
+}

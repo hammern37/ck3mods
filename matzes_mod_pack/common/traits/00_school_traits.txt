@@ -1,0 +1,1200 @@
+diplomacy_1 = {
+	index = 17171
+	icon = diplomacy_1.dds
+	lifestyle = yes
+	diplomacy = 1
+	level = 1
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_1_desc
+			}
+			desc = trait_diplomacy_1_character_desc
+		}
+	}
+}
+diplomacy_2 = {
+	index = 17172
+	icon = diplomacy_1.dds
+	lifestyle = yes
+	diplomacy = 2
+	level = 2
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_2_desc
+			}
+			desc = trait_diplomacy_2_character_desc
+		}
+	}
+}
+diplomacy_3 = {
+	index = 17173
+	icon = diplomacy_1.dds
+	lifestyle = yes
+	diplomacy = 3
+	level = 3
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_3_desc
+			}
+			desc = trait_diplomacy_3_character_desc
+		}
+	}
+}
+diplomacy_4 = {
+	index = 17174
+	icon = diplomacy_2.dds
+	lifestyle = yes
+	diplomacy = 4
+	level = 4
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_4_desc
+			}
+			desc = trait_diplomacy_4_character_desc
+		}
+	}
+}
+diplomacy_5 = {
+	index = 17175
+	icon = diplomacy_2.dds
+	lifestyle = yes
+	diplomacy = 5
+	level = 5
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_5_desc
+			}
+			desc = trait_diplomacy_5_character_desc
+		}
+	}
+}
+diplomacy_6 = {
+	index = 17176
+	icon = diplomacy_2.dds
+	lifestyle = yes
+	diplomacy = 6
+	level = 6
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_6_desc
+			}
+			desc = trait_diplomacy_6_character_desc
+		}
+	}
+}
+diplomacy_7 = {
+	index = 17177
+	icon = diplomacy_3.dds
+	lifestyle = yes
+	diplomacy = 7
+	level = 7
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_7_desc
+			}
+			desc = trait_diplomacy_7_character_desc
+		}
+	}
+}
+diplomacy_8 = {
+	index = 17178
+	icon = diplomacy_3.dds
+	lifestyle = yes
+	diplomacy = 8
+	level = 8
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_8_desc
+			}
+			desc = trait_diplomacy_8_character_desc
+		}
+	}
+}
+diplomacy_9 = {
+	index = 17179
+	icon = diplomacy_3.dds
+	lifestyle = yes
+	diplomacy = 9
+	level = 9
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_9_desc
+			}
+			desc = trait_diplomacy_9_character_desc
+		}
+	}
+}
+diplomacy_10 = {
+	index = 17180
+	icon = diplomacy_4.dds
+	lifestyle = yes
+	diplomacy = 10
+	level = 10
+	group = school_diplomacy
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_diplomacy_10_desc
+			}
+			desc = trait_diplomacy_10_character_desc
+		}
+	}
+}
+martial_1 = {
+	index = 17181
+	icon = martial_1.dds
+	lifestyle = yes
+	martial = 1
+	level = 1
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_1_desc
+			}
+			desc = trait_martial_1_character_desc
+		}
+	}
+}
+martial_2 = {
+	index = 17182
+	icon = martial_1.dds
+	lifestyle = yes
+	martial = 2
+	level = 2
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_2_desc
+			}
+			desc = trait_martial_2_character_desc
+		}
+	}
+}
+martial_3 = {
+	index = 17183
+	icon = martial_1.dds
+	lifestyle = yes
+	martial = 3
+	level = 3
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_3_desc
+			}
+			desc = trait_martial_3_character_desc
+		}
+	}
+}
+martial_4 = {
+	index = 17184
+	icon = martial_2.dds
+	lifestyle = yes
+	martial = 4
+	level = 4
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_4_desc
+			}
+			desc = trait_martial_4_character_desc
+		}
+	}
+}
+martial_5 = {
+	index = 17185
+	icon = martial_2.dds
+	lifestyle = yes
+	martial = 5
+	level = 5
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_5_desc
+			}
+			desc = trait_martial_5_character_desc
+		}
+	}
+}
+martial_6 = {
+	index = 17186
+	icon = martial_2.dds
+	lifestyle = yes
+	martial = 6
+	level = 6
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_6_desc
+			}
+			desc = trait_martial_6_character_desc
+		}
+	}
+}
+martial_7 = {
+	index = 17187
+	icon = martial_3.dds
+	lifestyle = yes
+	martial = 7
+	level = 17
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_7_desc
+			}
+			desc = trait_martial_7_character_desc
+		}
+	}
+}
+martial_8 = {
+	index = 17188
+	icon = martial_3.dds
+	lifestyle = yes
+	martial = 8
+	level = 8
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_8_desc
+			}
+			desc = trait_martial_8_character_desc
+		}
+	}
+}
+martial_9 = {
+	index = 17189
+	icon = martial_3.dds
+	lifestyle = yes
+	martial = 9
+	level = 9
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_9_desc
+			}
+			desc = trait_martial_9_character_desc
+		}
+	}
+}
+martial_10 = {
+	index = 17190
+	icon = martial_4.dds
+	lifestyle = yes
+	martial = 10
+	level = 10
+	group = school_martial
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_martial_10_desc
+			}
+			desc = trait_martial_10_character_desc
+		}
+	}
+}
+learning_1 = {
+	index = 17191
+	icon = learning_1.dds
+	lifestyle = yes
+	learning = 1
+	level = 1
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_1_desc
+			}
+			desc = trait_learning_1_character_desc
+		}
+	}
+}
+learning_2 = {
+	index = 17192
+	icon = learning_1.dds
+	lifestyle = yes
+	learning = 2
+	level = 2
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_2_desc
+			}
+			desc = trait_learning_2_character_desc
+		}
+	}
+}
+learning_3 = {
+	index = 17193
+	icon = learning_1.dds
+	lifestyle = yes
+	learning = 3
+	level = 3
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_3_desc
+			}
+			desc = trait_learning_3_character_desc
+		}
+	}
+}
+learning_4 = {
+	index = 17194
+	icon = learning_2.dds
+	lifestyle = yes
+	learning = 4
+	level = 4
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_4_desc
+			}
+			desc = trait_learning_4_character_desc
+		}
+	}
+}
+learning_5 = {
+	index = 17195
+	icon = learning_2.dds
+	lifestyle = yes
+	learning = 5
+	level = 5
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = traitlearning_5_desc
+			}
+			desc = trait_learning_5_character_desc
+		}
+	}
+}
+learning_6 = {
+	index = 17196
+	icon = learning_2.dds
+	lifestyle = yes
+	learning = 6
+	level = 6
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_6_desc
+			}
+			desc = trait_learning_6_character_desc
+		}
+	}
+}
+learning_7 = {
+	index = 17197
+	icon = learning_3.dds
+	lifestyle = yes
+	learning = 7
+	level = 17
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_7_desc
+			}
+			desc = trait_learning_7_character_desc
+		}
+	}
+}
+learning_8 = {
+	index = 17198
+	icon = learning_3.dds
+	lifestyle = yes
+	learning = 8
+	level = 8
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_8_desc
+			}
+			desc = trait_learning_8_character_desc
+		}
+	}
+}
+learning_9 = {
+	index = 17199
+	icon = learning_3.dds
+	lifestyle = yes
+	learning = 9
+	level = 9
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_9_desc
+			}
+			desc = trait_learning_9_character_desc
+		}
+	}
+}
+learning_10 = {
+	index = 17200
+	icon = learning_4.dds
+	lifestyle = yes
+	learning = 10
+	level = 10
+	group = school_learning
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_learning_10_desc
+			}
+			desc = trait_learning_10_character_desc
+		}
+	}
+}
+intrigue_1 = {
+	index = 17201
+	icon = intrigue_1.dds
+	lifestyle = yes
+	intrigue = 1
+	level = 1
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_1_desc
+			}
+			desc = trait_intrigue_1_character_desc
+		}
+	}
+}
+intrigue_2 = {
+	index = 17202
+	icon = intrigue_1.dds
+	lifestyle = yes
+	intrigue = 2
+	level = 2
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_2_desc
+			}
+			desc = trait_intrigue_2_character_desc
+		}
+	}
+}
+intrigue_3 = {
+	index = 17203
+	icon = intrigue_1.dds
+	lifestyle = yes
+	intrigue = 3
+	level = 3
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_3_desc
+			}
+			desc = trait_intrigue_3_character_desc
+		}
+	}
+}
+intrigue_4 = {
+	index = 17204
+	icon = intrigue_2.dds
+	lifestyle = yes
+	intrigue = 4
+	level = 4
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_4_desc
+			}
+			desc = trait_intrigue_4_character_desc
+		}
+	}
+}
+intrigue_5 = {
+	index = 17205
+	icon = intrigue_2.dds
+	lifestyle = yes
+	intrigue = 5
+	level = 5
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_5_desc
+			}
+			desc = trait_intrigue_5_character_desc
+		}
+	}
+}
+intrigue_6 = {
+	index = 17206
+	icon = intrigue_2.dds
+	lifestyle = yes
+	intrigue = 6
+	level = 6
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_6_desc
+			}
+			desc = trait_intrigue_6_character_desc
+		}
+	}
+}
+intrigue_7 = {
+	index = 17207
+	icon = intrigue_3.dds
+	lifestyle = yes
+	intrigue = 7
+	level = 17
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_7_desc
+			}
+			desc = trait_intrigue_7_character_desc
+		}
+	}
+}
+intrigue_8 = {
+	index = 17208
+	icon = intrigue_3.dds
+	lifestyle = yes
+	intrigue = 8
+	level = 8
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_8_desc
+			}
+			desc = trait_intrigue_8_character_desc
+		}
+	}
+}
+intrigue_9 = {
+	index = 17209
+	icon = intrigue_3.dds
+	lifestyle = yes
+	intrigue = 9
+	level = 9
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_9_desc
+			}
+			desc = trait_intrigue_9_character_desc
+		}
+	}
+}
+intrigue_10 = {
+	index = 17210
+	icon = intrigue_4.dds
+	lifestyle = yes
+	intrigue = 10
+	level = 10
+	group = school_intrigue
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_intrigue_10_desc
+			}
+			desc = trait_intrigue_10_character_desc
+		}
+	}
+}
+stewardship_1 = {
+	index = 17211
+	icon = stewardship_1.dds
+	lifestyle = yes
+	stewardship = 1
+	level = 1
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_1_desc
+			}
+			desc = trait_stewardship_1_character_desc
+		}
+	}
+}
+stewardship_2 = {
+	index = 17212
+	icon = stewardship_1.dds
+	lifestyle = yes
+	stewardship = 2
+	level = 2
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_2_desc
+			}
+			desc = trait_stewardship_2_character_desc
+		}
+	}
+}
+stewardship_3 = {
+	index = 17213
+	icon = stewardship_1.dds
+	lifestyle = yes
+	stewardship = 3
+	level = 3
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_3_desc
+			}
+			desc = trait_stewardship_3_character_desc
+		}
+	}
+}
+stewardship_4 = {
+	index = 17214
+	icon = stewardship_2.dds
+	lifestyle = yes
+	stewardship = 4
+	level = 4
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_4_desc
+			}
+			desc = trait_stewardship_4_character_desc
+		}
+	}
+}
+stewardship_5 = {
+	index = 17215
+	icon = stewardship_2.dds
+	lifestyle = yes
+	stewardship = 5
+	level = 5
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_5_desc
+			}
+			desc = trait_stewardship_5_character_desc
+		}
+	}
+}
+stewardship_6 = {
+	index = 17216
+	icon = stewardship_2.dds
+	lifestyle = yes
+	stewardship = 6
+	level = 6
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_6_desc
+			}
+			desc = trait_stewardship_6_character_desc
+		}
+	}
+}
+stewardship_7 = {
+	index = 17217
+	icon = stewardship_3.dds
+	lifestyle = yes
+	stewardship = 7
+	level = 17
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_7_desc
+			}
+			desc = trait_stewardship_7_character_desc
+		}
+	}
+}
+stewardship_8 = {
+	index = 17218
+	icon = stewardship_3.dds
+	lifestyle = yes
+	stewardship = 8
+	level = 8
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_8_desc
+			}
+			desc = trait_stewardship_8_character_desc
+		}
+	}
+}
+stewardship_9 = {
+	index = 17219
+	icon = stewardship_3.dds
+	lifestyle = yes
+	stewardship = 9
+	level = 9
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_9_desc
+			}
+			desc = trait_stewardship_9_character_desc
+		}
+	}
+}
+stewardship_10 = {
+	index = 17220
+	icon = stewardship_4.dds
+	lifestyle = yes
+	stewardship = 10
+	level = 10
+	group = school_stewardship
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_stewardship_10_desc
+			}
+			desc = trait_stewardship_10_character_desc
+		}
+	}
+}
+prowess_1 = {
+	index = 17221
+	icon = prowess_1.dds
+	lifestyle = yes
+	prowess = 2
+	level = 1
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_1_desc
+			}
+			desc = trait_prowess_1_character_desc
+		}
+	}
+}
+prowess_2 = {
+	index = 17222
+	icon = prowess_1.dds
+	lifestyle = yes
+	prowess = 4
+	level = 2
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_2_desc
+			}
+			desc = trait_prowess_2_character_desc
+		}
+	}
+}
+prowess_3 = {
+	index = 17223
+	icon = prowess_1.dds
+	lifestyle = yes
+	prowess = 6
+	level = 3
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_3_desc
+			}
+			desc = trait_prowess_3_character_desc
+		}
+	}
+}
+prowess_4 = {
+	index = 17224
+	icon = prowess_2.dds
+	lifestyle = yes
+	prowess = 8
+	level = 4
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_4_desc
+			}
+			desc = trait_prowess_4_character_desc
+		}
+	}
+}
+prowess_5 = {
+	index = 17225
+	icon = prowess_2.dds
+	lifestyle = yes
+	prowess = 10
+	level = 5
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_5_desc
+			}
+			desc = trait_prowess_5_character_desc
+		}
+	}
+}
+prowess_6 = {
+	index = 17226
+	icon = prowess_2.dds
+	lifestyle = yes
+	prowess = 12
+	level = 6
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_6_desc
+			}
+			desc = trait_prowess_6_character_desc
+		}
+	}
+}
+prowess_7 = {
+	index = 17227
+	icon = prowess_3.dds
+	lifestyle = yes
+	prowess = 13
+	level = 17
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_7_desc
+			}
+			desc = trait_prowess_7_character_desc
+		}
+	}
+}
+prowess_8 = {
+	index = 17228
+	icon = prowess_3.dds
+	lifestyle = yes
+	prowess = 14
+	level = 8
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_8_desc
+			}
+			desc = trait_prowess_8_character_desc
+		}
+	}
+}
+prowess_9 = {
+	index = 17229
+	icon = prowess_3.dds
+	lifestyle = yes
+	prowess = 15
+	level = 9
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_9_desc
+			}
+			desc = trait_prowess_9_character_desc
+		}
+	}
+}
+prowess_10 = {
+	index = 17230
+	icon = prowess_4.dds
+	lifestyle = yes
+	prowess = 16
+	level = 10
+	group = school_prowess
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_prowess_10_desc
+			}
+			desc = trait_prowess_10_character_desc
+		}
+	}
+}

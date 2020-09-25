@@ -1,0 +1,17 @@
+# 4828 - BAGHDAD
+4828 = {	# 4828 - Baghdad
+	
+	# Misc
+	culture = levantine
+	religion = ashari
+	
+	# History
+	867.1.1 = {
+		holding = cow_metropolis_holding
+		buildings = { cow_metropolis_04 }
+		special_building = house_of_wisdom_01
+	}
+	
+
+}
+

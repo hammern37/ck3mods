@@ -1,0 +1,24 @@
+﻿# cow_holy_site_duplicate_trigger
+# barony_is_hist_vanilla_cow_university_trigger
+# has_cow_metropolis_barony_selected
+# has_cow_eligble_barony_in_county
+
+cow_holy_site_duplicate_trigger = {
+	global = COW_HOLY_SITE_BUILDING_DUPLICATE
+}
+
+barony_is_hist_vanilla_cow_university_trigger = {
+	global = IS_VANILLA_UNIVERSITY_PROVINCE
+}
+
+has_cow_metropolis_barony_selected = {
+	first_not = NOT_I_HAVE_COW_METROPOLIS_BARONY_SELECTED
+}
+
+has_cow_eligble_barony_in_county = {
+	first = I_HAVE_COW_ELIGBLE_BARONIES_COUNTY
+}
+
+has_cow_correct_metropolis_stage_trigger = {
+	first = I_HAVE_CORRECT_METROPOLIS_STAGE_IN_PROVINCE
+}

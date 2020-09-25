@@ -1,0 +1,769 @@
+﻿execute_prisoner_interaction = {
+	interface_priority = 120
+	common_interaction = yes
+	category = interaction_category_prison
+	special_interaction = execute_prisoner_interaction
+
+	desc = execute_prisoner_interaction_desc
+	
+	ai_targets = {
+		ai_recipients = prisoners
+	}
+	
+	ai_frequency = 12
+	
+	ai_potential = {
+		is_at_war = no
+	}
+	
+	ai_will_do = {
+		base = 0
+		
+		opinion_modifier = {
+			trigger = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			opinion_target = scope:recipient
+			multiplier = -1
+		}
+		
+		ai_value_modifier = {
+			ai_compassion = -1
+		}
+		modifier = {
+			add = -20
+			ai_compassion >= low_positive_ai_value
+			scope:recipient = { is_adult = no }
+		}
+		# Try to avoid Kinslaying
+		modifier = {
+			add = -20
+			scope:actor.dynasty = scope:recipient.dynasty
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_any_dynasty_member_crime } }
+		}
+		modifier = {
+			add = -20
+			is_close_or_extended_family_of = scope:recipient
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_extended_family_crime } }
+		}
+		modifier = {
+			add = -20
+			is_close_family_of = scope:recipient
+			NOT = { faith = { has_doctrine = doctrine_kinslaying_close_kin_crime } }
+		}
+		modifier = {
+			add = 50
+			has_execute_reason = scope:recipient
+			OR = {
+				has_trait = sadistic
+				has_trait = lunatic
+			}
+		}
+		modifier = { # Executing your way to new titles is a worthy cause...
+			add = 20
+			scope:actor = {
+				has_execute_reason = scope:recipient
+				ai_greed > 0
+				any_heir_title = { # Execute rulers you can inherit land from
+					exists = holder
+					holder = scope:recipient
+					place_in_line_of_succession = {
+						target = scope:actor
+						value > 2
+					}
+				}
+			}
+		}
+		modifier = { # Vengeful characters enjoy executing their rivals
+			add = 20
+			scope:actor = {
+				has_execute_reason = scope:recipient
+				ai_vengefulness >= medium_positive_ai_value
+				OR = {
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+				}
+			}
+		}
+		modifier = { # Executing your way to new titles is a worthy cause... and very greedy characters need no execution reason
+			add = 35
+			scope:actor = {
+				ai_greed >= very_high_positive_ai_value
+				any_heir_title = { # Execute rulers you can inherit land from
+					exists = holder
+					holder = scope:recipient
+					place_in_line_of_succession = {
+						target = scope:actor
+						value > 2
+					}
+				}
+			}
+		}
+		modifier = { # Vengeful characters enjoy executing their rivals, and very vengeful characters need no execution reason
+			add = 35
+			scope:actor = {
+				ai_vengefulness >= very_high_positive_ai_value
+				OR = {
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			scope:actor = {
+				NOR = { # Do not execute unless you have some sort of reason to do it
+					has_execute_reason = scope:recipient
+					has_relation_rival = scope:recipient # Execute rivals
+					has_relation_nemesis = scope:recipient # Execute rivals
+					scope:recipient = {
+						is_spouse_of = scope:actor
+						exposed_cheating_on_spouse_trigger = { SPOUSE = scope:actor }
+					}
+					any_heir_title = { # Execute rulers you can inherit land from
+						exists = holder
+						holder = scope:recipient
+						place_in_line_of_succession = {
+							target = scope:actor
+							value > 2
+						}
+					}
+					has_trait = lunatic # Self explanatory
+				}
+			}
+		}
+	}
+	
+	is_shown = {
+		scope:recipient = {
+			is_imprisoned_by = scope:actor
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_diplomatically_available = yes } #Prisoner
+		scope:recipient = { NOT = { has_strong_hook = scope:actor } }
+		scope:recipient = {
+			custom_description = {
+				text = "currently_being_tortured"
+				NOT = { has_character_flag = is_being_tortured }
+			}
+		}
+	}
+	
+	on_accept = {
+		if = {
+			limit = { scope:recipient = { is_imprisoned_by = scope:actor } }
+			
+			# Set player for sounds
+			if = {
+				limit = {
+					scope:actor = { ai = no }
+				}
+				scope:actor = { save_scope_as = actor_player }
+				scope:recipient = { save_scope_as = actor_recipient }
+			}
+			else_if = {
+				limit = {
+					scope:recipient = { ai = no }
+				}
+				scope:actor = { save_scope_as = actor_recipient }
+				scope:recipient = { save_scope_as = actor_player }
+			}
+			
+			# AI Choose execution method
+			if = {
+				limit = { always = scope:execution_ai }
+				random_list = {
+					30 = {
+						save_temporary_scope_value_as = {
+							name = execution_beheaded
+							value = yes
+						}
+					}
+					20 = {
+						save_temporary_scope_value_as = {
+							name = execution_hanged
+							value = yes
+						}
+					}
+					15 = {
+						save_temporary_scope_value_as = {
+							name = execution_drowned
+							value = yes
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								OR = {
+									has_trait = sadistic
+									has_trait = vengeful
+								}
+							}
+						}
+						modifier = {
+							factor = 0.5
+							scope:actor = {
+								has_trait = just
+							}
+						}
+						modifier = {
+							factor = 0
+							scope:actor = {
+								has_trait = compassionate
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 1.1
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					10 = {
+						save_temporary_scope_value_as = {
+							name = execution_crushed
+							value = yes
+						}
+						modifier = {
+							add = 20
+							scope:actor = {
+								OR = {
+									has_trait = sadistic
+									has_trait = vengeful
+								}
+							}
+						}
+						modifier = {
+							factor = 0.25
+							scope:actor = {
+								has_trait = just
+							}
+						}
+						modifier = {
+							factor = 0
+							scope:actor = {
+								has_trait = compassionate
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 1.75
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					5 = {
+						save_temporary_scope_value_as = {
+							name = execution_burned
+							value = yes
+						}
+						modifier = {
+							add = 15
+							scope:actor = {
+								has_trait = sadistic
+							}
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								has_trait = vengeful
+							}
+						}
+						modifier = {
+							add = 30
+							scope:actor.faith = {
+								faith_hostility_level = {
+									target = scope:recipient.faith
+									value >= faith_hostile_level
+								}
+							}
+						}
+						modifier = {
+							add = 20
+							scope:actor.faith = {
+								faith_hostility_level = {
+									target = scope:recipient.faith
+									value >= faith_evil_level
+								}
+							}
+						}
+						modifier = {
+							factor = {
+								if = {
+									limit = {
+										scope:actor.faith = {
+											faith_hostility_level = {
+												target = scope:recipient.faith
+												value < faith_hostile_level
+											}
+										}
+									}
+									value = 0
+								}
+								else = {
+									value = 0.25 # If they are an evil/hostile religion then there should still be a chance
+								}
+							}
+							scope:actor = {
+								has_trait = compassionate
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 1.5
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					5 = {
+						save_temporary_scope_value_as = {
+							name = execution_boiled
+							value = yes
+						}
+						modifier = {
+							add = 15
+							scope:actor = {
+								has_trait = sadistic
+							}
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								has_trait = vengeful
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 2
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					5 = {
+						save_temporary_scope_value_as = {
+							name = execution_impaled
+							value = yes
+						}
+						modifier = {
+							add = 15
+							scope:actor = {
+								has_trait = sadistic
+							}
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								has_trait = vengeful
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 2
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					2 = {
+						save_temporary_scope_value_as = {
+							name = execution_flayed
+							value = yes
+						}
+						modifier = {
+							add = 28
+							scope:actor = {
+								has_trait = sadistic
+							}
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								has_trait = vengeful
+							}
+						}
+						modifier = {
+							add = 5
+							scope:actor = {
+								has_trait = lunatic
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 2
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+					2 = {
+						save_temporary_scope_value_as = {
+							name = execution_devour
+							value = yes
+						}
+						modifier = {
+							add = 38
+							scope:actor = {
+								has_trait = cannibal
+							}
+						}
+						modifier = {
+							factor = 2
+							scope:actor = {
+								has_trait = sadistic
+							}
+						}
+						modifier = {
+							factor = 0
+							NOT = {
+								scope:actor = {
+									has_trait = cannibal # non cannibals won't devour people
+								}
+							}
+						}
+						modifier = { # More likely to do evil executions to rivals
+							factor = 2
+							scope:actor = { has_relation_rival = scope:recipient }
+						}
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					scope:recipient = { is_ai = no }
+					scope:actor = { is_ai = yes }
+				}
+				scope:recipient = { trigger_event = char_interaction.0170 } # Give players a chance to see what's about to happen
+				show_as_tooltip = {
+					execute_prisoner_effect = {
+						VICTIM = scope:recipient
+						EXECUTIONER = scope:actor
+					}
+				}
+			}
+			else = {
+				scope:recipient = { trigger_event = char_interaction.0171 }
+				execute_prisoner_effect = {
+					VICTIM = scope:recipient
+					EXECUTIONER = scope:actor
+				}
+			}
+
+			if = {
+				limit = { always = scope:execution_devour }
+				scope:actor = {
+					stress_impact = {
+						base = medium_stress_impact_loss
+						compassionate = minor_stress_impact_gain
+						forgiving = minor_stress_impact_gain
+					}
+					random = {
+						chance = 20
+						show_as_tooltip = { add_trait = ill }
+						hidden_effect = {
+							trigger_event = {
+								id = health.1001
+								days = { 3 10 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						scope:actor = {
+							has_execute_reason = scope:recipient							
+						}
+					}
+					scope:actor = {			
+						stress_impact = {
+							compassionate = medium_stress_impact_gain
+							forgiving = minor_stress_impact_gain
+						}
+					}
+				}
+				
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								always = scope:execution_burned # Burning heretics is fine
+								scope:actor.faith = {
+									faith_hostility_level = {
+										target = scope:recipient.faith
+										value < faith_hostile_level
+									}
+								}
+							}
+							always = scope:execution_crushed
+							always = scope:execution_boiled
+							always = scope:execution_drowned
+							always = scope:execution_flayed
+							always = scope:execution_impaled
+						}
+					}
+					scope:actor = {
+						stress_impact = {
+							base = minor_stress_impact_gain
+							just = medium_stress_impact_gain
+							sadistic = minor_stress_impact_loss
+							vengeful = minor_stress_impact_loss
+						}
+						if = { limit = { has_relation_rival = scope:actor_recipient } 
+							stress_impact = {
+								base = minor_stress_impact_loss
+							}
+						}
+						if = {
+							limit = {
+								OR = {
+									always = scope:execution_boiled
+									always = scope:execution_flayed
+									always = scope:execution_impaled
+								}
+							}
+							add_dread = medium_dread_gain
+						}
+						else = {
+							add_dread = minor_dread_gain
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							AND = {
+								always = scope:execution_burned # Burning heretics is fine
+								scope:actor.faith = {
+									faith_hostility_level = {
+										target = scope:recipient.faith
+										value > faith_hostile_level
+									}
+								}
+							}
+						}
+					}
+					else = {
+						scope:actor = {			
+							stress_impact = {
+								compassionate = medium_stress_impact_gain
+								just = medium_stress_impact_gain
+							}
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					always = scope:execution_burned
+					scope:actor.faith = {
+						has_doctrine = doctrine_pluralism_fundamentalist
+					}
+				}
+				scope:actor = {
+					add_piety = miniscule_piety_value
+				}
+			}
+
+			# Nicknames
+			hidden_effect = {				
+				if = { limit = { always = scope:execution_impaled }
+					random = {
+						chance = 20
+						scope:actor = { set_nickname_effect = { NICKNAME = nick_the_impaler } }
+					}
+				}
+				else_if = { 
+					limit = { 
+						OR = {
+							always = scope:execution_flayed
+							always = scope:execution_crushed
+							always = scope:execution_boiled
+						}
+					}
+					random = {
+						chance = 20
+						random_list = {
+							10 = { scope:actor = { set_nickname_effect = { NICKNAME = nick_the_tormentor } } }
+							10 = { scope:actor = { set_nickname_effect = { NICKNAME = nick_the_depraved } } }
+							10 = { scope:actor = { set_nickname_effect = { NICKNAME = nick_the_monster } } }
+							10 = { scope:actor = { set_nickname_effect = { NICKNAME = nick_the_cruel } } }
+							5 = { scope:actor = { set_nickname_effect = { NICKNAME = nick_the_wicked } } }
+						}
+					}
+				}
+			}
+			
+			scope:actor = {
+				hidden_effect = {
+					send_interface_message = {
+						type = event_generic_neutral
+						title = {
+							first_valid = {
+								triggered_desc = {
+									trigger = { always = scope:execution_beheaded }
+									desc = msg_execute_prisoner_beheading
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_hanged }
+									desc = msg_execute_prisoner_hanging
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_burned }
+									desc = msg_execute_prisoner_burning
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_drowned }
+									desc = msg_execute_prisoner_drowning
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_flayed }
+									desc = msg_execute_prisoner_flaying
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_boiled }
+									desc = msg_execute_prisoner_boiling
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_impaled }
+									desc = msg_execute_prisoner_impaling
+								}
+								triggered_desc = {
+									trigger = { always = scope:execution_crushed }
+									desc = msg_execute_prisoner_crushing
+								}
+								desc = msg_execute_prisoner
+							}
+						}
+						right_icon = scope:recipient
+						custom_tooltip = msg_execute_prisoner_desc
+					}
+				}
+			}
+			
+			play_execution_sound_effect = {
+				RECIPIENT = scope:recipient
+				PLAYER = scope:actor
+			}
+		}
+	}
+
+	options_heading = execution_options_heading
+
+	# TODO: Probably need to add AI specific event-based execution to enable weighting
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = yes # AI execution option
+			}
+		}
+		flag = execution_ai
+		localization = "EXECUTION_AI"
+	}
+
+
+	# Behead
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_beheaded
+		localization = "EXECUTION_BEHEADED"
+	}
+	
+	# Hang
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_hanged
+		localization = "EXECUTION_HANGED"
+	}
+
+	# Drown
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_drowned
+		localization = "EXECUTION_DROWNED"
+	}
+
+	# Burn (incurs stress if same faith and not sadistic)
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_burned
+		localization = "EXECUTION_BURNED"
+	}
+	
+	# Boil (incurs stress if same faith and not sadistic)
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_boiled
+		localization = "EXECUTION_BOILED"
+	}
+	
+	# Flay (incurs stress if same faith and not sadistic)
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_flayed
+		localization = "EXECUTION_FLAYED"
+	}
+	
+	# Impale (incurs stress if same faith and not sadistic)
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_impaled
+		localization = "EXECUTION_IMPALED"
+	}
+	
+	# Crush (incurs stress if same faith and not sadistic)
+	send_option = {
+		is_shown = {
+			scope:actor = {
+				is_ai = no # Player execution option
+			}
+		}
+		flag = execution_crushed
+		localization = "EXECUTION_CRUSHED"
+	}
+
+	#Cannibal option. Should be treated as a "normal" execution, but that you eat the body afterwards in secret.
+	send_option = {
+		is_shown = {			
+			scope:actor = {
+				AND = {
+					is_ai = no # Player execution option
+					OR = {
+						has_trait = cannibal
+						any_secret = { secret_type = secret_cannibal }
+					}
+				}
+			}
+		}
+		flag = execution_devour
+		localization = "EXECUTION_DEVOUR"
+	}
+
+	send_options_exclusive = yes
+	auto_accept = yes
+}

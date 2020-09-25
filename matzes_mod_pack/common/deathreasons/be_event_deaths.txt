@@ -1,0 +1,36 @@
+﻿death_execution = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_beheading = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_hanging = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_burning = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_drowning = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_boiling = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_flaying = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_impaling = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}
+death_execution_crushing = {
+	public_knowledge = yes
+	icon = "death_murder.dds"
+}

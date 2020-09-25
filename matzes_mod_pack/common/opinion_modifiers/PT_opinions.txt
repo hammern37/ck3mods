@@ -1,0 +1,5 @@
+﻿forced_prisoner_transfer_opinion = {
+	opinion = -15
+	years = 5
+	decaying = yes
+}

@@ -1,0 +1,28 @@
+﻿l_english:
+#Reasons
+ ALREADY_CONTAINTS_TRAIT:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the trait $TRAIT_KEY$"
+ CONTAINTS_OPPOSITE_TRAIT:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the the opposite trait $OPOSITE_KEY$"
+ IS_POTENTIAL_TRAIT_FALSE:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' doesn't fit the is_potential trigger"
+ TRAIT_AGE_NOT_IN_RANGE:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' age '$CHARACTER_AGE$' doesn't fit the trait $TRAIT_KEY$ age range"
+
+
+
+## Improved Genetics
+trait_tall:0 "Tall"
+trait_tall_desc:1 "This character is significantly taller than average."
+trait_tall_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is significantly taller than average.."
+trait_towering:0 "Towering"
+trait_towering_desc:1 "This character towers over others."
+trait_towering_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] towers over others. "
+trait_tiny:0 "Tiny"
+trait_tiny_desc:1 "This character is extremely small in stature."
+trait_tiny_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is extremely small in stature.."
+trait_short:0 "Short"
+trait_short_desc:1 "This character is significantly shorter than average.."
+trait_short_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is significantly shorter than average.."
+
+
+## Blood Legacy
+IG_NOBLE_VEINS:0 "The rate of positive mutations is increased significantly."
+IG_CONVERGENT_BLOOD:0 "Positive traits will often reinforce to produce better versions of those traits."
+IG_RESILIENT_BLOOD:0 "The rate of negative mutations is decreased significantly."

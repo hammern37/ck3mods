@@ -1,0 +1,36 @@
+########################################################################################################################################
+########################################################################################################################################
+########################################################################################################################################
+#################		sword 02			#################
+pdxmesh = {
+	name = "weapon_northern_sword_02-mesh"
+	file = "weapon_northern_sword_02.mesh"
+
+	meshsettings = {
+		name = "unit_northern_infantry_02_weaponShape"
+		index = 0
+		texture_diffuse = "weapon_northern_sword_02_diffuse.dds"
+		texture_normal = "weapon_northern_sword_02_normal.dds"
+		texture_specular = "weapon_northern_sword_02_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+#################		sword 03			#################
+pdxmesh = {
+	name = "weapon_northern_sword_03-mesh"
+	file = "weapon_northern_sword_03.mesh"
+
+	meshsettings = {
+		name = "unit_northern_infantry_02_weaponShape"
+		index = 0
+		texture_diffuse = "weapon_northern_sword_03_diffuse.dds"
+		texture_normal = "weapon_northern_sword_03_normal.dds"
+		texture_specular = "weapon_northern_sword_03_properties.dds"
+		shader = "standard_usercolor"
+		shader_file = "gfx/FX/pdxmesh.shader"
+	}
+}
+########################################################################################################################################
+########################################################################################################################################
+########################################################################################################################################

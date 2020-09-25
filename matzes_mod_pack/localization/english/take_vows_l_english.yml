@@ -1,0 +1,3 @@
+﻿l_english:
+ force_vows_interaction:0 "Force Child to Take Vows"
+ force_vows_interaction_desc:0 "[recipient.GetShortUINameNoTooltip|U] will be forced to take the vows, promising them to the clergy. They will lose all claims and be unable to marry."

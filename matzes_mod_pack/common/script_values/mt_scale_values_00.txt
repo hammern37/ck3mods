@@ -1,0 +1,61 @@
+cac_master_of_the_horses_scale_assist_liege = {
+	add = martial
+	add = prowess
+}
+cac_court_dwarf_scale_assist_liege = {
+	add = diplomacy
+	if = {
+		limit = { has_trait = gregarious}
+		add = 5
+	}
+	if = {
+		limit = { has_trait = reveler_1
+			  has_trait = reveler_2
+			  has_trait = reveler_3
+		}
+		add = 3
+	}
+	if = {
+		limit = { has_trait = depressed_1
+			  has_trait = depressed_2
+			  has_trait = depressed_3
+		}
+		divide = 2
+	}
+	min = 2
+}
+cac_cupbearer_scale_assist_liege = {
+	add = intrigue	
+	if = {
+		limit = { has_trait = lunatic}
+		divide = 2
+	}
+	if = {
+		limit = { has_trait = drunkard}
+		divide = 2
+	}
+	if = {
+		limit = { has_trait = cynical}
+		remove = 5
+	}
+	if = {
+		limit = { has_trait = reveler_1
+			  has_trait = reveler_2
+			  has_trait = reveler_3
+		}
+		remove = 3
+	}
+	if = {
+		limit = { has_trait = paranoid}
+		add = 5
+	}
+	if = {
+		limit = { has_trait = lifestyle_herbalist}
+		add = 2
+	}
+	if = {
+		limit = { has_trait = diligent}
+		add = 2
+	}
+	min = 2
+}

@@ -1,0 +1,86 @@
+pdxmesh = {
+	name = "PacificKempeitai_Frame30_mesh"
+	file = "PacificKempeitai_Frame30.mesh"
+	scale = 1.0
+
+#####################		Army		#####################
+#########		Tent Idle		############	
+	animation = { id = "Frame30_Army_Idle_Tent_1_animation" 				type = "../Frame30_Army_Idle_Tent_1.anim" }
+	animation = { id = "Frame30_Army_Idle_Tent_2_animation" 				type = "../Frame30_Army_Idle_Tent_1.anim" }	
+	animation = { id = "Frame30_Army_Idle_Tent_3_animation" 				type = "../Frame30_Army_Idle_Tent_1.anim" }
+	animation = { id = "Frame30_Army_Idle_Tent_4_animation" 				type = "../Frame30_Army_Idle_Tent_1.anim" }
+	animation = { id = "Frame30_Army_Idle_Tent_5_animation" 				type = "../Frame30_Army_Idle_Tent_1.anim" }
+#########		Other Idle		############		
+	animation = { id = "Frame30_Army_Idle_others_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Idle_others_3" 						type = "../Frame30_Army_Idle_others_3.anim" }
+#########		Besiege			############		
+	animation = { id = "Frame30_Army_Besiege_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Besiege_2_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Besiege_3_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Besiege_4_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Besiege_5_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+#########		Moving			############	
+	animation = { id = "Frame30_Army_Moving_1_animation" 				type = "../Frame30_Army_Moving_1.anim" }
+	animation = { id = "Frame30_Army_Moving_2_animation" 				type = "../Frame30_Army_Moving_2.anim" }
+	animation = { id = "Frame30_Army_Moving_3_animation" 				type = "../Frame30_Army_Moving_3.anim" }
+	animation = { id = "Frame30_Army_Moving_4_animation" 				type = "../Frame30_Army_Moving_4.anim" }
+	animation = { id = "Frame30_Army_Moving_5_animation" 				type = "../Frame30_Army_Moving_5.anim" }
+####################################################################################################################################################################################
+#########		Battle Even	Attacker	############	
+	animation = { id = "Frame30_Army_Battle_Even_Attacker_1_animation" 				type = "../Frame30_Army_Battle_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Attacker_2_animation" 				type = "../Frame30_Army_Battle_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Attacker_3_animation" 				type = "../Frame30_Army_Battle_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Attacker_4_animation" 				type = "../Frame30_Army_Battle_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Attacker_5_animation" 				type = "../Frame30_Army_Battle_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Attacker_1_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Attacker_2_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Attacker_3_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Attacker_4_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Attacker_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Attacker_5_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Attacker_1.anim" }
+#########		Battle Even	Defender	############	
+	animation = { id = "Frame30_Army_Battle_Even_Defender_1_animation" 				type = "../Frame30_Army_Battle_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Defender_2_animation" 				type = "../Frame30_Army_Battle_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Defender_3_animation" 				type = "../Frame30_Army_Battle_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Defender_4_animation" 				type = "../Frame30_Army_Battle_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Even_Defender_5_animation" 				type = "../Frame30_Army_Battle_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Defender_1_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Defender_2_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Defender_3_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Defender_4_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Defender_1.anim" }
+	animation = { id = "Frame30_Army_Battle_Viking_Even_Defender_5_animation" 				type = "../Frame30_Army_Battle_Viking_Even_Defender_1.anim" }
+#########		Battle WinorLose	Attacker	############	
+	animation = { id = "Frame30_Army_Battle_WinorLose_Attacker_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Attacker_2_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Attacker_3_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Attacker_4_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Attacker_5_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+#########		Battle WinorLose	Defender	############	
+	animation = { id = "Frame30_Army_Battle_WinorLose_Defender_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Defender_2_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Defender_3_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Defender_4_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_WinorLose_Defender_5_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+#########		Battle pursuit	Attacker	############	
+	animation = { id = "Frame30_Army_Battle_pursuit_Attacker_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Attacker_2_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Attacker_3_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Attacker_4_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Attacker_5_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+#########		Battle pursuit	Defender	############	
+	animation = { id = "Frame30_Army_Battle_pursuit_Defender_1_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Defender_2_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Defender_3_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Defender_4_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+	animation = { id = "Frame30_Army_Battle_pursuit_Defender_5_animation" 				type = "../Frame30_Army_Idle_others_1.anim" }
+#########		Battle tx1	Attacker	############	
+
+#########		Battle tx1	Defender	############	
+
+#########		Battle tx2	Attacker	############	
+
+#########		Battle tx2	Defender	############	
+
+
+
+#####################		END			#####################
+}

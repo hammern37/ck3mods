@@ -1,0 +1,11 @@
+borrowed_money_modifier2 = {
+	icon = economy_negative
+	general_opinion = -7
+	monthly_income = -0.5
+}
+
+borrowed_money_modifier1 = {
+	icon = economy_negative
+	general_opinion = -4
+	monthly_income = -0.3
+}

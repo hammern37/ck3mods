@@ -1,0 +1,35 @@
+﻿###diplomacy_modifier = {
+###	on_monthly = {
+###		add_diplomacy_lifestyle_xp = 2
+###	}
+###}
+###
+###intrigue_modifier = {
+###	scheme_discovery_chance_mult = 0.01
+###	owned_hostile_scheme_success_chance_add = 1
+###	on_monthly = {
+###		add_intrigue_lifestyle_xp = 2
+###	}
+###}
+###
+###stewardship_modifier = {
+###	on_monthly = {
+###		add_stewardship_lifestyle_xp = 2
+###	}
+###}
+###
+###martial_modifier = {
+###	on_monthly = {
+###		add_martial_lifestyle_xp = 2
+###	}
+###}
+###
+###learning_modifier = {
+###	monthly_piety = 0.1
+###	on_monthly = {
+###		add_learning_lifestyle_xp = 2
+###	}
+###}
+
+
+### sadly doesn't work, suggested adding on forums

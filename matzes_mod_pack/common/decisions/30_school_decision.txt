@@ -1,0 +1,71 @@
+school_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	ai_check_interval = 60
+
+	cost = { 
+		gold = {
+			add = school_activity_cost 
+			divide = 1.5
+		}
+	}
+
+	cooldown = { days = standard_schooling_cooldown_time }
+
+	is_shown = {
+		is_landed = yes
+		highest_held_title_tier > tier_barony
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		custom_tooltip = line_break
+		custom_tooltip = school_decision_school
+		hidden_effect = {
+			random_sub_realm_barony = {
+				title_province = {
+					spawn_activity = {
+						type = activity_school
+						owner = root
+					}
+				}
+			}
+		}
+	}
+
+	ai_potential = {
+		short_term_gold > standard_school_cost
+	}
+
+	ai_will_do = {
+		base = 35
+
+		ai_value_modifier = {
+			ai_energy = 1
+			ai_greed = -0.5
+			ai_compassion = -0.5
+		}
+
+		modifier = {
+			add = 10
+			has_trait_rank = {
+				trait = education_school
+				rank > 0
+			}
+		}
+		modifier = {
+			add = 10
+			has_trait_rank = {
+				trait = education_school
+				rank > 2
+			}
+		}
+
+		modifier = {
+			add = 35
+			stress > low_school
+		}
+	}
+}

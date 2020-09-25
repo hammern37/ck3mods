@@ -1,0 +1,5 @@
+opinion_solved_poverty_problem = {
+	opinion = 15
+	decaying = yes
+	years = 10
+}

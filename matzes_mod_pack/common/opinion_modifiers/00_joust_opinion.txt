@@ -1,0 +1,15 @@
+opinion_joust_win_modifier = {
+	opinion = 30
+	decaying = yes
+	years = 10
+}
+opinion_joust_draw_modifier = {
+	opinion = 10
+	decaying = yes
+	years = 10
+}
+opinion_joust_loss_modifier = {
+	opinion = -10
+	decaying = yes
+	years = 10
+}

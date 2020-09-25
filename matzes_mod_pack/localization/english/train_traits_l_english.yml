@@ -1,0 +1,17 @@
+﻿l_english:
+#Reasons
+ ALREADY_CONTAINTS_TRAIT:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the trait $TRAIT_KEY$"
+ CONTAINTS_OPPOSITE_TRAIT:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' already has the the opposite trait $OPOSITE_KEY$"
+ IS_POTENTIAL_TRAIT_FALSE:0 "Trait $TRAIT_KEY$ can't be added because $CHARACTER_NAME$ with id '$CHARACTER_ID$' doesn't fit the is_potential trigger"
+ TRAIT_AGE_NOT_IN_RANGE:0 "$CHARACTER_NAME$ with id '$CHARACTER_ID$' age '$CHARACTER_AGE$' doesn't fit the trait $TRAIT_KEY$ age range"
+ 
+#Lifestyle Traits
+ trait_trainer_1:0 "Novice trainer"
+ trait_trainer_1_desc:0 "The Novice trainer bravely answers the call of sword and shield."
+ trait_trainer_1_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] bravely answers the call of sword and shield."
+ trait_trainer_2:0 "trainer"
+ trait_trainer_2_desc:0 "The trainer navigates combat with skill and finese."
+ trait_trainer_2_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] navigates combat with skill and finese."
+ trait_trainer_3:0 "Master trainer"
+ trait_trainer_3_desc:0 "The Master trainer lives for the fight."
+ trait_trainer_3_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] lives for the fight."

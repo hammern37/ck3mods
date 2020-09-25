@@ -1,0 +1,151 @@
+﻿l_spanish:
+ building_type_cow_generic_university_01:0 "Gran Universidad"
+ building_type_cow_generic_university_01_desc:1 "Un alto lugar de aprendizaje, famoso en todo el reino."
+ building_cow_generic_university_01:1 "Gran Universidad"
+ building_cow_generic_university_01_desc:1 "Una alta sede del aprendizaje, famosa en todo el reino."
+ 
+ building_type_cow_university_pandidakterion_01:0 "Gran Universidad"
+ building_type_cow_university_pandidakterion_01_desc:1 "La Universidad Imperial de Constantinopla puede remontar sus orígenes corporativos al 425 d. C., cuando el emperador romano oriental Teodosio II fundó el Pandidakterion. La escuela original fue fundada en 425 por el emperador Teodosio II con 31 cátedras de derecho, filosofía, medicina, aritmética, geometría, astronomía, música, retórica y otras materias, 15 al latín y 16 al griego. La sociedad bizantina en general era culta. La educación primaria estaba ampliamente disponible, a veces incluso a nivel de aldea y únicamente en esa época para ambos sexos . La participación femenina en la cultura fue alta. Se fomentaron las becas no sólo en Constantinopla, sino también en instituciones operadas en ciudades tan importantes como Antioquía y Alejandría ".
+ building_cow_university_pandidakterion_01:1 "Pandidakterion"
+ building_cow_university_pandidakterion_01_desc:1 "La Universidad Imperial de Constantinopla puede remontar sus orígenes corporativos al 425 d. C., cuando el emperador romano oriental Teodosio II fundó el Pandidakterion. La escuela original fue fundada en 425 por el emperador Teodosio II con 31 cátedras de derecho, filosofía, medicina, aritmética, geometría, astronomía, música, retórica y otras materias, 15 al latín y 16 al griego. La sociedad bizantina en general era culta. La educación primaria estaba ampliamente disponible, a veces incluso a nivel de aldea y únicamente en esa época para ambos sexos . La participación femenina en la cultura fue alta. Se fomentaron las becas no sólo en Constantinopla, sino también en instituciones operadas en ciudades tan importantes como Antioquía y Alejandría ".
+ 
+ building_type_cow_university_mouseion_01:0 "Gran Universidad"
+ building_type_cow_university_mouseion_01_desc:1 "El Mouseío Alexándreias  ('Institución de las Musas') es el hogar de la música o la poesía, una escuela filosófica y una biblioteca como la Academia de Platón. De nuevo se ha convertido en una institución que reúne a algunos de los mejores académicos del mundo conocido ".
+ building_cow_university_mouseion_01:1 " Mouseío Alexándreias "
+ building_cow_university_mouseion_01_desc:1 "El Mouseío Alexándreias ('Institución de las Musas') es el hogar de la música o la poesía, una escuela filosófica y una biblioteca como la Academia de Platón. De nuevo se ha convertido en una institución que reúne a algunos de los mejores eruditos de la mundo conocido ".
+ 
+ building_type_cow_university_cordoba_01:0 "Gran Universidad"
+ building_type_cow_university_cordoba_01_desc:1 "Esta universidad, establecida por primera vez por Abd-al-Rhaman III, es única en el mundo. Al igual que la propia nación de Al-Andalus, esta universidad alberga el conocimiento recopilado de toda la 'Gente del Libro', y a través de este conocimiento se nos concede una mayor comprensión del mundo y nuestro lugar dentro de él ".
+ building_cow_university_cordoba_01:1 "Gran Universidad de Córdoba"
+ building_cow_university_cordoba_01_desc:1 "Esta universidad, establecida por primera vez por Abd-al-Rhaman III, es única en el mundo. Al igual que la propia nación de Al-Andalus, esta universidad alberga el conocimiento recopilado de toda la 'Gente del Libro', y a través de este conocimiento se nos concede una mayor comprensión del mundo y nuestro lugar dentro de él ".
+ 
+ building_type_cow_generic_library_01:0 "Gran biblioteca"
+ building_type_cow_generic_library_01_desc:1 "Los libros son preciosos, ya que el conocimiento de las cosas pasadas y nuevas se escribe en sus páginas. Este faro de conocimiento tendrá capacidad para almacenar miles de libros y contará con facilidades de lectura".
+ building_cow_generic_library_01:1 "Gran biblioteca"
+ building_cow_generic_library_01_desc:1 "Los libros son preciosos, ya que el conocimiento de cosas pasadas y nuevas está escrito en sus páginas. Este faro de conocimiento tendrá capacidad para almacenar miles de libros, y contará con facilidades de lectura".
+
+ building_type_cow_library_byzantion_01:0 "Gran biblioteca"
+ building_type_cow_library_byzantion_01_desc:1 "La Biblioteca Imperial de Constantinopla fue la última de las grandes bibliotecas del mundo antiguo. Mucho después de la destrucción de la Gran Biblioteca de Alejandría y las otras bibliotecas antiguas, conservó el conocimiento de los antiguos griegos y romanos durante milenios. Se estima que la biblioteca contenía más de 100.000 volúmenes de texto antiguo ".
+ building_cow_library_byzantion_01:1 "Bibliothekai tis Konstantinoupolis"
+ building_cow_library_byzantion_01_desc:1 "La Biblioteca Imperial de Constantinopla fue la última de las grandes bibliotecas del mundo antiguo. Mucho después de la destrucción de la Gran Biblioteca de Alejandría y las otras bibliotecas antiguas, conservó el conocimiento de los antiguos griegos y romanos durante milenios. Se estima que la biblioteca contenía más de 100.000 volúmenes de texto antiguo."
+
+ building_type_cow_library_roma_01:0 "Gran biblioteca"
+ building_type_cow_library_roma_01_desc:1 "La Biblioteca Ulpiana fue una biblioteca romana fundada por el emperador Trajano en el año 114 d. C. en su foro, el Foro de Trajano, ubicado en la antigua Roma. Fue considerada una de las bibliotecas más prominentes y famosas de la antigüedad. De hecho, fue considerada la biblioteca más importante del mundo occidental tras la destrucción de la Biblioteca de Alejandría en el siglo III. Reconstruida, será una vez más el principal centro de conocimiento de Occidente ".
+ building_cow_library_roma_01:1 "Bibliotheca Ulpia"
+ building_cow_library_roma_01_desc:1 "La Biblioteca Ulpiana fue una biblioteca romana fundada por el emperador Trajano en el año 114 d. C. en su foro, el Foro de Trajano, ubicado en la antigua Roma. Fue considerada una de las bibliotecas más destacadas y famosas de la antigüedad. De hecho, fue considerada la biblioteca más importante del mundo occidental tras la destrucción de la Biblioteca de Alejandría en el siglo III. Reconstruida, será una vez más el principal centro de conocimiento de Occidente ".
+ 
+ building_type_cow_library_alexandria_01:0 "Gran biblioteca"
+ building_type_cow_library_alexandria_01_desc:1 "La Gran Biblioteca de Alejandría se ha convertido una vez más en una de las bibliotecas más grandes y significativas del mundo conocido. Todo el conocimiento que encuentra la Biblioteca se registra y se difunde para que los conocimientos preciosos nunca más se pierdan. También se ha ignífugos tan bien como los ingenieros y arquitectos pudieron manejar ".
+ building_cow_library_alexandria_01:1 "Bibliothekai tis Konstantinoupolis"
+ building_cow_library_alexandria_01_desc:1 "La Gran Biblioteca de Alejandría se ha convertido una vez más en una de las bibliotecas más grandes y significativas del mundo conocido. Todo el conocimiento que encuentra la Biblioteca se registra y se difunde para que el conocimiento precioso nunca más se pierda. También se ha ignífugos tan bien como los ingenieros y arquitectos pudieron manejar ".
+ 
+ building_type_cow_christian_cathedral_01:0 "Gran Catedral"
+ building_type_cow_christian_cathedral_01_desc:1 "La gran catedral no es solo una maravilla de la ingeniería y la belleza, sino también un refugio seguro para los viajeros y un prestigioso monumento a su patrocinador".
+ building_cow_christian_cathedral_01:1 "Gran Catedral"
+ building_cow_christian_cathedral_01_desc:1 "La gran catedral no es solo una maravilla de la ingeniería y la belleza, sino también un refugio seguro para los viajeros y un prestigioso monumento a su patrocinador".
+ 
+ building_type_cow_muslim_mosque_01:0 "Gran Mezquita"
+ building_type_cow_muslim_mosque_01_desc:1 "La gran mezquita ofrece a los fieles un lugar para rezar, descansar y rendir homenaje antes de continuar su viaje. Sus hermosas cúpulas y sus grandes y intrincados capiteles señalan la grandeza de Dios para que todos la vean".
+ building_cow_muslim_mosque_01:1 "Gran Mezquita"
+ building_cow_muslim_mosque_01_desc:1 "La gran mezquita ofrece a los fieles un lugar para orar, descansar y rendir homenaje antes de continuar su viaje. Sus hermosas cúpulas y sus grandes e intrincados capiteles señalan la grandeza de Dios para que todos la vean".
+ 
+ building_type_cow_jewish_synagogue_01:0 "Gran Sinagoga"
+ building_type_cow_jewish_synagogue_01_desc:1 "La gran sinagoga ofrece a los fieles un lugar para orar, descansar y rendir homenaje antes de continuar su viaje. Sus hermosas cúpulas y sus grandes torres intrincadas señalan la grandeza de Dios para que todos la vean".
+ building_cow_jewish_synagogue_01:1 "Gran Sinagoga"
+ building_cow_jewish_synagogue_01_desc:1 "La gran sinagoga ofrece a los fieles un lugar para orar, descansar y rendir homenaje antes de continuar su viaje. Sus hermosas cúpulas y sus grandes y intrincados capiteles señalan la grandeza de Dios para que todos la vean".
+ 
+ building_type_cow_pagan_temple_01:0 "Gran Templo"
+ building_type_cow_pagan_temple_01_desc:1 "El gran templo está cubierto de tallas ornamentales que muestran hazañas heroicas de dioses y semidioses por igual. Las hogueras masivas envían columnas de humo hacia los dioses mismos, con hombres santos que administran bendiciones a todos los que veneran a los espíritus".
+ building_cow_pagan_temple_01:1 "Gran Templo"
+ building_cow_pagan_temple_01_desc:1 "El gran templo está cubierto de tallas ornamentales que muestran hazañas heroicas de dioses y semidioses por igual. Las hogueras masivas envían columnas de humo hacia los dioses mismos, con hombres santos que administran bendiciones a todos los que veneran a los espíritus".
+ 
+ building_type_cow_indian_temple_01:0 "Gran Templo"
+ building_type_cow_indian_temple_01_desc:1 "El gran templo está cubierto desde los cimientos hasta la aguja con estatuas e ídolos a los dioses, volviendo a contar leyendas antiguas y las vidas de los nobles profetas".
+ building_cow_indian_temple_01:1 "Gran Templo"
+ building_cow_indian_temple_01_desc:1 "El gran templo está cubierto desde los cimientos hasta la aguja con estatuas e ídolos a los dioses, volviendo a contar leyendas antiguas y las vidas de nobles profetas".
+ 
+ building_type_cow_zoroastrian_temple_01:0 "Gran Templo"
+ building_type_cow_zoroastrian_temple_01_desc:1 "El gran templo se erige como un noble tributo a los poderes superiores, sus muros y cúpulas alisados y pintados en colores resplandecientes que honran lo divino".
+ building_cow_zoroastrian_temple_01:1 "Gran Templo"
+ building_cow_zoroastrian_temple_01_desc:1 "El gran templo se erige como un noble tributo a los poderes superiores, sus muros y cúpulas alisados y pintados con colores resplandecientes que honran lo divino".
+
+ building_type_the_colosseum_01:0 "El Coliseo"
+ building_type_the_colosseum_01_desc:0 "#F El Coliseo es uno de los anfiteatros más grandes jamás construidos y ha albergado innumerables espectáculos, desde combates de gladiadores, cacerías e incluso reconstrucciones de batallas navales. Su construcción la ordenó el emperador romano Vespasiano en el año 72 DC, y finalizó el 80 DC bajo su sucesor, Tito Vespasiano Augusto, a pesar de su vibrante historia, en la actualidad se emplea principalmente como cantera de mármol y bronce para su aplicación en otros lugares.#!"
+ building_the_colosseum_01:0 "$building_type_the_colosseum_01$"
+ building_the_colosseum_01_desc:0 "$building_type_the_colosseum_01_desc$"
+ building_the_colosseum_02:0 "El Coliseo"
+ building_the_colosseum_02_desc:0 "El Coliseo es uno de los anfiteatros más grandes jamás construidos y ha albergado innumerables espectáculos como combates de gladiadores, caza de animales e incluso batallas navales reconstruidas. Su construcción fue iniciada por el emperador romano Vespasiano en el 72 d. C. y se completó en el 80 d. C. bajo su sucesor, Tito Vespasiano Augusto Restablecido a la gloria, una vez más pacificará a los ciudadanos de Roma ".
+
+ building_type_cow_royal_palace_01:0 "Palacio Real"
+ building_type_cow_royal_palace_01_desc:1 "Un símbolo real del prestigioso linaje de su constructor, este palacio es único en su clase".
+ building_cow_royal_palace_01:1 "Palacio Real"
+ building_cow_royal_palace_01_desc:1 "Un símbolo real del prestigioso linaje de su constructor, este palacio es único en su clase".
+
+ building_type_cow_palace_byzantion_01:0 "Palacio Real"
+ building_type_cow_palace_byzantion_01_desc:1 "El Gran Palacio de Constantinopla, también conocido como el Palacio Sagrado (en griego:Hieron Palation), es un gran complejo palaciego ubicado en el extremo sureste de la península de Constantinopla. Ha servido como la principal residencia real de los emperadores romanos o Emperadores Romanos de Oriente desde 330, y ha sido el centro de la administración imperial durante más de 690 años ".
+ building_cow_palace_byzantion_01:1 "Mega Palacio"
+ building_cow_palace_byzantion_01_desc:1 "El Gran Palacio de Constantinopla, también conocido como el Palacio Sagrado (en griego:Hieron Palation), es un gran complejo palaciego ubicado en el extremo sureste de la península de Constantinopla. Ha servido como la principal residencia real de los emperadores romanos o bizantinos de Oriente desde 330, y ha sido el centro de la administración imperial durante más de 690 años ".
+
+ building_type_cow_palace_roma_01:0 "Palacio Real"
+ building_type_cow_palace_roma_01_desc:1 "El Palacio de Letrán es un antiguo palacio del Imperio Romano y más tarde se convirtió en la principal residencia papal en el sureste de Roma".
+ building_cow_palace_roma_01:1 "Palatium Lateranense"
+ building_cow_palace_roma_01_desc:1 "El Palacio de Letrán es un antiguo palacio del Imperio Romano y más tarde se convirtió en la principal residencia papal en el sureste de Roma".
+
+ building_type_cow_palace_cordoba_01:0 "Palacio Real"
+ building_type_cow_palace_cordoba_01_desc:1 "Un palacio que rivaliza incluso con los grandes palacios de antaño. Situada muy por encima del resto de Córdoba, con vistas a la ciudad y su gente, esta fortaleza actúa como una estructura defensiva y el centro administrativo de la nación. Con magistralmente esculpido columnas y una mezcla de piedras nativas y romanas antiguas, al igual que la ciudad sobre la que se asienta, es una hermosa combinación de culturas locales y extranjeras que se fusionan para crear algo verdaderamente único en el mundo ".
+ building_cow_palace_cordoba_01:1 "Madinat az-Zahra"
+ building_cow_palace_cordoba_01_desc:1 "Un palacio que rivaliza incluso con los grandes palacios de antaño. Situada muy por encima del resto de Córdoba, con vistas a la ciudad y su gente, esta fortaleza actúa como una estructura defensiva y el centro administrativo de la nación. columnas y una mezcla de piedras nativas y romanas antiguas, al igual que la ciudad sobre la que se asienta, es una hermosa combinación de culturas locales y extranjeras que se fusionan para crear algo verdaderamente único en el mundo ".
+
+ building_type_cow_great_harbor_01:0 "Gran puerto"
+ building_type_cow_great_harbor_01_desc:1 "Un gran puerto con almacenes dominará el comercio en el área, generando así ingresos. También puede aumentar nuestras capacidades militares marítimas, incluso en asedios".
+ building_cow_great_harbor_01:1 "Gran puerto"
+ building_cow_great_harbor_01_desc:1 "Un gran puerto con almacenes dominará el comercio en el área, generando así ingresos. También puede aumentar nuestras capacidades militares marítimas, incluso en asedios".
+
+ building_type_cow_harbor_byzantion_01:0 "Gran puerto"
+ building_type_cow_harbor_byzantion_01_desc:1 "El puerto de Neorion es un puerto en la ciudad de Constantinopla, activo desde la fundación de la ciudad en el siglo IV. Fue el primer puerto que se construyó en Constantinopla después de su refundación por Constantino el Grande, y el segundo en la zona después del Prosphorion, que era el puerto de la antigua Bizancio ".
+ building_cow_harbor_byzantion_01:1 "Limen ton Neorion"
+ building_cow_harbor_byzantion_01_desc:1 "El puerto de Neorion es un puerto en la ciudad de Constantinopla, activo desde la fundación de la ciudad en el siglo IV. Fue el primer puerto que se construyó en Constantinopla después de su refundación por Constantino el Grande, y el segundo en la zona después del Prosphorion, que era el puerto de la antigua Bizancio ".
+
+ building_type_cow_great_walls_01:0 "Grandes Murallas"
+ building_type_cow_great_walls_01_desc:1 "Un conjunto de muros defensivos casi inexpugnables que rodean el asentamiento principal".
+ building_cow_great_walls_01:1 "Grandes murallas"
+ building_cow_great_walls_01_desc:1 "Un conjunto de muros defensivos casi inexpugnables que rodean el asentamiento principal".
+
+ building_type_aurelian_walls_01:0 "Las murallas aurelianas"
+ building_type_aurelian_walls_01_desc:1 "#F Las murallas aurelianas se construyeron durante el reinado de los emperadores romanos Aureliano y Probo. Un día de hoy ofrece unas defensas formidables, pues rodean completamente las siete colinas de Roma.#!"
+ building_aurelian_walls_01:0 "Murallas aurelianas"
+ building_aurelian_walls_01_desc:0 "$building_type_aurelian_walls_01_desc$"
+ building_aurelian_walls_02:0 "Muros aurelianos"
+ building_aurelian_walls_02_desc:0 "Las murallas aurelianas fueron construidas durante el reinado de los emperadores romanos Aureliano y Probo. Con algunas mejoras, proporcionan una defensa bastante formidable, rodeando completamente las siete colinas de Roma".
+
+ building_type_cow_grand_fortress_01:0 "Gran Fortaleza"
+ building_type_cow_grand_fortress_01_desc:1 "Una construcción imponente, hará que la provincia sea mucho más difícil de conquistar. Las instalaciones adicionales pueden mejorar considerablemente las capacidades militares de su propietario".
+ building_cow_grand_fortress_01:1 "Gran Fortaleza"
+ building_cow_grand_fortress_01_desc:1 "Una construcción imponente, hará que la provincia sea mucho más difícil de conquistar. Las instalaciones adicionales pueden mejorar considerablemente las capacidades militares de su propietario".
+
+ building_type_cow_grand_fortress_byzantion_01:0 "Gran Fortaleza"
+ building_type_cow_grand_fortress_byzantion_01_desc:1 "A pesar de su función ceremonial, el Porta Áurea es una de las posiciones más fuertes a lo largo de las murallas de la ciudad, resisitío varios asedios. Con la adición de muros transversales en los peribolos entre los muros interior y exterior, esencialmente se convertirá en una fortaleza separada."
+ building_cow_grand_fortress_byzantion_01:1 "Chryseia Pyle"
+ building_cow_grand_fortress_byzantion_01_desc:1 "A pesar de su papel ceremonial, La Porta Áurea es una de las posiciones más fuertes a lo largo de las murallas de la ciudad, resistiendo varios ataques durante varios asedios. Con la adición de paredes transversales en los peribolos entre las paredes interior y exterior, esencialmente se convertirá en una fortaleza separada."
+ 
+ building_type_cow_grand_fortress_antiocheia_01:0 "Gran Fortaleza"
+ building_type_cow_grand_fortress_antiocheia_01_desc:1 "La ciudadela de Antioquía se encuentra en la cima de la montaña de Silpio que domina la ciudad, y es una parte integral de las murallas de la ciudad de Antioquía. La primera fortificación en este sitio probablemente fue construida por el rey macedonio Seleuco I Nicator después de haber fundado la ciudad de Antioquía durante el siglo IV a. C."
+ building_cow_grand_fortress_antiocheia_01:1 "Akra de Antiocheia"
+ building_cow_grand_fortress_antiocheia_01_desc:1 "La ciudadela de Antioquía se encuentra en la cima de la montaña de Silpio que domina la ciudad, y es una parte integral de las murallas de la ciudad de Antioquía. La primera fortificación en este sitio probablemente fue construida por el rey macedonio Seleuco I Nicator después de haber fundado la ciudad de Antioquía durante el siglo IV a. C."
+ building_cow_grand_fortress_antiocheia_02:1 "Akra de Antiocheia"
+ building_cow_grand_fortress_antiocheia_02_desc:1 "La ciudadela de Antioquía se encuentra en la cima de la montaña de Silpio que domina la ciudad, y es una parte integral de las murallas de la ciudad de Antioquía. La primera fortificación en este sitio probablemente fue construida por el rey macedonio Seleuco I Nicator después de haber fundado la ciudad de Antioquía durante el siglo IV a. C.\n\nDespués de una reconstrucción importante, la Ciudadela ha sido fortificada y guarnecida significativamente. Seguramente, Antioquía nunca volverá a caer en manos de bárbaros groseros."
+ 
+ building_type_cow_great_lighthouse_01:0 "Gran faro"
+ building_type_cow_great_lighthouse_01_desc:1 "Un gran punto de referencia, el edificio ayuda a los marineros, guiando sus barcos hacia el puerto por la noche."
+ building_cow_great_lighthouse_01:1 "Gran faro"
+ building_cow_great_lighthouse_01_desc:1 "un gran punto de referencia, el edificio ayuda a los marineros, giando sus barcos hacia el puerto por la noche."
+ 
+ building_type_cow_lighthouse_alexandria_01:0 "Gran faro"
+ building_type_cow_lighthouse_alexandria_01_desc:1 "Durante mucho tiempo fue el edificio más grande del mundo, el faro de Alejandría es una construcción impresionante, visible desde muy lejos, al mismo tiempo que cumple su propósito, guiar a los barcos hacia el puerto."
+ building_cow_lighthouse_alexandria_01:1 "Fáros tis Alexandreia"
+ building_cow_lighthouse_alexandria_01_desc:1 "Durante mucho tiempo fue el edificio más grande del mundo, el faro de Alejandría es una construcción impresionante, visible desde muy lejos, al mismo tiempo que cumple su propósito, guiar a los barcos hacia el puerto."
+
+ building_type_cow_grand_amphitheatre_01:0 "Gran Anfiteatro"
+ building_type_cow_grand_amphitheatre_01_desc:1 "Un epítome de la cultura popular,, sirve para entretener con grandes espectáculos, pacificar enormemente a la población."
+ building_cow_grand_amphitheatre_01:1 "Gran Anfiteatro"
+ building_cow_grand_amphitheatre_01_desc:1 "Un epítome de la cultura popular,, sirve para entretener con grandes espectáculos, pacificar enormemente a la población."

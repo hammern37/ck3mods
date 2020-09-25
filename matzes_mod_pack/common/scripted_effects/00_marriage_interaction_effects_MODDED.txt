@@ -1,0 +1,61 @@
+﻿concubine_on_accept_effect = {
+	scope:recipient = {
+		trigger_event = marriage_interaction.0040
+		if = {
+			limit = {
+				is_imprisoned = yes
+			}
+			release_from_prison = yes
+			if = {
+				limit = {
+					is_married = yes
+				}
+				every_spouse = {
+					trigger_event = marriage_interaction.0041
+					divorce = scope:recipient # no opinion hit, no scripted effect
+					set_relation_rival = scope:actor		#MOD-ADDITION
+					stress_impact = {						#MOD-ADDITION
+							base = minor_stress_impact_gain
+					}
+				}
+				scope:recipient = {							#MOD-ADDITION
+					stress_impact = {
+						base = minor_stress_impact_gain
+					}
+				}
+			}
+			if = {
+				limit = { exists = betrothed }
+				trigger_event = marriage_interaction.0041
+				break_betrothal = betrothed
+			}
+			if = {											#MOD START
+				limit = { is_concubine = yes }
+				scope:recipient.liege = {
+						set_relation_rival = scope:actor
+						trigger_event = concubine_stolen_event_notify.1
+						remove_concubine = scope:recipient
+						stress_impact = {
+							base = minor_stress_impact_gain
+						}
+				}
+				scope:recipient = {
+					stress_impact = {
+						base = minor_stress_impact_gain
+					}
+				}
+			}												#MOD END
+		}
+	}
+	scope:actor = {
+		hidden_effect = {
+			send_interface_toast = {
+				type = event_generic_neutral
+				title = msg_concubine_taken_title
+				right_icon = scope:recipient
+				make_concubine = scope:recipient
+				#custom_tooltip = msg_concubine_taken_desc
+			}
+		}
+	}
+}

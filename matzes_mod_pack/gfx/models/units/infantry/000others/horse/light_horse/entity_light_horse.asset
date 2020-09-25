@@ -1,0 +1,27 @@
+entity = {
+	name = "cav_light_horse_entity"
+	pdxmesh = "light_horse_mesh"
+
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		animation = "light_horse_idle_animation"
+		looping = yes
+		next_state = idle
+		chance = 4
+	}
+	state = { 
+		name = "idle"
+		animation = "light_horse_idle_2_animation"
+		looping = yes
+		next_state = idle
+		chance = 4
+	}	
+	state = { 
+		name = "idle"
+		animation = "light_horse_idle_2_animation"
+		looping = yes
+		next_state = idle
+		chance = 4
+	}	
+}

@@ -1,0 +1,96 @@
+repay_money_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+
+    desc = repay_money_decision_desc
+	selection_tooltip = repay_money_decision_tooltip
+	
+	ai_check_interval = 0
+
+    is_shown = {
+		is_ruler = yes
+		has_character_modifier = borrowed_money_modifier1 
+	}
+
+	cost = {
+		gold = 120
+	}
+
+	effect = {
+		remove_character_modifier = borrowed_money_modifier1
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+repay_money_decision2 = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+
+    desc = repay_money_decision_desc
+	selection_tooltip = repay_money_decision_tooltip
+	
+	ai_check_interval = 0
+
+    is_shown = {
+		is_ruler = yes
+		has_character_modifier = borrowed_money_modifier2 
+	}
+
+	cost = {
+		gold = 250
+	}
+
+	effect = {
+		remove_character_modifier = borrowed_money_modifier2
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
+
+borrow_money_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	desc = borrow_money_decision_desc
+	selection_tooltip = borrow_money_decision_tooltip
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		NOR = {
+			has_character_modifier = borrowed_money_modifier1
+			has_character_modifier = borrowed_money_modifier2
+		}
+		OR = {
+			faith.religion = religion:islam_religion
+			faith.religion = religion:christianity_religion
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available = yes
+	}
+
+	effect = {
+		trigger_event = borrow_money_event.0001
+		save_scope_as = actor
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

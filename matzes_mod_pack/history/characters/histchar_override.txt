@@ -1,0 +1,82 @@
+#STAY PUT - Fixed Courts for Minor Historical Characters
+
+#HOHENZOLLERN
+#Adelheid of Zollern: 14484 - 1337
+#Friedrich von Hohenzollern: 18374 - 212395
+
+#WITTELSBACH
+#Otto (Nordheim) of Bavaria: 15445 - 112600
+#Otto von Wittelsbach: 16246 - 20257
+
+#ToDo:
+
+#VISCONTI (Pisa)
+#Mathilda of Tuscany: 7757
+#Ildebrando Visconti: 180202
+
+#VISCONTI (Milan)
+#Alberto Azzo of Lombardy: 1118
+#Eriprando Visconti: cisalpine0617
+
+#MEINHARDINER
+#Ulrich of Pula: 1616
+#Meinhard Meinhardiner: 33480
+
+#DORIA
+#Alberto Azzo of Lombardy: 1118
+#Manfredo Doria: 20314
+
+#DANDOLO
+#Mathilda of Tuscany: 7757
+#Bono Dandolo: 170041
+
+
+
+
+212395 = {
+	name = "Friedrich"
+	dynasty = 12476
+	martial = 5
+	diplomacy = 5
+	intrigue = 5
+	stewardship = 7
+	religion = "catholic"
+	culture = swabian
+	trait = education_martial_2
+	#father = 40550 #fix for duplicate
+	1050.1.1 = {
+		birth = "1050.1.1"
+	}
+	1066.1.2 = {
+		employer = 1337
+	}
+	1125.1.1 = {
+		death = "1125.1.1"
+	}
+}
+
+20257 = {
+	name = "Otto"
+	dynasty = 217
+	martial = 6
+	diplomacy = 5
+	intrigue = 6
+	stewardship = 8
+	religion = "catholic"
+	culture = bavarian
+	trait = wrathful
+	trait = education_martial_3
+	father = 11061
+	1032.1.1 = {
+		birth = "1032.1.1"
+	}
+	1055.1.1 = {
+		add_spouse = 4257
+	}
+	1066.1.2 = {
+		employer = 112600
+	}
+	1072.12.4 = {
+		death = "1072.12.4"
+	}
+}

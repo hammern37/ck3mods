@@ -1,0 +1,49 @@
+namespace = borrow_money_event
+
+borrow_money_event.0001 = {
+    type = character_event
+    title = borrow_money_event.0001.t
+    desc = borrow_money_event.0001.desc
+    theme = stewardship
+
+    left_portrait = {
+        character = root
+        animation = steward
+    }
+
+    option = {
+        name = borrow_money_event.0001.a
+        add_gold = 100
+        add_character_modifier = {
+            modifier = borrowed_money_modifier1
+        }
+
+        stress_impact = {
+            zealous = minor_stress_impact_gain
+            impatient = minor_stress_impact_loss
+        }
+
+        add_prestige = -25
+        add_piety = -50
+    }
+
+    option = {
+        name = borrow_money_event.0001.b
+        add_gold = 200
+        add_character_modifier = {
+            modifier = borrowed_money_modifier2
+        }
+
+        stress_impact = {
+            zealous = medium_stress_impact_gain
+            impatient = medium_stress_impact_loss
+        }
+
+        add_prestige = -50
+        add_piety = -100
+    }
+
+    option = {
+        name = borrow_money_event.0001.c
+    }
+}

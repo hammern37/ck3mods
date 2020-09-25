@@ -1,0 +1,445 @@
+﻿magyar_group = {
+	graphical_cultures = {
+		western_building_gfx
+		steppe_coa_gfx
+		magyar_group_coa_gfx
+		mongol_unit_gfx
+	}
+
+	mercenary_names = {
+		{ name = "mercenary_company_band_of_the_fields" }
+		{ name = "mercenary_company_band_of_the_arrow_rain" }
+		{ name = "mercenary_company_company_of_the_saint"}
+	}
+
+	mogyer = {
+		graphical_cultures = {
+			ugro_permian_group_coa_gfx
+			mongol_clothing_gfx
+		}
+		color = { 0.3 0.4 0.1 }
+
+		cadet_dynasty_names = {
+			"dynn_A_rpA_dy"
+			"dynn_CsA_szA_r"
+			"dynn_Vajlok"
+			"dynn_KA_n"
+			"dynn_Omodej"
+			"dynn_Zapolsky"
+			"dynn_Drugeth"
+			"dynn_Csak"
+			"dynn_Pallfy"
+			"dynn_Apafi"
+			"dynn_BA_nffy"
+			"dynn_BerzE_nyi"
+			"dynn_Bocskai"
+			"dynn_Borsa"
+			"dynn_CzirA_ky"
+			"dynn_Debreceni"
+			"dynn_DerencsE_nyi"
+			"dynn_DiO_szegi"
+			"dynn_DO_ry"
+			"dynn_EgervA_ri"
+			"dynn_ForgA_ch"
+			"dynn_Garai"
+			"dynn_PA_lO_czi"
+			"dynn_HE_dervA_ri"
+			"dynn_Hunyadi"
+			"dynn_KA_n"
+			"dynn_KA_rolyi"
+			"dynn_KO_szegi"
+			"dynn_Kun"
+			"dynn_Losonczi"
+			"dynn_MarO_ti"
+			"dynn_PerE_nyi"
+			"dynn_RA_tO_t"
+			"dynn_Rozgonyi"
+			"dynn_Szakoly"
+			"dynn_SzE_csE_nyi"
+			"dynn_SzE_chy"
+			"dynn_Telegdi"
+			"dynn_ThurzO_"
+			"dynn_U_jlaki"
+			"dynn_Kanizsai"
+			"dynn_Meggyesi"
+			"dynn_Osli"
+			"dynn_Viczay"
+			"dynn_Balassa"
+			"dynn_BA_thory"
+			"dynn_KA_lnoky"
+			"dynn_Niedzica"
+			"dynn_ZA_polya"
+			"dynn_SzE_kely"
+			"dynn_DO_zsa"
+			"dynn_Apafi"
+			"dynn_Balassi"
+			"dynn_Bethlen_von_IktA_r"
+			{ "dynnp_of" "dynn_Szekezfehervar" }
+			"dynn_Budai_Nagy"
+			{ "dynnp_de" "dynn_KincstartO_" }
+			"dynn_Celko"
+			"dynn_Corvinus"
+			{ "dynnp_de" "dynn_Cseszneky" }
+			{ "dynnp_de" "dynn_MilvA_ny" }
+			{ "dynnp_von" "dynn_MoravA_n" }
+			"dynn_DA_vid"
+			"dynn_DE_csey"
+			"dynn_ME_zesi"
+			{ "dynnp_de" "dynn_Ruszka" }
+			"dynn_Draskovich"
+			"dynn_ErdO_dy"
+			"dynn_RE_vay"
+			"dynn_DuruZ_mic"
+			"dynn_Szemere"
+			"dynn_Hadik"
+			"dynn_BatthyA_ny"
+			"dynn_Csesznegi"
+			"dynn_EsterhA_zy"
+			"dynn_HajdU_"
+			"dynn_JesenskY_"
+			"dynn_Medveczky"
+			"dynn_RA_kO_czi"
+			"dynn_Wass_de_Czege"
+			"dynn_Szapolyai"
+			"dynn_Zichy"
+			"dynn_Zrinski"
+		}
+
+		dynasty_names = {
+			"dynn_A_rpA_dy"
+			"dynn_CsA_szA_r"
+			"dynn_Vajlok"
+			"dynn_KA_n"
+			"dynn_Omodej"
+			"dynn_Zapolsky"
+			"dynn_Drugeth"
+			"dynn_Csak"
+			"dynn_Pallfy"
+			"dynn_Apafi"
+			"dynn_BA_nffy"
+			"dynn_BerzE_nyi"
+			"dynn_Bocskai"
+			"dynn_Borsa"
+			"dynn_CzirA_ky"
+			"dynn_Debreceni"
+			"dynn_DerencsE_nyi"
+			"dynn_DiO_szegi"
+			"dynn_DO_ry"
+			"dynn_EgervA_ri"
+			"dynn_ForgA_ch"
+			"dynn_Garai"
+			"dynn_PA_lO_czi"
+			"dynn_HE_dervA_ri"
+			"dynn_Hunyadi"
+			"dynn_KA_n"
+			"dynn_KA_rolyi"
+			"dynn_KO_szegi"
+			"dynn_Kun"
+			"dynn_Losonczi"
+			"dynn_MarO_ti"
+			"dynn_PerE_nyi"
+			"dynn_RA_tO_t"
+			"dynn_Rozgonyi"
+			"dynn_Szakoly"
+			"dynn_SzE_csE_nyi"
+			"dynn_SzE_chy"
+			"dynn_Telegdi"
+			"dynn_ThurzO_"
+			"dynn_U_jlaki"
+			"dynn_Kanizsai"
+			"dynn_Meggyesi"
+			"dynn_Osli"
+			"dynn_Viczay"
+			"dynn_Balassa"
+			"dynn_BA_thory"
+			"dynn_KA_lnoky"
+			"dynn_Niedzica"
+			"dynn_ZA_polya"
+			"dynn_SzE_kely"
+			"dynn_DO_zsa"
+			"dynn_Apafi"
+			"dynn_Balassi"
+			"dynn_Bethlen_von_IktA_r"
+			{ "dynnp_of" "dynn_Szekezfehervar" }
+			"dynn_Budai_Nagy"
+			{ "dynnp_de" "dynn_KincstartO_" }
+			"dynn_Celko"
+			"dynn_Corvinus"
+			{ "dynnp_de" "dynn_Cseszneky" }
+			{ "dynnp_de" "dynn_MilvA_ny" }
+			{ "dynnp_von" "dynn_MoravA_n" }
+			"dynn_DA_vid"
+			"dynn_DE_csey"
+			"dynn_ME_zesi"
+			{ "dynnp_de" "dynn_Ruszka" }
+			"dynn_Draskovich"
+			"dynn_ErdO_dy"
+			"dynn_RE_vay"
+			"dynn_DuruZ_mic"
+			"dynn_Szemere"
+			"dynn_Hadik"
+			"dynn_BatthyA_ny"
+			"dynn_Csesznegi"
+			"dynn_EsterhA_zy"
+			"dynn_HajdU_"
+			"dynn_JesenskY_"
+			"dynn_Medveczky"
+			"dynn_RA_kO_czi"
+			"dynn_Wass_de_Czege"
+			"dynn_Szapolyai"
+			"dynn_Zichy"
+			"dynn_Zrinski"
+		}
+
+		male_names = {
+			AcsA_d Adony Ajtony A_kus Alaptolma A_lmus Apor A_rpA_d BA_nd BA_tur BE_la Bese 
+			BerE_ny Bod BogA_t Bojta Bors Bot Botond Botos BO_kE_ny Buda Bulcsu Csaba 
+			CsanA_d Csege Cseka ElO__d Ete Ezelek Falicsi Farkas Gyeicsa HetE_ny HollO_s 
+			HO_dos Huba Jelek Jutos Ilek Kadocsa KA_l Kaplon KarA_d Karsa Kortol Kecsen 
+			Kelad Kerecse Ketel Keve Kisa Kund KO_sa KO_lcse KO_lpE_ny KO_ncs KuppA_ny Kurd 
+			Kusid KuszA_n Lehel LE_l Levedi Levente LevE_d MakO_ MO_g NyA_rA_d Obus O_csA_d 
+			Ond O_den O_rkE_ny O_rkO_nd O_rs SU_r Szabolcs SzecsO_d Szemus SzerE_nd SzoA_rd 
+			SzO_nuk Toksuny Tarcal Tarkacsu Tas Teveli Tormacsu Turda Turul TU_hU_tU_m
+			U_gyek Vajk VA_l Vata Zolta ZoltA_n Zsolt Zsombor
+		}
+		female_names = {
+			AjA_ndE_k AjnA_cska A_ldA_ska Arany Arika BarO_t BI_bur BogA_rd Bolda Buga
+			CsikO_ Csente Cseperka Csepke Csillag Csuda Delin DE_va Emese EmO__ke EnE_h
+			FehE_ra GilvA_d GyO_ngy Hajna Havadi Hete HitvA_nd JO_leA_n Karoldu Kecse KO_ncse
+			Lelle Lente Mag Manga Nyesta O_te RA_zdi RE_ka SA_fE_ly Saroldu Somocska 
+			SzecsO_ke SzE_pa VirA_g
+		}
+		
+		dynasty_of_location_prefix = "dynnp_a"
+		
+		patronym_suffix_male = "dynnpat_suf_fi"
+
+		dynasty_name_first = yes
+		
+		ethnicities = {
+			10 = asian
+		}
+	}
+
+	hungarian = {
+		graphical_cultures = {
+			western_coa_gfx
+			western_clothing_gfx
+		}
+		color = { 0.5 0.6 0.3 }
+
+		cadet_dynasty_names = {
+			"dynn_A_rpA_dy"
+			"dynn_CsA_szA_r"
+			"dynn_Vajlok"
+			"dynn_KA_n"
+			"dynn_Omodej"
+			"dynn_Zapolsky"
+			"dynn_Drugeth"
+			"dynn_Csak"
+			"dynn_Pallfy"
+			"dynn_Apafi"
+			"dynn_BA_nffy"
+			"dynn_BerzE_nyi"
+			"dynn_Bocskai"
+			"dynn_Borsa"
+			"dynn_CzirA_ky"
+			"dynn_Debreceni"
+			"dynn_DerencsE_nyi"
+			"dynn_DiO_szegi"
+			"dynn_DO_ry"
+			"dynn_EgervA_ri"
+			"dynn_ForgA_ch"
+			"dynn_Garai"
+			"dynn_PA_lO_czi"
+			"dynn_HE_dervA_ri"
+			"dynn_Hunyadi"
+			"dynn_KA_n"
+			"dynn_KA_rolyi"
+			"dynn_KO_szegi"
+			"dynn_Kun"
+			"dynn_Losonczi"
+			"dynn_MarO_ti"
+			"dynn_PerE_nyi"
+			"dynn_RA_tO_t"
+			"dynn_Rozgonyi"
+			"dynn_Szakoly"
+			"dynn_SzE_csE_nyi"
+			"dynn_SzE_chy"
+			"dynn_Telegdi"
+			"dynn_ThurzO_"
+			"dynn_U_jlaki"
+			"dynn_Kanizsai"
+			"dynn_Meggyesi"
+			"dynn_Osli"
+			"dynn_Viczay"
+			"dynn_Balassa"
+			"dynn_BA_thory"
+			"dynn_KA_lnoky"
+			"dynn_Niedzica"
+			"dynn_ZA_polya"
+			"dynn_SzE_kely"
+			"dynn_DO_zsa"
+			"dynn_Apafi"
+			"dynn_Balassi"
+			"dynn_Bethlen_von_IktA_r"
+			{ "dynnp_of" "dynn_Szekezfehervar" }
+			"dynn_Budai_Nagy"
+			{ "dynnp_de" "dynn_KincstartO_" }
+			"dynn_Celko"
+			"dynn_Corvinus"
+			{ "dynnp_de" "dynn_Cseszneky" }
+			{ "dynnp_de" "dynn_MilvA_ny" }
+			{ "dynnp_von" "dynn_MoravA_n" }
+			"dynn_DA_vid"
+			"dynn_DE_csey"
+			"dynn_ME_zesi"
+			{ "dynnp_de" "dynn_Ruszka" }
+			"dynn_Draskovich"
+			"dynn_ErdO_dy"
+			"dynn_RE_vay"
+			"dynn_DuruZ_mic"
+			"dynn_Szemere"
+			"dynn_Hadik"
+			"dynn_BatthyA_ny"
+			"dynn_Csesznegi"
+			"dynn_EsterhA_zy"
+			"dynn_HajdU_"
+			"dynn_JesenskY_"
+			"dynn_Medveczky"
+			"dynn_RA_kO_czi"
+			"dynn_Wass_de_Czege"
+			"dynn_Szapolyai"
+			"dynn_Zichy"
+			"dynn_Zrinski"
+		}
+
+		dynasty_names = {
+			"dynn_A_rpA_dy"
+			"dynn_CsA_szA_r"
+			"dynn_Vajlok"
+			"dynn_KA_n"
+			"dynn_Omodej"
+			"dynn_Zapolsky"
+			"dynn_Drugeth"
+			"dynn_Csak"
+			"dynn_Pallfy"
+			"dynn_Apafi"
+			"dynn_BA_nffy"
+			"dynn_BerzE_nyi"
+			"dynn_Bocskai"
+			"dynn_Borsa"
+			"dynn_CzirA_ky"
+			"dynn_Debreceni"
+			"dynn_DerencsE_nyi"
+			"dynn_DiO_szegi"
+			"dynn_DO_ry"
+			"dynn_EgervA_ri"
+			"dynn_ForgA_ch"
+			"dynn_Garai"
+			"dynn_PA_lO_czi"
+			"dynn_HE_dervA_ri"
+			"dynn_Hunyadi"
+			"dynn_KA_n"
+			"dynn_KA_rolyi"
+			"dynn_KO_szegi"
+			"dynn_Kun"
+			"dynn_Losonczi"
+			"dynn_MarO_ti"
+			"dynn_PerE_nyi"
+			"dynn_RA_tO_t"
+			"dynn_Rozgonyi"
+			"dynn_Szakoly"
+			"dynn_SzE_csE_nyi"
+			"dynn_SzE_chy"
+			"dynn_Telegdi"
+			"dynn_ThurzO_"
+			"dynn_U_jlaki"
+			"dynn_Kanizsai"
+			"dynn_Meggyesi"
+			"dynn_Osli"
+			"dynn_Viczay"
+			"dynn_Balassa"
+			"dynn_BA_thory"
+			"dynn_KA_lnoky"
+			"dynn_Niedzica"
+			"dynn_ZA_polya"
+			"dynn_SzE_kely"
+			"dynn_DO_zsa"
+			"dynn_Apafi"
+			"dynn_Balassi"
+			"dynn_Bethlen_von_IktA_r"
+			{ "dynnp_of" "dynn_Szekezfehervar" }
+			"dynn_Budai_Nagy"
+			{ "dynnp_de" "dynn_KincstartO_" }
+			"dynn_Celko"
+			"dynn_Corvinus"
+			{ "dynnp_de" "dynn_Cseszneky" }
+			{ "dynnp_de" "dynn_MilvA_ny" }
+			{ "dynnp_von" "dynn_MoravA_n" }
+			"dynn_DA_vid"
+			"dynn_DE_csey"
+			"dynn_ME_zesi"
+			{ "dynnp_de" "dynn_Ruszka" }
+			"dynn_Draskovich"
+			"dynn_ErdO_dy"
+			"dynn_RE_vay"
+			"dynn_DuruZ_mic"
+			"dynn_Szemere"
+			"dynn_Hadik"
+			"dynn_BatthyA_ny"
+			"dynn_Csesznegi"
+			"dynn_EsterhA_zy"
+			"dynn_HajdU_"
+			"dynn_JesenskY_"
+			"dynn_Medveczky"
+			"dynn_RA_kO_czi"
+			"dynn_Wass_de_Czege"
+			"dynn_Szapolyai"
+			"dynn_Zichy"
+			"dynn_Zrinski"
+		}
+
+		male_names = {
+			A_bel A_dA_rn Adorján A_goston Ákos Alfréd A_lmos A_rpA_d O_dO_n Alajos Alfonz 
+			Ambrus Anasztáz AndrA_s Antal Attila BalA_zs BA_lint Barnabás Bartal Bátor BE_la 
+			Bence Benedek BernA_t BertO_k Bertalan BoldizsA_r Bonuslo Borisz CsA_k Csaba 
+			Csongor Dáni Dániel Dávid DE_nes DO_mO_tO_r DezsO_ Domonkos DomoszlO_ DonA_t 
+			Edvárd Elek ElemE_r Éliás Emánuel Endre ErnO_ FulO_p Ferenc Ferkó Frigyes GA_bor 
+			GA_briel GA_spA_r GE_za Gazsi GellE_rt Gergely GyO_rgy Gyõzõ Gyula Gyuri Ignác 
+			Illés Imre IstvA_n IzsA_k JA_kob JA_nos JenO_ JO_zsef KA_lmA_n KA_roly Kázmér
+			Kelemen KonrA_d Konstantin KornE_l KristO_f Krisztián LA_szlO_ LA_zA_r Lajos 
+			Lampert Levente Lipót Loránd LO_rinc LukA_cs Marcell MA_rk MA_rton MA_tE_ 
+			MA_tyA_s MihA_ly Miksa MiklO_s MO_ric MO_zes NA_ndor Ödön OrbA_n OszkA_r Ottó 
+			PA_l Patrik PE_ter Rikárd Róbert SA_muel SA_ndor Salamon Saul Sebastyén Soma 
+			Szilárd Szilveszter Tádé TA_dor Taksony TamA_s Tibor Tivadar Tóbiás Tóni Vazul 
+			Vencel Vilmos Virág ZoltA_n Zsigmond Zsolt
+		}
+		female_names = {
+			AgA_ta A_gnes Alida Aliz AmA_lia Anasztázia Angyalka AnikO_ Aranka Beáta Berta
+			Bianka BorbA_la Csilla Csillag Czenzi Diána Dorottya Edit Ema Emese EmO_ke EnE_h 
+			Enikõ Erika ErzsE_bet Eszter Etel Eufémia Eufrozina E_va Felícia Filoména Flóra 
+			Franciska Fruzsina Gabriella Gertrúd Gizella GYöngyi GyO_rgyi Hajnal Hedvig 
+			Ibolya IldikO_ Illona IrE_n Irmuska Izabella JA_cinta Janika JolA_n JO_zsa 
+			Jozefa Jozefina JU_lia Judit Kamilla Karola Katalin Katarina Kinga KlA_ra 
+			Konstancia Kornélia Krisztina Kunigunda Lícia Luca Ludmilla Lujza Magdolna 
+			MargarE_ta Margit MA_ria MA_rta Matild Miléna Mónika NatA_lia Nikolett Odola 
+			Orsolya Panni Piroska Ráhel Rebeka Renáta Rozália RO_zsa SA_ra Sarolt 
+			Skolasztika Szilvia Szófia Teodóra Teréz Terézia TundE_r Valéria Viktória Vilma 
+			Viola VirA_g Xénia Zsanett Zsazsa Zsizsi ZsO_fia ZoltA_na Zsuzsa Zsuzsanna  
+		}
+		
+		dynasty_of_location_prefix = "dynnp_a"
+		
+		patronym_suffix_male = "dynnpat_suf_fi"
+
+		dynasty_name_first = yes
+		
+		ethnicities = {
+			10 = caucasian_blond
+			# 5 = caucasian_ginger
+			65 = caucasian_brown_hair
+			25 = caucasian_dark_hair
+		}
+	}
+}

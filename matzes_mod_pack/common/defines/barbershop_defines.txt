@@ -1,0 +1,4 @@
+﻿NPortrait = {
+	PORTRAIT_MALE_ADULT_AGE = 0	# The boy -> male portrait change happens at this age
+	PORTRAIT_FEMALE_ADULT_AGE = 0	# The girl -> female portrait change happens at this age
+}

@@ -1,0 +1,74 @@
+namespace = CallToArms_event
+
+CallToArms_event.1 = {
+
+	type = character_event
+	title = "Call to arms"
+	desc = "My realm's safety is being threatened by my enemies. Hostile forces could cross the border at any moment, pillaging my lands and slaughtering my people. I have the choice to call the banners of my loyal vassals to my aid and assemble a mighty army, but at what cost?"
+	theme = realm
+	
+	option = {
+		name = "Call the banners!"
+		trigger = { is_defender_in_war = scope:war }
+
+		if = { limit = { highest_held_title_tier = tier_duchy }
+			add_prestige = -300
+			add_gold = -150
+		}
+
+		if = { limit = { highest_held_title_tier = tier_kingdom }
+			add_prestige = -400
+			add_gold = -250
+		}
+
+		if = { limit = { highest_held_title_tier = tier_empire }
+			add_prestige = -500
+			add_gold = -350
+		}
+
+		every_vassal = {
+		  scope:war = { add_defender = PREV }
+		}
+	}
+
+	option = {
+		name = "Call the banners!"
+		trigger = { is_attacker_in_war = scope:war }
+
+		if = { limit = { highest_held_title_tier = tier_duchy }
+			add_prestige = -550
+			add_gold = -100
+		}
+
+		if = { limit = { highest_held_title_tier = tier_kingdom }
+			add_prestige = -650
+			add_gold = -350
+		}
+
+		if = { limit = { highest_held_title_tier = tier_empire }
+			add_prestige = -750
+			add_gold = -500
+		}
+
+		every_vassal = {
+		  scope:war = { add_attacker = PREV }
+		}
+	}
+
+	option = {
+		
+		name = "I will handle this myself..."
+
+		if = { limit = { highest_held_title_tier = tier_duchy }
+			add_prestige = 50
+		}
+
+		if = { limit = { highest_held_title_tier = tier_kingdom }
+			add_prestige = 150
+		}
+
+		if = { limit = { highest_held_title_tier = tier_empire }
+			add_prestige = 250
+		}
+	}
+ }
