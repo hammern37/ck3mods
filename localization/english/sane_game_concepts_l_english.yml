@@ -1,6 +1,0 @@
-﻿l_english:
- # Custom
- game_concept_recently_acquired_holding:0 "Holding above Domain Limit"
- game_concept_recently_acquired_holdings:0 "Holdings above Domain Limit"
- game_concept_recently_acquired_holding_desc:0 "[holdings|E] that put a ruler above their [domain_limit|E] provide no [taxes|E] or [levies|E]."
- 

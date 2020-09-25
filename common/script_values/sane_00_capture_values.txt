@@ -1,3 +1,0 @@
-﻿#SIEGE VALUES ## - Should make sieging the cap a bit less of a no-brainer.
-siege_capture_chance = 30 ## Was 50 
-siege_base_capture_chance = 30 ## Was 35 - Not sure which is used.

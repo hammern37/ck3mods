@@ -1,7 +1,0 @@
-﻿l_german:
-
- dragatus_prisoner_marriage_interaction:0 "Zwangsheirat"
- dragatus_prisoner_marriage_interaction_desc:0 "Sie zwingen [recipient.GetShortUINameNoTooltip] ihre [recipient.Custom('WifeHusband')|U] zu werden"
- actor_secondary_dragatus_prisoner_marriage_interaction:0 "Sender"
- dragatus_has_max_spouses:0 "Ich kan nicht noch mehr [recipient.Custom('WifeHusband')|U] haben"
- msg_dragatus_prisoner_marriage_title:0 "[actor.Custom('WifeHusbandOpp')|U] genommen"

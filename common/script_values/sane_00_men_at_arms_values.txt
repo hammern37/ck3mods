@@ -1,3 +1,0 @@
-﻿@skirmisher_recruitment_cost = 55
-skirmisher_recruitment_cost = @[skirmisher_recruitment_cost] ### Were objectively too cheap at 50. Now at 55 (midpoint between actual effectiveness vs cost effectiveness vs bowmen - AI will prefer light infantry over them if <19 realm size, and prefer bowmen above that). Maintenance remains the same, but the change has real consequences for the AI's choice of MAA units.
-horse_archers_recruitment_cost = @[skirmisher_recruitment_cost * 2.8] ### Vanilla is 3.0, but still slightly higher cost when adjusted for the price (154 vs 150).

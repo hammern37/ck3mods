@@ -1,4 +1,0 @@
-﻿
-vel_force_knight = {
-	index = 947 
-}

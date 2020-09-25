@@ -1,9 +1,0 @@
-﻿l_spanish:
- BUILDING_REQUIREMENT_COW_METROPOLIS_FAILED:0 "[PROVINCE.GetName] debe ser un [cow_metropolis|E]"
- NOT_BUILDING_REQUIREMENT_COW_METROPOLIS_FAILED:0 "[PROVINCE.GetName] no es un [cow_metropolis|E]"
- COW_HOLY_SITE_BUILDING_DUPLICATE:1 "El [faith|E] del titular considera esto un [holy_site|E]"
- NOT_COW_HOLY_SITE_BUILDING_DUPLICATE:1 "El [faith|E] del titular no debe considerar esto como un [holy_site|E]"
- IS_VANILLA_UNIVERSITY_PROVINCE:1 "[PROVINCE.GetName] es un sitio universitario histórico."
- NOT_IS_VANILLA_UNIVERSITY_PROVINCE:1 "[PROVINCE.GetName] NO debe ser un sitio universitario histórico."
- I_HAVE_CORRECT_METROPOLIS_STAGE_IN_PROVINCE:1 "[PROVINCE.GetName] does have a high enough [cow_metropolis|E] upgrade in the main building chain for the holding\n$EFFECT_LIST_BULLET$[cow_metropolis_holdings|E] #bold cannot#! build Metropolis unique buildings until stage 4"
- NOT_I_HAVE_CORRECT_METROPOLIS_STAGE_IN_PROVINCE:1 "[PROVINCE.GetName] does #bold not#! have a high enough [cow_metropolis|E] upgrade in the main building chain for the holding\n$EFFECT_LIST_BULLET$[cow_metropolis_holdings|E] #bold cannot#! build Metropolis unique buildings until stage 4"

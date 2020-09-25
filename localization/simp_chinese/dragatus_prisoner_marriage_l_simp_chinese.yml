@@ -1,7 +1,0 @@
-﻿l_simp_chinese:
-
- dragatus_prisoner_marriage_interaction:0 "强迫婚姻"
- dragatus_prisoner_marriage_interaction_desc:0 "迫使[recipient.GetShortUINameNoTooltip]成为你的[recipient.Custom('WifeHusband')|U]"
- actor_secondary_dragatus_prisoner_marriage_interaction:0 "发件人"
- dragatus_has_max_spouses:0 "我不能再嫁人了"
- msg_dragatus_prisoner_marriage_title:0 "我结婚了"

@@ -1,7 +1,0 @@
-﻿l_russian:
-
- dragatus_prisoner_marriage_interaction:0 "Принудительный брак"
- dragatus_prisoner_marriage_interaction_desc:0 "Заставил [recipient.GetShortUINameNoTooltip] стать твоей [recipient.Custom('WifeHusband')|U]"
- actor_secondary_dragatus_prisoner_marriage_interaction:0 "Отправитель"
- dragatus_has_max_spouses:0 "Я не могу взять больше [recipient.Custom('WifeHusband')|U]."
- msg_dragatus_prisoner_marriage_title:0 "Взял [actor.Custom('WifeHusbandOpp')|U]"

@@ -1,3 +1,0 @@
-﻿can_start_new_lifestyle_tree_trigger = {
-	always = yes
-}

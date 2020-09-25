@@ -1,9 +1,0 @@
-broccoli = https://upload.wikimedia.org/wikipedia/commons/0/03/Broccoli_and_cross_section_edit.jpg
-license = CC BY-NC
-attribution = Fir0002/Flagstaffotos
-
-BG_Circle_Blue.png = "Trait Pieces"
-attribution = The Pink Panzer
-
-steak = https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/StripSteak.jpg/800px-StripSteak.jpg
-license = CC A-SA 3.0

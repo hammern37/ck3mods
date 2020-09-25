@@ -1,6 +1,0 @@
-﻿l_german:
-    borrow_money_event.0001.t:0 "Nimm einen Kredit auf"
-    borrow_money_event.0001.desc:0 "Das Entleihen von Geld an andere [ROOT.Char.GetFaith.GetAdherentNamePlural] und das zurückverlangen mit Zinsen wird als Sünde angesehen, als Wuchern. Juden sind jedoch von diesem Verbot ausgenommen. Ich könnte etwas extra Gold von ihnen bekommen. Aber ich muss aufpassen, denn meine [ROOT.Char.GetFaith.GetAdherentName] Brüder schauen auf dies herab."
-    borrow_money_event.0001.a:0 "Nimm einen kleinen Kredit auf"
-    borrow_money_event.0001.b:0 "Nimm einen großen Kredit auf"
-    borrow_money_event.0001.c:0 "Schon gut, Ich habe meine Meinung geändert"

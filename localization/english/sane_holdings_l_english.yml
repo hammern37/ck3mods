@@ -1,6 +1,0 @@
-﻿l_english:
- DOMAIN_LIMIT_GRACE_PERIOD_LEVY_PENALTY:0 "@warning_icon!#X Due to being above [domain_limit|E], this holding cannot be effectively governed by our administration and provides no [levies|E]!"
- DOMAIN_LIMIT_GRACE_PERIOD_TAX_PENALTY:0 "@warning_icon!#X Due to being above [domain_limit|E], this holding cannot be effectively governed by our administration and provides no [taxes|E]!"
- DOMAIN_LIMIT_GRACE_PERIOD_TOOLTIP:0 "[CHARACTER.GetContextTooltip( 'DOMAIN_LIMIT_GRACE_PERIOD_LIST', '$COUNT$ Holdings above Domain Limit' )] provide no [taxes|E] or [levies|E]."
- DOMAIN_LIMIT_GRACE_PERIOD_SINGULAR_TOOLTIP:0 "[CHARACTER.GetContextTooltip( 'DOMAIN_LIMIT_GRACE_PERIOD_SINGULAR_LIST', '$COUNT$ Holding above Domain Limit' )] provides no [taxes|E] or [levies|E]."
- 

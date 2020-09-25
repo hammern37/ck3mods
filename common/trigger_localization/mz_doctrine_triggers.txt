@@ -1,7 +1,0 @@
-﻿mz_incompatible_with_crimes_trigger = {
-	global_not = MZ_INCOMPATIBLE_WITH_ALL_CRIMINAL_DOCTRINES
-}
-
-mz_adultery_must_be_fully_accepted = {
-	global_not = MZ_ADULTERY_MUST_BE_FULLY_ACCEPTED
-}

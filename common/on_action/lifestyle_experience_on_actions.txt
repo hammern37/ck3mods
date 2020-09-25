@@ -1,5 +1,0 @@
-quarterly_playable_pulse = {
-	events = {
-		lifestyle_experience_xp.001
-	}
-}

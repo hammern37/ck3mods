@@ -1,6 +1,0 @@
-﻿l_english:
-    borrow_money_event.0001.t:0 "Borrow Money"
-    borrow_money_event.0001.desc:0 "Usury, the practice of lending money to a fellow [ROOT.Char.GetFaith.GetAdherentName] and demanding interest on that said money is considered a sin. But Jews are exempt of that prohibition. I might be able to get some extra funds from them. But I must remain cautious, as it is frowned upon among my [ROOT.Char.GetFaith.GetAdherentName] brothers."
-    borrow_money_event.0001.a:0 "Take on a small loan"
-    borrow_money_event.0001.b:0 "Take on a large loan"
-    borrow_money_event.0001.c:0 "Nevermind, I have changed my mind"

@@ -1,6 +1,0 @@
-﻿l_english:
-  MAPMODE_SIMPLE_TERRAIN_NAME:0 "Terrain Type"
-  MAPMODE_DIPLOMACY:0 "#T Diplomatic Range\n#!Shows the distance or range of provinces you are able to interact with."
-  MAPMODE_POLITICAL:0 "#T Political\n#!Shows a color-coded map of every [realm|E]."
-  MAPMODE_TERRAIN:0 "#T Terrain\n#!Shows the natural [terrain|E] of the map."
-  DIPLOMACY_HEADER:0 "Showing: Diplomatic Range"

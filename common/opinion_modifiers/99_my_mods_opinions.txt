@@ -1,3 +1,0 @@
-﻿marry_matrilineal_set = {
-	opinion = -1
-}
