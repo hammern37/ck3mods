@@ -94,5 +94,4 @@
 <li>Hidden Attractions</li>
 <li>Blind and Castrate for all!</li>
 <li>Crusader Kings Legacy</li>
-<li><ul>
-<li>
+<ul>
