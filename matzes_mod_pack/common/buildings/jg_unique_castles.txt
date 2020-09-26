@@ -329,23 +329,20 @@ jg_dover_01 = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 3000
+	cost_gold = 1500
 
 	garrison = 1000	
 	levy = 500	
 	
 	province_modifier = {
-		monthly_income = 2.0
+		monthly_income = 1.0
 		hostile_raid_time = 0.5
 		defender_advantage = 8
 		fort_level = 8
 	}
 	county_modifier = {
-		tax_mult = 0.2
-		development_growth = 0.3
-		development_growth_factor = 0.2		
+		development_growth = 0.2	
 	}
-	
 	ai_value = {
 		base = 100
 	}
@@ -395,7 +392,7 @@ jg_windsor_01 = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 3000
+	cost_gold = 2000
 
 	garrison = 1000	
 	levy = 500	
@@ -409,9 +406,9 @@ jg_windsor_01 = {
 	}
 	county_modifier = {
 		monthly_county_control_change_add = 0.1
-		tax_mult = 0.2
-		development_growth = 0.3
-		development_growth_factor = 0.2		
+		tax_mult = 0.15
+		development_growth = 0.2
+		development_growth_factor = 0.1		
 	}
 	
 	ai_value = {
@@ -646,6 +643,181 @@ jg_milan_01 = {
 	levy = 500	
 	character_modifier = {
 		hostile_scheme_resistance_mult = 0.05
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+		defender_advantage = 8
+		fort_level = 8
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.1
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_homs_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+
+	garrison = 1000	
+	levy = 500	
+	character_modifier = {
+		holy_order_hire_cost_mult = -0.10
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+		defender_advantage = 8
+		fort_level = 8
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.1
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_babylon_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+
+	garrison = 1000	
+	levy = 500	
+	character_modifier = {
+		monthly_dynasty_prestige_mult = 0.05
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+		defender_advantage = 8
+		fort_level = 8
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.1
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_zarazoga_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+
+	garrison = 1000	
+	levy = 500	
+	character_modifier = {
+		faith_conversion_piety_cost_mult = -0.05
+	}	
+	province_modifier = {
+		monthly_income = 2.5
+		defender_advantage = 8
+		fort_level = 8
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.1
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_almeria_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+
+	garrison = 1000	
+	levy = 500	
+	character_modifier = {
+		intimidated_vassal_tax_contribution_mult = 0.05
+	}	
+	province_modifier = {
+		monthly_income = 2.5
+		defender_advantage = 8
+		fort_level = 8
+	}
+	county_modifier = {
+		monthly_county_control_change_add = 0.1
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_ninevah_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+
+	garrison = 1000	
+	levy = 500	
+	character_modifier = {
+		diplomacy_scheme_power = 0.1
 	}	
 	province_modifier = {
 		monthly_income = 3.0

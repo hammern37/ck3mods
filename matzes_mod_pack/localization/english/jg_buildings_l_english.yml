@@ -30,7 +30,7 @@ building_jg_malbork_01_desc:0 "$building_type_jg_malbork_01_desc$"
 
 # Diocletian's Palace
 building_type_jg_split_01:0 "Diocletian's Palace"
-building_type_jg_split_01_desc:0 "#F Diocletian had ordered the construction of the heavily fortified compound near his hometown of Spalatum in preparation for his retirement on 1 May 305 AD. At Carnuntum, people begged Diocletian to return to the throne in order to resolve the conflicts that had arisen through Constantine's rise to power and Maxentius' usurpation. Diocletian famously replied: if you could show the cabbage that I planted with my own hands to your emperor, he definitely wouldn't dare suggest that I replace the peace and happiness of this place with the storms of a never-satisfied greed.#!"
+building_type_jg_split_01_desc:0 "#F Diocletian had ordered the construction of the heavily fortified compound near his hometown of Spalatum in preparation for his retirement on 1 May 305 AD. At Carnuntum, people begged Diocletian to return to the throne in order to resolve the conflicts that had arisen through Constantine's rise to power and Maxentius' usurpation. Diocletian famously replied: \"if you could show the cabbage that I planted with my own hands to your emperor, he definitely wouldn't dare suggest that I replace the peace and happiness of this place with the storms of a never-satisfied greed.\"#!"
 building_jg_split_01:0 "$building_type_jg_split_01$"
 building_jg_split_01_desc:0 "$building_type_jg_split_01_desc$"
 
@@ -118,6 +118,36 @@ building_type_jg_milan_01_desc:0 "#F The original construction was ordered by lo
 building_jg_milan_01:0 "$building_type_jg_milan_01$"
 building_jg_milan_01_desc:0 "$building_type_jg_milan_01_desc$"
 
+# Crac des Chevaliers(homs)
+building_type_jg_homs_01:0 "Crac des Chevaliers"
+building_type_jg_homs_01_desc:0 "#F According to the 13th-century Arab historian Ibn Shaddad, in 1031, the Mirdasid emir of Aleppo and Homs, Shibl ad-Dawla Nasr, established a settlement of Kurdish tribesmen at the site of the castle. In January 1099 on the journey to Jerusalem during the First Crusade, the company of Raymond IV of Toulouse came under attack from the garrison of Hisn al-Akrad, the forerunner of the Krak, who harried Raymond's foragers.[18] The following day Raymond marched on the castle and found it deserted. The crusaders briefly occupied the castle in February of the same year but abandoned it when they continued their march towards Jerusalem. Permanent occupation began in 1110 when Tancred, Prince of Galilee took control of the site. The Knights Hospitallers later made Krak des Chevaliers a center of administration in the region.#!"
+building_jg_homs_01:0 "$building_type_jg_homs_01$"
+building_jg_homs_01_desc:0 "$building_type_jg_homs_01_desc$"
+
+# Ishtar Gate, Babylon
+building_type_jg_babylon_01:0 "Ishtar Gate"
+building_type_jg_babylon_01_desc:0 "#F 50 feet high and extending another 45 feet undeground, the Ishtar Gate was constructed in about 575 BCE by order of King Nebuchadnezzar II on the north side of the city. It was part of a grand walled processional way leading into the city. Once per year, the Ishtar Gate and connecting Processional Way were used for a New Year's procession, which was part of a religious festival celebrating the beginning of the agricultural year. The walls were finished in glazed bricks mostly in blue, with animals and deities in low relief at intervals, these also made up of bricks that are molded and colored differently. Babylon is mentioned in medieval Arabic writings as a source of bricks, said to have been used in cities from Baghdad to Basra.#!"
+building_jg_babylon_01:0 "$building_type_jg_babylon_01$"
+building_jg_babylon_01_desc:0 "$building_type_jg_babylon_01_desc$"
+
+# Aljafería, Zarazoga
+building_type_jg_zarazoga_01:0 "Aljafería"
+building_type_jg_zarazoga_01_desc:0 "#F Aljaferiá was completed by Abu Jaffar Al-Muqtadir during the Banu Hud reign in the taifa of Zaragoza, in the 11th century. After the reconquest of Zaragoza in 1118 by Alfonso of Aragon, the Aljafería became the residence of the Christian kings of Aragon.#!"
+building_jg_zarazoga_01:0 "$building_type_jg_zarazoga_01$"
+building_jg_zarazoga_01_desc:0 "$building_type_jg_zarazoga_01_desc$"
+
+# Aljafería, almeria
+building_type_jg_almeria_01:0 "Alcazaba"
+building_type_jg_almeria_01_desc:0 "#F In 955, Almería gained the title of medina by the Caliph of Cordoba, Abd ar-Rahman III; construction of the defensive citadel, located in the upper sector of the city, began in this period. The alcazaba, provided not only with walls and towers but also with squares, houses and a mosque, was to be also the seat of the local government, commanding the city and the sea nearby.#!"
+building_jg_almeria_01:0 "$building_type_jg_almeria_01$"
+building_jg_almeria_01_desc:0 "$building_type_jg_almeria_01_desc$"
+
+# Walls of Ninevah
+building_type_jg_ninevah_01:0 "Walls of Ninevah"
+building_type_jg_ninevah_01_desc:0 "#F The ruins of Nineveh are surrounded by the remains of a massive stone and mudbrick wall dating from about 700 BC. About 12 km in length, the wall system consisted of an ashlar stone retaining wall about 20 feet high surmounted by a mudbrick wall about 30 feet high and 50 feet thick. Elements of the walls remained standing in the present day.#!"
+building_jg_ninevah_01:0 "$building_type_jg_ninevah_01$"
+building_jg_ninevah_01_desc:0 "$building_type_jg_ninevah_01_desc$"
+
 ####################
 ### Secular Sites - Other
 ####################
@@ -146,7 +176,35 @@ building_type_jg_bruges_01_desc:0 "#F The belfry was added to the market square 
 building_jg_bruges_01:0 "$building_type_jg_bruges_01$"
 building_jg_bruges_01_desc:0 "$building_type_jg_bruges_01_desc$"
 
+# Shibam Hadramawt(shibam)
+building_type_jg_shibam_01:0 "Shibam Hadramawt"
+building_type_jg_shibam_01_desc:0 "#F As an important stop on the spice and incense trade route, Shibam emerged as a beacon of wealth in the Southern Arabian plateau. The city began as an enclave for rival families seeking prestige, political power, and protection from Bedouin thieves around 300 AD. The notion of stacked housing quickly became the architectural modus operandi, and thus began the construction of hundreds of multistory mud brick buildings.#!"
+building_jg_shibam_01:0 "$building_type_jg_shibam_01$"
+building_jg_shibam_01_desc:0 "$building_type_jg_shibam_01_desc$"
 
+# carthage Baths of Antoninus
+building_type_jg_carthage_01:0 "Baths of Antoninus"
+building_type_jg_carthage_01_desc:0 "#F The Baths of Antoninus are the vastest set of Roman thermae built on the African continent and one of three largest built in the Roman Empire. The baths were built during the reign of Roman Emperor Antoninus Pius and continued to function until at least the 11th century.#!"
+building_jg_carthage_01:0 "$building_type_jg_carthage_01$"
+building_jg_carthage_01_desc:0 "$building_type_jg_carthage_01_desc$"
+
+# Temples of Baalbek
+building_type_jg_baalbek_01:0 "Temples of Baalbek"
+building_type_jg_baalbek_01_desc:0 "#F During the Canaanite period, the local temples were largely devoted to Baʿal of the Heliopolitan Triad. After Alexander the Great's conquest of Persia, Baalbek (or Heliopolis) formed part of the Diadochi kingdoms and, following the decline of the Hellenistic kingdoms, the Roman Empire. In the aftermath of the Battle of Yarmouk, the complex was captured along with 2,000 oz of gold, 4,000 oz of silver, 2000 silk vests, and 1000 swords and the temple complex was fortified under the name al-Qala. In the mid-10th century, it was said to have \"gates of palaces sculptured in marble and lofty columns also of marble\".#!"
+building_jg_baalbek_01:0 "$building_type_jg_baalbek_01$"
+building_jg_baalbek_01_desc:0 "$building_type_jg_baalbek_01_desc$"
+
+# Gate of All Nations (Persepolis)
+building_type_jg_persepolis_01:0 "Gate of All Nations"
+building_type_jg_persepolis_01_desc:0 "#F The Gate of All Nations, referring to subjects of the empire, consisted of a grand hall that was a square of approximately 80 feet in length. Lamassus, bulls with the heads of bearded men, stand by the entrances to reflect the power of the empire. The name of Xerxes I was written in three languages and carved on the entrances, informing everyone that he ordered it to be built.#!"
+building_jg_persepolis_01:0 "$building_type_jg_persepolis_01$"
+building_jg_persepolis_01_desc:0 "$building_type_jg_persepolis_01_desc$"
+
+# Mada'in Saleh (Tagma)
+building_type_jg_hegra_01:0 "Mada'in Saleh"
+building_type_jg_hegra_01_desc:0 "#F Mada’in Saleh, or Hegra, constituted the Nabatean kingdom's southernmost and largest settlement after Petra (modern-day Jordan), its capital. Situated on the overland caravan route and connected to the Red Sea port of Egra Kome, Hegra, as it was known among the Nabateans, reached its peak as the major staging post on the main north–south trade route. Hegra later served as a station along the Hajj route, providing supplies and water for pilgrims.#!"
+building_jg_hegra_01:0 "$building_type_jg_hegra_01$"
+building_jg_hegra_01_desc:0 "$building_type_jg_hegra_01_desc$"
 
 ####################
 ### Christian Sites
@@ -232,6 +290,12 @@ building_type_jg_ghent_01_desc:0 "#F The building is built on the site of the fo
 building_jg_ghent_01:0 "$building_type_jg_ghent_01$"
 building_jg_ghent_01_desc:0 "$building_type_jg_ghent_01_desc$"
 
+# Basilica of San Vitale (ravenna)
+building_type_jg_ravenna_01:0 "Basilica of San Vitale"
+building_type_jg_ravenna_01_desc:0 "#F The church was begun by Bishop Ecclesius in 526, when Ravenna was under the rule of the Ostrogoths and completed by the 27th Bishop of Ravenna, Maximian, in 547. The church is most famous for its wealth of Byzantine mosaics, the largest and best preserved outside of Constantinople, and is the only major church from the period of the Emperor Justinian I to survive virtually intact to the present day. Furthermore, it is thought to reflect the design of the Byzantine Imperial Palace Audience Chamber, of which nothing at all survives.#!"
+building_jg_ravenna_01:0 "$building_type_jg_ravenna_01$"
+building_jg_ravenna_01_desc:0 "$building_type_jg_ravenna_01_desc$"
+
 
 ####################
 ### Hellenistic Sites
@@ -283,6 +347,24 @@ building_type_jg_fez_01_desc:0 "#F  The first madrasa, the Gama'at al-Qarawiyyn,
 building_jg_fez_01:0 "$building_type_jg_fez_01$"
 building_jg_fez_01_desc:0 "$building_type_jg_fez_01_desc$"
 
+# Great Mosque of Samarra
+building_type_jg_samarra_01:0 "Great Mosque of Samarra"
+building_type_jg_samarra_01_desc:0 "#F Built in 851, the Great Mosque of Samarra was, for a time, the largest mosque in the world; its minaret, the Malwiya Tower, is a spiralling cone 170 feet high and 110 feet wide with a spiral ramp.#!"
+building_jg_samarra_01:0 "$building_type_jg_samarra_01$"
+building_jg_samarra_01_desc:0 "$building_type_jg_samarra_01_desc$"
+
+# Great Mosque of kairouan
+building_type_jg_kairouan_01:0 "Great Mosque of Kairouan"
+building_type_jg_kairouan_01_desc:0 "#F Established by the Arab general Uqba ibn Nafi in the year 670 at the founding of the city of Kairouan, the mosque is one of the oldest places of worship in the Islamic world, and a model for all later mosques in the Maghreb. Extensive works under the Aghlabids two centuries later gave the mosque its present aspect. The fame of the Mosque of Kairouan helped the city to develop and expand. The university, consisting of scholars who taught in the mosque, was a centre of education both in Islamic thought and in the secular sciences.#!"
+building_jg_kairouan_01:0 "$building_type_jg_kairouan_01$"
+building_jg_kairouan_01_desc:0 "$building_type_jg_kairouan_01_desc$"
+
+# Great Mosque of damascus
+building_type_jg_damascus_01:0 "Great Mosque of Damascus"
+building_type_jg_damascus_01_desc:0 "#F After the Muslim conquest of Damascus in 634, the mosque was built on the site of a Christian basilica dedicated to John the Baptist, and a legend dating to the sixth century holds that the building contains his head. The mosque is also believed by Muslims to be the place where Jesus will return at the End of Days. The mausoleum containing the tomb of Saladin stands in a small garden adjoining the north wall of the mosque.#!"
+building_jg_damascus_01:0 "$building_type_jg_damascus_01$"
+building_jg_damascus_01_desc:0 "$building_type_jg_damascus_01_desc$"
+
 ####################
 ### Germanic Sites
 ####################
@@ -290,5 +372,11 @@ building_jg_fez_01_desc:0 "$building_type_jg_fez_01_desc$"
 # Temple of Uppsala
 building_type_jg_uppsala_01:0 "Temple of Upsalla"
 building_type_jg_uppsala_01_desc:0 "#F The medieval chronicler Adam of Bremen recorded the existence of a famous pagan temple near Uppsala. According to Adam, near the temple stood a massive tree evergreen both in summer and winter, and a spring where sacrifices were held. Living men were thrown into the spring, and if they failed to return to the surface, the wishes of the people would foreseen to be fulfilled.#!"
+building_jg_uppsala_01:0 "$building_type_jg_uppsala_01$"
+building_jg_uppsala_01_desc:0 "$building_type_jg_uppsala_01_desc$"
+
+# Temple of irminsul
+building_type_jg_irminsul_01:0 "Irminsul"
+building_type_jg_irminsul_01_desc:0 "#F The Saxons believed that a giant tree or pillar called Irminsul connected heaven and earth. Charlemagne ordered its destruction during the Saxon Wars in 772.#!"
 building_jg_fez_01:0 "$building_type_jg_fez_01$"
 building_jg_fez_01_desc:0 "$building_type_jg_fez_01_desc$"

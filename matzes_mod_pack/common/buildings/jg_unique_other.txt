@@ -97,13 +97,159 @@ jg_bruges_01 = {
 		building_requirement_tribal = no
 	}
 	
-	cost_gold = 2000
+	cost_gold = 1000
 	
 	character_modifier = {
 		levy_reinforcement_rate_friendly_territory = 0.2
 	}		
 	province_modifier = {
-		monthly_income = 2.0
+		monthly_income = 1.5
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_shibam_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2500
+	
+	province_modifier = {
+		monthly_income = 2.5
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		city_holding_build_speed = 1.0
+		city_holding_build_gold_cost = -0.33
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_carthage_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2500
+	
+	character_modifier = {
+		health = 0.2
+	}	
+	province_modifier = {
+		monthly_income = 2.5
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_baalbek_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+	
+	character_modifier = {
+		theocracy_government_tax_contribution_mult = 0.1
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_persepolis_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 3000
+	
+	character_modifier = {
+		claim_throne_scheme_resistance_mult	= 0.1
+		claim_throne_scheme_power_mult = 0.1
+	}	
+	province_modifier = {
+		monthly_income = 3.0
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth = 0.3
+		development_growth_factor = 0.2		
+	}
+	
+	ai_value = {
+		base = 100
+	}
+	
+	type = special
+}
+
+jg_hegra_01 = {
+	construction_time = very_slow_construction_time
+
+	type_icon = "icon_structure_theodosian_walls.dds"
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2500
+	
+	character_modifier = {
+		desert_advantage = 5
+		supply_duration = 0.3
+	}	
+	province_modifier = {
+		monthly_income = 2.5
 	}
 	county_modifier = {
 		tax_mult = 0.2

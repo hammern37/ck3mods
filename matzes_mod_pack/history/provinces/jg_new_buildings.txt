@@ -332,6 +332,9 @@
 	867.1.1 = {
 		special_building_slot = jg_seville_01
 	}	
+	913.1.1 = {
+		special_building = jg_seville_01
+	}	
 	# History
 	929.1.1 = {
 		culture = andalusian
@@ -578,5 +581,196 @@
 		culture = swedish
 	}
 	1090.1.1 = { religion = catholic }
+
+}
+
+2546 = {	#RAVENNA
+	culture = cisalpine
+	religion = catholic
+	holding = church_holding
+	867.1.1 = {
+		special_building = jg_ravenna_01
+	}
+	900.1.1 = {
+		culture = italian
+	}
+}
+
+5929 = {	# 5929 - Hims	
+	# Misc
+	culture = levantine
+	religion = orthodox
+	860.1.1 = {
+		special_building_slot = jg_homs_01
+	}	
+	# History
+	867.1.1 = { religion = ashari }
+
+}
+
+1887 = {	# ZARAGOZA
+	# Misc
+	culture = visigothic
+	religion = catholic
+	
+	holding = castle_holding
+	860.1.1 = {
+		special_building_slot = jg_zarazoga_01
+	}	
+	# History
+	955.1.1 = {
+		culture = andalusian
+	}
+}
+
+1849 = {	# ALMERIA
+	# Misc
+	culture = visigothic
+	religion = catholic
+	
+	holding = castle_holding
+	860.1.1 = {
+		special_building_slot = jg_almeria_01
+	}		
+	# History
+	812.1.1 = { religion = muwalladi }
+	939.1.1 = { culture = andalusian }
+	930.1.1 = {
+		special_building = jg_almeria_01
+	}
+	1280.1.1 = {
+		culture = castilian
+		religion = catholic
+	}
+}
+
+4811 = {	# 4811 - Ninawa, Ninive
+	
+	# Misc
+	culture = kurdish
+	religion = nestorian
+	860.1.1 = {
+		special_building_slot = jg_ninevah_01
+	}	
+	# History
+	867.1.1 = { religion = ashari }
+	1200.1.1 = { religion = yazidi }
+
+}
+
+6306 = {	# 6306 - SHIBAM
+	860.1.1 = {
+		special_building = jg_shibam_01
+	}	
+	# Misc
+	culture = bedouin
+	religion = ibadi
+}
+
+4594 = {	# 4594 - KAIROUAN 
+	
+	# Misc
+	culture = maghrebi
+	religion = ashari
+	terrain = plains
+	
+	# History
+	860.1.1 = {
+		special_building = jg_kairouan_01
+	}
+}
+
+5924 = {	# 5924 - Damascus
+	
+	# Misc
+	culture = levantine
+	religion = ashari
+	
+	# History
+	860.1.1 = {
+		special_building = jg_damascus_01
+	}
+}
+
+5926 = {	# 5926 - Baalbak
+	
+	# Misc
+	culture = levantine
+	religion = orthodox
+	860.1.1 = {
+		special_building = jg_baalbek_01
+	}	
+	# History
+	867.1.1 = { religion = ashari }
+	1016.1.1 = { religion = druze }
+
+}
+
+4694 = {	# 4694 - FES
+	
+	# Misc
+	culture = baranis
+	#culture = sanhaja
+	religion = ashari
+	860.1.1 = {
+		special_building = jg_fez_01
+	}	
+	# History
+	#973.1.1 = { culture = zanata }
+	#1069.1.1 = { culture = sanhaja }
+	
+
+}
+
+5994 = {	# 5994 - Al-Qadisiya
+	
+	#Misc
+	culture = levantine
+	religion = ashari
+	
+	# History
+	850.1.1 = { religion = ismaili }
+	860.1.1 = {
+		special_building_slot = jg_babylon_01
+	}
+
+}
+
+4582 = {	# 4582 = Tunis
+	
+	#Misc
+	culture = baranis
+	religion = ashari
+	
+	# History
+	860.1.1 = {
+		special_building = jg_carthage_01
+	}
+
+}
+
+6192 = {	# 6192 = Tayma
+	
+	#Misc
+	culture = bedouin
+	religion = ashari
+	
+	# History
+	860.1.1 = {
+		special_building = jg_hegra_01
+	}
+
+}
+
+4118 = {	# 4118 = Persepolis / Ishtakr
+	
+	#Misc
+	culture = persian
+	religion = ashari
+	
+	# History
+	860.1.1 = {
+		special_building_slot = jg_persepolis_01
+	}
 
 }
