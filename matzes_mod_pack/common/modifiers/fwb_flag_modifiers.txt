@@ -1,0 +1,105 @@
+modifier_pastoral_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_pastoral_2 = {
+	icon = county_modifier_opinion_positive
+}
+
+modifier_military_camps_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_military_camps_2 = {
+	icon = county_modifier_opinion_positive
+}
+
+modifier_forest_forts_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_forest_forts_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hill_forts_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hill_forts_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_walls_towers_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_walls_towers_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_watchtowers_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_watchtowers_2 = {
+	icon = county_modifier_opinion_positive
+}
+
+modifier_manor_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_manor_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_farms_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_farms_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_port_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_port_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_forestry_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_forestry_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hill_farms_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hill_farms_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_orchards_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_orchards_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_wetland_farms_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_wetland_farms_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_quarry_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_quarry_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hunting_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_hunting_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_elephant_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_elephant_2 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_desert_agriculture_1 = {
+	icon = county_modifier_opinion_positive
+}
+modifier_desert_agriculture_2 = {
+	icon = county_modifier_opinion_positive
+}

@@ -1,0 +1,1020 @@
+fwb_upgrade_effect = {
+	if = {
+		limit = {
+			OR = {
+				has_game_rule = half_upgrade
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_building = longhouses_02 }
+				if = {
+					limit = {
+						building_pastures_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_pastoral_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						building_elephant_pens_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_elephant_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = taiga
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_1
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = war_camps_02 }
+				add_province_modifier = {
+					modifier = modifier_military_camps_1
+					years = 1
+				}
+			}
+			if = {
+				limit = { has_building = palisades_02 }
+				if = {
+					limit = { building_ramparts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_forest_forts_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_hill_forts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_hill_forts_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_curtain_walls_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_walls_towers_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_watchtowers_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_watchtowers_1
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = market_villages_02 }
+				if = {
+					limit = {
+						OR = {
+							terrain = farmlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_manor_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							is_coastal = yes
+							NOR = {
+								terrain = farmlands
+								terrain = drylands
+								terrain = floodplains
+								terrain = plains
+							}
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_port_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = jungle
+							terrain = taiga
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_forestry_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = hills
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hill_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = oasis
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_orchards_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_wetland_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = desert
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_desert_agriculture_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = mountains
+							terrain = desert_mountains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_quarry_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = steppe
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_1
+						years = 1
+					}
+				}
+			}
+		}
+		
+		set_holding_type = castle_holding
+		
+		if = {
+			limit = { has_province_modifier = modifier_pastoral_1 }
+			add_building = pastures_01
+			remove_province_modifier = modifier_pastoral_1 
+		}
+		if = {
+			limit = { has_province_modifier = modifier_pastoral_2 }
+			add_building = pastures_02
+			remove_province_modifier = modifier_pastoral_2 
+		}
+		if = {
+			limit = { has_province_modifier = modifier_elephant_1 }
+			add_building = elephant_pens_01
+			remove_province_modifier = modifier_elephant_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_elephant_2 }
+			add_building = elephant_pens_02
+			remove_province_modifier = modifier_elephant_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hunting_1 }
+			add_building = hunting_grounds_01
+			remove_province_modifier = modifier_hunting_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hunting_2 }
+			add_building = hunting_grounds_02
+			remove_province_modifier = modifier_hunting_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_military_camps_1 }
+			add_building = military_camps_01
+			remove_province_modifier = modifier_military_camps_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_military_camps_2 }
+			add_building = military_camps_02
+			remove_province_modifier = modifier_military_camps_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forest_forts_1 }
+			add_building = ramparts_01
+			remove_province_modifier = modifier_forest_forts_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forest_forts_2 }
+			add_building = ramparts_02
+			remove_province_modifier = modifier_forest_forts_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_forts_1 }
+			add_building = hill_forts_01
+			remove_province_modifier = modifier_hill_forts_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_forts_2 }
+			add_building = hill_forts_02
+			remove_province_modifier = modifier_hill_forts_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_walls_towers_1 }
+			add_building = curtain_walls_01
+			remove_province_modifier = modifier_walls_towers_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_walls_towers_2 }
+			add_building = curtain_walls_02
+			remove_province_modifier = modifier_walls_towers_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_watchtowers_1 }
+			add_building = watchtowers_01
+			remove_province_modifier = modifier_watchtowers_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_watchtowers_2 }
+			add_building = watchtowers_02
+			remove_province_modifier = modifier_watchtowers_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_manor_1 }
+			add_building = farm_estates_01
+			remove_province_modifier = modifier_manor_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_manor_2 }
+			add_building = farm_estates_02
+			remove_province_modifier = modifier_manor_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_farms_1 }
+			add_building = cereal_fields_01
+			remove_province_modifier = modifier_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_farms_2 }
+			add_building = cereal_fields_02
+			remove_province_modifier = modifier_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_port_1 }
+			add_building = common_tradeport_01
+			remove_province_modifier = modifier_port_1
+		}
+		#For some reason, ports check the culture of the province instead of the culture of the holder, so if the holding culture doesn't have crop rotation build the level 1 building instead
+		if = {
+			limit = { has_province_modifier = modifier_port_2 }
+			if = {
+				limit = {
+					culture = {
+						has_innovation = innovation_crop_rotation
+					}
+				}
+				add_building = common_tradeport_02
+			}
+			else = {
+				add_building = common_tradeport_01
+			}
+			remove_province_modifier = modifier_port_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forestry_1 }
+			add_building = logging_camps_01
+			remove_province_modifier = modifier_forestry_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forestry_2 }
+			add_building = logging_camps_02
+			remove_province_modifier = modifier_forestry_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_farms_1 }
+			add_building = hill_farms_01
+			remove_province_modifier = modifier_hill_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_farms_2 }
+			add_building = hill_farms_02
+			remove_province_modifier = modifier_hill_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_wetland_farms_1 }
+			add_building = peat_quarries_01
+			remove_province_modifier = modifier_wetland_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_wetland_farms_2 }
+			add_building = peat_quarries_02
+			remove_province_modifier = modifier_wetland_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_orchards_1 }
+			add_building = orchards_01
+			remove_province_modifier = modifier_orchards_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_orchards_2 }
+			add_building = orchards_02
+			remove_province_modifier = modifier_orchards_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_quarry_1 }
+			add_building = quarries_01
+			remove_province_modifier = modifier_quarry_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_quarry_2 }
+			add_building = quarries_02
+			remove_province_modifier = modifier_quarry_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_desert_agriculture_1 }
+			add_building = plantations_01
+			remove_province_modifier = modifier_desert_agriculture_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_desert_agriculture_2 }
+			add_building = plantations_02
+			remove_province_modifier = modifier_desert_agriculture_2
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_game_rule = equal_upgrade
+				#fallback, I doubt this can happen but oh well
+				NOR = {
+					has_game_rule = equal_upgrade
+					has_game_rule = half_upgrade
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_building = longhouses_01 }
+				if = {
+					limit = {
+						building_pastures_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_pastoral_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						building_elephant_pens_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_elephant_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = taiga
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_1
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = longhouses_02 }
+				if = {
+					limit = {
+						building_pastures_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_pastoral_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						building_elephant_pens_requirement_terrain = yes
+					}
+					add_province_modifier = {
+						modifier = modifier_elephant_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = taiga
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_2
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = war_camps_01 }
+				add_province_modifier = {
+					modifier = modifier_military_camps_1
+					years = 1
+				}
+			}
+			if = {
+				limit = { has_building = war_camps_02 }
+				add_province_modifier = {
+					modifier = modifier_military_camps_2
+					years = 1
+				}
+			}
+			if = {
+				limit = { has_building = palisades_01 }
+				if = {
+					limit = { building_ramparts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_forest_forts_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_hill_forts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_hill_forts_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_curtain_walls_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_walls_towers_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_watchtowers_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_watchtowers_1
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = palisades_02 }
+				if = {
+					limit = { building_ramparts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_forest_forts_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_hill_forts_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_hill_forts_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_curtain_walls_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_walls_towers_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = { building_watchtowers_requirement_terrain = yes }
+					add_province_modifier = {
+						modifier = modifier_watchtowers_2
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = market_villages_01 }
+				if = {
+					limit = {
+						OR = {
+							terrain = farmlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_manor_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							is_coastal = yes
+							NOR = {
+								terrain = farmlands
+								terrain = drylands
+								terrain = floodplains
+								terrain = plains
+							}
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_port_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = jungle
+							terrain = taiga
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_forestry_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = hills
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hill_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = oasis
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_orchards_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_wetland_farms_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = desert
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_desert_agriculture_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = mountains
+							terrain = desert_mountains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_quarry_1
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = steppe
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_1
+						years = 1
+					}
+				}
+			}
+			if = {
+				limit = { has_building = market_villages_02 }
+				if = {
+					limit = {
+						OR = {
+							terrain = farmlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_manor_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							is_coastal = yes
+							NOR = {
+								terrain = farmlands
+								terrain = drylands
+								terrain = floodplains
+								terrain = plains
+							}
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_port_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = forest
+							terrain = jungle
+							terrain = taiga
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_forestry_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = drylands
+							terrain = floodplains
+							terrain = plains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_farms_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = hills
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hill_farms_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = oasis
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_orchards_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = wetlands
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_wetland_farms_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = desert
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_desert_agriculture_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = mountains
+							terrain = desert_mountains
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_quarry_2
+						years = 1
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							terrain = steppe
+						}
+					}
+					add_province_modifier = {
+						modifier = modifier_hunting_2
+						years = 1
+					}
+				}
+			}
+		}
+		
+		set_holding_type = castle_holding
+		
+		if = {
+			limit = { has_province_modifier = modifier_pastoral_1 }
+			add_building = pastures_01
+			remove_province_modifier = modifier_pastoral_1 
+		}
+		if = {
+			limit = { has_province_modifier = modifier_pastoral_2 }
+			add_building = pastures_02
+			remove_province_modifier = modifier_pastoral_2 
+		}
+		if = {
+			limit = { has_province_modifier = modifier_elephant_1 }
+			add_building = elephant_pens_01
+			remove_province_modifier = modifier_elephant_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_elephant_2 }
+			add_building = elephant_pens_02
+			remove_province_modifier = modifier_elephant_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hunting_1 }
+			add_building = hunting_grounds_01
+			remove_province_modifier = modifier_hunting_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hunting_2 }
+			add_building = hunting_grounds_02
+			remove_province_modifier = modifier_hunting_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_military_camps_1 }
+			add_building = military_camps_01
+			remove_province_modifier = modifier_military_camps_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_military_camps_2 }
+			add_building = military_camps_02
+			remove_province_modifier = modifier_military_camps_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forest_forts_1 }
+			add_building = ramparts_01
+			remove_province_modifier = modifier_forest_forts_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forest_forts_2 }
+			add_building = ramparts_02
+			remove_province_modifier = modifier_forest_forts_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_forts_1 }
+			add_building = hill_forts_01
+			remove_province_modifier = modifier_hill_forts_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_forts_2 }
+			add_building = hill_forts_02
+			remove_province_modifier = modifier_hill_forts_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_walls_towers_1 }
+			add_building = curtain_walls_01
+			remove_province_modifier = modifier_walls_towers_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_walls_towers_2 }
+			add_building = curtain_walls_02
+			remove_province_modifier = modifier_walls_towers_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_watchtowers_1 }
+			add_building = watchtowers_01
+			remove_province_modifier = modifier_watchtowers_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_watchtowers_2 }
+			add_building = watchtowers_02
+			remove_province_modifier = modifier_watchtowers_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_manor_1 }
+			add_building = farm_estates_01
+			remove_province_modifier = modifier_manor_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_manor_2 }
+			add_building = farm_estates_02
+			remove_province_modifier = modifier_manor_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_farms_1 }
+			add_building = cereal_fields_01
+			remove_province_modifier = modifier_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_farms_2 }
+			add_building = cereal_fields_02
+			remove_province_modifier = modifier_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_port_1 }
+			add_building = common_tradeport_01
+			remove_province_modifier = modifier_port_1
+		}
+		#For some reason, ports check the culture of the province instead of the culture of the holder, so if the holding culture doesn't have crop rotation build the level 1 building instead
+		if = {
+			limit = { has_province_modifier = modifier_port_2 }
+			if = {
+				limit = {
+					culture = {
+						has_innovation = innovation_crop_rotation
+					}
+				}
+				add_building = common_tradeport_02
+			}
+			else = {
+				add_building = common_tradeport_01
+			}
+			remove_province_modifier = modifier_port_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forestry_1 }
+			add_building = logging_camps_01
+			remove_province_modifier = modifier_forestry_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_forestry_2 }
+			add_building = logging_camps_02
+			remove_province_modifier = modifier_forestry_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_farms_1 }
+			add_building = hill_farms_01
+			remove_province_modifier = modifier_hill_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_hill_farms_2 }
+			add_building = hill_farms_02
+			remove_province_modifier = modifier_hill_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_wetland_farms_1 }
+			add_building = peat_quarries_01
+			remove_province_modifier = modifier_wetland_farms_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_wetland_farms_2 }
+			add_building = peat_quarries_02
+			remove_province_modifier = modifier_wetland_farms_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_orchards_1 }
+			add_building = orchards_01
+			remove_province_modifier = modifier_orchards_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_orchards_2 }
+			add_building = orchards_02
+			remove_province_modifier = modifier_orchards_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_quarry_1 }
+			add_building = quarries_01
+			remove_province_modifier = modifier_quarry_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_quarry_2 }
+			add_building = quarries_02
+			remove_province_modifier = modifier_quarry_2
+		}
+		if = {
+			limit = { has_province_modifier = modifier_desert_agriculture_1 }
+			add_building = plantations_01
+			remove_province_modifier = modifier_desert_agriculture_1
+		}
+		if = {
+			limit = { has_province_modifier = modifier_desert_agriculture_2 }
+			add_building = plantations_02
+			remove_province_modifier = modifier_desert_agriculture_2
+		}
+	}
+}

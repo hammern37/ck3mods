@@ -1,0 +1,7 @@
+﻿l_english:
+    rule_fwb_upgrade_level:0 "FWB: Converted Building Level"
+    setting_equal_upgrade:0 "Equal"
+    setting_equal_upgrade_desc:0 "Level 2 Tribal buildings are converted to level 2 Feudal buildings, and level 1 Tribal buildings are converted to level 1 Feudal buildings."
+    setting_half_upgrade:0 "Half"
+    setting_half_upgrade_desc:0 "Level 2 Tribal buildings are converted to level 1 Feudal buildings, and level 1 Tribal buildings are destroyed."
+    

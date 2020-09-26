@@ -1,0 +1,5 @@
+fwb_upgrade_level = {
+	default = equal_upgrade
+	equal_upgrade = { }
+	half_upgrade = { }
+}
