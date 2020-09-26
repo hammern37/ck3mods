@@ -95,4 +95,5 @@ This is not my work. All credit goes to the content creators of the following mo
 <li>Unshackled Seduction</li>
 <li>Blind and Castrate for all!</li>
 <li>Crusader Kings Legacy</li>
+<li>Feudalize with Buildings</li>
 <ul>
